@@ -41,7 +41,6 @@
 <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
 <fullyQualifiedTypeName name="com.revdoc.model.Available"/>
 <fullyQualifiedTypeName name="java.sql.Time"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="com.revdoc.model.Followers"/>
 <fullyQualifiedTypeName name="com.revdoc.model.Feedback"/>
@@ -58,4 +57,6 @@
 <fullyQualifiedTypeName name="com.revdoc.model.SpecialtyType"/>
 <fullyQualifiedTypeName name="com.revdoc.model.Specialty"/>
 <fullyQualifiedTypeName name="com.revdoc.dao.SpecialtyDAO"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
 </qualifiedTypeNameHistroy>
