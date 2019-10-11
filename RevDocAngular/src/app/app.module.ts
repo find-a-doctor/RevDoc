@@ -10,7 +10,6 @@ import { SpecialityComponent } from './speciality/speciality.component';
 import { ConditionsComponent } from './conditions/conditions.component';
 import { InsuranceComponent } from './insurance/insurance.component';
 import { EditDocAvailComponent } from './edit-doc-avail/edit-doc-avail.component';
-import { AppointmentCalenderComponent } from './appointment-calender/appointment-calender.component';
 import { AppointmentCalendarComponent } from './appointment-calendar/appointment-calendar.component';
 import { SearchDoctorComponent } from './search-doctor/search-doctor.component';
 import { ScheduleApptComponent } from './schedule-appt/schedule-appt.component';
@@ -33,7 +32,6 @@ import { DoctorFeedbackComponent } from './doctor-feedback/doctor-feedback.compo
     ConditionsComponent,
     InsuranceComponent,
     EditDocAvailComponent,
-    AppointmentCalenderComponent,
     AppointmentCalendarComponent,
     SearchDoctorComponent,
     ScheduleApptComponent,
