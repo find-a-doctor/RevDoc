@@ -1,0 +1,159 @@
+package com.revdoc;
+
+import java.security.MessageDigest;
+import java.sql.Time;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.revdoc.dao.AppointmentDAO;
+import com.revdoc.dao.AvailableDAO;
+import com.revdoc.dao.ConditionTypeDAO;
+import com.revdoc.dao.ConditionsDAO;
+import com.revdoc.dao.DoctorDAO;
+import com.revdoc.dao.DoctorLicenseDAO;
+import com.revdoc.dao.DoctorPostDAO;
+import com.revdoc.dao.FeedbackDAO;
+import com.revdoc.dao.FollowersDAO;
+import com.revdoc.dao.InsuranceDAO;
+import com.revdoc.dao.InsuranceTypeDAO;
+import com.revdoc.dao.LicenseDAO;
+import com.revdoc.dao.LocationDAO;
+import com.revdoc.dao.RevAssociateDAO;
+import com.revdoc.dao.SpecialtyDAO;
+import com.revdoc.dao.SpecialtyTypeDAO;
+import com.revdoc.model.Appointment;
+import com.revdoc.model.Available;
+import com.revdoc.model.Doctor;
+import com.revdoc.model.Location;
+import com.revdoc.model.RevAssociate;
+
+import lombok.RequiredArgsConstructor;
+
+@Component
+@Transactional
+public class DataLoader {
+
+	@Autowired
+	private RevAssociateDAO revAssociateDao;
+	@Autowired 
+	private AppointmentDAO appointmentDao;	
+	@Autowired
+	private AvailableDAO availableDao;
+	@Autowired
+	private ConditionsDAO conditionsDao;
+	@Autowired
+	private ConditionTypeDAO conditionTypeDao;
+	@Autowired
+	private DoctorDAO doctorDao;
+	@Autowired
+	private DoctorLicenseDAO doctorLicenseDao;
+	@Autowired
+	private DoctorPostDAO doctorPostDao;
+	@Autowired
+	private FeedbackDAO feedbackDao;
+	@Autowired
+	private FollowersDAO followersDao;
+	@Autowired
+	private InsuranceDAO insuranceDao;
+	@Autowired
+	private InsuranceTypeDAO insuranceTypeDao;
+	@Autowired
+	private LicenseDAO licenseDao;
+	@Autowired
+	private LocationDAO locationDao;
+	@Autowired
+	private SpecialtyDAO specialtyDao;
+	@Autowired
+	private SpecialtyTypeDAO specialtyTypeDao;
+	
+	
+
+
+
+	@PostConstruct
+	public void init() {
+		Time time = new Time(3);
+		time.setHours(4); // use this to set the hour
+		System.out.println("Example of Time Object: "+time); // - result is 04:00:00
+		
+		//CREATE REVATURE USER
+		RevAssociate u1 = new RevAssociate("revTom@gmail.com", encryptPassword("revTom"), "Tom Cat");
+		u1=revAssociateDao.save(u1);
+		RevAssociate u2 = new RevAssociate("revCat@gmail.com", encryptPassword("revCat"), "Cat Tom");
+		u2=revAssociateDao.save(u2);
+		
+		// LOCATION
+		Location l1 = new Location(0, "Texas Health Care", "456 Harward", "Irving", "Texas", "75060", "Private Practice");
+		l1 = locationDao.save(l1);
+		Location l2 = new Location(0, "Baylor Scott and White", "456 Harward", "Dallas", "Texas", "04124", "Hospital");
+		l2 = locationDao.save(l2);
+		
+		//CREATE DOCTOR
+		Doctor d1 = new Doctor(0, "John Ross", 20, "johnross@gmail.com", encryptPassword("johnross"), "469-288-5555", "about John Ross here", 1, l1);
+		d1 = doctorDao.save(d1);
+		Doctor d2 = new Doctor(0, "Kevin Zuul", 15, "kevinzuul@gmail.com", encryptPassword("kevinzuul"), "098-454-3215", "about Kevin Zuul here", 1, l2);
+		d2 = doctorDao.save(d2);
+		
+		//CREATE AVAILABLE
+		Time start = new Time(10, 5, 0);
+		Time end = new Time(10, 5, 0);
+		Date date = new Date();
+		Available a1 = new Available(0, d1, 2, start, end, date);
+		a1 = availableDao.save(a1);
+		start = new Time(10, 5, 0);
+		end = new Time(15, 30, 0);
+		date.setYear(2019);
+		date.setMonth(12);
+		date.setDate(20);
+		Available a2 = new Available(0, d2, 3, start, end, date);
+		a2 = availableDao.save(a2);
+		
+		
+		/////////////////// PRINTING OUT THE RESULTS //////////////////////////////////////////
+		System.out.println("user 1: "+u1);
+		System.out.println("user 2: "+u2);
+		System.out.println("location 1: "+l1);
+		System.out.println("location 2: "+l2);
+		System.out.println("doctor 1: "+d1);
+		System.out.println("doctor 2: "+d2);
+		System.out.println("available 1: "+a1);
+		System.out.println("available 2: "+a2);
+		
+		//CREATE APPOINTMENT
+//		Appointment a1= new Appointment(0,"dddd");
+//		a1=appointmentDao.save(a1);
+//		System.out.println("Appointment: "+a1);
+		// init code goes here
+
+	}
+
+	public String encryptPassword(String password) {
+		StringBuffer message = new StringBuffer();
+
+		try {
+			MessageDigest md = MessageDigest.getInstance("SHA-1");
+			byte[] hash = md.digest(password.getBytes("UTF-8"));
+
+			for (byte w : hash) {
+				message.append(String.format("%02x", w));
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return message.toString();
+
+	}
+}
