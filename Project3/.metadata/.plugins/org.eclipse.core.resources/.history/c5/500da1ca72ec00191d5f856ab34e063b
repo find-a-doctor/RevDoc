@@ -159,13 +159,13 @@ public class DataLoader {
 		
 		
 		//CREATE AVAILABLE
-		Calendar day = Calendar.getInstance();
+		Calendar day = null;
 		day.setTime(new Date(120));
-		Calendar start = Calendar.getInstance(); 
+		Calendar start = null; 
 		start.setTime(new Date());
-		Calendar end = Calendar.getInstance();
+		Calendar end = null;
 		end.setTime(new Date());
-		Calendar date = Calendar.getInstance();
+		Calendar date = null;
 		date.setTime(new Date());
 		Available a1 = new Available(0, d1, day, start, end, date);
 		a1 = availableDao.save(a1);
@@ -190,7 +190,7 @@ public class DataLoader {
 		// CREATE APPOINTMENT
 //		date = new Date();
 //		Time time = new Time(10,30,0);
-		Calendar time = Calendar.getInstance(); 
+		Calendar time = null; 
 		time.setTime(new Date());
 		Appointment ap1 = new Appointment(0, d1, u1, date, time, "Insurant Name input form user1", true);
 		ap1=appointmentDao.save(ap1);
@@ -284,7 +284,7 @@ public class DataLoader {
 		
 		// CREATE DOCTOR POST
 //		Date postDate = new Date();
-		Calendar postDate = Calendar.getInstance();
+		Calendar postDate = null;
 		postDate.setTime(new Date());
 		
 		DoctorPost dp1 = new DoctorPost(0, d1, "Doctor post here", postDate);

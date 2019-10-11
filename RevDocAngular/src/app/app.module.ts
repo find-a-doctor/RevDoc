@@ -22,6 +22,9 @@ import { FollowDoctorComponent } from './follow-doctor/follow-doctor.component';
 import { DoctorRatingsComponent } from './doctor-ratings/doctor-ratings.component';
 import { DoctorFeedbackComponent } from './doctor-feedback/doctor-feedback.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { JwPaginationComponent } from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
@@ -44,12 +47,16 @@ import { NavbarComponent } from './navbar/navbar.component';
     FollowDoctorComponent,
     DoctorRatingsComponent,
     DoctorFeedbackComponent,
-    NavbarComponent
+    NavbarComponent,
+    JwPaginationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-  ],
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+  ], 
   providers: [],
   bootstrap: [AppComponent]
 })

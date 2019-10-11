@@ -1,0 +1,30 @@
+table,
+		td,
+		th {
+			border: 1px solid orange;
+			font-family: 'Oxygen', sans-serif;
+		}
+
+		th {
+			background-color: #F26925;
+			color: white;
+			height: 30px;
+			text-align: center;
+		}
+		td{
+		padding:5px;
+		}
+.button{
+	padding-left: 10px;
+	padding-right: 10px;
+	font-family: 'Lato', sans-serif;
+	font-size:12px;
+	font-weight: 900;
+	background-color: #F26925;
+	border: solid;
+	border-width: 5px;
+	border-color: #F26925;
+	border-radius: 50px;
+	color: white;
+
+}

@@ -1,8 +1,6 @@
 package com.revdoc.model;
 
 import java.io.Serializable;
-import java.sql.Time;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -31,17 +29,15 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
-@TableGenerator(name="available_gen", initialValue=70000, allocationSize=1)
-public class Available implements Serializable {
+@TableGenerator(name="doctorpost_gen", initialValue=1000000, allocationSize=1)
+public class DoctorPost implements Serializable{
 
 	@Id
-	@GeneratedValue(generator="available_gen")
-	private long availableId;
+	@GeneratedValue(generator = "doctorpost_gen")
+	private long doctorPostId;
 	
-	@ManyToOne
+	@ManyToOne//(cascade = {CascadeType.ALL})
 	private Doctor doctor;
-	private Calendar day;
-	private Calendar start;
-	private Calendar end;
-	private Calendar date;
+	private String post;
+	private Date postDate;
 }

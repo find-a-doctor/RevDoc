@@ -1,1 +1,124 @@
-<p>search-doctor works!</p>
+<br>
+<section class="moduler wrapper_404">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2><strong>Search Doctor</strong></h2>
+        <hr /><br />
+        <div *ngIf="isGeneralSearch; then generalSearch else specificSearch"></div>
+        <ng-template #generalSearch>
+          <form (ngSubmit)="searchDoctor()" #userForm="ngForm">
+            <div class="text-center">
+              <input type="text" class="form-control" id="searchDoctor" name="searchDoctor" [(ngModel)]="searchValue"
+                placeholder="Enter Doctor Infomation like NPI, name, address, specialty, insurance, ... to search">
+              <hr>
+              <div>
+                <button class="button" name="userSearch" id="showTable">
+                  <span class="glyphicon glyphicon-search"></span> Search
+                </button>
+              </div>
+              <br />
+            </div>
+          </form>
+        </ng-template>
+        <ng-template #specificSearch>
+          <form (ngSubmit)="searchDoctor()" #userForm="ngForm">
+            <div class="text-center">
+              <input type="text" class="form-control" id="searchDoctor" name="searchDoctor" [(ngModel)]="searchValue"
+                placeholder="Enter search ...">
+              <br>
+              <div>
+                <span width="100%">
+                  <span style="width:'30%'"> specialization:
+                    <select name="a">
+                      <option value="volvo">Volvo</option>
+                      <option value="saab">Saab</option>
+                      <option value="mercedes">Mercedes</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                  </span>
+                  <span style="width:'30%'"> Condition
+                    <select name="b">
+                      <option value="volvo">Volvo</option>
+                      <option value="saab">Saab</option>
+                      <option value="mercedes">Mercedes</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                  </span>
+                  <span style="width:'30%'"> Insurance
+                    <select name="c">
+                      <option value="volvo">Volvo</option>
+                      <option value="saab">Saab</option>
+                      <option value="mercedes">Mercedes</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                  </span>
+                </span>
+              </div>
+              <br />
+              <div>
+                <button class="button" name="userSearch" id="showTable">
+                  <span class="glyphicon glyphicon-search"></span> Search
+                </button>
+              </div>
+
+
+              <br />
+            </div>
+          </form>
+        </ng-template>
+
+
+        <div class="text-center">
+          <span (click)="advancedSearch()" style="cursor: pointer"><u>{{searchName}}</u></span>
+        </div>
+
+
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div *ngIf="opendetails" class="footer copyright">
+          <table cellpadding="0" id="productTable" width=100%>
+            <tr>
+              <th scope="col" (click)="npiSort()" style="cursor: pointer">NPI</th>
+              <th scope="col" (click)="nameSort()" style="cursor: pointer">DOCTOR NAME</th>
+              <th scope="col" (click)="phoneSort()" style="cursor: pointer">PHONE NUMBER</th>
+              <th scope="col" (click)="emailSort()" style="cursor: pointer">EMAIL</th>
+              <th scope="col" (click)="addressSort()" style="cursor: pointer">ADDRESS</th>
+              <th scope="col" (click)="citySort()" style="cursor: pointer">CITY</th>
+              <th scope="col" (click)="yearSort()" style="cursor: pointer">YEARS OF EXPERIENCE</th>
+              <th scope="col" (click)="specialtySort()" style="cursor: pointer">SPECIALTY</th>
+              <th scope="col" (click)="insuranceSort()" style="cursor: pointer">INSURANCE</th>
+            </tr>
+            <tr *ngFor="let d of doctorList">
+              <!-- <td (click)="goDoctorDetails(d)" style="cursor: pointer"><u>{{d.npi}}</u></td>
+              <td (click)="goDoctorDetails(d)" style="cursor: pointer"><u>{{d.doctorName}}</u></td>
+              <td>{{d.phone}}</td>
+              <td>{{d.email}}</td>
+              <td>{{d.location.address}}</td>
+              <td>{{d.location.city}}</td>
+              <td>{{d.experience}}</td>
+              <td>{{d.state}}</td>
+              <td>{{d.zip}}</td> -->
+              <td (click)="goDoctorDetails(d)" style="cursor: pointer"><u>{{d[0]}}</u></td>
+              <td (click)="goDoctorDetails(d)" style="cursor: pointer"><u>{{d[1]}}</u></td>
+              <td>{{d[2]}}</td>
+              <td>{{d[3]}}</td>
+              <td>{{d[4]}}</td>
+              <td>{{d[5]}}</td>
+              <td>{{d[6]}}</td>
+              <td>{{d[7]}}</td>
+              <td>{{d[8]}}</td>
+            </tr>
+          </table>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>

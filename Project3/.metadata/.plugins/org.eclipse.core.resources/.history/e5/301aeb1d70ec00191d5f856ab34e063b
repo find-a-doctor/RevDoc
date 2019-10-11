@@ -2,7 +2,6 @@ package com.revdoc.model;
 
 import java.io.Serializable;
 import java.sql.Time;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -40,8 +39,8 @@ public class Available implements Serializable {
 	
 	@ManyToOne
 	private Doctor doctor;
-	private Calendar day;
-	private Calendar start;
-	private Calendar end;
-	private Calendar date;
+	private int day;
+	private Time start;
+	private Time end;
+	private Date date;
 }
