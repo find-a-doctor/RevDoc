@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.revdoc.service.AvailabilityService&apos; to &apos;UpdateAvailabilityService&apos;&#x0D;&#x0A;- Original project: &apos;revdoc_schedule&apos;&#x0D;&#x0A;- Original element: &apos;com.revdoc.service.AvailabilityService&apos;&#x0D;&#x0A;- Renamed element: &apos;com.revdoc.service.UpdateAvailabilityService&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;AvailabilityService&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.revdoc.service{AvailabilityService.java[AvailabilityService" matchStrategy="1" name="UpdateAvailabilityService" qualified="false" references="true" similarDeclarations="false" stamp="1570806613047" textual="false" version="1.0"/>
+</session>

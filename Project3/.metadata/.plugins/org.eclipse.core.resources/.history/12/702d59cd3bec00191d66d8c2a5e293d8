@@ -1,0 +1,113 @@
+package com.revdoc.update.availability.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.revdoc.update.availablility.model.Available;
+import com.revdoc.update.availbility.dao.AvailabilityDao;
+import com.revdoc.update.availbility.service.AvailabilityService;
+
+public class UpdateAvailabilityServiceImpl implements UpdateAvailabilityService {
+	
+	@Autowired
+	AvailabilityDao dao;
+
+	@Override
+	public Available updateHours(Available time) {
+		//This function needs to contain the functionality of getting the current availability on a given date,
+		//checking to see if there are any overlaps in the old hours and new hours, remove the conflicting old hours,
+		//and finally add in the new hours.
+		
+		//Gets all entries from the Availability Table
+		List<Available> masterList= dao.findAll();
+		
+		for(Available block: masterList) {
+			if(block.getDoctorId()==time.getDoctorId()&&block.getDate().equals(time.getDate())) {
+				//Create and populate an array of the old availability hours
+				int[] oldHours= new int[block.getEnd()-block.getStart()+1];
+				for(int i=0; i<oldHours.length; i++) {
+					oldHours[i]=block.getStart()+i;
+				}
+				
+				//Create and populate an array of the new availability hours
+				int[] newHours= new int[time.getEnd()-time.getStart()+1];
+				for(int i=0; i<newHours.length; i++) {
+					newHours[i]=time.getStart()+i;
+				}
+				
+				//Compare values to determine overlap
+				boolean overlapDetected= false; //used to check if overlap exists
+				for(int i=0; i<oldHours.length; i++) {
+					for(int j=0; i<newHours.length; i++) {
+						if(oldHours[i]==newHours[j]) {
+							overlapDetected=true;
+							break;
+						}
+					}
+					if(overlapDetected) {
+						break;
+					}
+				}
+				
+				//Delete Old Hours if there is an overlap
+				if(overlapDetected) {
+					dao.delete(block);
+				}
+			}
+		}
+		
+		//Add in new Hours now that all conflicting old have been deleted
+		dao.save(time);
+		return time;
+	}
+
+	@Override
+	public Available removeHours(Available time) {
+		//This function needs to contain the functionality of getting the current availability on a given date,
+		//checking to see if there are any overlaps in the two time periods, removing any conflicting overlaps.
+		
+		
+		//get all entries from the Availability Table
+		List<Available> masterList= dao.findAll();
+		
+		for(Available block: masterList) {
+			if(block.getDoctorId()==time.getDoctorId()&&block.getDate().equals(time.getDate())) {
+				
+				//Create and populate an array of the old availability hours
+				int[] oldHours= new int[block.getEnd()-block.getStart()+1];
+				for(int i=0; i<oldHours.length; i++) {
+					oldHours[i]=block.getStart()+i;
+				}
+				
+				//Create and populate an array of the new availability hours
+				int[] newHours= new int[time.getEnd()-time.getStart()+1];
+				for(int i=0; i<newHours.length; i++) {
+					newHours[i]=time.getStart()+i;
+				}
+				
+				//Compare values to determine overlap
+				boolean overlapDetected= false; //used to check if overlap exists
+				for(int i=0; i<oldHours.length; i++) {
+					for(int j=0; i<newHours.length; i++) {
+						if(oldHours[i]==newHours[j]) {
+							overlapDetected=true;
+							break;
+						}
+					}
+					if(overlapDetected) {
+						break;
+					}
+				}
+				
+				//Delete Old Hours if there is an overlap
+				if(overlapDetected) {
+					dao.delete(block);
+				}
+			}
+				
+		}
+		return time;
+	}
+
+}
