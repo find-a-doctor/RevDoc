@@ -119,6 +119,10 @@ public class DataLoader {
 		Doctor d2 = new Doctor(0, "Kevin Zuul", 15, "kevinzuul@gmail.com", encryptPassword("kevinzuul"), "098-454-3215", "about Kevin Zuul here", 1, l2);
 		d2 = doctorDao.save(d2);
 		
+
+		Doctor d3 = new Doctor(0, "Dr. Duckworth", 9999, "duckworth@gmail.com", encryptPassword("duckworth"), "000-000-0000", "Had a long night, Mr. Duckworth? Fail.", 1, l1);
+        d3 = doctorDao.save(d3);
+
 		//CREATE AVAILABLE
 		Time start = new Time(10, 5, 0);
 		Time end = new Time(10, 5, 0);
