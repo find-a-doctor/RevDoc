@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Feedback } from '../revdoc-classes/feedback' 
+import {Feedback } from '../revdoc-classes/feedback'; 
 
 
 @Component({
