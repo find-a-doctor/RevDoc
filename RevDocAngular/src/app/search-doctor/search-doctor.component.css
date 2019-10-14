@@ -14,6 +14,13 @@ table,
 		td{
 		padding:5px;
 		}
+
+		div.inline { float:left; }
+		
+.noborder{
+	border: 0px;
+	text-align: right;
+}
 .button{
 	padding-left: 10px;
 	padding-right: 10px;

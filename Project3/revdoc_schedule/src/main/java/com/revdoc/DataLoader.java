@@ -107,7 +107,7 @@ public class DataLoader {
 		u2=revAssociateDao.save(u2);
 		
 		// LOCATION
-		Location l1 = new Location(0, "Texas Health Care", "456 Harward", "Irving", "Texas", "75060", "Private Practice");
+		Location l1 = new Location(0, "Texas Health Care", "123 Harward", "Irving", "Texas", "75060", "Private Practice");
 		l1 = locationDao.save(l1);
 		
 		Location l2 = new Location(0, "Baylor Scott and White", "456 Harward", "Dallas", "Texas", "04124", "Hospital");
@@ -219,6 +219,44 @@ public class DataLoader {
 		Conditions c2 = new Conditions(0, ct2, d2);
 		c2 = conditionsDao.save(c2);
 		
+		Conditions c3 = new Conditions(0, ct1, d0);
+		c3 = conditionsDao.save(c3);
+		
+		Conditions c4 = new Conditions(0, ct2, d0);
+		c4 = conditionsDao.save(c4);
+		
+		Conditions c5 = new Conditions(0, ct1, d3);
+		c5 = conditionsDao.save(c5);
+		
+		Conditions c6 = new Conditions(0, ct1, d4);
+		c6 = conditionsDao.save(c6);
+		
+		Conditions c7 = new Conditions(0, ct1, d5);
+		c7 = conditionsDao.save(c7);
+		
+		Conditions c8 = new Conditions(0, ct1, d6);
+		c8 = conditionsDao.save(c8);
+		
+		Conditions c9 = new Conditions(0, ct1, d7);
+		c9 = conditionsDao.save(c9);
+		
+		Conditions c10 = new Conditions(0, ct2, d8);
+		c10 = conditionsDao.save(c10);
+		
+		Conditions c11 = new Conditions(0, ct2, d9);
+		c11 = conditionsDao.save(c11);
+		
+		Conditions c12 = new Conditions(0, ct2, d10);
+		c12 = conditionsDao.save(c12);
+		
+		Conditions c13 = new Conditions(0, ct2, d11);
+		c13 = conditionsDao.save(c13);
+		
+		Conditions c14 = new Conditions(0, ct2, d12);
+		c14 = conditionsDao.save(c14);
+		
+		Conditions c15 = new Conditions(0, ct2, d33);
+		c15 = conditionsDao.save(c15);
 		// CREATE INSURANCE TYPE
 		InsuranceType it1 = new InsuranceType(0, "Blue Cross Blue Shield");
 		it1 = insuranceTypeDao.save(it1);
