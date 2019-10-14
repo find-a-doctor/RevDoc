@@ -1,0 +1,69 @@
+<div class="form-group" id="rating-wrapper">
+	    <label class="control-label" for="rating">
+	    <span class="field-label-header">How would you rate your most recent appointment with this doctor?</span><br>
+        <span class="field-label-info"></span> <br/> <br/>
+	    </label>
+        <form (ngSubmit)="rateDoctor(BMRating, WTRating, OVRating, Comment)" >
+        
+            <table id="ratings_table">
+                
+               
+        <tr> 
+            <td>
+                Bedside Manners
+            </td>
+            <td >
+                <ul id="test" class="test">
+                   <li> <input type="radio" name="BM" [(ngModel)]="BMRating" value="1"> <label for="BMRating-1">1 (Poor) </label> </li>
+                   <li> <input type="radio" name="BM" [(ngModel)]="BMRating" value="2"> <label for="BMRating-2">2 (Not Good)</label> </li>
+                   <li> <input type="radio" name="BM" [(ngModel)]="BMRating" value="3"> <label for="BMRating-3">3 (OK) </label> </li>
+                   <li> <input type="radio" name="BM" [(ngModel)]="BMRating" value="4"> <label for="BMRating-4">4 (Good) </label> </li>
+                   <li> <input type="radio" name="BM" [(ngModel)]="BMRating" value="5"> <label for="BMRating-5">5 (Excellent)</label> </li>
+                 </ul>   
+            </td>
+        </tr>
+
+        <tr> 
+                <td>
+                    Wait Time
+                </td>
+                <td >
+                    <ul id="test" class="test">
+                       <li> <input type="radio" name="WT" [(ngModel)]="WTRating" value="1"> <label for="WTRating-1">1 (Poor) </label>  </li>
+                       <li> <input type="radio" name="WT" [(ngModel)]="WTRating" value="2"> <label for="WTRating-2">2 (Not Good)</label> </li>
+                       <li> <input type="radio" name="WT" [(ngModel)]="WTRating" value="3"> <label for="WTRating-3">3 (OK)</label> </li>
+                       <li> <input type="radio" name="WT" [(ngModel)]="WTRating" value="4"> <label for="WTRating-4">4 (Good)</label> </li>
+                       <li> <input type="radio" name="WT" [(ngModel)]="WTRating" value="5"> <label for="WTRating-5">5 (Excellent)</label> </li>
+                     </ul>   
+                </td>
+            </tr>
+            <tr> 
+                <td>
+                        Overall
+                    </td>
+                    <td >
+                        <ul id="test" class="test">
+                           <li> <input type="radio" name="overall" [(ngModel)]="OVRating" value="1"><label for="OVRating-1">1 (Poor) </label> </li>
+                           <li> <input type="radio" name="overall" [(ngModel)]="OVRating" value="2"><label for="OVRating-2">2 (Not Good)</label> </li>
+                           <li> <input type="radio" name="overall" [(ngModel)]="OVRating" value="3"><label for="OVRating-3">3 (OK) </label> </li>
+                           <li> <input type="radio" name="overall" [(ngModel)]="OVRating" value="4"><label for="OVRating-4">4 (Good) </label> </li>
+                           <li> <input type="radio" name="overall" [(ngModel)]="OVRating" value="5"><label for="OVRating-5">5 (Excellent) </label> </li>
+                         </ul>   
+                    </td>
+                </tr>
+                <tr> 
+                        <td>
+                            
+                        </td>
+                        <td >
+                           <input type="text" name="comment" [(ngModel)]="Comment" placeholder="comment" id="comment"> 
+                        </td>
+                    </tr>
+        </table> 
+       
+   
+    <button id="submit" type="submit" value="submit" >Submit</button>
+ </form>
+   
+
+	</div>

@@ -3,6 +3,7 @@ import { Doctor } from '../revdoc-classes/doctor';
 import { DoctorInfoService } from '../doctor-info.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-doctor-profile',
   templateUrl: './doctor-profile.component.html',
@@ -26,6 +27,7 @@ export class DoctorProfileComponent implements OnInit {
       console.log("getting...\n" + data);
       this.doctor = data;
     }, error => console.log("error:\n" + error));
+
 
   }
 
