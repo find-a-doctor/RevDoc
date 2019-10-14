@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'ex-dr-page', component: DoctorProfileComponent }
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
