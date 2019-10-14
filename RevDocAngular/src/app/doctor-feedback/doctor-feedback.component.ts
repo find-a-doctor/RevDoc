@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Feedback } from '../revdoc-classes/feedback' 
+
 
 @Component({
   selector: 'app-doctor-feedback',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorFeedbackComponent implements OnInit {
 
-  constructor() { }
+ 
+  constructor(feeback :Feedback) { }
 
   ngOnInit() {
   }
+  
+  
+
+  rateDoctor(BM : number, WT : number, OV : number, Comment : string){
+    console.log("Bedside = "+BM+" WT = "+WT+" Overall = "+OV+" Comment = "+Comment);
+    alert("Thank you for your feedback!")
+  }
+
+
 
 }
