@@ -46,7 +46,7 @@ import { RouterModule } from '@angular/router';
     DoctorProfileComponent,
     FollowDoctorComponent,
     DoctorRatingsComponent,
-    // DoctorFeedbackComponent,
+    DoctorFeedbackComponent,
     NavbarComponent
   ],
   imports: [

@@ -1,57 +1,63 @@
-<div>
-    <h2>Doctor info</h2>
-    <div class="box">
-        doctor info box
-        <table id="doctorInfo" style="border:solid black">
-            <tr style="border-bottom:1pt solid black">
-                <td>npi</td>
-                <td>{{doctor.npi}}</td>
-            </tr>
-            <tr>
-                <td>name</td>
-                <td>{{doctor.doctorName}}</td>
-            </tr>
-            <tr>
-                <td>experience</td>
-                <td>{{doctor.experience}}</td>
-            </tr>
-            <tr>
-                <td>email</td>
-                <td>{{doctor.email}}</td>
-            </tr>
-            <tr>
-                <td>phone</td>
-                <td>{{doctor.phone}}</td>
-            </tr>
-            <tr>
-                <td>aboutMe</td>
-                <td>{{doctor.aboutMe}}</td>
-            </tr>
-            <tr>
-                <td>numberOfFollowers</td>
-                <td>{{doctor.numberOfFollowers}}</td>
-            </tr>
-        </table>
-    </div>
+<div id="docprofile">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Doctor info</h2>
+                <div class="box">
+                    doctor info box
+                    <table id="doctorInfo" style="border:solid black">
+                        <tr style="border-bottom:1pt solid black">
+                            <td>npi</td>
+                            <td>{{doctor.npi}}</td>
+                        </tr>
+                        <tr>
+                            <td>name</td>
+                            <td>{{doctor.doctorName}}</td>
+                        </tr>
+                        <tr>
+                            <td>experience</td>
+                            <td>{{doctor.experience}}</td>
+                        </tr>
+                        <tr>
+                            <td>email</td>
+                            <td>{{doctor.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>phone</td>
+                            <td>{{doctor.phone}}</td>
+                        </tr>
+                        <tr>
+                            <td>aboutMe</td>
+                            <td>{{doctor.aboutMe}}</td>
+                        </tr>
+                        <tr>
+                            <td>numberOfFollowers</td>
+                            <td>{{doctor.numberOfFollowers}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm">
+                <h2>Follow doctor</h2>
+                <div class="box">
+                    <app-follow-doctor></app-follow-doctor>
+                </div>
+            </div>
+        </div>
 
-    <h2>Follow doctor</h2>
-    <div class="box">
-        <app-follow-doctor></app-follow-doctor>
-    </div>
+        <hr />
+        
+        <div class="row ex">
+            <div class="col-lg-8 ex">Calendar component here</div>
+        </div>
+        
+        <hr />
+        
+        <div class="row ex">
+            <div class="col-lg-8 ex">
+                <app-doctor-feedback></app-doctor-feedback>
+            </div>
+        </div>
 
-    <!-- <h2>Reviews Component</h2>
-    <div class="box">
-        <app-feedback></app-feedback>
-    </div> -->
-
-    <h2>Calandar</h2>
-    <div class="box" style="opacity: 0.5; background-color:#f77;">
-        insert calednar component here
-    </div>
-
-    <h2>leave feedback</h2>
-    <div class=box>
-        <!-- <app-doctor-feedback></app-doctor-feedback> -->
     </div>
 </div>
-

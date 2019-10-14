@@ -10,7 +10,7 @@ import {Feedback } from '../revdoc-classes/feedback';
 export class DoctorFeedbackComponent implements OnInit {
 
  
-  constructor(feeback :Feedback) { }
+  // constructor(feeback :Feedback) { }
 
   ngOnInit() {
   }
