@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
 import com.revdoc.model.Insurance;
+import com.revdoc.model.Specialty;
 import com.revdoc.service.DoctorInfoService;
 
 @CrossOrigin
@@ -50,6 +52,16 @@ public class DoctorController {
 	@GetMapping("/doctor/{npi}/insurance")
 	public List<Insurance> getInsurance(@PathVariable long npi){
 		return service.getInsurance(npi);
+	}
+	
+	@GetMapping("/doctor/{npi}/specialty")
+	public List<Specialty> getSpecialty(@PathVariable long npi){
+		return service.getSpecialty(npi);
+	}
+	
+	@GetMapping("/doctor/{npi}/conditions")
+	public List<Conditions> getConditions(@PathVariable long npi){
+		return service.getConditions(npi);
 	}
 	
 	

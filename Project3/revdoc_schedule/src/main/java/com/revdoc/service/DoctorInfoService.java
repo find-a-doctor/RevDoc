@@ -3,9 +3,11 @@ package com.revdoc.service;
 
 import java.util.List;
 
+import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
 import com.revdoc.model.Insurance;
+import com.revdoc.model.Specialty;
 
 public interface DoctorInfoService {
 	
@@ -18,6 +20,10 @@ public interface DoctorInfoService {
 
 	public List<Feedback> getAllFeedback(long npi);
 
-	List<Insurance> getInsurance(long npi);
+	public List<Insurance> getInsurance(long npi);
+
+	public List<Specialty> getSpecialty(long npi);
+
+	public List<Conditions> getConditions(long npi);
 	
 }
