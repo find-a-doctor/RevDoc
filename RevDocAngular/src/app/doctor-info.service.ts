@@ -5,12 +5,15 @@ import { Doctor } from './revdoc-classes/doctor';
 import { Router } from '@angular/router';
 import { Feedback } from './revdoc-classes/feedback';
 import { Insurance } from './revdoc-classes/insurance';
+import { Specialty } from './revdoc-classes/specialty';
+import { Conditions } from './revdoc-classes/conditions';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DoctorInfoService {
+
 
   baseUrl:string;
   doctorUrl:string;
@@ -30,8 +33,8 @@ export class DoctorInfoService {
      return this.http.get<Doctor>(this.doctorUrl+npi);
    }
 
-   public getDoctorInsurance(doctor:Doctor):Observable<Insurance[]>{
-     return this.http.get<Insurance[]>this.doctorUrl+doctor.npi+"/"+"insurance");
+   public getDoctorInsurance(npi:number):Observable<Insurance[]>{
+     return this.http.get<Insurance[]>(this.doctorUrl+npi+"/insurance");
    }
 
    public getAllDoctors():Observable<Doctor[]>{
@@ -39,8 +42,15 @@ export class DoctorInfoService {
    }
 
    public getAllRatings(npi:number):Observable<Feedback[]>{
-     console.log("getting feed back for "+npi)
      return this.http.get<Feedback[]>(this.allRatingsUrl+npi);
    };
+
+   public getDoctorSpecialty(npi:number):Observable<Specialty[]>{
+     return this.http.get<Specialty[]>(this.doctorUrl+npi+"/specialty");
+   }
+
+   public getDoctorConditions(npi:number):Observable<Conditions[]>{
+     return this.http.get<Conditions[]>(this.doctorUrl+npi+"/conditions");
+   }
 
 }
