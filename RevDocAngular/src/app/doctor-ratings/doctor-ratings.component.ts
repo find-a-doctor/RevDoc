@@ -11,33 +11,48 @@ import { Feedback } from '../revdoc-classes/feedback';
 })
 export class DoctorRatingsComponent implements OnInit {
 
-  doctor:Doctor;
-  allFeedback:Feedback[];
+  doctor: Doctor;
+  allFeedback: Feedback[];
+  overall:number=0;
+  bedsideManner: number=0;
+  waitTime: number=0;
 
 
-  constructor(private doctorInfoService:DoctorInfoService, private route:ActivatedRoute, private router:Router) {}
+
+  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.doctor=new Doctor();
-
+    this.doctor = new Doctor();
     this.doctor.npi = 1000000001; //default
 
-    this.allFeedback=new Feedback();
+
 
     this.doctorInfoService.getDoctor(this.doctor.npi).subscribe(data => {
       // console.log("getting...\n" + data);
       this.doctor = data;
     }, error => console.log("error:\n" + error));
 
-    this.doctorInfoService.getAllRatings(this.doctor.npi).subscribe(data=>{
-      this.allFeedback=data;
-      console.log("all ratings: "+ this.allFeedback);
+    this.doctorInfoService.getAllRatings(this.doctor.npi).subscribe(data => {
+
+
+      var ov:number=0;
+      var bm:number=0;
+      var wt:number=0;
+      this.allFeedback = data;
+      this.allFeedback.forEach(function(fb:Feedback){
+        ov+=1;
+        bm+=fb.bedsideMannerRating;
+        wt+=fb.waitTimeRating;
+      })
+
+      console.log(ov)
+      console.log(bm)
+      console.log(wt)
+
+      this.overall=ov;
+      this.bedsideManner=(bm/ov);
+      this.waitTime=(wt/ov);
     });
 
-    // this.doctorInfoService.getDoctor(this.doctor.npi).subscribe(data => {
-    //   console.log("getting...\n" + data);
-    //   this.doctor = data;
-    // }, error => console.log("error:\n" + error));
   }
-
 }
