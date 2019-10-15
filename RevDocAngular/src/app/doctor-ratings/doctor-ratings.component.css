@@ -1,0 +1,9 @@
+table{
+    width:100%;
+    border:solid black 2pt;
+}
+
+td,th{
+    border: dashed black 1pt;
+    align-content: center;
+}

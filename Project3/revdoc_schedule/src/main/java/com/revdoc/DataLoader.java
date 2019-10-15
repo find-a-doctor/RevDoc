@@ -113,7 +113,7 @@ public class DataLoader {
 		l2 = locationDao.save(l2);
 		
 		//CREATE DOCTOR
-		Doctor d1 = new Doctor(0, "John Ross", 20, "johnross@gmail.com", encryptPassword("johnross"), "469-288-5555", "about John Ross here", 1, l1);
+		Doctor d1 = new Doctor(0, "John Ross", 20, "johnross@gmail.com", encryptPassword("johnross"), "469-288-5555", "about John Ross hereabout John Ross hereabout John Ross hereabout John Ross hereabout John Ross hereabout John Ross hereabout John Ross hereabout John Ross hereabout John Ross hereabout John Ross hereabout John Ross here", 1, l1);
 		d1 = doctorDao.save(d1);
 		
 		Doctor d2 = new Doctor(0, "Kevin Zuul", 15, "kevinzuul@gmail.com", encryptPassword("kevinzuul"), "098-454-3215", "about Kevin Zuul here", 1, l2);

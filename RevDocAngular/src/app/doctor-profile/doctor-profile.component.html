@@ -1,7 +1,7 @@
 <div id="docprofile">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-8">
                 <h2>Doctor info</h2>
                 <div class="box">
                     doctor info box
@@ -34,6 +34,28 @@
                             <td>numberOfFollowers</td>
                             <td>{{doctor.numberOfFollowers}}</td>
                         </tr>
+                        <tr>
+                            <td>Location</td>
+                            <td> {{doctor.location.locationName}}
+                                <br />
+                                {{doctor.location.address}}<br />
+                                {{doctor.location.city}}, 
+                                {{doctor.location.state}}, 
+                                {{doctor.location.zip}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>insurance</td>
+                            <td id="TODO"> To Do</td>
+                        </tr>
+                        <tr>
+                            <td>specialty</td>
+                            <td id="TODO"> To Do</td>
+                        </tr>
+                        <tr>
+                            <td>condition(s)</td>
+                            <td id="TODO"> To Do</td>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -46,16 +68,25 @@
         </div>
 
         <hr />
-        
-        <div class="row ex">
+
+        <div class="row">
+            <div class="col-sm">view aggregate reviews
+                <app-doctor-ratings></app-doctor-ratings>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row" id="TODO">
             <div class="col-lg-8 ex">Calendar component here</div>
         </div>
-        
+
         <hr />
-        
-        <div class="row ex">
-            <div class="col-lg-8 ex">
-                <app-doctor-feedback></app-doctor-feedback>
+
+        <div class="row" id="TODO">
+            <div class="col-lg-8">
+                feedback component here
+                <!-- <app-doctor-feedback></app-doctor-feedback> -->
             </div>
         </div>
 

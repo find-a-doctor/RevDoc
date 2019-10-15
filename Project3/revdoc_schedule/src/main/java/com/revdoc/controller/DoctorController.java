@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
+import com.revdoc.model.Insurance;
 import com.revdoc.service.DoctorInfoService;
 
 @CrossOrigin
@@ -32,19 +33,24 @@ public class DoctorController {
 	}
 
 	
-	@GetMapping("/allRatings")
+	@GetMapping("/allRatings/")
 	public List<Feedback> getAllRatings(){
 		return service.getAllFeedback();
 	}
-//	@GetMapping("/allRatings/{npi}")
-//	public List<Feedback> getAllRatings(@PathVariable long npi){
-//		return service.getAllFeedback(npi);
-//	}
+	@GetMapping("/allRatings/{npi}")
+	public List<Feedback> getAllRatings(@PathVariable long npi){
+		return service.getAllFeedback(npi);
+	}
 	
 //	@GetMapping("/doctor/{npi}/ratings")
 //	public List<Feedback> getAggregateRatings(@PathVariable long npi) {
 //		return service.getFeedback(npi);
 //	}
+	
+	@GetMapping("/doctor/{npi}/insurance")
+	public List<Insurance> getInsurance(@PathVariable long npi){
+		return service.getInsurance(npi);
+	}
 	
 	
 }
