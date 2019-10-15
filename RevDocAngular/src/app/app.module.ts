@@ -25,6 +25,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { JwPaginationComponent } from 'jw-angular-pagination';
+import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    jqxSchedulerModule
   ], 
   providers: [],
   bootstrap: [AppComponent]
