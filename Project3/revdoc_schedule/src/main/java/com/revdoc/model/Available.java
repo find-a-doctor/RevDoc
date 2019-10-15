@@ -43,5 +43,5 @@ public class Available implements Serializable {
 	private Calendar day;
 	private Calendar start;
 	private Calendar end;
-	private Date date;
+	private Calendar date;
 }
