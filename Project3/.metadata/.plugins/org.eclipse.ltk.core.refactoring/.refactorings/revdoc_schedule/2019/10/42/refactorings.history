@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.revdoc.exceptions.BusinessException.java&apos; to &apos;AvailabilityException.java&apos;&#x0D;&#x0A;- Original project: &apos;revdoc_schedule&apos;&#x0D;&#x0A;- Original element: &apos;com.revdoc.exceptions.BusinessException.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.revdoc.exceptions.AvailabilityException.java&apos;" description="Rename compilation unit &apos;BusinessException.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java&lt;com.revdoc.exceptions{BusinessException.java" name="AvailabilityException.java" references="false" stamp="1571155668583" version="1.0"/>
+</session>

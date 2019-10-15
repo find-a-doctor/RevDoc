@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.revdoc.exceptions.AvailabilityException;
 import com.revdoc.model.Available;
 import com.revdoc.model.Doctor;
 import com.revdoc.service.UpdateAvailabilityService;
@@ -21,7 +22,11 @@ public class UpdateAvailabilityTests {
 		test.setAvailableId(0);
 		test.setDoctor(new Doctor());
 		test.getDoctor().setNpi(0);
-		service.updateHours(test);
+		try {
+			service.updateHours(test);
+		} catch (AvailabilityException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	@Test
@@ -31,6 +36,10 @@ public class UpdateAvailabilityTests {
 		test.setAvailableId(0);
 		test.setDoctor(new Doctor());
 		test.getDoctor().setNpi(0);
-		service.removeHours(test);
+		try {
+			service.removeHours(test);
+		} catch (AvailabilityException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }

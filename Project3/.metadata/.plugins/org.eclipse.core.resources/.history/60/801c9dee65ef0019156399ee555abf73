@@ -1,0 +1,11 @@
+package com.revdoc.exceptions;
+
+public class BusinessException extends Exception{
+	private String message;
+	
+	public BusinessException() {
+		this.message="Generic Business Exception. No message given";
+	}
+	
+	public BusinessException
+}

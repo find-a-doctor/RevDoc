@@ -1,0 +1,5 @@
+package com.revdoc.exceptions;
+
+public class BusinessException {
+
+}

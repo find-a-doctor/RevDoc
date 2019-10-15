@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revdoc.exceptions.AvailabilityException;
 import com.revdoc.model.Available;
 import com.revdoc.service.UpdateAvailabilityService;
 
@@ -29,7 +30,11 @@ public class UpdateAvailabilityController {
 		//checking to see if there are any overlaps in the old hours and new hours, remove the conflicting old hours,
 		//and finally add in the new hours. This will likely occur in Service
 		System.out.println("Inside of the Controller"+"\n"+time);
-		time=service.updateHours(time);
+		try {
+			time=service.updateHours(time);
+		} catch (AvailabilityException e) {
+			System.out.println(e.getMessage());
+		}
 		System.out.println("Inside COntroller after Service");
 		return time;
 	}
@@ -39,7 +44,11 @@ public class UpdateAvailabilityController {
 		//This function needs to contain the functionality of getting the current availability on a given date,
 		//checking to see if there are any overlaps in the two time periods, removing any conflicting overlaps.
 		//This will likely occur in Service.
-		time=service.removeHours(time);
+		try {
+			time=service.removeHours(time);
+		} catch (AvailabilityException e) {
+			System.out.println(e.getMessage());
+		}
 		return time;
 	}
 	

@@ -9,4 +9,5 @@
 <item elementID="=revdoc_schedule/src\/test\/java" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=revdoc_schedule/target\/generated-test-sources\/test-annotations" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1571155683468_2" label="Window Working Set" name="Aggregate for window 1570636298321"/>
 </workingSetManager>
