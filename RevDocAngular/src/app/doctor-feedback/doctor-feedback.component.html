@@ -3,28 +3,42 @@
         <span class="field-label-header">How would you rate your most recent appointment with this doctor?</span><br>
         <span class="field-label-info"></span> <br /> <br />
     </label>
-    <form (ngSubmit)="rateDoctor(BMRating, WTRating, OVRating, Comment)">
-
-        <table id="ratings_table">
-
-
+    <!-- <form (ngSubmit)="rateDoctor(BMRating, WTRating, OVRating, Comment)"> -->
+    <form (ngSubmit)="rateDoctor()" #feedbackForm="ngForm">
+        <!-- <table id="ratings_table"> -->
             <tr>
                 <td>
                     Bedside Manners
                 </td>
                 <td>
-                    <!-- <ul id="test" class="star_rating">
-                        <li> <input type="radio" name="BM" [(ngModel)]="BMRating" value="1"> <label for="BMRating-1">1
-                                (Poor) </label> </li>
-                        <li> <input type="radio" name="BM" [(ngModel)]="BMRating" value="2"> <label for="BMRating-2">2
-                                (Not Good)</label> </li>
-                        <li> <input type="radio" name="BM" [(ngModel)]="BMRating" value="3"> <label for="BMRating-3">3
-                                (OK) </label> </li>
-                        <li> <input type="radio" name="BM" [(ngModel)]="BMRating" value="4"> <label for="BMRating-4">4
-                                (Good) </label> </li>
-                        <li> <input type="radio" name="BM" [(ngModel)]="BMRating" value="5"> <label for="BMRating-5">5
-                                (Excellent)</label> </li>
-                    </ul> -->
+                    <ul id="test" class="star_rating">
+                        <li>
+                            <!-- <input type="radio" name="BM" [(ngModel)]="BMRating" value="1"> -->
+                            <!-- <div class="form-check">
+                                <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="" id="" value="checkedValue" checked>
+                                Display value
+                              </label>
+                            </div> -->
+                            <label for="BMRating-1">1 (Poor)</label>
+                        </li>
+                        <li>
+                            <!-- <input type="radio" name="BM" [(ngModel)]="BMRating" value="2"> -->
+                            <label for="BMRating-2">2 (Not Good)</label>
+                        </li>
+                        <li>
+                            <!-- <input type="radio" name="BM" [(ngModel)]="BMRating" value="3">  -->
+                            <label for="BMRating-3">3 (OK) </label>
+                        </li>
+                        <li>
+                            <!-- <input type="radio" name="BM" [(ngModel)]="BMRating" value="4">  -->
+                            <label for="BMRating-4">4 (Good) </label>
+                        </li>
+                        <li>
+                            <!-- <input type="radio" name="BM" [(ngModel)]="BMRating" value="5">  -->
+                            <label for="BMRating-5">5 (Excellent)</label>
+                        </li>
+                    </ul>
                 </td>
             </tr>
             <!--
@@ -64,10 +78,10 @@
             <!-- <input type="text" name="comment" [(ngModel)]="Comment" placeholder="comment" id="comment">  -->
             <!-- </td>
     </tr>-->
-        </table>
+        <!-- </table> -->
 
 
-        <button id="submit" type="submit" value="submit">Submit</button>
+        <!-- <button id="submit" type="submit" value="submit">Submit</button> -->
     </form>
 
 

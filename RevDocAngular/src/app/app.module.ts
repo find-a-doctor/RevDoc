@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +22,7 @@ import { DocorApptsComponent } from './docor-appts/docor-appts.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { FollowDoctorComponent } from './follow-doctor/follow-doctor.component';
 import { DoctorRatingsComponent } from './doctor-ratings/doctor-ratings.component';
-import { DoctorFeedbackComponent } from './doctor-feedback/doctor-feedback.component';
+// import { DoctorFeedbackComponent } from './doctor-feedback/doctor-feedback.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -46,7 +48,7 @@ import { RouterModule } from '@angular/router';
     DoctorProfileComponent,
     FollowDoctorComponent,
     DoctorRatingsComponent,
-    DoctorFeedbackComponent,
+    // DoctorFeedbackComponent,
     NavbarComponent
   ],
   imports: [
