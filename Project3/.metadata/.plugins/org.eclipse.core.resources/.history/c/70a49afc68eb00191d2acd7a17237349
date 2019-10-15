@@ -1,0 +1,9 @@
+package com.revdoc.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.revdoc.model.Conditions;
+
+public interface ConditionType  extends JpaRepository<Conditions, Long>{
+
+}

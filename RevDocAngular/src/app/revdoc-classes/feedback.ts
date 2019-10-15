@@ -5,7 +5,7 @@ export class Feedback {
   feedbackId: number;
   bedsideMannerRating: number;
   waitTimeRating: number;
-  overallRating: number;
+  overallRating: boolean;
   comments: string;
   appointment: Appointment;
 
