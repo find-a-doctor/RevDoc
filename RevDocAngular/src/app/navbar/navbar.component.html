@@ -1,22 +1,46 @@
-<div class="navbarWrapper">
-    <nav class="navbar revNav container text-center">
-      <div class="navRow row">
-        <a class="navbar-brand" href="#">
-            <img class="logo" src="../../assets/RevLogo.png">
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <div class="container">
+
+    <!-- BRAND LOGO AREA -->
+    <a class="navbar-brand nav-link" routerLink="../adminHome">
+      <h2 class="nav-item active">
+        <img class="logo" src="../../assets/RevLogo.png"></h2>
+    </a>
+    <!-- LOGIN Icon -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span>
+        <a class="mobile_user_icon" style="cursor: pointer" href="#" target="_blank">
+          <span class="glyphicon glyphicon-user" style="color:#f26925"></span>
         </a>
-              <div class="search-container row navItems">
-                  <li>
-                    <a class="nav-link" href="#">BUTTON <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li>
-                    <a class="nav-link" href="#">MY ACCOUNT</a>
-                  </li>
-                  <li>
-                    <a class="nav-link" href="#">VIEW APPOINTMENTS</a>
-                  </li>
-                    <button class="btn navBtn">FIND A DOCTOR</button>
-                    <button class="btn navBtn">ANOTHER BUTTON</button>
-              </div>
+      </span>
+    </button>
+
+    <!-- Hamburger Menu Icon -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="color:#f26925"></span>
+    </button>
+
+    <!-- BOOTSTRAP COLLAPSABLE NAVBAR -->
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="search-container row navItems">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">BUTTON <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">MY ACCOUNT</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="viewSchedule" routerLinkActive="active">VIEW APPOINTMENTS</a>
+          </li>
+          <button class="btn navBtn" routerLink="searchDoctor" routerLinkActive="active">FIND A DOCTOR</button>
+          <button class="btn navBtn">ANOTHER BUTTON</button>
+        </ul>
       </div>
-      </nav>
-      </div>
+    </div>
+  </div>
+</nav>
+<hr />
+<router-outlet></router-outlet>
