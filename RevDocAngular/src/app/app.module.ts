@@ -49,7 +49,7 @@ import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
     DoctorRatingsComponent,
     DoctorFeedbackComponent,
     NavbarComponent,
-    JwPaginationComponent
+    JwPaginationComponent,
   ],
   imports: [
     BrowserModule,
