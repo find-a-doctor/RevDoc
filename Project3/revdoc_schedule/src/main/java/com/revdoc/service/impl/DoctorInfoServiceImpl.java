@@ -82,4 +82,9 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 		return cDao.getConditions(npi);
 	}
 
+	@Override
+	public Feedback submitFeedback(Feedback feedback) {
+		return fbDao.save(feedback);
+	}
+
 }

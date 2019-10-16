@@ -25,5 +25,7 @@ public interface DoctorInfoService {
 	public List<Specialty> getSpecialty(long npi);
 
 	public List<Conditions> getConditions(long npi);
+
+	public Feedback submitFeedback(Feedback feedback);
 	
 }

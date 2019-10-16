@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revdoc.model.Conditions;
@@ -28,7 +29,6 @@ public class DoctorController {
 		return service.getDoctorByNpi(npi);
 	}
 	
-	
 	@GetMapping("/doctors")
 	public List<Doctor> getAllDoctors(){
 		return service.getAllDoctors();
@@ -44,11 +44,6 @@ public class DoctorController {
 		return service.getAllFeedback(npi);
 	}
 	
-//	@GetMapping("/doctor/{npi}/ratings")
-//	public List<Feedback> getAggregateRatings(@PathVariable long npi) {
-//		return service.getFeedback(npi);
-//	}
-	
 	@GetMapping("/doctor/{npi}/insurance")
 	public List<Insurance> getInsurance(@PathVariable long npi){
 		return service.getInsurance(npi);
@@ -62,6 +57,11 @@ public class DoctorController {
 	@GetMapping("/doctor/{npi}/conditions")
 	public List<Conditions> getConditions(@PathVariable long npi){
 		return service.getConditions(npi);
+	}
+	
+	@PostMapping("/feedback")
+	public Feedback submitFeedback(@RequestBody Feedback feedback) {
+		return service.submitFeedback(feedback);
 	}
 	
 	
