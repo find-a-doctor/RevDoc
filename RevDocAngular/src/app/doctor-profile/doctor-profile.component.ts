@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Doctor } from '../revdoc-classes/doctor';
 import { DoctorInfoService } from '../doctor-info.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Specialty } from '../revdoc-classes/specialty';
 import { Insurance } from '../revdoc-classes/insurance';
 import { Conditions } from '../revdoc-classes/conditions';
 import { Location } from '../revdoc-classes/location';
+
 
 
 @Component({
@@ -24,10 +26,10 @@ export class DoctorProfileComponent implements OnInit {
   constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    
+
     this.doctor = new Doctor();
     this.route.url.subscribe(data => {
-      this.doctor.npi=Number(data[1].path);
+      this.doctor.npi = Number(data[1].path);
     });
     // this.doctor.npi = this.route.
 

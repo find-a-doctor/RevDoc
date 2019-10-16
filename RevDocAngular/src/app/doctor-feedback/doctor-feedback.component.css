@@ -1,9 +1,12 @@
+.stars {
+    font-size: 3rem;
+    color: white;
+  }
+  .filled {
+    color: #F26925;
+  }
 
 
-.rating-header {
-    margin-top: -10px;
-    margin-bottom: 10px;
-}
 
 div#rating-wrapper {
     background-color: lightgray;
@@ -12,23 +15,7 @@ div#rating-wrapper {
 
 }
 
-table#ratings_table {
-    
-    
 
-}
-
-btn[name=star]{
-    background-color: orange !important;
-}
-
-.btnrating btn btn-default btn-lg{
-    /* background-color: orange !important; */
-}
-
-ul#test li {
-    display: inline;
-}
 
 button#submit {
     padding-left: 10px;
@@ -44,6 +31,4 @@ button#submit {
     color: white;
     
 }
-
-
 
