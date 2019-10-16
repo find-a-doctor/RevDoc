@@ -24,11 +24,14 @@ export class DoctorProfileComponent implements OnInit {
   constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    
     this.doctor = new Doctor();
-    this.doctor.npi = this.route.url.value[1]; //default
+    this.route.url.subscribe(data => {
+      this.doctor.npi=Number(data[1].path);
+    });
+    // this.doctor.npi = this.route.
 
     this.doctorInfoService.getDoctor(this.doctor.npi).subscribe(data => {
-      console.log("getting...\n" + data[0]);
       this.doctor = data;
     }, error => console.log("error:\n" + error));
 
