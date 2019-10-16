@@ -48,11 +48,6 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 	public List<Doctor> getAllDoctors() {
 		return dDao.findAll();
 	}
-//
-//	@Override
-//	public List<Feedback> getFeedback(long npi) {
-//		return fbDao.getFeedback(npi);
-//	}
 
 	@Override
 	public List<Feedback> getAllFeedback() {
@@ -85,6 +80,14 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 	@Override
 	public Feedback submitFeedback(Feedback feedback) {
 		return fbDao.save(feedback);
+	}
+
+	@Override
+	public Doctor updateFollowers(long npi) {
+		int numberOfFollowers= flDao.countFollowers(npi);
+		Doctor doctor=getDoctorByNpi(npi);
+		doctor.setNumberOfFollowers(numberOfFollowers);
+		return doctor;
 	}
 
 }

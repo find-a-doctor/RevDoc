@@ -64,5 +64,12 @@ public class DoctorController {
 		return service.submitFeedback(feedback);
 	}
 	
+	@PostMapping("/updateDoctor/{npi}")
+	public Doctor updateDoctor(@PathVariable long npi) {
+		return service.updateFollowers(npi);
+	}
+
+	
+	
 	
 }

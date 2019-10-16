@@ -27,5 +27,7 @@ public interface DoctorInfoService {
 	public List<Conditions> getConditions(long npi);
 
 	public Feedback submitFeedback(Feedback feedback);
+
+	public Doctor updateFollowers(long npi);
 	
 }
