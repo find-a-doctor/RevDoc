@@ -20,16 +20,20 @@ td,th{
     position:relative;
     display:inline-block;
     font-size:3rem;
-    color:#F2DDDD;
+    /* color:#F2DDDD; */
     /* border: #f26925; */
+    color:black;
 
 }
 .full{
-    color:blue;
+    color: black;
 }
 .half{
     position:absolute;
     display:inline-block;
     overflow:hidden;
+    /* fill:#f26925; */
     color:#f26925;
+    
+    
 }
