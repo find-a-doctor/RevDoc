@@ -4,7 +4,8 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
 
 
 const routes: Routes = [
-  { path: 'ex-dr-page', component: DoctorProfileComponent }
+  { path: 'ex-dr-page', component: DoctorProfileComponent },
+  { path: 'doctor/:npi', component: DoctorProfileComponent }
 ];
 
 

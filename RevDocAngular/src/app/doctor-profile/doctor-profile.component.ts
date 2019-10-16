@@ -25,7 +25,7 @@ export class DoctorProfileComponent implements OnInit {
 
   ngOnInit() {
     this.doctor = new Doctor();
-    this.doctor.npi = 1000000001; //default
+    this.doctor.npi = this.route.url.value[1]; //default
 
     this.doctorInfoService.getDoctor(this.doctor.npi).subscribe(data => {
       console.log("getting...\n" + data[0]);
