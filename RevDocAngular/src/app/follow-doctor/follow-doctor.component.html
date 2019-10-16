@@ -1,9 +1,11 @@
-
-<div>
-    <button class="follow">
-           <span class="msg-follow">FOLLOW</span>
-           <span class="msg-following">FOLLOWING</span>
-           <span class="msg-unfollow">UNFOLLOW</span>
-         </button>
-    <script src="../../assets/js/follow.js"></script>
+<div *ngIf="isFollowing; then unfollowButton else followButton">
 </div>
+
+<ng-template #followButton>
+<button class="button is-info" (click)="toggleFollow()">FOLLOW</button>
+</ng-template>
+
+<ng-template #unfollowButton>
+<button class="button is-warning" (click)="toggleFollow()">UNFOLLOW</button>
+</ng-template>
+<script src="../../assets/js/follow.js"></script>
