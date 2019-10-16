@@ -13,9 +13,9 @@ export class ViewApptService {
   public doctorApptsUrl: string;
 
   constructor(private http: HttpClient) {
-    this.allApptsUrl = "http://localhost:9000/appointments/";
-    this.userApptsUrl = "http://localhost:9000/appointments";
-    this.doctorApptsUrl = "http://localhost:9000/doctorAppointments";
+    this.allApptsUrl = "http://localhost:9000/appointments";
+    this.userApptsUrl = "http://localhost:9000/appointments/";
+    this.doctorApptsUrl = "http://localhost:9000/doctorAppointments/";
    }
 
    public allAppts() {

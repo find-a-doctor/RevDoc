@@ -1,7 +1,6 @@
 package com.revdoc.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -41,5 +40,5 @@ public class Followers implements Serializable{
 	private Doctor doctor;
 	@ManyToOne//(cascade = {CascadeType.ALL})
 	private RevAssociate revAssociate;
-	private Calendar followDate;
+	private Date followDate;
 }
