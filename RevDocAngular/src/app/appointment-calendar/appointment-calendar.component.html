@@ -1,7 +1,41 @@
-<p>appointment-calendar works!</p>
+<p>appointment-calendar</p>
 <div style="text-align: center;">
-<jqxScheduler #schedulerReference
-              [date]="date" [width]="1280" [height]="768" [source]="dataAdapter" [showLegend]="true" [view]="'monthView'"
-              [appointmentDataFields]="appointmentDataFields" [resources]="resources" [views]="views">
-</jqxScheduler>
+  <jqxScheduler 
+    [theme]="'material'" 
+    #schedulerReference 
+    [date]="date" 
+    [width]="getWidth()" 
+    [height]="768"
+    [source]="dataAdapter" 
+    [showLegend]="true" 
+    
+    [editDialogCreate]="editDialogCreate"
+    [editDialogOpen]="editDialogOpen"
+    [editDialogClose]="editDialogClose"
+    [editDialogKeyDown]="editDialogKeyDown"
+    [resources]="resources" 
+    [view]="'monthView'" 
+    [views]="views"
+    [appointmentDataFields]="appointmentDataFields"
+    (onAppointmentDelete)="mySchedulerOnAppointmentDelete($event)"  
+    (onAppointmentAdd)="mySchedulerOnAppointmentAdd($event)"
+   
+    (onAppointmentChange)="mySchedulerOnAppointmentChange($event)"
+    (onCellClick)="mySchedulerOnCellClick($event)"
+  >
+  </jqxScheduler>
 </div>
+
+   <div style='text-align: center;'>
+    <br>
+    <jqxButton #pdfExport
+               (onClick)="pdfExportClick()">
+      Export Calendar to PDF
+    </jqxButton>
+    <hr>
+</div>
+<hr><hr>
+<div style="position: unset; bottom: 5px; right: 5px; text-align: right;">
+  <a href="https://www.jqwidgets.com/" alt="https://www.jqwidgets.com/"><img  alt="https://www.jqwidgets.com/" title="https://www.jqwidgets.com/" src="https://www.jqwidgets.com/wp-content/design/i/logo-jqwidgets.png"/></a>
+</div>
+<br><br>
