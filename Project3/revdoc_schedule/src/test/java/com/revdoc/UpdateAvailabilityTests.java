@@ -22,11 +22,7 @@ public class UpdateAvailabilityTests {
 		test.setAvailableId(0);
 		test.setDoctor(new Doctor());
 		test.getDoctor().setNpi(0);
-		try {
 			service.updateHours(test);
-		} catch (AvailabilityException e) {
-			System.out.println(e.getMessage());
-		}
 	}
 	
 	@Test
@@ -36,10 +32,6 @@ public class UpdateAvailabilityTests {
 		test.setAvailableId(0);
 		test.setDoctor(new Doctor());
 		test.getDoctor().setNpi(0);
-		try {
 			service.removeHours(test);
-		} catch (AvailabilityException e) {
-			System.out.println(e.getMessage());
-		}
 	}
 }

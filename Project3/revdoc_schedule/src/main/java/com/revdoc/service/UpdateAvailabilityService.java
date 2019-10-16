@@ -6,7 +6,7 @@ import com.revdoc.exceptions.AvailabilityException;
 import com.revdoc.model.Available;
 
 public interface UpdateAvailabilityService {
-	public Available updateHours(Available time) throws AvailabilityException;
-	public Available removeHours(Available time) throws AvailabilityException;
+	public Available updateHours(Available time);
+	public Available removeHours(Available time);
 	public List<Available> getHours();
 }
