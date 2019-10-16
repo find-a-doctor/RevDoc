@@ -6,7 +6,7 @@
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
-    "experimentalDecorators": true,
+    "experimentalDecorators": false,
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,

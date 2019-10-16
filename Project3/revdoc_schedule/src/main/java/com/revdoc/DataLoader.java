@@ -2,6 +2,7 @@ package com.revdoc;
 
 import java.security.MessageDigest;
 import java.sql.Time;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -123,23 +124,28 @@ public class DataLoader {
         d3 = doctorDao.save(d3);
 
 		//CREATE AVAILABLE
-		Time start = new Time(10, 5, 0);
-		Time end = new Time(10, 5, 0);
-		Date date = new Date();
-		Available a1 = new Available(0, d1, 2, start, end, date);
+		Calendar day = Calendar.getInstance();
+		day.setTime(new Date(120));
+		Calendar start = Calendar.getInstance(); 
+		start.setTime(new Date());
+		Calendar end = Calendar.getInstance();
+		end.setTime(new Date());
+		Calendar date = Calendar.getInstance();
+		date.setTime(new Date());
+		Available a1 = new Available(0, d1, day, start, end, date);
 		a1 = availableDao.save(a1);
 		
-		start = new Time(10, 5, 0);
-		end = new Time(15, 30, 0);
-		date = new Date();
-		date.setYear(119); //Year start at 1900 so add 119 to get the year 2019
-		date.setMonth(10); // Month start at 1 so add 10 to get the month 11
-		date.setDate(1); // Day, not sure, you guys fig it out :)
-		Available a2 = new Available(0, d2, 3, start, end, date);
+//		start = new Time(10, 5, 0);
+//		end = new Time(15, 30, 0);
+//		date = new Date();
+//		date.setYear(119); //Year start at 1900 so add 119 to get the year 2019
+//		date.setMonth(10); // Month start at 1 so add 10 to get the month 11
+//		date.setDate(1); // Day, not sure, you guys fig it out :)
+		Available a2 = new Available(0, d2, day, start, end, date);
 		a2 = availableDao.save(a2);
 		
 		// CREATE FOLLOWERS
-		date = new Date();
+//		date = new Date();
 		Followers f1 = new Followers(0, d1, u2, date);
 		f1 = followersDao.save(f1);
 		
@@ -147,12 +153,14 @@ public class DataLoader {
 		f2 =followersDao.save(f2);
 		
 		// CREATE APPOINTMENT
-		date = new Date();
-		Time time = new Time(10,30,0);
+//		date = new Date();
+//		Time time = new Time(10,30,0);
+		Calendar time = Calendar.getInstance(); 
+		time.setTime(new Date());
 		Appointment ap1 = new Appointment(0, d1, u1, date, time, "Insurant Name input form user1", true);
 		ap1=appointmentDao.save(ap1);
 		
-		time = new Time(14,30,0);
+//		time = new Time(14,30,0);
 		Appointment ap2 = new Appointment(0, d2, u2, date, time, "Insurant Name input form user2", false);
 		ap2=appointmentDao.save(ap2);
 		// CREATE FEEDBACK
@@ -191,7 +199,8 @@ public class DataLoader {
 		i2=insuranceDao.save(i2);
 		
 		// CREATE DOCTOR POST
-		Date postDate = new Date();
+//		Date postDate = new Date();
+		Calendar postDate = Calendar.getInstance();
 		DoctorPost dp1 = new DoctorPost(0, d1, "Doctor post here", postDate);
 		dp1 = doctorPostDao.save(dp1);
 		

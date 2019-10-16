@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewApptService } from '../view-appt.service'
+import { Router } from '@angular/router';
+import { RevAssociate } from '../revdoc-classes/rev-associate'
 
 @Component({
   selector: 'app-view-appt',
@@ -6,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-appt.component.css']
 })
 export class ViewApptComponent implements OnInit {
-
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
+    }
   }
 
-}
+

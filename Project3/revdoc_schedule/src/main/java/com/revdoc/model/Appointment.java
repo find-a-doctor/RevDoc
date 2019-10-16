@@ -48,7 +48,4 @@ public class Appointment implements Serializable{
 	private Calendar time;
 	private String insurance;
 	private boolean confirmed;
-	
-
-	
 }
