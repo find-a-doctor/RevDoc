@@ -1,3 +1,6 @@
+# Ethan doesnt like metadata
+.metadata/
+
 # Logs
 logs
 *.log
