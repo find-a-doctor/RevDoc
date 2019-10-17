@@ -2,6 +2,7 @@ package com.revdoc;
 
 import java.security.MessageDigest;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -190,8 +191,15 @@ public class DataLoader {
 		// CREATE APPOINTMENT
 //		date = new Date();
 //		Time time = new Time(10,30,0);
-		Calendar time = Calendar.getInstance(); 
-		time.setTime(new Date());
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
+		
+		
+		Calendar time = Calendar.getInstance();
+//		time.setTime(new Date());
+		
+//		System.out.println(timeFormat.format(time.getTime()));
+		
 		Appointment ap1 = new Appointment(0, d1, u1, date, time, "Insurant Name input form user1", true);
 		ap1=appointmentDao.save(ap1);
 		
