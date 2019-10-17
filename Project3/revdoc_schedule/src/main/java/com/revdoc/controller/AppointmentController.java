@@ -32,6 +32,7 @@ public class AppointmentController {
 	
 	@GetMapping("/doctorAppointments/{email}")
 	public List<Appointment> getAppointmentByDoctor(@PathVariable String email) {
+		System.out.println(appointmentService.getAppointmentByDoctor(email));
 		return appointmentService.getAppointmentByDoctor(email);
 	}
 	

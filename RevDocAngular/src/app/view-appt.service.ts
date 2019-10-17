@@ -11,11 +11,18 @@ export class ViewApptService {
   public allApptsUrl: string;
   public userApptsUrl: string;
   public doctorApptsUrl: string;
+  public loginUrl: string;
 
   constructor(private http: HttpClient) {
     this.allApptsUrl = "http://localhost:9000/appointments";
     this.userApptsUrl = "http://localhost:9000/appointments/";
     this.doctorApptsUrl = "http://localhost:9000/doctorAppointments/";
+    this.loginUrl = "http://localhost:9000/login/";
+   }
+
+   public login(email: string){
+     console.log("Loggin in user: " +this.loginUrl + email);
+     return this.http.get<Object>(this.loginUrl + email);
    }
 
    public allAppts() {

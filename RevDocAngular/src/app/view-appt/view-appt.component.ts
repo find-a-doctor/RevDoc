@@ -4,6 +4,7 @@ import { RevAssociate } from '../revdoc-classes/rev-associate'
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { ViewApptService } from '../view-appt.service';
 import { Doctor } from '../revdoc-classes/doctor';
+import { Appointment } from '../revdoc-classes/appointment'
 
 @Component({
   selector: './app-view-appt',
@@ -11,17 +12,23 @@ import { Doctor } from '../revdoc-classes/doctor';
   styleUrls: ['./view-appt.component.css']
 })
 export class ViewApptComponent implements OnInit {
-  title = 'revdoc-calendar';
   doctor: Doctor
+  appt: any;
+  testAppt: string
   calendarEvents:any[]=[];
   calendarPlugins=[dayGridPlugin];
   constructor(private viewApptService:ViewApptService) { 
-    this.doctor = new Doctor 
+    this.doctor = new Doctor
+    this.appt = new Appointment 
   }
 
   ngOnInit() {
     this.doctor.email = 'johnross@gmail.com';
-    this.viewApptService.doctorAppts(this.doctor.email).subscribe(data=>this.calendarEvents=data);
+    this.viewApptService.doctorAppts(this.doctor.email).subscribe(data=>{
+      this.appt = data
+      console.log(this.appt[0].doctor.doctorName)
+      this.calendarEvents=data
+    });
   }
 }
 
