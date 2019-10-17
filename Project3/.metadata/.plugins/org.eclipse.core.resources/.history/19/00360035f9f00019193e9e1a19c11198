@@ -7,11 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.revdoc.dao.AppointmentDAO;
 import com.revdoc.dao.DoctorDAO;
-import com.revdoc.dao.InsuranceTypeDAO;
 import com.revdoc.dao.LocationDAO;
 import com.revdoc.model.Appointment;
 import com.revdoc.model.Doctor;
-import com.revdoc.model.InsuranceType;
 import com.revdoc.model.Location;
 import com.revdoc.service.AppointmentCalendarService;
 
@@ -24,8 +22,6 @@ public class AppointmentCalendarImpl implements AppointmentCalendarService {
 	private DoctorDAO doctorDao;
 	@Autowired 
 	private AppointmentDAO appointmentDao;
-	@Autowired
-	private InsuranceTypeDAO insuranceTypeDao;
 	
 	@Override
 	public Location getLocationById(long id) {
@@ -38,7 +34,7 @@ public class AppointmentCalendarImpl implements AppointmentCalendarService {
 	}
 
 	@Override
-	public Appointment setDoctorAppointment(Appointment appointment) {
+	public Appointment DoctocAppointment(Appointment appointment) {
 		Appointment appointment1;
 		try {
 			appointment1 = appointmentDao.save(appointment);
@@ -47,11 +43,5 @@ public class AppointmentCalendarImpl implements AppointmentCalendarService {
 		}
 		// TODO Auto-generated method stub
 		return appointment1;
-	}
-
-	@Override
-	public List<InsuranceType> getInsuranceTypeByNPI(long npi) {
-		// TODO Auto-generated method stub
-		return insuranceTypeDao.getInsuranceTypeByNPI(npi+"");
 	}
 }

@@ -20,6 +20,7 @@ export class DoctorInfoService {
   private getAllInsuranceUrl: string;
   private getLocationByIdUrl: string;
   private getDoctorByIdUrl: string;
+  private getInsuranceTypeByNpiUrl: string;
 
   constructor(private http: HttpClient) {
     this.searchDoctorUrl = "http://localhost:9000/searchDoctor/";
@@ -29,6 +30,7 @@ export class DoctorInfoService {
     this.getAllInsuranceUrl = "http://localhost:9000/insuranceTypes";
     this.getLocationByIdUrl = "http://localhost:9000/location/";
     this.getDoctorByIdUrl = "http://localhost:9000/doctor/";
+    this.getInsuranceTypeByNpiUrl = "http://localhost:9000/insuranceTypeByNPI/";
   }
 
   public searchDoctor(search: string) {
@@ -56,5 +58,9 @@ export class DoctorInfoService {
 
   public getDoctorById(id: number){
     return this.http.get<Doctor>(this.getDoctorByIdUrl+id);
+  }
+
+  public getInsuranceTypeByNpi(id: number){
+    return this.http.get<InsuranceType[]>(this.getInsuranceTypeByNpiUrl+id);
   }
 }

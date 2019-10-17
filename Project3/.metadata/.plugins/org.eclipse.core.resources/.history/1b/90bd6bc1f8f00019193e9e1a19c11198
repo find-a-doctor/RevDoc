@@ -1,18 +1,12 @@
 package com.revdoc.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revdoc.model.Appointment;
 import com.revdoc.model.Doctor;
-import com.revdoc.model.InsuranceType;
 import com.revdoc.model.Location;
 import com.revdoc.service.AppointmentCalendarService;
 
@@ -37,18 +31,5 @@ public class AppointmentCalendarController {
 		Doctor doctor = appointmentCalendarService.getDoctorById(id);
 		System.out.println("test: "+doctor);
 		return doctor;
-	}
-	
-	@PostMapping("/doctorAppointment")
-	public Appointment doctorAppointment(@RequestBody Appointment appointment) {
-		return appointmentCalendarService.setDoctorAppointment(appointment);
-	}
-	
-	@GetMapping("/insuranceTypeByNPI/{id}")
-	public List<InsuranceType> getInsuranceTypeByNPI(@PathVariable long id) {
-		System.out.println("getInsuranceTypeByNPI by Id= "+id);
-		List<InsuranceType> it = appointmentCalendarService.getInsuranceTypeByNPI(id);
-		System.out.println("test: "+it);
-		return it;
 	}
 }

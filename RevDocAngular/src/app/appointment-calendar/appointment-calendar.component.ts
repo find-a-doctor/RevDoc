@@ -4,6 +4,9 @@ import { DoctorInfoService } from '../doctor-info.service';
 import { Location } from '../revdoc-classes/location';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from '../revdoc-classes/doctor';
+import { InsuranceType } from '../revdoc-classes/insurance-type';
+//import { $ } from './selenium-webdriver/lib/test/data/js';
+//import $ = require("jquery");
 
 @Component({
     selector: 'appointment-calendar',
@@ -18,6 +21,8 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     id: number;
   //  location: Location;
     doctor: Doctor;
+    insuranceTypeList: InsuranceType[];
+    isViewAllAppointment: boolean;
     //This for get URI from url:
     private sub: any;
 
@@ -29,6 +34,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         // this.id = 10001;
     //    this.location = new Location();
         this.doctor = new Doctor();
+        this.isViewAllAppointment = false;
         // this.appointmentCalendarService.getLocationById(this.id).subscribe(data => {
         //     console.log("Test Location: " + data.address);
         //     this.location = data;
@@ -42,6 +48,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
             this.id = +params['id']; // +params['id'];  (+) converts string 'id' to a number
             if(this.id == undefined || this.id == null || this.id+"" == 'NaN' || this.id < 1000000001){
                 this.id = 1000000001; // set the default doctor for exception
+                this.isViewAllAppointment = true;
             }
             console.log("Test doctor ID = "+this.id);
             //   this.location = new Location();
@@ -52,6 +59,9 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         //     });
             this.appointmentCalendarService.getDoctorById(this.id).subscribe(data =>{
                 this.doctor = data;
+            });
+            this.appointmentCalendarService.getInsuranceTypeByNpi(this.id).subscribe(data =>{
+                this.insuranceTypeList = data;
             });
         });
        
@@ -208,6 +218,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     };
 
     printButton: any = null;
+    insuranceComboBox: any = null;
     // called when the dialog is craeted.
     editDialogCreate = (dialog, fields, editAppointment) => {
 
@@ -241,15 +252,33 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         fields.location.val(this.doctor.location.locationName );
       //  fields.location.val(this.location.locationName);
         fields.location.prop("readonly",true);
-
+        fields.fromLabel.html("Date");
         fields.descriptionLabel.html("Address");
         fields.description.val(this.doctor.location.address);
         fields.description.prop("readonly",true);
         //   fields.al
         console.log("Print Location of doctor: " + this.doctor.location.locationName + " -- " + this.doctor.location.address);
 
+        
+        // Create Insurance ComboBox
+        // let comboBoxElement = document.createElement("SELECT");
+        // let insuranceComboBox: jqwidgets.jqxComboBox = jqwidgets.createInstance('#insuranceComboBox','jqxComboBox',{
+        //     width: 100,
+        //     height: 25
+        // });
+        let behandlungContainer = "<div>";
+behandlungContainer += "<div class='jqx-scheduler-edit-dialog-label'>Insurance</div>";
+behandlungContainer += "<div class='jqx-scheduler-edit-dialog-field'><div id='behandlung1'></div></div>";
+behandlungContainer += "</div>";
+fields.resourceContainer.append(behandlungContainer);
 
-        fields.fromLabel.html("Date");
+var source = ['Others'];
+this.insuranceTypeList.forEach(i=>{
+ //   console.log(i.insuranceName+" -- "+ i.insuranceTypeId)
+    source.push(i.insuranceName);
+});
+
+$("#behandlung1").jqxComboBox({ source: source, selectedIndex: 0, width: '300px', height: '25px'});
 
         fields.resourceLabel.html("Calendar");
 
@@ -335,6 +364,9 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     editDialogOpen = (dialog, fields, editAppointment) => {
         console.log("Dialog open here");
       
+     
+      //  (fields.calendar[0]).jqxComboBox('selectIndex', 2);
+           
         // fields.subjectLabel.html("Doctor Name");
       //  fields.subject.val("Doctor name here");
       //  fields.subject.setOptions({ disabled: false });
@@ -349,6 +381,10 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         }
         else if (editAppointment && this.printButton) {
             this.printButton.setOptions({ disabled: false });
+            if(this.isViewAllAppointment){
+                console.log("isviewall appointment test: "+ this.isViewAllAppointment);
+                fields.saveButton.jqxButton({ disabled: false });
+            }
         }
     };
     /**
@@ -359,8 +395,11 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     */
     editDialogClose = (dialog, fields, editAppointment) => {
         console.log("Appointment close here: Date = "+fields.from.val());
-       // this.editDialogCreate.
-            window.location.reload();
+    //   if(editAppointment){
+    //     window.location.reload();
+    //   }
+        // this.editDialogCreate.
+    //        window.location.reload();
     //     fields.subjectLabel.html("Doctor Name");
     //     fields.subject.val("Doctor name here");
     //   //  fields.subject.setOptions({ disabled: false });
@@ -392,6 +431,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         let appointment = event.args.appointment;
         // this.myLog.nativeElement.innerHTML = 'appointmentAdd is raised';
         console.log('appointmentAdd is raised');
+     
     };
     // mySchedulerOnAppointmentDoubleClick(event: any): void {
     //     let appointment = event.args.appointment;
@@ -405,6 +445,8 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         console.log('appointmentChange location is raised ' + appointment.location);
         console.log('appointmentChange Start is raised ' + appointment.from);
         console.log('appointmentChange End is raised ' + appointment.to);
+        
+        console.log("Appointment close here: Calendar = "+appointment.calendar);
     };
     mySchedulerOnCellClick(event: any): void {
         let cell = event.args.cell;

@@ -52,6 +52,6 @@ public class AppointmentCalendarImpl implements AppointmentCalendarService {
 	@Override
 	public List<InsuranceType> getInsuranceTypeByNPI(long npi) {
 		// TODO Auto-generated method stub
-		return insuranceTypeDao.getInsuranceTypeByNPI(npi+"");
+		return null;
 	}
 }
