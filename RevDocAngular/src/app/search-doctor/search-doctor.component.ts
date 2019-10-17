@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DoctorInfoService } from '../doctor-info.service';
-import { timingSafeEqual } from 'crypto';
+//import { timingSafeEqual } from 'crypto';
 import { SpecialtyType } from '../revdoc-classes/specialty-type';
 import { InsuranceType } from '../revdoc-classes/insurance-type';
 import { ConditionType } from '../revdoc-classes/condition-type';
-import { JwPaginationComponent } from 'jw-angular-pagination';
+//import { JwPaginationComponent } from 'jw-angular-pagination';
 
 @Component({
   selector: 'app-search-doctor',

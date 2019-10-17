@@ -39,4 +39,6 @@ public class Location implements Serializable{
 	private String state;
 	private String zip;
 	private String locationTypeName;
+	
+	
 }
