@@ -1,6 +1,7 @@
 package com.revdoc;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -64,6 +65,7 @@ public class RevdocScheduleApplicationTests {
 		when(doctorDao.findAllDoctors()).thenReturn(list);
 		//when(doctorDao.findAllDoctors()).thenReturn(Stream.of(d1, d2).collect(Collectors.toList()));
 		 assertEquals(1, searchdoctor.getAllDoctors().size());
+		 assertNotEquals(2,searchdoctor.getAllDoctors().size());
 		// doctorDao.
 	}
 	
@@ -80,7 +82,7 @@ public class RevdocScheduleApplicationTests {
 		list.add(st4);
 		when(specialtyTypeDao.findAll()).thenReturn(list);
 		assertEquals(4, searchdoctor.getAllSpecialtyType().size());
-		
+		assertNotEquals(7, searchdoctor.getAllSpecialtyType().size());
 	}
 	
 	@Test
@@ -100,6 +102,8 @@ public class RevdocScheduleApplicationTests {
 		
 		when(insuranceTypeDao.findAll()).thenReturn(list);
 		assertEquals(4, searchdoctor.getAllInsuranceType().size());
+		assertNotEquals(5, searchdoctor.getAllInsuranceType().size());
+		
 	}
 	
 	@Test
@@ -116,6 +120,7 @@ public class RevdocScheduleApplicationTests {
 		list.add(ct4);
 		when(conditionTypeDao.findAll()).thenReturn(list);
 		assertEquals(4, searchdoctor.getAllConditionType().size());
+		assertNotEquals(3, searchdoctor.getAllConditionType().size());
 		
 	}
 
