@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Feedback } from '../revdoc-classes/feedback';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,6 +15,9 @@ import { Doctor } from '../revdoc-classes/doctor';
 })
 export class DoctorFeedbackComponent implements OnInit {
 
+  //These will be used to grab objects fom active session
+  // @Input() doctor:Doctor;
+  // @Input() user:RevAssociate;
   feedback: Feedback;
 
   constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
@@ -42,14 +45,15 @@ export class DoctorFeedbackComponent implements OnInit {
      //dummy value, no session stored
 
     console.log(this.feedback);
-    console.log(comments);
+    
     console.log(this.feedback.comments);
 
     alert("Thank you for your feedback!")
     this.doctorInfoService.rateDoctor(this.feedback);
+    
   }
 
-  //dynamically changes background image from blank star to orange star.
+  //dynamically changes star color from white to orange.
   BedsideManners = new FormControl(null, Validators.required);
 
   toggleBM() {

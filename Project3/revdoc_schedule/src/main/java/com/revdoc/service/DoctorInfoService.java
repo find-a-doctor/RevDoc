@@ -30,4 +30,12 @@ public interface DoctorInfoService {
 
 	public Doctor updateFollowers(long npi);
 	
+	public boolean isFollowing(long npi, String revassociate);
+	
+//	public List<Followers> allFollowers();
+//	
+//	public Followers followDoctor(Followers followers);
+//
+//	public void unfollowDoctor(long followerId);
+	
 }
