@@ -14,12 +14,9 @@ import com.revdoc.dao.SpecialtyDAO;
 import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
-<<<<<<< Updated upstream
 import com.revdoc.model.Insurance;
 import com.revdoc.model.Specialty;
-=======
 import com.revdoc.model.Followers;
->>>>>>> Stashed changes
 import com.revdoc.service.DoctorInfoService;
 
 @Service
@@ -64,7 +61,7 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 	}
 	// returns all feedback for all doctors
 
-<<<<<<< Updated upstream
+
 	@Override
 	public List<Feedback> getAllFeedback(long npi) {
 		return fbDao.getAll(npi);
@@ -86,12 +83,6 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 	public List<Conditions> getConditions(long npi) {
 		return cDao.getConditions(npi);
 	}
-=======
-//	@Override
-//	public boolean isFollowing(long npi, String revassociate) {
-//		int follow=flDao.isFollowing(npi, revassociate);
-//		return (follow!=0);
-//	}
 
 	@Override
 	public Doctor getDoctorByNpi(long npi) {
@@ -110,17 +101,20 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 		return(followingList.size()!=0);
 	}
 
-//	@Override
-//	public boolean isFollowing(long npi) {
-//		return(flDao.isFollowing(npi).size()!=0);
-//	}
+	@Override
+	public Followers followDoctor(Followers followers) {
+		return flDao.save(followers);
+	}
 
+	@Override
+	public void unfollowDoctor(long followerId) {
+		// TODO Auto-generated method stub
+		flDao.deleteById(followerId);
+	}
 
-	
 //	@Override
 //	public List<Feedback> getAllFeedback(long npi) {
 //		return fbDao.getAll(npi);
 //	}
->>>>>>> Stashed changes
 
 }

@@ -1,11 +1,11 @@
-<div *ngIf="isFollowing; then unfollowButton else followButton">
-</div>
+<input type="checkbox" data-toggle="toggle" data-on="FOLLOW" data-off="UNFOLLOW">
+<input type="checkbox" id="toggle-two">
 
-<ng-template #followButton>
-<button class="button is-info" (click)="toggleFollow()">FOLLOW</button>
-</ng-template>
-
-<ng-template #unfollowButton>
-<button class="button is-warning" (click)="toggleFollow()">UNFOLLOW</button>
-</ng-template>
-<script src="../../assets/js/follow.js"></script>
+<script>
+  $(function() {
+    $('#toggle-two').bootstrapToggle({
+      on: 'FOLLOW',
+      off: 'UNFOLLOW'
+    });
+  })
+</script>

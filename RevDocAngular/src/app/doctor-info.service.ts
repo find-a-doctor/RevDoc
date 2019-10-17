@@ -14,12 +14,16 @@ export class DoctorInfoService {
   doctorUrl: string;
   getAllUrl: string;
   followingUrl: string;
+  followUrl: string;
+  getAllFollowersUrl: string;
 
   constructor(private http: HttpClient, private router: Router) {
     this.baseUrl = "http://localhost:1000/";
     this.doctorUrl = this.baseUrl + "doctor/";
     this.getAllUrl = this.baseUrl + "doctors";
-    this.followingUrl = this.baseUrl +"following/"
+    this.followingUrl = this.baseUrl + "following/"
+    this.followUrl = this.baseUrl + "follow/"
+    this.getAllFollowersUrl = this.baseUrl + "allFollowers";
 
 
    }
@@ -34,6 +38,18 @@ export class DoctorInfoService {
 
   public isFollowing(npi: number, revassociate: string): Observable<boolean> {
     return this.http.get<boolean>(this.followingUrl+npi+"/"+revassociate);
+  }
+
+  public followDoctor(followers:Followers): Observable<Followers> {
+    return this.http.post<Followers>(this.followUrl, followers);
+  }
+
+  public unfollowDoctor(followerId){
+    return this.http.delete<Followers>(this.followUrl+followerId);
+  }
+
+  public getAllFollowers(): Observable<Followers[]> {
+    return this.http.get<Followers[]>(this.getAllFollowersUrl);
   }
 
 }
