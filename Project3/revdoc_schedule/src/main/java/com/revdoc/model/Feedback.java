@@ -35,9 +35,10 @@ public class Feedback implements Serializable{
 	@Id
 	@GeneratedValue(generator = "feedback_gen")
 	private long feedbackId;
-	private float bedsideMannerRating; 
+	private float bedsideMannerRating; // ex: 1.5 is 1 hour 30 minutes
 	private float waitTimeRating;
-	private float overallRating;
+	//This is for dislike/like
+	private boolean overallRating;
 	private String comments;
 	@OneToOne//(cascade = {CascadeType.ALL})
 	private Appointment appointment;
