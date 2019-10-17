@@ -16,8 +16,8 @@ import { Doctor } from '../revdoc-classes/doctor';
 export class DoctorFeedbackComponent implements OnInit {
 
   //These will be used to grab objects fom active session
-  // @Input() doctor:Doctor;
-  // @Input() user:RevAssociate;
+   @Input() doctor:Doctor;
+   @Input() user:RevAssociate;
   feedback: Feedback;
 
   constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
@@ -36,15 +36,17 @@ export class DoctorFeedbackComponent implements OnInit {
     this.feedback.overallRating = this.Overall.value;
     this.feedback.comments= comments;
     this.feedback.appointment = new Appointment();
-    this.feedback.appointment.doctor = new Doctor();
+    this.feedback.appointment.doctor = this.doctor;
     this.route.url.subscribe(data => {
       this.feedback.appointment.doctor.npi = Number(data[1].path);
     })
-    this.feedback.appointment.revAssociate = new RevAssociate();
-    this.feedback.appointment.revAssociate.revAssociateEmail = "MrDuckworth@QuackQuack.com";
+    this.feedback.appointment.revAssociate = this.user;
+    // this.feedback.appointment.revAssociate.revAssociateEmail = "MrDuckworth@QuackQuack.com";
      //dummy value, no session stored
 
     console.log(this.feedback);
+    console.log("This is the doctor: "+this.doctor );
+    console.log("This is the user: "+this.user);
     
     console.log(this.feedback.comments);
 
