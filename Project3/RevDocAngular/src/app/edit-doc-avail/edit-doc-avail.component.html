@@ -1,0 +1,34 @@
+<form (ngSubmit)="setAvailability()" #registerForm="ngForm">
+    <div id="method">
+        <input type="radio" name="method" [(ngModel)]="method" value="update">Update Availability<br/>
+        <input type="radio" name="method" [(ngModel)]="method" value="remove">Remove Availability<br/>
+    </div>
+    <div id="day">
+        Please select a date<br/>
+        (If you would like to make a weekly change, please leave this empty)<br/>
+        <input name="date" [(ngModel)]="availabilityInput.date" (change)="validate()" type="date"> <br/>
+        Please select a day of the week <br/>
+        (This field is only necessary if the above date is left empty) <br/>
+        <select name="day" [(ngModel)]="availability.day" (change)="validate()">
+            <option value="2019-10-14" selected>Monday</option>
+            <option value="2019-10-15">Tuesday</option>
+            <option value="2019-10-16">Wednesday</option>
+            <option value="2019-10-17">Thursday</option>
+            <option value="2019-10-18">Friday</option>
+            <option value="2019-10-19">Saturday</option>
+            <option value="2019-10-20">Sunday</option>
+        </select>
+    </div>
+    <div id="time">
+        Please provide a start time<br/>
+        <input name="start" [(ngModel)]="availabilityInput.start" (change)="validate()" type="time" required><br/>
+        <br/>
+        Please provide an end time <br/>
+        (End time must be after start time) <br/>
+        <input name="end" [(ngModel)]="availabilityInput.end" (change)="validate()" type="time" required><br/>
+    </div>
+    Valid start and end times are required to continue <br/>
+    <div *ngIf="valid" id="submit">
+        <input id="submit" type="submit" value="Set Availability">
+    </div>
+</form>
