@@ -1,80 +1,80 @@
-<div class="form-group" id="rating-wrapper">
-    <label class="control-label" for="rating">
-        <span class="field-label-header">How would you rate your most recent appointment with this doctor?</span><br>
-        <span class="field-label-info"></span> <br /> <br />
-    </label>
-    <form (ngSubmit)="rateDoctor(Comment)">
+<div>
+    <div class="form-group" id="rating-wrapper">
+        <label class="control-label" for="rating">
+            <span class="field-label-header">How would you rate your most recent appointment with this
+                doctor?</span><br />
+            <span class="field-label-info"></span> <br /> <br />
+        </label>
+        <form (ngSubmit)="rateDoctor(Comment)">
 
-        <table id="ratings_table">
+            <table id="ratings_table">
+                <tr>
+                    <td>
 
-            <tr>
-                <td>
+                    </td>
 
-                </td>
-
-            <tr>
-                <td>
-                    <pre>Bedside Manners Rating: <b>{{ BedsideManners.value }}</b></pre>
-                    <div class="form-group">
-                        <ngb-rating [formControl]="BedsideManners" max=5>
-                            <ng-template let-fill="fill" let-index="index">
-                                <span class="stars" [class.filled]="fill === 100">&#9733;</span>
-                            </ng-template>
-                        </ngb-rating>
-                        <div class="form-text small">
+                <tr>
+                    <td>
+                        <pre>Bedside Manners Rating: <b>{{ BedsideManners.value }}</b></pre>
+                        <div class="form-group">
+                            <ngb-rating [formControl]="BedsideManners" max=5>
+                                <ng-template let-fill="fill" let-index="index">
+                                    <span class="stars" [class.filled]="fill === 100">&#9733;</span>
+                                </ng-template>
+                            </ngb-rating>
+                            <div class="form-text small">
+                            </div>
                         </div>
-                    </div>
-                    <hr>
+                        <hr>
 
 
-                </td>
+                    </td>
 
-            </tr>
-            <tr>
-                <td>
-                    <pre>Wait Time Rating: <b>{{WaitTime.value}}</b></pre>
-                    <div class="form-group">
-                        <ngb-rating [formControl]="WaitTime" max=5>
-                            <ng-template let-fill="fill" let-index="index">
-                                <span class="stars" [class.filled]="fill === 100">&#9733;</span>
-                            </ng-template>
-                        </ngb-rating>
-                        <div class="form-text small">
+                </tr>
+                <tr>
+                    <td>
+                        <pre>Wait Time Rating: <b>{{WaitTime.value}}</b></pre>
+                        <div class="form-group">
+                            <ngb-rating [formControl]="WaitTime" max=5>
+                                <ng-template let-fill="fill" let-index="index">
+                                    <span class="stars" [class.filled]="fill === 100">&#9733;</span>
+                                </ng-template>
+                            </ngb-rating>
+                            <div class="form-text small">
+                            </div>
                         </div>
-                    </div>
-                    <hr>
+                        <hr>
 
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <pre>Overall Rating: <b>{{Overall.value}}</b></pre>
-                    <div class="form-group">
-                        <ngb-rating [formControl]="Overall" max=5>
-                            <ng-template let-fill="fill" let-index="index">
-                                <span class="stars" [class.filled]="fill === 100">&#9733;</span>
-                            </ng-template>
-                        </ngb-rating>
-                        <div class="form-text small">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <pre>Overall Rating: <b>{{Overall.value}}</b></pre>
+                        <div class="form-group">
+                            <ngb-rating [formControl]="Overall" max=5>
+                                <ng-template let-fill="fill" let-index="index">
+                                    <span class="stars" [class.filled]="fill === 100">&#9733;</span>
+                                </ng-template>
+                            </ngb-rating>
+                            <div class="form-text small">
+                            </div>
                         </div>
-                    </div>
-                    <hr>
+                        <hr>
 
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div>
-                        <textarea class="form-control" rows="5" [(ngModel)]="Comment" ng-model="Comment"
-                            placeholder="Your Comment" name="comment"></textarea>
-                    </div>
-                </td>
-            </tr>
-        </table>
-
-
-        <button id="submit" type="submit" value="submit">Submit</button>
-    </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <textarea class="form-control" rows="5"  [(ngModel)]="Comment"
+                                placeholder="Comment" name="comment"></textarea>
+                        </div>
+                    </td>
+                </tr>
+            </table>
 
 
+            <button id="submit" type="submit" value="submit">Submit</button>
+        </form>
+    </div>
 </div>

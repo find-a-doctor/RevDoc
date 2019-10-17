@@ -1,81 +1,88 @@
-import { Component, OnInit } from 'node_modules/@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Feedback } from '../revdoc-classes/feedback';
-import {FormControl, Validators} from '@angular/forms';
-import { ActivatedRoute, Router } from 'node_modules/@angular/router';
-
-
+import { FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgbRating } from '@ng-bootstrap/ng-bootstrap';
+import { DoctorInfoService } from '../doctor-info.service';
+import { RevAssociate } from '../revdoc-classes/rev-associate';
+import { Appointment } from '../revdoc-classes/appointment';
+import { Doctor } from '../revdoc-classes/doctor';
 
 @Component({
   selector: 'app-doctor-feedback',
   templateUrl: './doctor-feedback.component.html',
-  styleUrls: ['./doctor-feedback.component.css'],
-  styles: [`
-  .stars {
-    font-size: 3rem;
-    color: white;
-  }
-  .filled {
-    color: #F26925;
-  }
-  
-`]
+  styleUrls: ['./doctor-feedback.component.css']
 })
 export class DoctorFeedbackComponent implements OnInit {
 
   feedback: Feedback;
-  // constructor(feeback: Feedback) { }
+
+  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
+
 
   ngOnInit() {
-    this.feedback=new Feedback();
+    console.log(this.route);
+    this.feedback = new Feedback();
   }
-
 
   //Collects ratings and comment from user to create a feedback object then sends an alert to user that the feedback has been recieved.
-  rateDoctor( Comment : string){
-    
-    this.feedback.bedsideMannerRating= this.BedsideManners.value;
-    this.feedback.waitTimeRating=this.WaitTime.value;
-    this.feedback.overallRating=this.Overall.value;
-    this.feedback.comments=Comment;
-    
+  rateDoctor(comments : string) {
+
+    this.feedback.bedsideMannerRating = this.BedsideManners.value;
+    this.feedback.waitTimeRating = this.WaitTime.value;
+    this.feedback.overallRating = this.Overall.value;
+    this.feedback.comments= comments;
+    this.feedback.appointment = new Appointment();
+    this.feedback.appointment.doctor = new Doctor();
+    this.route.url.subscribe(data => {
+      this.feedback.appointment.doctor.npi = Number(data[1].path);
+    })
+    this.feedback.appointment.revAssociate = new RevAssociate();
+    this.feedback.appointment.revAssociate.revAssociateEmail = "MrDuckworth@QuackQuack.com";
+     //dummy value, no session stored
+
     console.log(this.feedback);
+    console.log(comments);
+    console.log(this.feedback.comments);
+
     alert("Thank you for your feedback!")
+    this.doctorInfoService.rateDoctor(this.feedback);
   }
 
-//dynamically changes background image from blank star to orange star.
-BedsideManners = new FormControl(null, Validators.required);
+  //dynamically changes background image from blank star to orange star.
+  BedsideManners = new FormControl(null, Validators.required);
 
-toggleBM() {
-  if (this.BedsideManners.disabled) {
-    this.BedsideManners.enable();
-  
-  } else {
-    this.BedsideManners.disable();
+  toggleBM() {
+    if (this.BedsideManners.disabled) {
+      this.BedsideManners.enable();
+
+    } else {
+      this.BedsideManners.disable();
+    }
   }
-}
 
-WaitTime =new FormControl(null, Validators.required);
+  WaitTime = new FormControl(null, Validators.required);
 
-toggleWT() {
-  if (this.WaitTime.disabled) {
-    this.WaitTime.enable();
-  } else {
-    this.WaitTime.disable();
+  toggleWT() {
+    if (this.WaitTime.disabled) {
+      this.WaitTime.enable();
+    } else {
+      this.WaitTime.disable();
+    }
   }
-}
 
-Overall = new FormControl(null,  Validators.required);
+  Overall = new FormControl(null, Validators.required);
 
-toggleOV() {
-  if (this.Overall.disabled) {
-    this.Overall.enable();
-    
+  toggleOV() {
+    if (this.Overall.disabled) {
+      this.Overall.enable();
 
-  } else {
-    this.Overall.disable();
-    
+
+    } else {
+      this.Overall.disable();
+
+    }
   }
-}
 
 
 }
