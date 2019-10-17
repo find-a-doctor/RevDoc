@@ -32,8 +32,9 @@ export class FollowDoctorComponent implements OnInit {
     this.followers=new Followers();
     //dummy user, hardcoded for pre-integrations
     this.followers.revAssociate = new RevAssociate();
-    this.followers.revAssociate.revAssociateEmail="sampleuser@revature.com";
+    this.followers.revAssociate.revAssociateEmail="samplemcuser@revature.com";
     this.followers.revAssociate.revAssociateName="Sample McUser";
+    this.followers.revAssociate.revAssociatePassword="password";
 
     //doctor found from url, added to blank doctor
     this.followers.doctor=new Doctor();
@@ -46,6 +47,9 @@ export class FollowDoctorComponent implements OnInit {
       this.followers.doctor = data;
     })
     this.followers.followersId=0;
+
+    this.followers.followDate=new Date();
+    this.followers.followDate.setDate(17);
 
 
     //check if revassoc is following this doc
@@ -70,7 +74,8 @@ export class FollowDoctorComponent implements OnInit {
       this.doctorInfoService.followDoctor(this.followers).subscribe(data => {
         console.log("data:");
         console.log(data);
-        this.followersId = data.followersId;
+        // this.followers.followersId = data.followersId;
+        this.followers=data;
         console.log("just tried to follow: followers object:");
         console.log(this.followers);
         //adds the followersId
@@ -79,7 +84,7 @@ export class FollowDoctorComponent implements OnInit {
     } else {
       this.doctorInfoService.unfollowDoctor(this.followers.followersId).subscribe(data => {
         this.isSubmitting = false;
-        this.isFollowing
+        this.isFollowing = false;
         // this.onToggle.emit(false);
       }, error => this.isSubmitting = false);
     }
