@@ -7,6 +7,7 @@ import { Feedback } from './revdoc-classes/feedback';
 import { Insurance } from './revdoc-classes/insurance';
 import { Specialty } from './revdoc-classes/specialty';
 import { Conditions } from './revdoc-classes/conditions';
+import { Followers } from './revdoc-classes/followers';
 
 
 @Injectable({
@@ -19,12 +20,18 @@ export class DoctorInfoService {
   doctorUrl:string;
   getAllUrl:string;
   allRatingsUrl:string;
+  followingUrl: string;
+  followUrl: string;
+  getAllFollowersUrl: string;
 
   constructor(private http:HttpClient, private router:Router) {
     this.baseUrl="http://localhost:1000/";
     this.doctorUrl=this.baseUrl+"doctor/";
     this.getAllUrl=this.baseUrl+"doctors";
-    this.allRatingsUrl=this.baseUrl+"allRatings/"
+    this.allRatingsUrl=this.baseUrl+"allRatings/";
+    this.followingUrl = this.baseUrl + "following/";
+    this.followUrl = this.baseUrl + "follow/";
+    this.getAllFollowersUrl = this.baseUrl + "allFollowers";
 
 
    }
@@ -53,4 +60,19 @@ export class DoctorInfoService {
      return this.http.get<Conditions[]>(this.doctorUrl+npi+"/conditions");
    }
 
+   public isFollowing(npi: number, revassociate: string): Observable<boolean> {
+    return this.http.get<boolean>(this.followingUrl+npi+"/"+revassociate);
+  }
+
+  public followDoctor(followers:Followers): Observable<Followers> {
+    return this.http.post<Followers>(this.followUrl, followers);
+  }
+
+  public unfollowDoctor(followerId){
+    return this.http.delete<Followers>(this.followUrl+followerId);
+  }
+
+  public getAllFollowers(): Observable<Followers[]> {
+    return this.http.get<Followers[]>(this.getAllFollowersUrl);
+  }
 }

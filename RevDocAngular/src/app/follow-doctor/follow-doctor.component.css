@@ -1,6 +1,4 @@
 button{
-    width:200px;
-    height:50px;
     padding-left: 10px;
     padding-right: 10px;
     font-family: 'Lato', sans-serif;
@@ -14,32 +12,10 @@ button{
     color: white;
   }
   
-  button .msg-follow,
-  button .msg-following,
-  button .msg-unfollow{
-    display: none;
+  Button:hover {
+  background-color: white;
+  color: #F26925;
+  border-width: 4px;
   }
-  
-  button .msg-follow{
-    display: inline;
-  }
-  
-  button.follow .msg-follow{
-    display: none;
-  }
-  
-  
-  button.follow .msg-following{
-    display: inline;
-  }
-  
-  
-  button.following:not(.wait):hover .msg-following{
-    display: none;
-  }
-  
-  
-  button.following:not(.wait):hover .msg-unfollow{
-    display: inline;
-  }
+
   
