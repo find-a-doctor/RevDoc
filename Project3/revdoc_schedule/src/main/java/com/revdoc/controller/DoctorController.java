@@ -68,6 +68,26 @@ public class DoctorController {
 	public Doctor updateDoctor(@PathVariable long npi) {
 		return service.updateFollowers(npi);
 	}
+	
+	@GetMapping("/following/{npi}/{revassociate}")
+	public boolean isFollowing(@PathVariable long npi, @PathVariable String revassociate) {
+		return service.isFollowing(npi,revassociate);
+	}
+
+//	@GetMapping("/allFollowers")
+//	public List<Followers> getAllFollowers(){
+//		return service.allFollowers();
+//	}
+//	
+//	@PostMapping("/follow")
+//	public Followers followDoctor(@RequestBody Followers followers) {
+//		return service.followDoctor(followers);
+//	}
+//	
+//	@DeleteMapping("/follow/{followerId}")
+//	public void unfollowDoctor(@PathVariable long followerId) {
+//		service.unfollowDoctor(followerId);
+//	}
 
 	
 	

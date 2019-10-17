@@ -14,6 +14,7 @@ import com.revdoc.dao.SpecialtyDAO;
 import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
+import com.revdoc.model.Followers;
 import com.revdoc.model.Insurance;
 import com.revdoc.model.Specialty;
 import com.revdoc.service.DoctorInfoService;
@@ -89,5 +90,27 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 		doctor.setNumberOfFollowers(numberOfFollowers);
 		return doctor;
 	}
+	
+//	@Override
+//	public List<Followers> allFollowers() {
+//		return flDao.findAll();
+//	}
+
+	@Override
+	public boolean isFollowing(long npi, String revassociate) {
+		List<Followers> followingList=flDao.isFollowing(npi, revassociate);
+		return(followingList.size()!=0);
+	}
+//
+//	@Override
+//	public Followers followDoctor(Followers followers) {
+//		return flDao.save(followers);
+//	}
+//
+//	@Override
+//	public void unfollowDoctor(long followerId) {
+//		// TODO Auto-generated method stub
+//		flDao.deleteById(followerId);
+//	}
 
 }
