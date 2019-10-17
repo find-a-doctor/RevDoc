@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
+import com.revdoc.model.Followers;
 import com.revdoc.model.Insurance;
 import com.revdoc.model.Specialty;
 import com.revdoc.service.DoctorInfoService;
@@ -74,20 +76,20 @@ public class DoctorController {
 		return service.isFollowing(npi,revassociate);
 	}
 
-//	@GetMapping("/allFollowers")
-//	public List<Followers> getAllFollowers(){
-//		return service.allFollowers();
-//	}
-//	
-//	@PostMapping("/follow")
-//	public Followers followDoctor(@RequestBody Followers followers) {
-//		return service.followDoctor(followers);
-//	}
-//	
-//	@DeleteMapping("/follow/{followerId}")
-//	public void unfollowDoctor(@PathVariable long followerId) {
-//		service.unfollowDoctor(followerId);
-//	}
+	@GetMapping("/allFollowers")
+	public List<Followers> getAllFollowers(){
+		return service.allFollowers();
+	}
+	
+	@PostMapping("/follow/")
+	public Followers followDoctor(@RequestBody Followers followers) {
+		return service.followDoctor(followers);
+	}
+	
+	@DeleteMapping("/follow/{followerId}")
+	public void unfollowDoctor(@PathVariable long followerId) {
+		service.unfollowDoctor(followerId);
+	}
 
 	
 	

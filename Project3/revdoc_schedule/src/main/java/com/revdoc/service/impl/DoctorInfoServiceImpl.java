@@ -22,6 +22,8 @@ import com.revdoc.service.DoctorInfoService;
 @Service
 public class DoctorInfoServiceImpl implements DoctorInfoService {
 
+	
+
 	@Autowired
 	private DoctorDAO dDao;
 
@@ -91,26 +93,28 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 		return doctor;
 	}
 	
-//	@Override
-//	public List<Followers> allFollowers() {
-//		return flDao.findAll();
-//	}
+	@Override
+	public List<Followers> allFollowers() {
+		return flDao.findAll();
+	}
 
 	@Override
 	public boolean isFollowing(long npi, String revassociate) {
 		List<Followers> followingList=flDao.isFollowing(npi, revassociate);
 		return(followingList.size()!=0);
 	}
-//
-//	@Override
-//	public Followers followDoctor(Followers followers) {
-//		return flDao.save(followers);
-//	}
-//
-//	@Override
-//	public void unfollowDoctor(long followerId) {
-//		// TODO Auto-generated method stub
-//		flDao.deleteById(followerId);
-//	}
+
+	@Override
+	public Followers followDoctor(Followers followers) {
+		System.out.println(followers);
+		return flDao.save(followers);
+	}
+
+	@Override
+	public void unfollowDoctor(long followerId) {
+		flDao.deleteById(followerId);
+	}
+
+
 
 }

@@ -64,11 +64,15 @@ export class DoctorInfoService {
     return this.http.get<boolean>(this.followingUrl+npi+"/"+revassociate);
   }
 
+  newFl:Followers;
   public followDoctor(followers:Followers): Observable<Followers> {
-    return this.http.post<Followers>(this.followUrl, followers);
+    // console.log(followers);
+    // this.newFl= this.http.post<Followers>(this.followUrl, {followers});
+    // console.log(this.newFl);
+    return this.http.post<Followers>(this.followUrl, {followers});
   }
 
-  public unfollowDoctor(followerId){
+  public unfollowDoctor(followerId:number){
     return this.http.delete<Followers>(this.followUrl+followerId);
   }
 

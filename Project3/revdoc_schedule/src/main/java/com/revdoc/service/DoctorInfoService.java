@@ -6,6 +6,7 @@ import java.util.List;
 import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
+import com.revdoc.model.Followers;
 import com.revdoc.model.Insurance;
 import com.revdoc.model.Specialty;
 
@@ -32,10 +33,10 @@ public interface DoctorInfoService {
 	
 	public boolean isFollowing(long npi, String revassociate);
 	
-//	public List<Followers> allFollowers();
-//	
-//	public Followers followDoctor(Followers followers);
-//
-//	public void unfollowDoctor(long followerId);
+	public List<Followers> allFollowers();
+	
+	public Followers followDoctor(Followers followers);
+
+	public void unfollowDoctor(long followerId);
 	
 }

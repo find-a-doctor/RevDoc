@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.revdoc.model.Followers;
-
+import com.revdoc.model.*;
 @Repository
 public interface FollowersDAO extends JpaRepository<Followers, Long> {
 

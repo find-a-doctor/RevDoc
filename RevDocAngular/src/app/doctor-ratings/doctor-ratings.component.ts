@@ -45,9 +45,9 @@ export class DoctorRatingsComponent implements OnInit {
         wt+=fb.waitTimeRating;
       })
 
-      console.log(ov)
-      console.log(bm)
-      console.log(wt)
+      // console.log(ov)
+      // console.log(bm)
+      // console.log(wt)
 
       this.overall=ov;
       this.bedsideManner=(bm/ov);
