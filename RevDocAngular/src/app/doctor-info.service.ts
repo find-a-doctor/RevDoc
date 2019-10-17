@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { ConditionType } from './revdoc-classes/condition-type';
 import { SpecialtyType } from './revdoc-classes/specialty-type';
 import { InsuranceType } from './revdoc-classes/insurance-type';
-import { Location } from './revdoc-classes/Location';
+import { Location } from './revdoc-classes/location';
+import { Doctor } from './revdoc-classes/doctor';
 
 
 @Injectable({
@@ -18,6 +19,7 @@ export class DoctorInfoService {
   private getAllSpecialtyUrl: string;
   private getAllInsuranceUrl: string;
   private getLocationByIdUrl: string;
+  private getDoctorByIdUrl: string;
 
   constructor(private http: HttpClient) {
     this.searchDoctorUrl = "http://localhost:9000/searchDoctor/";
@@ -26,6 +28,7 @@ export class DoctorInfoService {
     this.getAllSpecialtyUrl = "http://localhost:9000/specialtyTypes";
     this.getAllInsuranceUrl = "http://localhost:9000/insuranceTypes";
     this.getLocationByIdUrl = "http://localhost:9000/location/";
+    this.getDoctorByIdUrl = "http://localhost:9000/doctor/";
   }
 
   public searchDoctor(search: string) {
@@ -49,5 +52,9 @@ export class DoctorInfoService {
  
   public getLocationById(id: number){
     return this.http.get<Location>(this.getLocationByIdUrl+id);
+  }
+
+  public getDoctorById(id: number){
+    return this.http.get<Doctor>(this.getDoctorByIdUrl+id);
   }
 }

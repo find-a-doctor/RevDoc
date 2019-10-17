@@ -1,8 +1,9 @@
 import { Component, ViewChild, AfterViewInit, OnInit, ElementRef } from '@angular/core';
 import { jqxSchedulerComponent } from 'jqwidgets-ng/jqxscheduler';
 import { DoctorInfoService } from '../doctor-info.service';
-import { Location } from '../revdoc-classes/Location';
-import { ActivatedRoute } from '@angular/router';
+import { Location } from '../revdoc-classes/location';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Doctor } from '../revdoc-classes/doctor';
 
 @Component({
     selector: 'appointment-calendar',
@@ -14,19 +15,20 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     @ViewChild('schedulerReference', { static: false }) scheduler: jqxSchedulerComponent;
     //   @ViewChild('myLog', {static: false}) myLog: ElementRef;
 
-
-    //This for get URI from url:  private sub: any;
-    //private route: ActivatedRoute
     id: number;
-    location: Location;
+  //  location: Location;
+    doctor: Doctor;
+    //This for get URI from url:
+    private sub: any;
 
-    constructor(private appointmentCalendarService: DoctorInfoService, private route: ActivatedRoute) {
+    constructor(private appointmentCalendarService: DoctorInfoService, private route: ActivatedRoute, private router: Router) {
         //GET location information by ID
         //   this.sub = this.route.params.subscribe(params => {
         //     this.id = params['id']; // +params['id'];  (+) converts string 'id' to a number
         //   });
         // this.id = 10001;
-        this.location = new Location();
+    //    this.location = new Location();
+        this.doctor = new Doctor();
         // this.appointmentCalendarService.getLocationById(this.id).subscribe(data => {
         //     console.log("Test Location: " + data.address);
         //     this.location = data;
@@ -36,13 +38,25 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        this.id = 10001;
-        //   this.location = new Location();
-        this.appointmentCalendarService.getLocationById(this.id).subscribe(data => {
-            console.log("Test Location: " + data.address);
-            this.location = data;
-            console.log("Test Location: " + this.location.locationName);
+        this.sub = this.route.params.subscribe(params => {
+            this.id = +params['id']; // +params['id'];  (+) converts string 'id' to a number
+            if(this.id == undefined || this.id == null || this.id+"" == 'NaN' || this.id < 1000000001){
+                this.id = 1000000001; // set the default doctor for exception
+            }
+            console.log("Test doctor ID = "+this.id);
+            //   this.location = new Location();
+        //     this.appointmentCalendarService.getLocationById(this.id).subscribe(data => {
+        //     //    console.log("Test Location: " + data.address);
+        //         this.location = data;
+        //    //     console.log("Test Location: " + this.location.locationName);
+        //     });
+            this.appointmentCalendarService.getDoctorById(this.id).subscribe(data =>{
+                this.doctor = data;
+            });
         });
+       
+
+        
     }
 
     ngAfterViewInit(): void {
@@ -218,20 +232,21 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         //fields..hide();
 
         fields.subjectLabel.html("Doctor Name");
-      //  fields.subject.val("Doctor name here");
+        fields.subject.val(this.doctor.doctorName);
       
         fields.subject.prop("readonly",true);
       //  fields.subject.setOptions({ disabled: false });
         //fields.subject. ="Name of doctor here";
         fields.locationLabel.html("Location");
-        fields.location.val(this.location.locationName);
+        fields.location.val(this.doctor.location.locationName );
+      //  fields.location.val(this.location.locationName);
         fields.location.prop("readonly",true);
 
         fields.descriptionLabel.html("Address");
-        fields.description.val(this.location.address);
+        fields.description.val(this.doctor.location.address);
         fields.description.prop("readonly",true);
         //   fields.al
-        console.log("Print Location of doctor: " + this.location.locationName + " -- " + this.location.address);
+        console.log("Print Location of doctor: " + this.doctor.location.locationName + " -- " + this.doctor.location.address);
 
 
         fields.fromLabel.html("Date");

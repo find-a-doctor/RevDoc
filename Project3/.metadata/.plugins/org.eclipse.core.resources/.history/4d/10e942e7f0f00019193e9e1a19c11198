@@ -26,6 +26,7 @@ public class AppointmentCalendarImpl implements AppointmentCalendarService {
 
 	@Override
 	public Doctor getDoctorById(long id) {
+		// TODO Auto-generated method stub
 		return doctorDao.findById(id).get();
 	}
 
