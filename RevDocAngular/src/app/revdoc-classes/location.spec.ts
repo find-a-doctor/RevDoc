@@ -1,4 +1,4 @@
-import { Location } from './Location';
+import { Location } from './location';
 
 describe('Location', () => {
   it('should create an instance', () => {

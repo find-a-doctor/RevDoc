@@ -32,7 +32,8 @@ public interface DoctorDAO  extends JpaRepository<Doctor, Long>{
 			+ "or lower(Location.city) like :search "
 			+ "or lower(Location.address) like :search "
 			+ "or lower(insurance_type.insurance_name) like :search "
-			+ "or lower(Specialty_type.specialty_name) like :search )"
+			+ "or lower(Specialty_type.specialty_name) like :search "
+			+ "or lower(Condition_type.condition_name) like :search ) "
 			+ "group by Doctor.npi", nativeQuery = true)
 	List<Object[]> generalSearchDoctor(@Param("search") String search);
 	

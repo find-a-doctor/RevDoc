@@ -1,8 +1,9 @@
 import { Component, ViewChild, AfterViewInit, OnInit, ElementRef } from '@angular/core';
 import { jqxSchedulerComponent } from 'jqwidgets-ng/jqxscheduler';
 import { DoctorInfoService } from '../doctor-info.service';
-import { Location } from '../revdoc-classes/Location';
-import { ActivatedRoute } from '@angular/router';
+import { Location } from '../revdoc-classes/location';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Doctor } from '../revdoc-classes/doctor';
 
 @Component({
     selector: 'appointment-calendar',
@@ -12,21 +13,22 @@ import { ActivatedRoute } from '@angular/router';
 export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
 
     @ViewChild('schedulerReference', { static: false }) scheduler: jqxSchedulerComponent;
- //   @ViewChild('myLog', {static: false}) myLog: ElementRef;
+    //   @ViewChild('myLog', {static: false}) myLog: ElementRef;
 
-
-    //This for get URI from url:  private sub: any;
-    //private route: ActivatedRoute
     id: number;
-    location: Location;
+  //  location: Location;
+    doctor: Doctor;
+    //This for get URI from url:
+    private sub: any;
 
-    constructor(private appointmentCalendarService: DoctorInfoService, private route: ActivatedRoute) {
+    constructor(private appointmentCalendarService: DoctorInfoService, private route: ActivatedRoute, private router: Router) {
         //GET location information by ID
         //   this.sub = this.route.params.subscribe(params => {
         //     this.id = params['id']; // +params['id'];  (+) converts string 'id' to a number
         //   });
         // this.id = 10001;
-            this.location = new Location();
+    //    this.location = new Location();
+        this.doctor = new Doctor();
         // this.appointmentCalendarService.getLocationById(this.id).subscribe(data => {
         //     console.log("Test Location: " + data.address);
         //     this.location = data;
@@ -35,14 +37,26 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         // console.log("Print Location of doctor: " + this.location.locationName + " -- " + this.location.address);
     }
 
-    ngOnInit(){
-        this.id = 10001;
-     //   this.location = new Location();
-     this.appointmentCalendarService.getLocationById(this.id).subscribe(data => {
-         console.log("Test Location: " + data.address);
-         this.location = data;
-         console.log("Test Location: " + this.location.locationName);
-     });
+    ngOnInit() {
+        this.sub = this.route.params.subscribe(params => {
+            this.id = +params['id']; // +params['id'];  (+) converts string 'id' to a number
+            if(this.id == undefined || this.id == null || this.id+"" == 'NaN' || this.id < 1000000001){
+                this.id = 1000000001; // set the default doctor for exception
+            }
+            console.log("Test doctor ID = "+this.id);
+            //   this.location = new Location();
+        //     this.appointmentCalendarService.getLocationById(this.id).subscribe(data => {
+        //     //    console.log("Test Location: " + data.address);
+        //         this.location = data;
+        //    //     console.log("Test Location: " + this.location.locationName);
+        //     });
+            this.appointmentCalendarService.getDoctorById(this.id).subscribe(data =>{
+                this.doctor = data;
+            });
+        });
+       
+
+        
     }
 
     ngAfterViewInit(): void {
@@ -68,7 +82,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
 
     // This will store the available table from db to show on appointment calendar
     generateAppointments(): any {
-       
+
         let appointments = new Array();
         let appointment1 = {
             id: "id1",
@@ -186,41 +200,57 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
             { type: 'dayView', showWeekends: true },
             { type: 'weekView', showWeekends: true },
             { type: 'monthView' },
-            {type: 'agendaView'}
+            { type: 'agendaView' }
         ];
-        pdfExportClick(): void {
-            this.scheduler.exportData('pdf');
-        };
+
+    pdfExportClick(): void {
+        this.scheduler.exportData('pdf');
+    };
+
     printButton: any = null;
     // called when the dialog is craeted.
     editDialogCreate = (dialog, fields, editAppointment) => {
-        // hide repeat option
-        fields.repeatContainer.hide();
+
         // hide status option
-        fields.statusContainer.hide();
+        fields.statusContainer.remove();
         // hide timeZone option
-        fields.timeZoneContainer.hide();
+        fields.timeZoneContainer.remove();
         // hide color option
-        fields.colorContainer.hide();
+        fields.colorContainer.remove();
         // hide repeat
-        fields.repeatContainer.hide();
+        fields.repeatLabel.remove();
+        fields.repeat.remove();
+        //  fields.repeatContainer.hide(); 
         // hide to day
         fields.toLabel.hide();
         fields.to.hide();
-        
-     //   fields.location.disables();
-     //fields..hide();
+        // hide All day checkbox
+        fields.allDay.val(false);
+        fields.allDayContainer.remove();
+
+        //   fields.location.disables();
+        //fields..hide();
 
         fields.subjectLabel.html("Doctor Name");
-      //  fields.subject. ="Name of doctor here";
-        fields.locationLabel.html("Location Name");
-        fields.description.html("Address");
-     //   fields.al
-        console.log("Print Location of doctor: " + this.location.locationName + " -- " + this.location.address);
+        fields.subject.val(this.doctor.doctorName);
+      
+        fields.subject.prop("readonly",true);
+      //  fields.subject.setOptions({ disabled: false });
+        //fields.subject. ="Name of doctor here";
+        fields.locationLabel.html("Location");
+        fields.location.val(this.doctor.location.locationName );
+      //  fields.location.val(this.location.locationName);
+        fields.location.prop("readonly",true);
+
+        fields.descriptionLabel.html("Address");
+        fields.description.val(this.doctor.location.address);
+        fields.description.prop("readonly",true);
+        //   fields.al
+        console.log("Print Location of doctor: " + this.doctor.location.locationName + " -- " + this.doctor.location.address);
 
 
         fields.fromLabel.html("Date");
-        
+
         fields.resourceLabel.html("Calendar");
 
         //Create Print button
@@ -243,20 +273,20 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
             let appointmentContent =
                 "<table class='printTable'>" +
                 "<tr>" +
-                "<td class='label'>Title</td>" +
+                "<td class='label'>Doctor Name</td>" +
                 "<td>" + fields.subject.val() + "</td>" +
                 "</tr>" +
                 "<tr>" +
-                "<td class='label'>Start</td>" +
+                "<td class='label'>Date</td>" +
                 "<td>" + fields.from.val() + "</td>" +
-                "</tr>" +
+                "</tr>" +               
                 "<tr>" +
-                "<td class='label'>End</td>" +
-                "<td>" + fields.to.val() + "</td>" +
-                "</tr>" +
-                "<tr>" +
-                "<td class='label'>Where</td>" +
+                "<td class='label'>Location Name</td>" +
                 "<td>" + fields.location.val() + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td class='label'>Address</td>" +
+                "<td>" + fields.description.val() + "</td>" +
                 "</tr>" +
                 "<tr>" +
                 "<td class='label'>Calendar</td>" +
@@ -303,7 +333,18 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     * @param {Object} the selected appointment instance or NULL when the dialog is opened from cells selection.
     */
     editDialogOpen = (dialog, fields, editAppointment) => {
+        console.log("Dialog open here");
+      
+        // fields.subjectLabel.html("Doctor Name");
+      //  fields.subject.val("Doctor name here");
+      //  fields.subject.setOptions({ disabled: false });
+        
+        // fields.locationLabel.html("Location");
+       //  fields.location.val(this.location.locationName);
+        // fields.descriptionLabel.html("Address");
+        // fields.description.val(this.location.address);
         if (!editAppointment && this.printButton) {
+          //  fields.subject.setAppointmentProperty({val: "aaaaaaaa"});
             this.printButton.setOptions({ disabled: true });
         }
         else if (editAppointment && this.printButton) {
@@ -317,6 +358,17 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     * @param {Object} the selected appointment instance or NULL when the dialog is opened from cells selection.
     */
     editDialogClose = (dialog, fields, editAppointment) => {
+        console.log("Appointment close here: Date = "+fields.from.val());
+       // this.editDialogCreate.
+            window.location.reload();
+    //     fields.subjectLabel.html("Doctor Name");
+    //     fields.subject.val("Doctor name here");
+    //   //  fields.subject.setOptions({ disabled: false });
+    //     //fields.subject. ="Name of doctor here";
+    //     fields.locationLabel.html("Location");
+    //     fields.location.val(this.location.locationName);
+    //     fields.descriptionLabel.html("Address");
+    //     fields.description.val(this.location.address);
     };
     /**
     * called when a key is pressed while the dialog is on focus. Returning true or false as a result disables the built-in keyDown handler.
@@ -333,13 +385,13 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     }
     mySchedulerOnAppointmentDelete(event: any): void {
         let appointment = event.args.appointment;
-       // this.myLog.nativeElement.innerHTML = 'appointmentDelete is raised';
-       console.log('appointmentDelete is raised');
+        // this.myLog.nativeElement.innerHTML = 'appointmentDelete is raised';
+        console.log('appointmentDelete is raised');
     };
     mySchedulerOnAppointmentAdd(event: any): void {
         let appointment = event.args.appointment;
-       // this.myLog.nativeElement.innerHTML = 'appointmentAdd is raised';
-       console.log('appointmentAdd is raised');
+        // this.myLog.nativeElement.innerHTML = 'appointmentAdd is raised';
+        console.log('appointmentAdd is raised');
     };
     // mySchedulerOnAppointmentDoubleClick(event: any): void {
     //     let appointment = event.args.appointment;
@@ -348,16 +400,23 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     // };
     mySchedulerOnAppointmentChange(event: any): void {
         let appointment = event.args.appointment;
-       // this.myLog.nativeElement.innerHTML = 'appointmentChange is raised';
-       console.log('appointmentChange description is raised '+ appointment.description);
-       console.log('appointmentChange location is raised '+ appointment.location);
-       console.log('appointmentChange Start is raised '+ appointment.from);
-       console.log('appointmentChange End is raised '+ appointment.to);
+        // this.myLog.nativeElement.innerHTML = 'appointmentChange is raised';
+        console.log('appointmentChange description is raised ' + appointment.description);
+        console.log('appointmentChange location is raised ' + appointment.location);
+        console.log('appointmentChange Start is raised ' + appointment.from);
+        console.log('appointmentChange End is raised ' + appointment.to);
     };
     mySchedulerOnCellClick(event: any): void {
         let cell = event.args.cell;
-       // this.myLog.nativeElement.innerHTML = 'cellClick is raised';
-       console.log('cellClick is raised');
-       this.editDialogCreate;
+    //    this.setDefaults;
+      //  fields.subject.val("Doctor name here");
+        // this.myLog.nativeElement.innerHTML = 'cellClick is raised';
+        console.log('cellClick is raised');
+       // this.editDialogCreate.call;
     };
+
+    // setDefaults(fields):void{
+    //     console.log('dgfdfgdgf')
+    //     fields.subject.val("Doctor name here");
+    // }
 }
