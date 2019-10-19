@@ -261,11 +261,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
 
         
         // Create Insurance ComboBox
-        // let comboBoxElement = document.createElement("SELECT");
-        // let insuranceComboBox: jqwidgets.jqxComboBox = jqwidgets.createInstance('#insuranceComboBox','jqxComboBox',{
-        //     width: 100,
-        //     height: 25
-        // });
+        
         let behandlungContainer = "<div>";
 behandlungContainer += "<div class='jqx-scheduler-edit-dialog-label'>Insurance</div>";
 behandlungContainer += "<div class='jqx-scheduler-edit-dialog-field'><div id='behandlung1'></div></div>";
@@ -278,7 +274,7 @@ this.insuranceTypeList.forEach(i=>{
     source.push(i.insuranceName);
 });
 
-$("#behandlung1").jqxComboBox({ source: source, selectedIndex: 0, width: '300px', height: '25px'});
+//$("#behandlung1").jqxComboBox({ source: source, selectedIndex: 0, width: '300px', height: '25px'});
 
         fields.resourceLabel.html("Calendar");
 
