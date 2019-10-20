@@ -3,16 +3,10 @@ package com.revdoc;
 import java.security.MessageDigest;
 import java.sql.Time;
 import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,8 +42,6 @@ import com.revdoc.model.Location;
 import com.revdoc.model.RevAssociate;
 import com.revdoc.model.Specialty;
 import com.revdoc.model.SpecialtyType;
-
-import lombok.RequiredArgsConstructor;
 
 @Component
 @Transactional
@@ -127,7 +119,7 @@ public class DataLoader {
 		Time start = new Time(10, 5, 0);
 		Time end = new Time(10, 5, 0);
 		Date date = new Date();
-		Available a1 = new Available(0, d1, 2, start, end, date);
+		Available a1 = new Available();
 		a1 = availableDao.save(a1);
 		
 		start = new Time(10, 5, 0);
@@ -136,25 +128,25 @@ public class DataLoader {
 		date.setYear(119); //Year start at 1900 so add 119 to get the year 2019
 		date.setMonth(10); // Month start at 1 so add 10 to get the month 11
 		date.setDate(1); // Day, not sure, you guys fig it out :)
-		Available a2 = new Available(0, d2, 3, start, end, date);
+		Available a2 = new Available();
 		a2 = availableDao.save(a2);
 		
 		// CREATE FOLLOWERS
 		date = new Date();
-		Followers f1 = new Followers(0, d1, u2, date);
+		Followers f1 = new Followers();
 		f1 = followersDao.save(f1);
 		
-		Followers f2 = new Followers(0, d2, u1, date);
+		Followers f2 = new Followers();
 		f2 =followersDao.save(f2);
 		
 		// CREATE APPOINTMENT
 		date = new Date();
 		Time time = new Time(10,30,0);
-		Appointment ap1 = new Appointment(0, d1, u1, date, time, "Insurant Name input form user1", true);
+		Appointment ap1 = new Appointment();
 		ap1=appointmentDao.save(ap1);
 		
 		time = new Time(14,30,0);
-		Appointment ap2 = new Appointment(0, d2, u2, date, time, "Insurant Name input form user2", false);
+		Appointment ap2 = new Appointment();
 		ap2=appointmentDao.save(ap2);
 		// CREATE FEEDBACK
 		Feedback fb1 = new Feedback(0, 1.5f, 2.5f, 3.0f, "comments feedback 1 here", ap1);
@@ -206,7 +198,7 @@ public class DataLoader {
 		License ls2 = new License(0, "License name 2");
 		ls2 = licenseDao.save(ls2);
 		
-		// CREATE DOCTOR LICENSE
+		// CREATE DOCTOR LICENSEche
 		Date licenseDate = new Date();
 		DoctorLicense dl1 = new DoctorLicense(0, d1, ls1, licenseDate);
 		dl1 = doctorLicenseDao.save(dl1);

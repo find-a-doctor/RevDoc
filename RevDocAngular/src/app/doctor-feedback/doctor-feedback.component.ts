@@ -16,8 +16,12 @@ import { Doctor } from '../revdoc-classes/doctor';
 export class DoctorFeedbackComponent implements OnInit {
 
   //These will be used to grab objects fom active session
-  @Input() doctor: Doctor;
-  @Input() user: RevAssociate;
+  // @Input() doctor: Doctor;
+  // @Input() user: RevAssociate;
+  //not working yet
+
+  doctor:Doctor;
+  revAssociate:RevAssociate;
   feedback: Feedback;
 
   constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
@@ -26,6 +30,19 @@ export class DoctorFeedbackComponent implements OnInit {
   ngOnInit() {
     console.log(this.route);
     this.feedback = new Feedback();
+    this.feedback.appointment=new Appointment();
+    this.feedback.appointment.doctor=new Doctor();
+
+    //session not yet workiing
+    this.route.url.subscribe(data => {
+      this.feedback.appointment.doctor.npi = Number(data[1].path);
+    });
+    this.doctorInfoService.getDoctor(this.feedback.appointment.doctor.npi).subscribe(data => {
+      // console.log("getting...\n" + data);
+      this.feedback.appointment.doctor = data;
+    }, error => console.log("error:\n" + error));
+
+    
   }
 
   //Collects ratings and comment from user to create a feedback object then sends an alert to user that the feedback has been recieved.
@@ -39,13 +56,13 @@ export class DoctorFeedbackComponent implements OnInit {
     this.route.url.subscribe(data => {
       this.feedback.appointment.doctor.npi = Number(data[1].path);
     })
-    this.feedback.appointment.revAssociate = this.user;
+    // this.feedback.appointment.revAssociate = this.user;
     // this.feedback.appointment.revAssociate.revAssociateEmail = "MrDuckworth@QuackQuack.com";
     //dummy value, no session stored
 
     console.log(this.feedback);
     console.log("This is the doctor: " + this.doctor);
-    console.log("This is the user: " + this.user);
+    // console.log("This is the user: " + this.user);
 
     console.log(this.feedback.comments);
 

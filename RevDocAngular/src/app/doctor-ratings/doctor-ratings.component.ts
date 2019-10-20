@@ -13,9 +13,9 @@ export class DoctorRatingsComponent implements OnInit {
 
   doctor: Doctor;
   allFeedback: Feedback[];
-  overall:number=0;
-  bedsideManner: number=0;
-  waitTime: number=0;
+  overall: boolean;
+  bedsideManner: number = 0;
+  waitTime: number = 0;
 
 
 
@@ -33,25 +33,34 @@ export class DoctorRatingsComponent implements OnInit {
     }, error => console.log("error:\n" + error));
 
     this.doctorInfoService.getAllRatings(this.doctor.npi).subscribe(data => {
-
-
-      var ov:number=0;
-      var bm:number=0;
-      var wt:number=0;
+      var ov: number = 0;
+      var bm: number = 0;
+      var wt: number = 0;
+      var count: number = 0;
       this.allFeedback = data;
-      this.allFeedback.forEach(function(fb:Feedback){
-        ov+=1;
-        bm+=fb.bedsideMannerRating;
-        wt+=fb.waitTimeRating;
-      })
+      this.allFeedback.forEach(function (fb: Feedback) {
+        // ov += fb.overallRating;
+        bm += fb.bedsideMannerRating;
+        wt += fb.waitTimeRating;
+        count += 1;
+        console.log("ov: "+ov)
+        console.log(bm)
+        console.log(wt)
+      });
 
-      // console.log(ov)
-      // console.log(bm)
-      // console.log(wt)
+      console.log(ov)
+      console.log(bm)
+      console.log(wt)
 
-      this.overall=ov;
-      this.bedsideManner=(bm/ov);
-      this.waitTime=(wt/ov);
+      // this.overall = (ov / count);
+      if(count>0){
+        this.bedsideManner = (bm / count);
+        this.waitTime = (wt / count);
+      }else{
+        console.log("no reviews available")
+      }
+      
+      console.log(this.overall);
     });
 
   }
