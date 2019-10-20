@@ -13,7 +13,7 @@ export class DoctorRatingsComponent implements OnInit {
 
   doctor: Doctor;
   allFeedback: Feedback[];
-  overall: boolean;
+  overall: number = 0;
   bedsideManner: number = 0;
   waitTime: number = 0;
 
@@ -33,9 +33,9 @@ export class DoctorRatingsComponent implements OnInit {
     }, error => console.log("error:\n" + error));
 
     this.doctorInfoService.getAllRatings(this.doctor.npi).subscribe(data => {
-      var ov: number = 0;
-      var bm: number = 0;
-      var wt: number = 0;
+      var ov: number = 5;
+      var bm: number = 5;
+      var wt: number = 5;
       var count: number = 0;
       this.allFeedback = data;
       this.allFeedback.forEach(function (fb: Feedback) {
@@ -43,23 +43,19 @@ export class DoctorRatingsComponent implements OnInit {
         bm += fb.bedsideMannerRating;
         wt += fb.waitTimeRating;
         count += 1;
-        console.log("ov: "+ov)
-        console.log(bm)
-        console.log(wt)
       });
 
-      console.log(ov)
-      console.log(bm)
-      console.log(wt)
-
       // this.overall = (ov / count);
-      if(count>0){
-        this.bedsideManner = (bm / count);
-        this.waitTime = (wt / count);
-      }else{
+      if (count == 0) {
         console.log("no reviews available")
+        count = 1;
       }
-      
+
+      this.bedsideManner = (bm / count);
+      this.waitTime = (wt / count);
+      this.overall = (ov / count);
+
+
       console.log(this.overall);
     });
 
