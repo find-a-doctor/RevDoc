@@ -50,7 +50,6 @@ public class DoctorController {
 	public List<Insurance> getInsurance(@PathVariable long npi){
 		return service.getInsurance(npi);
 	}
-//<<<<<<< HEAD
 	
 	@GetMapping("/doctor/{npi}/specialty")
 	public List<Specialty> getSpecialty(@PathVariable long npi){
@@ -67,6 +66,7 @@ public class DoctorController {
 		return service.submitFeedback(feedback);
 	//not yet working?
 	}
+
 	
 	@PostMapping("/updateDoctor/{npi}")
 	public Doctor updateDoctor(@PathVariable long npi) {
@@ -92,6 +92,5 @@ public class DoctorController {
 	public void unfollowDoctor(@PathVariable long followerId) {
 		service.unfollowDoctor(followerId);
 	}
-	
-	
+
 }

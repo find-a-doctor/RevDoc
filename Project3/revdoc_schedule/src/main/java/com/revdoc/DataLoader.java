@@ -4,16 +4,10 @@ import java.security.MessageDigest;
 import java.sql.Time;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,8 +43,6 @@ import com.revdoc.model.Location;
 import com.revdoc.model.RevAssociate;
 import com.revdoc.model.Specialty;
 import com.revdoc.model.SpecialtyType;
-
-import lombok.RequiredArgsConstructor;
 
 @Component
 @Transactional
@@ -118,6 +110,7 @@ public class DataLoader {
 		d0 = doctorDao.save(d0);
 		
 		Doctor d1 = new Doctor(0, "John Ross", 20, "johnross@gmail.com", encryptPassword("johnross"), "469-288-5555", "about John Ross here", 1, l1);
+
 		d1 = doctorDao.save(d1);
 		
 		Doctor d2 = new Doctor(0, "Kevin Zuul", 15, "kevinzuul@gmail.com", encryptPassword("kevinzuul"), "098-454-3215", "about Kevin Zuul here", 1, l2);

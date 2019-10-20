@@ -19,4 +19,6 @@ public interface FollowersDAO extends JpaRepository<Followers, Long> {
 	@Query("select f from Followers f where f.doctor.npi = :npi and f.revAssociate.revAssociateEmail = :revassociate")
 	List<Followers> isFollowing(@Param("npi") long npi, @Param("revassociate") String revassociate);
 
+
+
 }

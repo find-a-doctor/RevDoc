@@ -23,8 +23,9 @@ export class DoctorRatingsComponent implements OnInit {
 
   ngOnInit() {
     this.doctor = new Doctor();
-    this.doctor.npi = 1000000001; //default
-
+    this.route.url.subscribe(data => {
+      this.doctor.npi = Number(data[1].path);
+    });
 
 
     this.doctorInfoService.getDoctor(this.doctor.npi).subscribe(data => {

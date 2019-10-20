@@ -106,7 +106,6 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 
 	@Override
 	public Followers followDoctor(Followers followers) {
-		System.out.println(followers);
 		return flDao.save(followers);
 	}
 

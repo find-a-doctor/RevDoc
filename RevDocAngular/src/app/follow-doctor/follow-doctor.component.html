@@ -1,6 +1,13 @@
 <div>
+  <button class="btn btn-sm action-btn" [ngClass]="{ 'disabled': isSubmitting,
+    'btn-outline-secondary': !isFollowing,
+    'btn-secondary': isFollowing }" (click)="toggleFollowing()">
+    <i class="ion-plus-round"></i>
+    &nbsp;
+    {{ isFollowing ? 'Unfollow' : 'Follow' }} {{ npi }}
+  </button>
 
-  <!-- <input type="checkbox" data-toggle="toggle" data-on="FOLLOW" data-off="UNFOLLOW">
+  <input type="checkbox" data-toggle="toggle" data-on="FOLLOW" data-off="UNFOLLOW">
   <input type="checkbox" id="toggle-two">
 
   <script>
@@ -10,16 +17,5 @@
         off: 'UNFOLLOW'
       });
     })
-  </script> -->
-
-
-  <!-- Jessica is trying something -->
-
-  <button class="btn btn-sm action-btn" [ngClass]="{ 'disabled': isSubmitting,
-               'btn-outline-secondary': !isFollowing,
-               'btn-secondary': isFollowing }" (click)="toggleFollowing()">
-    <i class="ion-plus-round"></i>
-    &nbsp;
-    {{ isFollowing ? 'Unfollow' : 'Follow' }} {{ npi }}
-  </button>
+  </script>
 </div>
