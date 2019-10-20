@@ -116,5 +116,4 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 	}
 
 
-
 }

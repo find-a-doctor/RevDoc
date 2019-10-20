@@ -7,7 +7,11 @@ import { Feedback } from './revdoc-classes/feedback';
 import { Insurance } from './revdoc-classes/insurance';
 import { Specialty } from './revdoc-classes/specialty';
 import { Conditions } from './revdoc-classes/conditions';
+<<<<<<< HEAD
 import { Followers } from './revdoc-classes/followers';
+=======
+import { RevAssociate } from './revdoc-classes/rev-associate';
+>>>>>>> feat/rate-doctor-visit_enter-rating
 
 
 @Injectable({
@@ -20,18 +24,26 @@ export class DoctorInfoService {
   doctorUrl:string;
   getAllUrl:string;
   allRatingsUrl:string;
+<<<<<<< HEAD
   followingUrl: string;
   followUrl: string;
   getAllFollowersUrl: string;
+=======
+  rateDoctorUrl:string;
+>>>>>>> feat/rate-doctor-visit_enter-rating
 
   constructor(private http:HttpClient, private router:Router) {
     this.baseUrl="http://localhost:1000/";
     this.doctorUrl=this.baseUrl+"doctor/";
     this.getAllUrl=this.baseUrl+"doctors";
     this.allRatingsUrl=this.baseUrl+"allRatings/";
+<<<<<<< HEAD
     this.followingUrl = this.baseUrl + "following/";
     this.followUrl = this.baseUrl + "follow/";
     this.getAllFollowersUrl = this.baseUrl + "allFollowers";
+=======
+    this.rateDoctorUrl=this.baseUrl+"rateDoctor/"
+>>>>>>> feat/rate-doctor-visit_enter-rating
 
 
    }
@@ -75,4 +87,10 @@ export class DoctorInfoService {
   public getAllFollowers(): Observable<Followers[]> {
     return this.http.get<Followers[]>(this.getAllFollowersUrl);
   }
+    
+   //Feedback has an appointment object in it, so we can get user email and doctor npi from feedback object.
+   public rateDoctor( feedback :Feedback){
+     return this.http.post(this.baseUrl+this.rateDoctorUrl,feedback);
+   }
+
 }

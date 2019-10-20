@@ -28,7 +28,6 @@ export class DoctorProfileComponent implements OnInit {
   ngOnInit() {
 
     this.doctor = new Doctor();
-   
     this.route.url.subscribe(data => {
       this.doctor.npi = Number(data[1].path);
     });

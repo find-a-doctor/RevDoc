@@ -32,7 +32,7 @@ import lombok.ToString;
 // initialValue set for TESTING ONLY - NPI is supplied by government registration w/ 10 digits
 @TableGenerator(name="doctor_gen", initialValue=1000000000, allocationSize=1)
 public class Doctor implements Serializable{ 
-
+//Doctor d = new Doctor(1000000000, "Garat Patel",8,"gpatel1@gmail.com", "password", "2402321212","Physician", 52)
 	@Id
 	@GeneratedValue(generator = "doctor_gen")
 	private long npi;

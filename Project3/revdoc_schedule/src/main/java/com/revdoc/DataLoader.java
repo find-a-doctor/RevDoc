@@ -157,10 +157,10 @@ public class DataLoader {
 		Appointment ap2 = new Appointment(0, d2, u2, date, time, "Insurant Name input form user2", false);
 		ap2=appointmentDao.save(ap2);
 		// CREATE FEEDBACK
-		Feedback fb1 = new Feedback(0, 1.5f, 2.5f, true, "comments feedback 1 here", ap1);
+		Feedback fb1 = new Feedback(0, 1.5f, 2.5f, 3.0f, "comments feedback 1 here", ap1);
 		fb1 = feedbackDao.save(fb1);
 		
-		Feedback fb2 = new Feedback(0, 2.5f, 0.5f, true, "comments feedback 2 here", ap2);
+		Feedback fb2 = new Feedback(0, 2.5f, 0.5f, 2.0f, "comments feedback 2 here", ap2);
 		fb2 = feedbackDao.save(fb2);
 		
 		// CREATE CONDITIONTYPE

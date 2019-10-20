@@ -38,5 +38,6 @@ public interface DoctorInfoService {
 	public Followers followDoctor(Followers followers);
 
 	public void unfollowDoctor(long followerId);
+
 	
 }
