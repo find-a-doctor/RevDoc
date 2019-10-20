@@ -64,11 +64,7 @@ export class DoctorInfoService {
     return this.http.get<boolean>(this.followingUrl+npi+"/"+revassociate);
   }
 
-  newFl:Followers;
   public followDoctor(followers:Followers): Observable<Followers> {
-    // console.log(followers);
-    // this.newFl= this.http.post<Followers>(this.followUrl, {followers});
-    // console.log(this.newFl);
     return this.http.post<Followers>(this.followUrl, {followers});
   }
 
