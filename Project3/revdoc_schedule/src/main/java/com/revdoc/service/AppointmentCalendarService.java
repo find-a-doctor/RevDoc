@@ -13,4 +13,7 @@ public interface AppointmentCalendarService {
 	public Doctor getDoctorById(long id);
 	public List<InsuranceType> getInsuranceTypeByNPI(long npi); 
 	public Appointment setDoctorAppointment(Appointment appointment);
+	public List<Appointment> getAllUserAppointmentById(String revAssociateEmail);
+	public List<Appointment> getAllDoctorAppointmentById(long npi);
+	
 }

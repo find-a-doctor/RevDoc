@@ -51,4 +51,21 @@ public class AppointmentCalendarController {
 		System.out.println("test: "+it);
 		return it;
 	}
+	
+	@GetMapping("/doctorAppointmentByNPI/{id}")
+	public List<Appointment> getAllDoctorAppointmentById(@PathVariable long id) {
+		System.out.println("getAllDoctorAppointmentById by Id= "+id);
+		List<Appointment> it = appointmentCalendarService.getAllDoctorAppointmentById(id);
+	//	System.out.println("test: "+it);
+		return it;
+	}
+	
+	@GetMapping("/userAppointmentById/{id}")
+	public List<Appointment> getAllUserAppointmentById(@PathVariable String id) {
+		System.out.println("getAllUserAppointmentById by Id= "+id);
+		List<Appointment> it = appointmentCalendarService.getAllUserAppointmentById(id);
+		System.out.println("test: "+it);
+		return it;
+	}
+	
 }

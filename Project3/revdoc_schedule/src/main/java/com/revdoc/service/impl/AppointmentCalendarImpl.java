@@ -1,5 +1,6 @@
 package com.revdoc.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,4 +55,16 @@ public class AppointmentCalendarImpl implements AppointmentCalendarService {
 		// TODO Auto-generated method stub
 		return insuranceTypeDao.getInsuranceTypeByNPI(npi+"");
 	}
+
+	@Override
+	public List<Appointment> getAllUserAppointmentById(String revAssociateEmail) {
+		return appointmentDao.getAllUserAppointmentById(revAssociateEmail.toLowerCase());
+	}
+
+	@Override
+	public List<Appointment> getAllDoctorAppointmentById(long npi) {
+		return appointmentDao.getAllDortorAppointmentById(npi+"");
+	}
+
+
 }
