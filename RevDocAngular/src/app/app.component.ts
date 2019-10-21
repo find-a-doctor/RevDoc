@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RevAssociate } from './revdoc-classes/rev-associate';
 
 @Component({
   selector: 'app-root',

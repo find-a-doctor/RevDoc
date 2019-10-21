@@ -32,6 +32,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,4 +67,4 @@ import { NavbarComponent } from './navbar/navbar.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
