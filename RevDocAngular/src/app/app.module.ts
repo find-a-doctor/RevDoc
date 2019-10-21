@@ -23,11 +23,17 @@ import { FollowDoctorComponent } from './follow-doctor/follow-doctor.component';
 import { DoctorRatingsComponent } from './doctor-ratings/doctor-ratings.component';
 import { DoctorFeedbackComponent } from './doctor-feedback/doctor-feedback.component';
 import { NavbarComponent } from './navbar/navbar.component';
+<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwPaginationComponent } from 'jw-angular-pagination';
 import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
+=======
+// import { JwPaginationComponent } from 'jw-angular-pagination';
+// import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
+// import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
+>>>>>>> resolving merge conflicts
 import { CommonModule } from '@angular/common';
 import { LoginPageComponent } from './login-page/login-page.component';
 
@@ -68,10 +74,15 @@ import { LoginPageComponent } from './login-page/login-page.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
     jqxButtonModule,
     NgbModule
+=======
+    NgbModule,
+    jqxButtonModule
+>>>>>>> resolving merge conflicts
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
