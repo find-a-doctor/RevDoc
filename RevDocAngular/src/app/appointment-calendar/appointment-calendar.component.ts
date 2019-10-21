@@ -136,9 +136,9 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
                 let second = d.date.toString().substr(17,2);
        //         console.log("DATE: "+year+"-"+month+"-"+day+" Time: "+hour+":"+minute+":"+second);
                 let doctorAppointment = {
-                    id: d.doctor.npi+"",
-                    description: d.doctor.location.address,
-                    location: d.doctor.location.locationName,
+                    id: d.appointmentId+"",
+                    description: d.doctor.location.locationName+", "+d.doctor.location.address,
+                    location: d.appointmentId+"",
                     subject: d.doctor.doctorName,
                     calendar: d.insurance,
                     start: new Date(+year,+month-1, +day, +hour, +minute, +second),
@@ -146,9 +146,9 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
               //      ,insuranceL: 'loading'
                 };
                 this.scheduler.addAppointment(doctorAppointment);
-                this.scheduler.setAppointmentProperty(d.doctor.npi+"", 'draggable', false);
-                this.scheduler.setAppointmentProperty(d.doctor.npi+"", 'resizable', false);
-                this.scheduler.setAppointmentProperty(d.doctor.npi+"", 'readOnly', true);
+                this.scheduler.setAppointmentProperty(d.appointmentId+"", 'draggable', false);
+                this.scheduler.setAppointmentProperty(d.appointmentId+"", 'resizable', false);
+                this.scheduler.setAppointmentProperty(d.appointmentId+"", 'readOnly', true);
 
             });
 
@@ -385,12 +385,12 @@ return 970;
         fields.subject.prop("readonly", true);
         //  fields.subject.setOptions({ disabled: false });
         //fields.subject. ="Name of doctor here";
-        fields.locationLabel.html("Location");
-        fields.location.val(this.doctor.location.locationName);
+        fields.locationLabel.html("AppointmentID");
+      //  fields.location.val(this.doctor.location.locationName);
         //  fields.location.val(this.location.locationName);
         fields.location.prop("readonly", true);
         fields.fromLabel.html("Date");
-        fields.descriptionLabel.html("Address");
+        fields.descriptionLabel.html("Location");
         fields.description.val(this.doctor.location.address);
         fields.description.prop("readonly", true);
 
@@ -546,7 +546,7 @@ return 970;
         //     window.location.reload();
         //   }
         // this.editDialogCreate.
-                window.location.reload();
+ //              window.location.reload();
         //     fields.subjectLabel.html("Doctor Name");
         //     fields.subject.val("Doctor name here");
         //   //  fields.subject.setOptions({ disabled: false });
@@ -571,13 +571,20 @@ return 970;
     }
     mySchedulerOnAppointmentDelete(event: any): void {
         let appointment = event.args.appointment;
+        console.log("Delete:::: "+appointment.location);
+     if(confirm("Are you sure to delete this appointment ID: "+appointment.location)) {
+            console.log('appointmentDelete is raised');
+            this.appointmentCalendarService.deleteDoctorAppointment(appointment.location).subscribe(data =>{ });
+         }
+      
         // this.myLog.nativeElement.innerHTML = 'appointmentDelete is raised';
-        console.log('appointmentDelete is raised' + appointment.insuranceL);
+     //   console.log('appointmentDelete is raised' + appointment.insuranceL);
+      //  console.log('appointmentDelete is raised' + appointment.dataFields);
     };
 
     mySchedulerOnAppointmentAdd(event: any): void {
         let appointment = event.args.appointment;
-        console.log("CONTAINE +" + appointment.from +" -- "+ appointment.to);
+        console.log("CONTAINE +" + appointment.from.toString() +" -- "+ appointment.to);
         console.log("CONTAINE +" + appointment.resourceId);
         if((appointment.to - appointment.from)!=3600000){
             // console.log("CONTAINE +" + appointment.id);
@@ -587,14 +594,39 @@ return 970;
              let hour = appointment.from.toString().substr(11,2);
              let minute = appointment.from.toString().substr(14,2);
              let second = appointment.from.toString().substr(17,2);
-     
+           //  let dayNight = appointment.from.toString().substr(appointment.from.toString().length-2,2);
+            
+             let correctTime = true;
+             this.doctorAppointmentList.forEach(data =>{
+                console.log("sssssss"+appointment.from.toString());
+              console.log("sssssss"+data.date.toString());
+              let year1 = data.date.toString().substr(0,4);
+              let month1 = data.date.toString().substr(5,2);
+              let day1 = data.date.toString().substr(8,2);
+              let hour1 = data.date.toString().substr(11,2);
+              let minute1 = data.date.toString().substr(14,2);
+              let second1 = data.date.toString().substr(17,2);
+              console.log(year+"-"+month +"-"+day+" "+hour+":"+minute+":"+second);
+              console.log(year1+"-"+month1 +"-"+day1+" "+hour1+":"+minute1+":"+second1);
+                 if(year==year1 && month==month1 && day==day1){
+                     console.log("PPPPPPPPPPPPPPPPPPP "+ hour+"--"+hour1);
+                     if( +hour>=+hour1 &&  +hour<=+hour1+1){
+                         console.log("AAAAAAAAAAAAAAAAA");
+                         correctTime=false;
+                    window.alert("This time have confilic. Please choose another date/time.");
+                    return;
+                     }
+                 }
+             });
+
+             if(correctTime){
              let doctorAppointment: Appointment = new Appointment();
              doctorAppointment.confirmed = false;
-             doctorAppointment.date =  new Date(+year,+month-1, +day, +hour+2, +minute, +second);
+             doctorAppointment.date =  new Date(+year,+month-1, +day, +hour-10, +minute, +second);
              doctorAppointment.doctor = this.doctor;
              doctorAppointment.revAssociate = this.revAssociate;
              doctorAppointment.insurance = appointment.resourceId;
-             doctorAppointment.time =  new Date(+year,+month-1, +day, +hour+2, +minute, +second);
+         //    doctorAppointment.time =  new Date(+year,+month-1, +day, +hour-10, +minute, +second);
              console.log("Print doctorAppointment: "+ doctorAppointment.time);
              this.appointmentCalendarService.setDoctorAppointment(doctorAppointment).subscribe(data => {
                  if (data != null) {
@@ -607,7 +639,7 @@ return 970;
                    }
                  });
          }
-       
+        }
        
         // this.myLog.nativeElement.innerHTML = 'appointmentAdd is raised';
         console.log('appointmentAdd is raised');

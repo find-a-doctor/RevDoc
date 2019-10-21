@@ -25,6 +25,8 @@ export class DoctorInfoService {
   private getAllDoctorAppointmentByIdUrl: string;
   private getAllUserAppointmentByIdUrl: string;
   private setDoctorAppointmentUrl: string;
+  private deleteDoctorAppointmentUrl: string;
+
   constructor(private http: HttpClient) {
     this.searchDoctorUrl = "http://localhost:9000/searchDoctor/";
     this.getAllDoctorsUrl = "http://localhost:9000/doctors";
@@ -37,6 +39,7 @@ export class DoctorInfoService {
     this.getAllDoctorAppointmentByIdUrl = "http://localhost:9000/doctorAppointmentByNPI/";
     this.getAllUserAppointmentByIdUrl = "http://localhost:9000/userAppointmentById/";
     this.setDoctorAppointmentUrl = "http://localhost:9000/doctorAppointment";
+    this.deleteDoctorAppointmentUrl = "http://localhost:9000/deleteDoctorAppointment/";
   }
 
   public searchDoctor(search: string) {
@@ -81,6 +84,10 @@ export class DoctorInfoService {
   public setDoctorAppointment(appointment: Appointment){
     return this.http.post<Appointment>(this.setDoctorAppointmentUrl, appointment);
   }
+  public deleteDoctorAppointment(appointmentId: string){
+    return this.http.delete<Appointment>(this.deleteDoctorAppointmentUrl+ appointmentId);
+  }
+
 }
 
 

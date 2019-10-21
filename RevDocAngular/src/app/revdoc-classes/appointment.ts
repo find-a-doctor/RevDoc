@@ -9,7 +9,7 @@ export class Appointment {
   doctor: Doctor;
   revAssociate: RevAssociate;
   date: Date;
-  time: Date;
+  time: Time;
   insurance: string;
   confirmed: boolean;
 
