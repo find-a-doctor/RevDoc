@@ -1,6 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//added for doctor-profile component
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+//added for doctor-profile component
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditDoctorProfileComponent } from './edit-doctor-profile/edit-doctor-profile.component';
@@ -29,6 +36,8 @@ import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { CommonModule } from '@angular/common';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +61,8 @@ import { CommonModule } from '@angular/common';
     DoctorFeedbackComponent,
     NavbarComponent,
     JwPaginationComponent
+    DoctorFeedbackComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +74,11 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule
     ,jqxButtonModule   
   ], 
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -5,6 +5,8 @@ import { AppointmentCalendarComponent } from './appointment-calendar/appointment
 
 
 const routes: Routes = [
+  { path: 'ex-dr-page', component: DoctorProfileComponent },
+  { path: 'doctor/:npi', component: DoctorProfileComponent }
   { path: '', redirectTo: 'searchDoctor',  pathMatch: 'full' },
   { path: 'searchDoctor', component: SearchDoctorComponent},
   { path: 'calendar', component: AppointmentCalendarComponent},
