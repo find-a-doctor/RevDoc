@@ -1,11 +1,14 @@
 <div>
     <div class="form-group" id="rating-wrapper">
-
-        <h5 id="headline">How would you rate your most recent appointment with this
-            doctor?</h5><br />
-        <br />
+        
+            <!--this headline can change to show time and place of appointment when a session is available to grab 
+            employee, apointment, and doctor info. -->
+            <h5 id="headline">How would you rate your most recent appointment with this
+                doctor?</h5><br />
+     <br />
+        
         <!-- form for rating bedside manners, wait time, overall, and comments -->
-        <form (ngSubmit)="rateDoctor(Comment)">
+        <form (ngSubmit)="rateDoctor(comment)">
 
             <table id="ratings_table">
                 <tr>
@@ -17,7 +20,9 @@
                     <td>
                         <pre>Bedside Manners Rating: <b>{{ BedsideManners.value }}</b></pre>
                         <div class="form-group">
+                              <!-- ngb-rating is an easy to use bootstrap tag that is used to create form values for each rating. -->
                             <ngb-rating [formControl]="BedsideManners" max=5>
+                                <!-- ngb-rating should only have one ng-tmeplate in it, so do not remove this tag.-->
                                 <ng-template let-fill="fill" let-index="index">
                                     <span class="stars" [class.filled]="fill === 100">&#9733;</span>
                                 </ng-template>
@@ -51,6 +56,7 @@
                     <td>
                         <pre>Overall Rating: <b>{{Overall.value}}</b></pre>
                         <div class="form-group">
+                          
                             <ngb-rating [formControl]="Overall" max=5>
                                 <ng-template let-fill="fill" let-index="index">
                                     <span class="stars" [class.filled]="fill === 100">&#9733;</span>
@@ -65,10 +71,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <div>
-
-                            <textarea class="form-control" rows="5" [(ngModel)]="Comment" placeholder="Comment"
-                                name="comment"></textarea>
+                        <div> 
+                            <!-- ngModel is used to create the object that we are passing in rateDoctor(string)-->
+                            <textarea class="form-control" rows="5"  [(ngModel)]="comment"
+                                placeholder="comment" name="comment"></textarea>
                         </div>
                     </td>
                 </tr>
