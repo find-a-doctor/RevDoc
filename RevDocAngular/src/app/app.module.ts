@@ -26,6 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { JwPaginationComponent } from 'jw-angular-pagination';
 import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
+import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -53,11 +55,13 @@ import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    jqxSchedulerModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    jqxSchedulerModule
+    ReactiveFormsModule
+    ,jqxButtonModule   
   ], 
   providers: [],
   bootstrap: [AppComponent]
