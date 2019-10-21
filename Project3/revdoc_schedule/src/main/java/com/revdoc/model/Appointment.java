@@ -1,11 +1,9 @@
 package com.revdoc.model;
 
 import java.io.Serializable;
-import java.sql.Time;
 import java.util.Calendar;
-import java.util.Date;
 
-import javax.annotation.Generated;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,7 +14,6 @@ import javax.persistence.TableGenerator;
 import org.springframework.stereotype.Indexed;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
