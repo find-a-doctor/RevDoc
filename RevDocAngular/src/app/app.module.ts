@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FullCalendarModule } from '@fullcalendar/angular';
-import { HttpClientModule } from '@angular/commom/http';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditDoctorProfileComponent } from './edit-doctor-profile/edit-doctor-profile.component';
@@ -24,7 +23,7 @@ import { FollowDoctorComponent } from './follow-doctor/follow-doctor.component';
 import { DoctorRatingsComponent } from './doctor-ratings/doctor-ratings.component';
 import { DoctorFeedbackComponent } from './doctor-feedback/doctor-feedback.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -47,13 +46,14 @@ import { HttpClientModule } from '@angular/common/http';
     FollowDoctorComponent,
     DoctorRatingsComponent,
     DoctorFeedbackComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
     FullCalendarModule,
-    HttpClientModule
-    AppRoutingModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
