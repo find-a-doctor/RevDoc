@@ -5,6 +5,7 @@ import { SpecialtyType } from './revdoc-classes/specialty-type';
 import { InsuranceType } from './revdoc-classes/insurance-type';
 import { Location } from './revdoc-classes/location';
 import { Doctor } from './revdoc-classes/doctor';
+import { Appointment } from './revdoc-classes/appointment';
 
 
 @Injectable({
@@ -21,7 +22,9 @@ export class DoctorInfoService {
   private getLocationByIdUrl: string;
   private getDoctorByIdUrl: string;
   private getInsuranceTypeByNpiUrl: string;
-
+  private getAllDoctorAppointmentByIdUrl: string;
+  private getAllUserAppointmentByIdUrl: string;
+  private setDoctorAppointmentUrl: string;
   constructor(private http: HttpClient) {
     this.searchDoctorUrl = "http://localhost:9000/searchDoctor/";
     this.getAllDoctorsUrl = "http://localhost:9000/doctors";
@@ -31,6 +34,9 @@ export class DoctorInfoService {
     this.getLocationByIdUrl = "http://localhost:9000/location/";
     this.getDoctorByIdUrl = "http://localhost:9000/doctor/";
     this.getInsuranceTypeByNpiUrl = "http://localhost:9000/insuranceTypeByNPI/";
+    this.getAllDoctorAppointmentByIdUrl = "http://localhost:9000/doctorAppointmentByNPI/";
+    this.getAllUserAppointmentByIdUrl = "http://localhost:9000/userAppointmentById/";
+    this.setDoctorAppointmentUrl = "http://localhost:9000/doctorAppointment";
   }
 
   public searchDoctor(search: string) {
@@ -63,4 +69,18 @@ export class DoctorInfoService {
   public getInsuranceTypeByNpi(id: number){
     return this.http.get<InsuranceType[]>(this.getInsuranceTypeByNpiUrl+id);
   }
+
+  public getAllDoctorAppointmentById(id: number){
+    return this.http.get<Appointment[]>(this.getAllDoctorAppointmentByIdUrl+id);
+  }
+
+  public getAllUserAppointmentById(id: number){
+    return this.http.get<Appointment[]>(this.getAllUserAppointmentByIdUrl+id);
+  }
+
+  public setDoctorAppointment(appointment: Appointment){
+    return this.http.post<Appointment>(this.setDoctorAppointmentUrl, appointment);
+  }
 }
+
+
