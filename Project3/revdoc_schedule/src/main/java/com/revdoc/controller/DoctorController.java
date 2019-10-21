@@ -31,10 +31,10 @@ public class DoctorController {
 		return service.getDoctorByNpi(npi);
 	}
 	
-	@GetMapping("/doctors")
-	public List<Doctor> getAllDoctors(){
-		return service.getAllDoctors();
-	}
+//	@GetMapping("/doctors")
+//	public List<Doctor> getAllDoctors(){
+//		return service.getAllDoctors();
+//	}
 
 	
 	@GetMapping("/allRatings/")

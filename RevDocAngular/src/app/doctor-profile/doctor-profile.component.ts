@@ -17,7 +17,7 @@ import { Location } from '../revdoc-classes/location';
 })
 export class DoctorProfileComponent implements OnInit {
 
-  constructor() { }
+  
 
   doctor: Doctor;
   insurance: Insurance[];

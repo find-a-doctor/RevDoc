@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-//added for doctor-profile component
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-//added for doctor-profile component
+// //added for doctor-profile component
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+// import { HttpClientModule } from '@angular/common/http';
+// import { RouterModule } from '@angular/router';
+// //added for doctor-profile component
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,7 +30,7 @@ import { DoctorRatingsComponent } from './doctor-ratings/doctor-ratings.componen
 import { DoctorFeedbackComponent } from './doctor-feedback/doctor-feedback.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwPaginationComponent } from 'jw-angular-pagination';
 import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
@@ -60,7 +60,7 @@ import { CommonModule } from '@angular/common';
     DoctorRatingsComponent,
     DoctorFeedbackComponent,
     NavbarComponent,
-    JwPaginationComponent
+    JwPaginationComponent,
     DoctorFeedbackComponent,
     NavbarComponent
   ],
@@ -71,12 +71,8 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
-    ,jqxButtonModule   
-  ], 
-    HttpClientModule,
-    FormsModule,
     ReactiveFormsModule,
+    jqxButtonModule,
     NgbModule
   ],
   providers: [],
