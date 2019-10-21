@@ -8,6 +8,7 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
 const routes: Routes = [
   { path: 'doctor/:npi', component: DoctorProfileComponent },
   { path: '', redirectTo: 'searchDoctor', pathMatch: 'full' },
+  { path: 'searchDoctor', component: SearchDoctorComponent },
   { path: 'calendar', component: AppointmentCalendarComponent },
   { path: 'viewSchedule', component: SearchDoctorComponent }
 

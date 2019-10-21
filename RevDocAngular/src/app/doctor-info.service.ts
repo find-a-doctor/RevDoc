@@ -18,9 +18,16 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class DoctorInfoService {
 
-
+  private searchDoctorUrl: string;
+  private getAllDoctorsUrl: string;
+  private getAllConditionsUrl: string;
+  private getAllSpecialtyUrl: string;
+  private getAllInsuranceUrl: string;
+  private getLocationByIdUrl: string;
+  private getDoctorByIdUrl: string;
   baseUrl: string;
   doctorUrl: string;
   getAllUrl: string;
@@ -30,20 +37,53 @@ export class DoctorInfoService {
   getAllFollowersUrl: string;
   rateDoctorUrl: string;
 
-  constructor(private http: HttpClient, private router: Router) {
-    // this.baseUrl = "http://localhost:1000/";
+  constructor(private http: HttpClient) {
+    this.searchDoctorUrl = "http://localhost:9000/searchDoctor/";
+    this.getAllDoctorsUrl = "http://localhost:9000/doctors";
+    this.getAllConditionsUrl = "http://localhost:9000/conditionTypes";
+    this.getAllSpecialtyUrl = "http://localhost:9000/specialtyTypes";
+    this.getAllInsuranceUrl = "http://localhost:9000/insuranceTypes";
+    this.getLocationByIdUrl = "http://localhost:9000/location/";
+    this.getDoctorByIdUrl = "http://localhost:9000/doctor/";
     this.baseUrl = "http://localhost:9000/";
-    //for when we merge
     this.doctorUrl = this.baseUrl + "doctor/";
-    this.getAllUrl = this.baseUrl + "doctors/info";
+    this.getAllUrl = this.baseUrl + "doctors";
     this.allRatingsUrl = this.baseUrl + "allRatings/";
     this.followingUrl = this.baseUrl + "following/";
     this.followUrl = this.baseUrl + "follow/";
     this.getAllFollowersUrl = this.baseUrl + "allFollowers";
     this.rateDoctorUrl = this.baseUrl + "rateDoctor/"
-
-
   }
+  
+
+  public searchDoctor(search: string) {
+    console.log("Search Doctor: " + this.searchDoctorUrl + search);
+    //  return this.http.get<Doctor[]>(this.searchDoctorUrl+search);
+    return this.http.get<Object[]>(this.searchDoctorUrl + search);
+  }
+  
+
+  // public getAllDoctors() {
+  //   return this.http.get<Object[]>(this.getAllDoctorsUrl);
+  // }
+  public getAllConditions() {
+    return this.http.get<ConditionType>(this.getAllConditionsUrl);
+  }
+  public getAllSpecialtys() {
+    return this.http.get<SpecialtyType>(this.getAllSpecialtyUrl);
+  }
+  public getAllInsurances() {
+    return this.http.get<InsuranceType>(this.getAllInsuranceUrl);
+  }
+ 
+  public getLocationById(id: number){
+    return this.http.get<Location>(this.getLocationByIdUrl+id);
+  }
+
+  public getDoctorById(id: number){
+    return this.http.get<Doctor>(this.getDoctorByIdUrl+id);
+  }
+
 
   public getDoctor(npi: number): Observable<Doctor> {
     return this.http.get<Doctor>(this.doctorUrl + npi);
@@ -56,7 +96,6 @@ export class DoctorInfoService {
   public getAllDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(this.getAllUrl);
   }
-
 
   public isFollowing(npi: number, revassociate: string): Observable<boolean> {
     return this.http.get<boolean>(this.followingUrl + npi + "/" + revassociate);
