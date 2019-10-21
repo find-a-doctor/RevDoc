@@ -19,17 +19,14 @@
     "@angular/platform-browser": "~8.2.5",
     "@angular/platform-browser-dynamic": "~8.2.5",
     "@angular/router": "~8.2.5",
-<<<<<<< HEAD
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
     "@ismailarilik/angular-bootstrap-toggle-switch": "^0.5.9",
     "@types/node": "^12.7.12",
     "bootstrap": "^4.3.1",
     "bootstrap-toggle": "^2.2.2",
     "node": "^12.11.1",
-=======
     "jqwidgets-ng": "^8.3.0",
     "jw-angular-pagination": "^1.1.0",
->>>>>>> test/master
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

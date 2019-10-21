@@ -12,6 +12,7 @@ import { Specialty } from './revdoc-classes/specialty';
 import { Conditions } from './revdoc-classes/conditions';
 import { Followers } from './revdoc-classes/followers';
 import { RevAssociate } from './revdoc-classes/rev-associate';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -34,7 +35,7 @@ export class DoctorInfoService {
     this.baseUrl = "http://localhost:9000/";
     //for when we merge
     this.doctorUrl = this.baseUrl + "doctor/";
-    this.getAllUrl = this.baseUrl + "doctors";
+    this.getAllUrl = this.baseUrl + "doctors/info";
     this.allRatingsUrl = this.baseUrl + "allRatings/";
     this.followingUrl = this.baseUrl + "following/";
     this.followUrl = this.baseUrl + "follow/";

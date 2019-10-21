@@ -29,11 +29,9 @@ import { FollowDoctorComponent } from './follow-doctor/follow-doctor.component';
 import { DoctorRatingsComponent } from './doctor-ratings/doctor-ratings.component';
 import { DoctorFeedbackComponent } from './doctor-feedback/doctor-feedback.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HttpClientModule } from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { JwPaginationComponent } from 'jw-angular-pagination';
-import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
-import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
+// import { JwPaginationComponent } from 'jw-angular-pagination';
+// import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
+// import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
@@ -69,9 +67,9 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    jqxButtonModule   
-  ], 
+    jqxButtonModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
