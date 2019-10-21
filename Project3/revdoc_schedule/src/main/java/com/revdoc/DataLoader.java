@@ -181,11 +181,11 @@ public class DataLoader {
 		
 		// CREATE FOLLOWERS
 //		date = new Date();
-//		Followers f1 = new Followers(0, d1, u2, date);
-//		f1 = followersDao.save(f1);
-//		
-//		Followers f2 = new Followers(0, d2, u1, date);
-//		f2 =followersDao.save(f2);
+		Followers f1 = new Followers(0, d1, u2, date);
+		f1 = followersDao.save(f1);
+		
+		Followers f2 = new Followers(0, d2, u1, date);
+		f2 =followersDao.save(f2);
 		
 		// CREATE APPOINTMENT
 //		date = new Date();
@@ -194,26 +194,6 @@ public class DataLoader {
 		time.setTime(new Date());
 		Appointment ap1 = new Appointment(0, d1, u1, date, time, "Insurant Name input form user1", true);
 		ap1=appointmentDao.save(ap1);
-		
-		Calendar date1 = Calendar.getInstance();
-		date1.set(2019, Calendar.OCTOBER, 22);
-		Calendar time1 = Calendar.getInstance(); 
-		time1.set(2019, Calendar.OCTOBER, 22, 12, 30);
-		Appointment ap11 = new Appointment(0, d1, u2, date1, time1, "Insurant Name input form user1", true);
-//		System.out.println("======================");
-//		System.out.println(ap11);
-//		System.out.println("======================");
-		ap11=appointmentDao.save(ap11);
-		
-		Calendar date2 = Calendar.getInstance();
-		date2.set(2019, Calendar.OCTOBER, 23);
-		Calendar time2 = Calendar.getInstance(); 
-		time1.set(Calendar.HOUR_OF_DAY, 15);
-		Appointment ap12 = new Appointment(0, d1, u2, date2, time2, "Insurant Name input form user1", true);
-//		System.out.println("======================");
-//		System.out.println(ap11);
-//		System.out.println("======================");
-		ap12=appointmentDao.save(ap12);
 		
 //		time = new Time(14,30,0);
 		Appointment ap2 = new Appointment(0, d2, u2, date, time, "Insurant Name input form user2", false);
@@ -425,10 +405,9 @@ public class DataLoader {
 		System.out.println("doctor 2: "+d2);
 		System.out.println("available 1: "+a1);
 		System.out.println("available 2: "+a2);
-//		System.out.println("followers 1: "+f1);
-//		System.out.println("followers 2: "+f2);
+		System.out.println("followers 1: "+f1);
+		System.out.println("followers 2: "+f2);
 		System.out.println("appointment 1: "+ap1);
-		System.out.println("appointment 11: "+ap11);
 		System.out.println("appointment 2: "+ap2);
 		System.out.println("feedback 1: "+fb1);
 		System.out.println("feedback 2: "+fb2);

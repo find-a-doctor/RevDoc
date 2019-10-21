@@ -23,11 +23,12 @@ export class ViewApptComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.doctor.email = 'johnross@gmail.com';
+    this.doctor.email = localStorage.getItem('user');
+    // this.viewApptService.doctorAppts(this.doctor.email).subscribe(data => console.log(data))
     this.viewApptService.doctorAppts(this.doctor.email).subscribe(data=>{
-      this.appt = data
-      console.log(this.appt[0].doctor.doctorName)
-      this.calendarEvents=data
+       this.appt = data
+       console.log(this.appt[0].doctor.doctorName)
+       this.calendarEvents=data
     });
   }
 }

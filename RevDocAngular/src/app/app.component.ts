@@ -33,6 +33,8 @@ export class AppComponent implements OnInit {
      this.associate.revAssociateName == "Tom Cat"
      localStorage.setItem('user', this.associate.revAssociateEmail)
      localStorage.setItem('user name', this.associate.revAssociateName)
+   } else {
+     console.log("assert user type method failed")
    }
   }
 }
