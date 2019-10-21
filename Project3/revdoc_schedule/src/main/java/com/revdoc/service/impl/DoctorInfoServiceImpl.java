@@ -20,7 +20,7 @@ import com.revdoc.model.Specialty;
 import com.revdoc.service.DoctorInfoService;
 
 @Service
-public class DoctorInfoServiceImpl implements DoctorInfoService{
+public class DoctorInfoServiceImpl implements DoctorInfoService {
 
 	@Autowired
 	private DoctorDAO dDao;
@@ -80,7 +80,6 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 
 	@Override
 	public Feedback submitFeedback(Feedback feedback) {
-		System.out.println(feedback);
 		return fbDao.save(feedback);
 	}
 
