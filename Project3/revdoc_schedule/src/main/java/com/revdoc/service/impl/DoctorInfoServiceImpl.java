@@ -82,6 +82,7 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 
 	@Override
 	public Feedback submitFeedback(Feedback feedback) {
+		System.out.println(feedback);
 		return fbDao.save(feedback);
 	}
 
