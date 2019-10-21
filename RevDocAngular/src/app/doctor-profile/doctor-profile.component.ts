@@ -7,6 +7,7 @@ import { Specialty } from '../revdoc-classes/specialty';
 import { Insurance } from '../revdoc-classes/insurance';
 import { Conditions } from '../revdoc-classes/conditions';
 import { Location } from '../revdoc-classes/location';
+import { RevAssociate } from '../revdoc-classes/rev-associate';
 
 
 
@@ -17,7 +18,9 @@ import { Location } from '../revdoc-classes/location';
 })
 export class DoctorProfileComponent implements OnInit {
 
-  
+  //fake user
+  revAssociate:RevAssociate;
+
 
   doctor: Doctor;
   insurance: Insurance[];
@@ -27,6 +30,11 @@ export class DoctorProfileComponent implements OnInit {
   constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.revAssociate=new RevAssociate();
+    this.revAssociate.revAssociateEmail="sampleuser@revature.com";
+    this.revAssociate.revAssociateName="Sample McUser";
+    this.revAssociate.revAssociatePassword="badpassword";
+    console.log(this.revAssociate);
 
     this.doctor = new Doctor();
     this.route.url.subscribe(data => {
