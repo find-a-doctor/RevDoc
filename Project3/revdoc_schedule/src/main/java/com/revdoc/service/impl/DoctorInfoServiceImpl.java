@@ -20,7 +20,7 @@ import com.revdoc.model.Specialty;
 import com.revdoc.service.DoctorInfoService;
 
 @Service
-public class DoctorInfoServiceImpl implements DoctorInfoService {
+public class DoctorInfoServiceImpl implements DoctorInfoService{
 
 	@Autowired
 	private DoctorDAO dDao;

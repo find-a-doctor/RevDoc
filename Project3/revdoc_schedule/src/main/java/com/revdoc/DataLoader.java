@@ -1,7 +1,6 @@
 package com.revdoc;
 
 import java.security.MessageDigest;
-import java.sql.Time;
 import java.util.Calendar;
 import java.util.Date;
 

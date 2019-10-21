@@ -36,6 +36,7 @@ export class DoctorFeedbackComponent implements OnInit {
     this.feedback.overallRating = this.Overall.value;
     this.feedback.comments= comments;
     this.feedback.appointment = new Appointment();
+    this.feedback.appointment.appointmentId=0;
     // this.feedback.appointment.doctor= new Doctor();
     // this.feedback.appointment.doctor = this.doctor;
     this.route.url.subscribe(data => {
@@ -68,6 +69,7 @@ export class DoctorFeedbackComponent implements OnInit {
       this.BedsideManners.disable();
     }
   }
+
 
   WaitTime = new FormControl(null, Validators.required);
 
