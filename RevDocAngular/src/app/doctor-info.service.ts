@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { ConditionType } from './revdoc-classes/condition-type';
+import { SpecialtyType } from './revdoc-classes/specialty-type';
+import { InsuranceType } from './revdoc-classes/insurance-type';
+import { Location } from './revdoc-classes/location';
 import { Doctor } from './revdoc-classes/doctor';
 import { Router } from '@angular/router';
 import { Feedback } from './revdoc-classes/feedback';
@@ -27,7 +30,9 @@ export class DoctorInfoService {
   rateDoctorUrl: string;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.baseUrl = "http://localhost:1000/";
+    // this.baseUrl = "http://localhost:1000/";
+    this.baseUrl = "http://localhost:9000/";
+    //for when we merge
     this.doctorUrl = this.baseUrl + "doctor/";
     this.getAllUrl = this.baseUrl + "doctors";
     this.allRatingsUrl = this.baseUrl + "allRatings/";

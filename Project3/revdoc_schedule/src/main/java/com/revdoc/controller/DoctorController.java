@@ -31,10 +31,11 @@ public class DoctorController {
 		return service.getDoctorByNpi(npi);
 	}
 	
-	@GetMapping("/doctors")
+	@GetMapping("/doctors/info")
 	public List<Doctor> getAllDoctors(){
 		return service.getAllDoctors();
 	}
+	//this is redundant, only used for testing, but the function is used in SearchDoctorController
 
 	
 	@GetMapping("/allRatings/")
