@@ -47,7 +47,7 @@ export class DoctorInfoService {
     this.getDoctorByIdUrl = "http://localhost:9000/doctor/";
     this.baseUrl = "http://localhost:9000/";
     this.doctorUrl = this.baseUrl + "doctor/";
-    this.getAllUrl = this.baseUrl + "doctors/info";
+    this.getAllUrl = this.baseUrl + "doctors";
     this.allRatingsUrl = this.baseUrl + "allRatings/";
     this.followingUrl = this.baseUrl + "following/";
     this.followUrl = this.baseUrl + "follow/";
@@ -96,7 +96,6 @@ export class DoctorInfoService {
   public getAllDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(this.getAllUrl);
   }
-
 
   public isFollowing(npi: number, revassociate: string): Observable<boolean> {
     return this.http.get<boolean>(this.followingUrl + npi + "/" + revassociate);
