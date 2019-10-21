@@ -8,10 +8,10 @@ public interface DoctorService {
 	
 
 	public Doctor createDoctor(Doctor doctor);
-	public Doctor getDoctorById(long npi);
+	public Doctor getDoctorByNpi(long npi);
 	public List<Doctor> getAllDoctors();
-	public Doctor updateDoctor(Doctor doctor);
-	public void deleteDoctor(long npi);
+	public void updateDoctor(long npi, Doctor doctor);
+	public void deleteDoctor(long npi, Doctor doctor);
 	public List<Doctor> getDoctorByName(String name);
 
 

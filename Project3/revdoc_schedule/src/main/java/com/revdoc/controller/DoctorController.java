@@ -22,14 +22,15 @@ public class DoctorController {
 	@Autowired
 	private DoctorService service;
 	
+	//Creates a new Doctor
 	@PostMapping("/createDoctor")
 	public Doctor createDoctor(@RequestBody Doctor doctor) {
 		return service.createDoctor(doctor);
 	}
 	@GetMapping("/doctor/{npi}")
-	public Doctor getDoctorById(@PathVariable long npi) {
+	public Doctor getDoctorByNpi(@PathVariable long npi) {
 		// TODO Auto-generated method stub
-		return service.getDoctorById(npi);
+		return service.getDoctorByNpi(npi);
 	}
 
 	@GetMapping("/doctors")
@@ -38,16 +39,16 @@ public class DoctorController {
 		return service.getAllDoctors();
 	}
 
-	@PutMapping("/updateDoctor")
-	public Doctor updateDoctor(@RequestBody Doctor doctor) {
+	@PutMapping("/updateDoctor/{npi}")
+	public void updateDoctor(@PathVariable long npi, @RequestBody Doctor doctor) {
 		// TODO Auto-generated method stub
-		return service.updateDoctor(doctor);
+		service.updateDoctor(npi,doctor);
 	}
 
 	@DeleteMapping("/doctor/{npi}")
-	public void deleteDoctor(@PathVariable long npi) {
+	public void deleteDoctor(@PathVariable long npi, @RequestBody Doctor doctor) {
 		
-		service.deleteDoctor(npi);
+		service.deleteDoctor(npi, doctor);
 }
 	
 	@GetMapping("/")

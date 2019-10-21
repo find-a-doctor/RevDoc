@@ -25,7 +25,7 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public Doctor getDoctorById(long npi) {
+	public Doctor getDoctorByNpi(long npi) {
 		return dao.findByNpi(npi);
 	}
 
@@ -35,12 +35,12 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public Doctor updateDoctor(Doctor doctor) {
-		return dao.save(doctor);
+	public void updateDoctor(long npi,Doctor doctor) {
+		 dao.save(doctor);
 	}
 
 	@Override
-	public void deleteDoctor(long npi) {
+	public void deleteDoctor(long npi,Doctor doctor) {
 		dao.deleteById(npi);
 		
 	}
