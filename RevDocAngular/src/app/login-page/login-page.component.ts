@@ -1,18 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SessionService } from '../session.service';
+import { RevAssociate } from '../revdoc-classes/rev-associate';
+import { Doctor } from '../revdoc-classes/doctor';
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent implements OnInit {
- 
+export class LoginPageComponent {
+  public associate: RevAssociate;
+  public doctor: Doctor;
 
-  constructor(private router:Router) { }
-  userLogin(){
-    this.router.navigate(['/schedule-appt']);
+  constructor(private router:Router, private session:SessionService) {
+    this.associate = new RevAssociate
+    this.doctor = new Doctor
+   }
+  
+  associateLogin(){
+    // console.log("function has been reached")
+    this.session.initAssociateSession(this.associate).subscribe(data => {
+      //
+    })
+    this.router.navigate(['schedule-appt']);
   }
-  ngOnInit() {
+
+  doctorLogin(){
+    // console.log("doctor function reached")
+    this.session.initDoctorSession(this.doctor).subscribe(data => {
+      //
+    })
+    this.router.navigate(['doctor-profile']);
   }
+
 
 }
