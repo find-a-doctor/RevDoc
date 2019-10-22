@@ -5,7 +5,6 @@ import { SearchDoctorComponent } from './search-doctor/search-doctor.component';
 import { AppointmentCalendarComponent } from './appointment-calendar/appointment-calendar.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 
-
 const routes: Routes = [
   { path: 'ex-dr-page', component: DoctorProfileComponent },
   { path: 'doctor/:npi', component: DoctorProfileComponent },
