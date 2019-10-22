@@ -29,6 +29,7 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
 import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { CommonModule } from '@angular/common';
+import { DoctorHomeComponent } from './doctor-home/doctor-home.component';
 
 
 
@@ -56,7 +57,8 @@ import { CommonModule } from '@angular/common';
     NavbarComponent,
     JwPaginationComponent,
     DoctorFeedbackComponent,
-    NavbarComponent
+    NavbarComponent,
+    DoctorHomeComponent
   ],
   imports: [
     BrowserModule,
