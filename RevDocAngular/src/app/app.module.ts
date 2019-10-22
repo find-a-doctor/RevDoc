@@ -22,7 +22,8 @@ import { FollowDoctorComponent } from './follow-doctor/follow-doctor.component';
 import { DoctorRatingsComponent } from './doctor-ratings/doctor-ratings.component';
 import { DoctorFeedbackComponent } from './doctor-feedback/doctor-feedback.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { LoginPageComponent } from './login-page/login-page.component'
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { HttpClientModule } from '@angular/common/http'
     FollowDoctorComponent,
     DoctorRatingsComponent,
     DoctorFeedbackComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
