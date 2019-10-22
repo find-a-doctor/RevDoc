@@ -1,3 +1,9 @@
+
+.navbar-custom {
+    background-color: cyan;
+    color: #000;
+  }
+  
 .navbarWrapper {
     border-bottom: solid;
     border-width: 1px;

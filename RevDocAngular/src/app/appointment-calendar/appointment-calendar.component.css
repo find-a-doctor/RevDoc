@@ -1,0 +1,6 @@
+.noborder{
+	border: 0px;
+	text-align: right;
+}
+
+div.inline { float:left; }
