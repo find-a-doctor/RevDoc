@@ -26,4 +26,7 @@ public interface AppointmentDAO extends JpaRepository<Appointment, Long>{
 			+ "join rev_associate on rev_associate.rev_associate_email = Appointment.rev_associate_rev_associate_email "
 			+ "where (Appointment.doctor_npi =:search ) ", nativeQuery = true)
 	List<Appointment> getAllDortorAppointmentById(@Param("search") String search);
+	
+	List<Appointment> findByRevAssociateRevAssociateEmail(String email);
+	List<Appointment> findByDoctorEmail(String email);
 }
