@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { Available, AvailableInput } from './available';
 import { AvailableService } from './availble.service';
 import { FormGroup } from '@angular/forms';
+import { SessionService } from '../session.service';
 
 
 @Component({
@@ -23,9 +24,10 @@ export class EditAvailabilityComponent implements OnInit {
   valid: boolean;
 
   // constructor used to populate initial values and prevent undefinded issues
-  constructor(private service:AvailableService) {
+  constructor(private service:AvailableService, private sessionService:SessionService) {
     this.availabilityInput= new AvailableInput();
     this.availabilityInput.date=null;
+    this.availability.doctor=sessionService.getDoctorSession();
     this.availability= new Available();
     this.availability.date=null;
     this.valid=false;
