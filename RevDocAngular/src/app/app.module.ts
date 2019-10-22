@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 // //added for doctor-profile component
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -36,8 +37,6 @@ import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { CommonModule } from '@angular/common';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +65,8 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     BrowserModule,
+    FullCalendarModule,
+    HttpClientModule,
     CommonModule,
     jqxSchedulerModule,
     AppRoutingModule,

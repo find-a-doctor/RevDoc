@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ViewApptComponent } from './view-appt/view-appt.component';
 import { SearchDoctorComponent } from './search-doctor/search-doctor.component';
 import { AppointmentCalendarComponent } from './appointment-calendar/appointment-calendar.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
