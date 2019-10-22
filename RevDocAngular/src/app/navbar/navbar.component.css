@@ -2,14 +2,14 @@
     border-bottom: solid;
     border-width: 1px;
     border-color: rgba(0, 0, 0, .5);
-    text-align: -webkit-center;
+    text-align: center;
+    margin-bottom: 5rem;
 }
 
 .revNav {
     padding-top: 0px;
-    text-align: center!important;
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
     margin-bottom: 10px;
     justify-content: center;
     height: 12vh;
