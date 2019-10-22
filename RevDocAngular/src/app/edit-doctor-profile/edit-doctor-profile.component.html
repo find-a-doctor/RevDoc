@@ -1,1 +1,136 @@
-<p>edit-doctor-profile works!</p>
+<div class="navbarWrapper">
+    <nav class="navbar revNav container text-center">
+      <div class="navRow row">
+        <a class="navbar-brand" href="#">
+            <img class="logo" src="../../assets/RevLogo.png">
+        </a>
+              <div class="search-container row navItems">
+                  <li>
+                    <a class="nav-link" href="#">BUTTON <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li>
+                    <a class="nav-link" href="#">MY ACCOUNT</a>
+                  </li>
+                  <li>
+                    <a class="nav-link" href="#">VIEW APPOINTMENTS</a>
+                  </li>
+                    <button class="btn navBtn">FIND A DOCTOR</button>
+                    <button class="btn navBtn">ANOTHER BUTTON</button>
+              </div>
+      </div>
+      </nav>
+      </div>
+      <div class="container bootstrap snippets">
+        <div class="row">
+          <div class="col-xs-12 offset-sm-9 text-center">
+            <form class="formHorizontal" (ngSubmit)="sendUpdatedData(formHorizontal)">
+                <div class="panel panel-default">
+                  <div class="panel-body text-center">
+                   <img src="../assets/unisex_doc.png" class="img-circle profile-avatar" alt="User avatar">
+                  </div>
+                </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                <h4 class="panel-title">User info</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" [(ngModel)]="doctor.doctorName" value="{{doctor.doctorName}}" disabled>
+                        </div>
+                      </div>
+                  <div class="form-group required">
+                      <label class="col-sm-2 control-label">Location</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" [(ngModel)]="location.state" value="{{location.state}}" disabled>
+                      </div>
+                    </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Hospital name</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" [(ngModel)]="location.locationName" value="{{location.locationName}}" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Experience</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" [(ngModel)]="doctor.experience" value="{{doctor.experience}}" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group required">
+                      <label class="col-sm-2 control-label">About Me</label>
+                      <div class="col-sm-10">
+                        <textarea rows="3" class="form-control" [(ngModel)]="doctor.aboutMe" value="{{doctor.aboutMe}}"></textarea>
+                      </div>
+                    </div>
+                </div>
+              </div>
+    
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                  <h4 class="panel-title">Coverage Info</h4>
+                  </div>
+                  <div class="panel-body">
+                      <div class="form-group required">
+                          <label class="col-sm-2 control-label">Insurance Covered</label>
+                          <div class="col-sm-10">
+                            <textarea rows="3" class="form-control" [(ngModel)]="insurance.insuranceType" value="{{insurance.insuranceType}}" disabled></textarea>
+                          </div>
+                        </div>
+                    <div class="form-group required">
+                      <label class="col-sm-2 control-label">License</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" [(ngModel)]="license.licenseName" value="{{license.licenseName}}" disabled>
+                      </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label">Specialty</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" [(ngModel)]="specialty.specialtyType" value="{{specialty.specialtyType}}" disabled>
+                        </div>
+                      </div>
+                    <div class="form-group required">
+                      <label class="col-sm-2 control-label">Conditions</label>
+                      <div class="col-sm-10">
+                        <textarea rows="3" class="form-control" [(ngModel)]="conditionType.conditionName" value="{{conditionType.conditionName}}" disabled></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                <h4 class="panel-title">Contact info</h4>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Work number</label>
+                    <div class="col-sm-10">
+                      <input type="tel" class="form-control" [(ngModel)]="doctor.phone" value="{{doctor.phone}}" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Work E-mail address</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" [(ngModel)]="doctor.email" value="{{doctor.email}}" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Work address</label>
+                    <div class="col-sm-10">
+                      <textarea rows="3" class="form-control" [(ngModel)]="location.address" value="{{location.address}}" disabled></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                  <div class="form-group form-group-center">
+                    <div class="col-sm-10 col-sm-offset-2">
+                      <button type="submit" class="btn">Submit</button>
+                      <button onclick="goBack()">Cancel</button>
+                    </div>
+                  </div>
+            </form>
+          </div>
+        </div>
+        </div>
