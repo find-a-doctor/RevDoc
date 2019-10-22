@@ -1,0 +1,5 @@
+package com.revdoc.model;
+
+public class Appointment {
+
+}

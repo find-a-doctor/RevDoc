@@ -1,0 +1,34 @@
+package com.revdoc.model;
+
+import javax.annotation.Generated;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.TableGenerator;
+
+import org.springframework.stereotype.Indexed;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table
+@Indexed
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
+@TableGenerator(name="tab", initialValue=1000, allocationSize=1)
+public class Appointment {
+
+	@Id
+	@GeneratedValue(generator="tab")
+	private long appointmentId;
+	
+	
+}

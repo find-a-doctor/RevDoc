@@ -7,6 +7,7 @@ import { Doctor } from '../revdoc-classes/doctor';
 import { InsuranceType } from '../revdoc-classes/insurance-type';
 import { Appointment } from '../revdoc-classes/appointment';
 import { RevAssociate } from '../revdoc-classes/rev-associate';
+import { ViewApptService } from '../view-appt.service';
 //import { $ } from './selenium-webdriver/lib/test/data/js';
 //import $ = require("jquery");
 
@@ -29,13 +30,16 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     doctorAppointmentList: Appointment[];
     // Calendar variable
     dataAdapter: any;
+    // This is to view appoint
+    appointment: Appointment = new Appointment();
+    userAppointments: Appointment[] = [];
 
     //Set default date of calendar when appointment page load
     date: any = new jqx.date();
     //This for get URI from url:
     private sub: any;
 
-    constructor(private appointmentCalendarService: DoctorInfoService, private route: ActivatedRoute, private router: Router) {
+    constructor(private appointmentCalendarService: DoctorInfoService, private viewApptService: ViewApptService, private route: ActivatedRoute, private router: Router) {
         //GET location information by ID
         //   this.sub = this.route.params.subscribe(params => {
         //     this.id = params['id']; // +params['id'];  (+) converts string 'id' to a number
@@ -48,7 +52,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         this.isViewAllAppointment = false;
         this.insuranceTypeList = [];
         ///
-       
+
         this.dataAdapter = new jqx.dataAdapter(this.source);
         // this.appointmentCalendarService.getLocationById(this.id).subscribe(data => {
         //     console.log("Test Location: " + data.address);
@@ -60,9 +64,19 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
             this.insuranceTypeList = data;
             console.log("constructor HERE with insuranceTypeList");
         });
+
+        
     }
 
     ngOnInit() {
+
+        //this.revAssociate = new RevAssociate();
+        // this.revAssociate.revAssociateEmail = 'revTom@gmail.com';
+        // this.revAssociate.revAssociatePassword = 'revTom';
+        // this.revAssociate.revAssociateName = 'Tom Cat';
+
+        
+
         console.log("ngOnInit HERE");
         //SET RevAssociation HERE
         this.revAssociate.revAssociateEmail = "thanhtinphuynh@gmail.com";
@@ -90,7 +104,15 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
             this.appointmentCalendarService.getAllDoctorAppointmentById(this.id).subscribe(data => {
                 this.doctorAppointmentList = data;
             });
+
+            
         });
+        this.viewApptService.getAppointmentsByRevAssociateEmail(this.revAssociate.revAssociateEmail).subscribe(apptsData => {
+            apptsData.forEach(appt => {
+                this.userAppointments.push(appt);
+                //window.location.reload();
+              });
+          });
 
 
 
@@ -99,79 +121,81 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     ngAfterViewInit(): void {
         console.log("ngAfterViewInit HERE");
         this.scheduler.ensureAppointmentVisible('id1');
-       
 
-        setTimeout(()=>{
+
+        setTimeout(() => {
             this.scheduler.beginAppointmentsUpdate();
-        //    console.log("Testing timeOut : "+this.source.localData); //new data from the server
+            //    console.log("Testing timeOut : "+this.source.localData); //new data from the server
             // this.source.localData = this.generateAppointments();
             // this.dataAdapter.source = this.source;
             // this.scheduler.source = this.dataAdapter;
             // jqx.source= new jqx.dataAdapter(this.source);
 
             // This will add insurance name
-            let insuranceAdd = {id: "othersId",
+            let insuranceAdd = {
+                id: "othersId",
                 calendar: "Others",
                 start: new Date(1900, 10, 26, 15, 0, 0),
                 end: new Date(1900, 10, 26, 16, 0, 0),
             };
             this.scheduler.addAppointment(insuranceAdd);
-            this.insuranceTypeList.forEach(it=>{
-                let insuranceAdd = {id: it.insuranceTypeId,
+            this.insuranceTypeList.forEach(it => {
+                let insuranceAdd = {
+                    id: it.insuranceTypeId,
                     calendar: it.insuranceName,
                     start: new Date(1900, 10, 26, 15, 0, 0),
                     end: new Date(1900, 10, 26, 16, 0, 0),
                 };
                 this.scheduler.addAppointment(insuranceAdd);
             });
-            
+
             // User this to add appointment from calendar
-            this.doctorAppointmentList.forEach(d=>{
-         //       console.log("DATE: "+d.date+" Time: "+d.time);
-                let year = d.date.toString().substr(0,4);
-                let month = d.date.toString().substr(5,2);
-                let day = d.date.toString().substr(8,2);
-                let hour = d.date.toString().substr(11,2);
-                let minute = d.date.toString().substr(14,2);
-                let second = d.date.toString().substr(17,2);
-       //         console.log("DATE: "+year+"-"+month+"-"+day+" Time: "+hour+":"+minute+":"+second);
+            this.doctorAppointmentList.forEach(d => {
+                //       console.log("DATE: "+d.date+" Time: "+d.time);
+                let year = d.date.toString().substr(0, 4);
+                let month = d.date.toString().substr(5, 2);
+                let day = d.date.toString().substr(8, 2);
+                let hour = d.date.toString().substr(11, 2);
+                let minute = d.date.toString().substr(14, 2);
+                let second = d.date.toString().substr(17, 2);
+                //         console.log("DATE: "+year+"-"+month+"-"+day+" Time: "+hour+":"+minute+":"+second);
                 let doctorAppointment = {
-                    id: d.appointmentId+"",
-                    description: d.doctor.location.locationName+", "+d.doctor.location.address,
-                    location: d.appointmentId+"",
+                    id: d.appointmentId + "",
+                    description: d.doctor.location.locationName + ", " + d.doctor.location.address,
+                    location: d.appointmentId + "",
                     subject: d.doctor.doctorName,
                     calendar: d.insurance,
-                    start: new Date(+year,+month-1, +day, +hour, +minute, +second),
-                    end: new Date(+year,+month-1, +day, +hour+1, +minute, +second)
-              //      ,insuranceL: 'loading'
+                    start: new Date(+year, +month - 1, +day, +hour, +minute, +second),
+                    end: new Date(+year, +month - 1, +day, +hour + 1, +minute, +second)
+                    //      ,insuranceL: 'loading'
                 };
                 this.scheduler.addAppointment(doctorAppointment);
-                this.scheduler.setAppointmentProperty(d.appointmentId+"", 'draggable', false);
-                this.scheduler.setAppointmentProperty(d.appointmentId+"", 'resizable', false);
-                this.scheduler.setAppointmentProperty(d.appointmentId+"", 'readOnly', true);
+                this.scheduler.setAppointmentProperty(d.appointmentId + "", 'draggable', false);
+                this.scheduler.setAppointmentProperty(d.appointmentId + "", 'resizable', false);
+                this.scheduler.setAppointmentProperty(d.appointmentId + "", 'readOnly', true);
 
             });
 
             this.scheduler.endAppointmentsUpdate();
-         
-        },1000);
+
+        }, 1000);
         // console.log("Testing : "+this.source.localData); //new data from the server
         // this.source.localData = this.generateAppointments();
         // this.dataAdapter.source = this.source;
         // this.scheduler.source = this.dataAdapter;
         // jqx.source= new jqx.dataAdapter(this.source);
         // User this to add appointment from calendar
-    // let appointment6 = {
-    //     id: "id66",
-    //     description: "",
-    //     location: "",
-    //     subject: "Interview with Nancy",
-    //     calendar: "Room 9",
-    //     start: new Date(2018, 10, 26, 14, 0, 0),
-    //     end: new Date(2018, 10, 26, 16, 0, 0),
-    //     insuranceL: "Ambetter"
-    // };
-    // this.scheduler.addAppointment(appointment6);
+        // let appointment6 = {
+        //     id: "id66",
+        //     description: "",
+        //     location: "",
+        //     subject: "Interview with Nancy",
+        //     calendar: "Room 9",
+        //     start: new Date(2018, 10, 26, 14, 0, 0),
+        //     end: new Date(2018, 10, 26, 16, 0, 0),
+        //     insuranceL: "Ambetter"
+        // };
+        // this.scheduler.addAppointment(appointment6);
         // console.log("Testing : "+this.source.localData); //new data from the server
         // this.source.localData=this.generateAppointments();
 
@@ -182,16 +206,16 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         // this.scheduler.setAppointmentProperty('id4', 'readOnly', true);
         // this.scheduler.setAppointmentProperty('id5', 'hidden', true);
         // this.scheduler.setAppointmentProperty('id6', 'hidden', true);
-    //    this.scheduler.endAppointmentsUpdate();
+        //    this.scheduler.endAppointmentsUpdate();
     }
 
     getWidth(): any {
-       // if (document.body.offsetWidth < 1366) {
+        // if (document.body.offsetWidth < 1366) {
         if (document.body.offsetWidth < 970) {
             return '90%';
         }
-return 970;
-      //  return 1366;
+        return 970;
+        //  return 1366;
     }
 
     // This will store the available table from db to show on appointment calendar
@@ -213,9 +237,9 @@ return 970;
         //     insuranceL: "Ambetter"};
         //            appointments.push(appointmenttt);
         //              });
-       
+
         //             });
-        
+
         // let appointment1 = {
         //     id: "id1",
         //     description: "George brings projector for presentations.",
@@ -314,13 +338,14 @@ return 970;
                 { name: 'confirmed', type: 'boolean' }
             ],
             id: 'id'
-            ,localData: this.generateAppointments()
+            , localData: this.generateAppointments()
         };
 
-    
+
     // calendarResource: any =[{calendar: 'room1'},{calendar: 'room2'},{calendar: 'room3'},{calendar: 'room4'},{calendar: 'room5'},{calendar: 'room6'},{calendar: 'room7'},{calendar: 'room8'}];
     appointmentDataFields: any =
         {
+            
             from: "start",
             to: "end",
             id: "id",
@@ -363,6 +388,7 @@ return 970;
         fields.statusContainer.remove();
         // hide timeZone option
         fields.timeZoneContainer.remove();
+        
         // hide color option
         fields.colorContainer.remove();
         // hide repeat
@@ -386,7 +412,7 @@ return 970;
         //  fields.subject.setOptions({ disabled: false });
         //fields.subject. ="Name of doctor here";
         fields.locationLabel.html("AppointmentID");
-      //  fields.location.val(this.doctor.location.locationName);
+        //  fields.location.val(this.doctor.location.locationName);
         //  fields.location.val(this.location.locationName);
         fields.location.prop("readonly", true);
         fields.fromLabel.html("Date");
@@ -416,9 +442,9 @@ return 970;
 
         // //fields.calendar.source(source);
 
-      //  fields.insuranceL = jqwidgets.createInstance('#insuranceL', 'jqxComboBox', { source: source, selectedIndex: 0, width: '300px', height: '25px' });
+        //  fields.insuranceL = jqwidgets.createInstance('#insuranceL', 'jqxComboBox', { source: source, selectedIndex: 0, width: '300px', height: '25px' });
         //$("#behandlung1").jqxComboBox({ source: source, selectedIndex: 0, width: '300px', height: '25px'});
-      //  fields.insuranceL.hide();
+        //  fields.insuranceL.hide();
         fields.resourceLabel.html("Insurance");
 
         //Create Print button
@@ -501,9 +527,10 @@ return 970;
     * @param {Object} the selected appointment instance or NULL when the dialog is opened from cells selection.
     */
     editDialogOpen = (dialog, fields, editAppointment) => {
-     //   console.log("Dialog open here" + fields.subject.val());
+        //   console.log("Dialog open here" + fields.subject.val());
         //  console.log("Dialog open here :" +editAppointment.fields.subject.val());
 
+        //fields.label("View Appointment");
 
         //  (fields.calendar[0]).jqxComboBox('selectIndex', 2);
 
@@ -518,11 +545,14 @@ return 970;
         if (!editAppointment && this.printButton) {
             //  fields.subject.setAppointmentProperty({val: "aaaaaaaa"});
             this.printButton.setOptions({ disabled: true });
-         //   fields.insuranceL.setOptions({ disabled: false });
+            //   fields.insuranceL.setOptions({ disabled: false });
         }
         else if (editAppointment && this.printButton) {
             this.printButton.setOptions({ disabled: false });
-         //   fields.insuranceL.setOptions({ disabled: true });
+            //   fields.insuranceL.setOptions({ disabled: true });
+            
+            
+
             fields.deleteButton.hide();
             fields.saveButton.hide();
 
@@ -531,6 +561,7 @@ return 970;
                 //  fields.saveButton.jqxButton({ disabled: false });
 
             }
+            
         }
     };
     /**
@@ -541,12 +572,12 @@ return 970;
     */
     editDialogClose = (dialog, fields, editAppointment) => {
         console.log("Appointment close here: Date = " + fields.from.val());
-       // console.log("Appointment close here: Date = " + fields.insuranceL.val());
+        // console.log("Appointment close here: Date = " + fields.insuranceL.val());
         //   if(editAppointment){
         //     window.location.reload();
         //   }
         // this.editDialogCreate.
- //              window.location.reload();
+            // window.location.reload();
         //     fields.subjectLabel.html("Doctor Name");
         //     fields.subject.val("Doctor name here");
         //   //  fields.subject.setOptions({ disabled: false });
@@ -571,76 +602,76 @@ return 970;
     }
     mySchedulerOnAppointmentDelete(event: any): void {
         let appointment = event.args.appointment;
-        console.log("Delete:::: "+appointment.location);
-     if(confirm("Are you sure to delete this appointment ID: "+appointment.location)) {
+        console.log("Delete:::: " + appointment.location);
+        if (confirm("Are you sure to delete this appointment ID: " + appointment.location)) {
             console.log('appointmentDelete is raised');
-            this.appointmentCalendarService.deleteDoctorAppointment(appointment.location).subscribe(data =>{ });
-         }
-      
+            this.appointmentCalendarService.deleteDoctorAppointment(appointment.location).subscribe(data => { });
+        }
+
         // this.myLog.nativeElement.innerHTML = 'appointmentDelete is raised';
-     //   console.log('appointmentDelete is raised' + appointment.insuranceL);
-      //  console.log('appointmentDelete is raised' + appointment.dataFields);
+        //   console.log('appointmentDelete is raised' + appointment.insuranceL);
+        //  console.log('appointmentDelete is raised' + appointment.dataFields);
     };
 
     mySchedulerOnAppointmentAdd(event: any): void {
         let appointment = event.args.appointment;
-        console.log("CONTAINE +" + appointment.from.toString() +" -- "+ appointment.to);
+        console.log("CONTAINE +" + appointment.from.toString() + " -- " + appointment.to);
         console.log("CONTAINE +" + appointment.resourceId);
-        if((appointment.to - appointment.from)!=3600000){
+        if ((appointment.to - appointment.from) != 3600000) {
             // console.log("CONTAINE +" + appointment.id);
-             let year = appointment.from.toString().substr(0,4);
-             let month = appointment.from.toString().substr(5,2);
-             let day = appointment.from.toString().substr(8,2);
-             let hour = appointment.from.toString().substr(11,2);
-             let minute = appointment.from.toString().substr(14,2);
-             let second = appointment.from.toString().substr(17,2);
-           //  let dayNight = appointment.from.toString().substr(appointment.from.toString().length-2,2);
-            
-             let correctTime = true;
-             this.doctorAppointmentList.forEach(data =>{
-                console.log("sssssss"+appointment.from.toString());
-              console.log("sssssss"+data.date.toString());
-              let year1 = data.date.toString().substr(0,4);
-              let month1 = data.date.toString().substr(5,2);
-              let day1 = data.date.toString().substr(8,2);
-              let hour1 = data.date.toString().substr(11,2);
-              let minute1 = data.date.toString().substr(14,2);
-              let second1 = data.date.toString().substr(17,2);
-              console.log(year+"-"+month +"-"+day+" "+hour+":"+minute+":"+second);
-              console.log(year1+"-"+month1 +"-"+day1+" "+hour1+":"+minute1+":"+second1);
-                 if(year==year1 && month==month1 && day==day1){
-                     console.log("PPPPPPPPPPPPPPPPPPP "+ hour+"--"+hour1);
-                     if( +hour>=+hour1 &&  +hour<=+hour1+1){
-                         console.log("AAAAAAAAAAAAAAAAA");
-                         correctTime=false;
-                    window.alert("This time have confilic. Please choose another date/time.");
-                    return;
-                     }
-                 }
-             });
+            let year = appointment.from.toString().substr(0, 4);
+            let month = appointment.from.toString().substr(5, 2);
+            let day = appointment.from.toString().substr(8, 2);
+            let hour = appointment.from.toString().substr(11, 2);
+            let minute = appointment.from.toString().substr(14, 2);
+            let second = appointment.from.toString().substr(17, 2);
+            //  let dayNight = appointment.from.toString().substr(appointment.from.toString().length-2,2);
 
-             if(correctTime){
-             let doctorAppointment: Appointment = new Appointment();
-             doctorAppointment.confirmed = false;
-             doctorAppointment.date =  new Date(+year,+month-1, +day, +hour-10, +minute, +second);
-             doctorAppointment.doctor = this.doctor;
-             doctorAppointment.revAssociate = this.revAssociate;
-             doctorAppointment.insurance = appointment.resourceId;
-         //    doctorAppointment.time =  new Date(+year,+month-1, +day, +hour-10, +minute, +second);
-             console.log("Print doctorAppointment: "+ doctorAppointment.time);
-             this.appointmentCalendarService.setDoctorAppointment(doctorAppointment).subscribe(data => {
-                 if (data != null) {
-            
-                     console.log("test after- " + data);
-                     
-                 //    this.router.navigate(['/home']);
-                   } else {
-                     console.log("test after- NULLLLL" );
-                   }
-                 });
-         }
+            let correctTime = true;
+            this.doctorAppointmentList.forEach(data => {
+                console.log("sssssss" + appointment.from.toString());
+                console.log("sssssss" + data.date.toString());
+                let year1 = data.date.toString().substr(0, 4);
+                let month1 = data.date.toString().substr(5, 2);
+                let day1 = data.date.toString().substr(8, 2);
+                let hour1 = data.date.toString().substr(11, 2);
+                let minute1 = data.date.toString().substr(14, 2);
+                let second1 = data.date.toString().substr(17, 2);
+                console.log(year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second);
+                console.log(year1 + "-" + month1 + "-" + day1 + " " + hour1 + ":" + minute1 + ":" + second1);
+                if (year == year1 && month == month1 && day == day1) {
+                    console.log("PPPPPPPPPPPPPPPPPPP " + hour + "--" + hour1);
+                    if (+hour >= +hour1 && +hour <= +hour1 + 1) {
+                        console.log("AAAAAAAAAAAAAAAAA");
+                        correctTime = false;
+                        window.alert("This time have confilic. Please choose another date/time.");
+                        return;
+                    }
+                }
+            });
+
+            if (correctTime) {
+                let doctorAppointment: Appointment = new Appointment();
+                doctorAppointment.confirmed = false;
+                doctorAppointment.date = new Date(+year, +month - 1, +day, +hour - 10, +minute, +second);
+                doctorAppointment.doctor = this.doctor;
+                doctorAppointment.revAssociate = this.revAssociate;
+                doctorAppointment.insurance = appointment.resourceId;
+                //    doctorAppointment.time =  new Date(+year,+month-1, +day, +hour-10, +minute, +second);
+                console.log("Print doctorAppointment: " + doctorAppointment.time);
+                this.appointmentCalendarService.setDoctorAppointment(doctorAppointment).subscribe(data => {
+                    if (data != null) {
+
+                        console.log("test after- " + data);
+
+                        //    this.router.navigate(['/home']);
+                    } else {
+                        console.log("test after- NULLLLL");
+                    }
+                });
+            }
         }
-       
+
         // this.myLog.nativeElement.innerHTML = 'appointmentAdd is raised';
         console.log('appointmentAdd is raised');
 
@@ -668,6 +699,8 @@ return 970;
         console.log('cellClick is raised');
         // this.editDialogCreate.call;
     };
+
+    
 
     // setDefaults(fields):void{
     //     console.log('dgfdfgdgf')
