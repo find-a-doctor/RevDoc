@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revdoc.model.Doctor;
+import com.revdoc.model.Location;
+import com.revdoc.model.RevAssociate;
 
 @CrossOrigin
 @RestController
@@ -19,11 +21,24 @@ public class SessionController {
 	@Autowired
 	HttpSession session;
 	
-	@PostMapping("/createSession")
-	public String createSession(@RequestBody String userType, HttpServletRequest request) {
-		if(userType == "DOCTOR") {
-			Doctor doctor = new Doctor();
-			request.getSession().setAttribute("docEmail", doctor);
-		}
+	@PostMapping("/doctorSession")
+	public void createDocSession(@RequestBody Doctor doctor, HttpServletRequest request) {
+		Location l1 = new Location(0, "Texas Health Care", "123 Harward", "Irving", "Texas", "75060", "Private Practice");
+		doctor = new Doctor(0, "John Ross", 20, "johnross@gmail.com","johnross", "469-288-5555", "about John Ross here", 1, l1);
+		request.getSession().setAttribute("DOCTOR_USER", doctor);
+		System.out.println(request.getSession().getAttribute("DOCTOR_USER"));
+	}
+	
+	@PostMapping("/associateSession")
+	public void createAssociateSession(@RequestBody RevAssociate associate, HttpServletRequest request) {
+		associate = new RevAssociate("revTom@gmail.com", "revTom", "Tom Cat");
+		request.getSession().setAttribute("ASSOCIATE_USER", associate);
+		System.out.println(request.getSession().getAttribute("ASSOCIATE_USER"));
+	}
+	
+	@PostMapping("/destroy")
+	public void destroySession(HttpServletRequest request) {
+		request.getSession().invalidate();
+		System.out.println("session invalidated");
 	}
 }
