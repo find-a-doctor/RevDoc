@@ -13,11 +13,11 @@ const routes: Routes = [
   { path: 'doctorHome', component: DoctorProfileComponent},
   { path: 'ex-dr-page', component: DoctorProfileComponent },
   { path: 'doctor/:npi', component: DoctorProfileComponent },
-  { path: '', redirectTo: 'login',  pathMatch: 'full' },
-  { path: 'searchDoctor', component: SearchDoctorComponent},
-  { path: 'calendar', component: AppointmentCalendarComponent},
-  { path: 'viewSchedule', component: AppointmentCalendarComponent},
-  { path: 'schedule-appt', component: ScheduleApptComponent},
+  { path: '', redirectTo: 'searchDoctor', pathMatch: 'full' },
+  { path: 'searchDoctor', component: SearchDoctorComponent },
+  { path: 'calendar', component: AppointmentCalendarComponent },
+  { path: 'viewSchedule', component: SearchDoctorComponent }
+  // { path: ['searchDoctor', id], redirectTo: 'doctor/:id', pathMatch='full' }
 ];
 
 @NgModule({
