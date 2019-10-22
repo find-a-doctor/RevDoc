@@ -46,7 +46,8 @@ export class DoctorInfoService {
     this.getLocationByIdUrl = "http://localhost:9000/location/";
     this.getDoctorByIdUrl = "http://localhost:9000/doctor/";
     this.baseUrl = "http://localhost:9000/";
-    this.doctorUrl = this.baseUrl + "doctor/";
+    // this.doctorUrl = this.baseUrl + "doctor/";
+    this.doctorUrl = this.baseUrl + "doctorinfo/";
     this.getAllUrl = this.baseUrl + "doctors";
     this.allRatingsUrl = this.baseUrl + "allRatings/";
     this.followingUrl = this.baseUrl + "following/";

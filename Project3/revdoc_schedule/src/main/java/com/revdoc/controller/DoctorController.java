@@ -27,7 +27,8 @@ public class DoctorController {
 	@Autowired
 	private DoctorInfoService service;
 	
-	@GetMapping("/doctor/{npi}")
+//	@GetMapping("/doctor/{npi}")
+	@GetMapping("/doctorinfo/{npi}")
 	public Doctor getDoctorByNpi(@PathVariable long npi) {
 		return service.getDoctorByNpi(npi);
 	}
@@ -49,17 +50,20 @@ public class DoctorController {
 	}
 
 	
-	@GetMapping("/doctor/{npi}/insurance")
+//	@GetMapping("/doctor/{npi}/insurance")
+	@GetMapping("/doctorinfo/{npi}/insurance")
 	public List<Insurance> getInsurance(@PathVariable long npi){
 		return service.getInsurance(npi);
 	}
 	
-	@GetMapping("/doctor/{npi}/specialty")
+//	@GetMapping("/doctor/{npi}/specialty")
+	@GetMapping("/doctorinfo/{npi}/specialty")
 	public List<Specialty> getSpecialty(@PathVariable long npi){
 		return service.getSpecialty(npi);
 	}
 	
-	@GetMapping("/doctor/{npi}/conditions")
+//	@GetMapping("/doctor/{npi}/conditions")
+	@GetMapping("/doctorinfo/{npi}/conditions")
 	public List<Conditions> getConditions(@PathVariable long npi){
 		return service.getConditions(npi);
 	}

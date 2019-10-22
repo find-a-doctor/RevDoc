@@ -4,6 +4,7 @@ import { Followers } from '../revdoc-classes/followers';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from '../revdoc-classes/doctor';
 import { RevAssociate } from '../revdoc-classes/rev-associate';
+import { DoctorProfileComponent, SampleData } from '../doctor-profile/doctor-profile.component';
 
 @Component({
   selector: 'app-follow-doctor',
@@ -13,7 +14,6 @@ import { RevAssociate } from '../revdoc-classes/rev-associate';
 export class FollowDoctorComponent implements OnInit {
 
   followers: Followers;
-
   npi: number;
   // revAssociate: RevAssociate;
   followdate: number;
@@ -21,11 +21,14 @@ export class FollowDoctorComponent implements OnInit {
 
   isFollowing: boolean;
 
+  sampleData:SampleData;
 
 
-  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router, private revAssociate:RevAssociate) { }
+
+  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.sampleData=new SampleData();
 
     this.followers=new Followers();
     this.followers.doctor=new Doctor();
@@ -38,11 +41,10 @@ export class FollowDoctorComponent implements OnInit {
       this.followers.doctor = data;
     }, error => console.log("error:\n" + error));
 
-    // this.followers.revAssociate=new RevAssociate();
-    this.followers.revAssociate=this.revAssociate;
+    this.followers.revAssociate=this.sampleData.revAssociate;
 
     //check if revassoc is following this doc
-    this.doctorInfoService.isFollowing(this.npi, this.revAssociate.revAssociateEmail).subscribe(data => {
+    this.doctorInfoService.isFollowing(this.followers.doctor.npi, this.followers.revAssociate.revAssociateEmail).subscribe(data => {
       this.isFollowing = data;
       console.log("is following data boolean: " + this.isFollowing);
     });

@@ -11,6 +11,8 @@ const routes: Routes = [
   { path: 'searchDoctor', component: SearchDoctorComponent },
   { path: 'calendar', component: AppointmentCalendarComponent },
   { path: 'viewSchedule', component: SearchDoctorComponent }
+  // { path: ['searchDoctor', id], redirectTo: 'doctor/:id', pathMatch='full' }
+
 
 
 ];
