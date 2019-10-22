@@ -78,3 +78,20 @@
     color: #F26925;
     border-width: 4px;
 }
+.btn{
+    width: 200px;
+    font-weight: bold;
+    background-color:#f26925; 
+    color:white; 
+    border-radius: 50px;  
+}
+.btn-space{
+    margin-left:50px;
+}
+.form-control{
+    width: 400px;
+}
+.container-fluid, .form-group{
+    padding-right: 10%;
+    padding-left: 10%; 
+}

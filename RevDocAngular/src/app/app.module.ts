@@ -1,13 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-//added for doctor-profile component
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { FullCalendarModule } from '@fullcalendar/angular';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-//added for doctor-profile component
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditDoctorProfileComponent } from './edit-doctor-profile/edit-doctor-profile.component';
@@ -29,10 +23,7 @@ import { FollowDoctorComponent } from './follow-doctor/follow-doctor.component';
 import { DoctorRatingsComponent } from './doctor-ratings/doctor-ratings.component';
 import { DoctorFeedbackComponent } from './doctor-feedback/doctor-feedback.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { JwPaginationComponent } from 'jw-angular-pagination';
-import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
-import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
-import { CommonModule } from '@angular/common';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -56,18 +47,13 @@ import { CommonModule } from '@angular/common';
     DoctorRatingsComponent,
     DoctorFeedbackComponent,
     NavbarComponent,
-    JwPaginationComponent
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
-    CommonModule,
-    jqxSchedulerModule,
-    AppRoutingModule,
+    FullCalendarModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgbModule,
-    jqxButtonModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

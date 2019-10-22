@@ -2,12 +2,12 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Doctor } from '../revdoc-classes/doctor';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EditDocService } from '../edit-doc.service';
-import { SessionService } from '../session.service';
 import { Location } from '../revdoc-classes/location';
 import { Insurance } from '../revdoc-classes/insurance';
 import { License } from '../revdoc-classes/license';
 import { Specialty } from '../revdoc-classes/specialty';
 import { ConditionType } from '../revdoc-classes/condition-type';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-edit-doctor-profile',
@@ -23,7 +23,7 @@ export class EditDoctorProfileComponent implements OnInit {
   specialty:Specialty;
   conditionType:ConditionType;
 
-  constructor(private sessionService: SessionService, private editDocService: EditDocService, private route: ActivatedRoute, private router: Router) {
+  constructor(private editDocService: EditDocService, private sessionService: SessionService, private route: ActivatedRoute, private router: Router) {
     this.doctor=new Doctor();
    }
 
