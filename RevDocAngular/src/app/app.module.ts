@@ -1,14 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FullCalendarModule } from '@fullcalendar/angular';
-
-// //added for doctor-profile component
-// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
  import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-// import { HttpClientModule } from '@angular/common/http';
-// import { RouterModule } from '@angular/router';
-// //added for doctor-profile component
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditDoctorProfileComponent } from './edit-doctor-profile/edit-doctor-profile.component';
@@ -61,7 +54,7 @@ import { CommonModule } from '@angular/common';
     NavbarComponent,
     JwPaginationComponent,
     DoctorFeedbackComponent,
-    NavbarComponent
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

@@ -29,7 +29,6 @@ public class SearchDoctorController {
 	
 	@GetMapping("/doctors")
 	public List<Object[]> getAllDoctors() {
-		System.out.println("in Controller");
 		return doctorSearchService.getAllDoctors();
 	}
 	
