@@ -1,10 +1,10 @@
 <div>
     <div class="form-group" id="rating-wrapper">
-        <label class="control-label" for="rating">
-            <span class="field-label-header">How would you rate your most recent appointment with this
-                doctor?</span><br />
-            <span class="field-label-info"></span> <br /> <br />
-        </label>
+
+        <h5 id="headline">How would you rate your most recent appointment with this
+            doctor?</h5><br />
+        <br />
+        <!-- form for rating bedside manners, wait time, overall, and comments -->
         <form (ngSubmit)="rateDoctor(Comment)">
 
             <table id="ratings_table">
@@ -66,8 +66,9 @@
                 <tr>
                     <td>
                         <div>
-                            <textarea class="form-control" rows="5" [(ngModel)]="Comment" ng-model="Comment"
-                                placeholder="Your Comment" name="comment"></textarea>
+
+                            <textarea class="form-control" rows="5" [(ngModel)]="Comment" placeholder="Comment"
+                                name="comment"></textarea>
                         </div>
                     </td>
                 </tr>

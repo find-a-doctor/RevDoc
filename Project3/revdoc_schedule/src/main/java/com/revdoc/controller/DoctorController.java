@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,10 +32,11 @@ public class DoctorController {
 		return service.getDoctorByNpi(npi);
 	}
 	
-	@GetMapping("/doctors")
+	@GetMapping("/doctors/info")
 	public List<Doctor> getAllDoctors(){
 		return service.getAllDoctors();
 	}
+	//this is redundant, only used for testing, but the function is used in SearchDoctorController
 
 	
 	@GetMapping("/allRatings/")
@@ -64,7 +66,9 @@ public class DoctorController {
 	@PostMapping("/feedback")
 	public Feedback submitFeedback(@RequestBody Feedback feedback) {
 		return service.submitFeedback(feedback);
+	//not yet working?
 	}
+
 	
 	@PostMapping("/updateDoctor/{npi}")
 	public Doctor updateDoctor(@PathVariable long npi) {
@@ -81,7 +85,8 @@ public class DoctorController {
 		return service.allFollowers();
 	}
 	
-	@PostMapping("/follow")
+
+	@PostMapping("/follow/")
 	public Followers followDoctor(@RequestBody Followers followers) {
 		return service.followDoctor(followers);
 	}
@@ -90,5 +95,5 @@ public class DoctorController {
 	public void unfollowDoctor(@PathVariable long followerId) {
 		service.unfollowDoctor(followerId);
 	}
-	
+
 }

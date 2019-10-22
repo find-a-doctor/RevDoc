@@ -60,7 +60,6 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 	}
 	// returns all feedback for all doctors
 
-	
 	@Override
 	public List<Feedback> getAllFeedback(long npi) {
 		return fbDao.getAll(npi);
@@ -110,14 +109,12 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 
 	@Override
 	public Followers followDoctor(Followers followers) {
-		System.out.println(followers);
-
 		return flDao.save(followers);
 	}
 
 	@Override
 	public void unfollowDoctor(long followerId) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub	
 		flDao.deleteById(followerId);
 	}
 

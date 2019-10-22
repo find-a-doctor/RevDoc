@@ -15,7 +15,7 @@ export class FollowDoctorComponent implements OnInit {
   followers: Followers;
 
   npi: number;
-  revassociate: string;
+  // revAssociate: RevAssociate;
   followdate: number;
   followerId: number;
 
@@ -23,7 +23,7 @@ export class FollowDoctorComponent implements OnInit {
 
 
 
-  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router, private revAssociate:RevAssociate) { }
 
   ngOnInit() {
 
@@ -36,13 +36,13 @@ export class FollowDoctorComponent implements OnInit {
     this.doctorInfoService.getDoctor(this.followers.doctor.npi).subscribe(data => {
       // console.log("getting...\n" + data);
       this.followers.doctor = data;
-    }); 
-    // error => console.log("error:\n" + error));
+    }, error => console.log("error:\n" + error));
 
-    this.followers.revAssociate=new RevAssociate();
+    // this.followers.revAssociate=new RevAssociate();
+    this.followers.revAssociate=this.revAssociate;
 
     //check if revassoc is following this doc
-    this.doctorInfoService.isFollowing(this.npi, this.revassociate).subscribe(data => {
+    this.doctorInfoService.isFollowing(this.npi, this.revAssociate.revAssociateEmail).subscribe(data => {
       this.isFollowing = data;
       console.log("is following data boolean: " + this.isFollowing);
     });
