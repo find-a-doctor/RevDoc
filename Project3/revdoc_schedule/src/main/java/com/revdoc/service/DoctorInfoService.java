@@ -9,6 +9,8 @@ import com.revdoc.model.Feedback;
 import com.revdoc.model.Insurance;
 import com.revdoc.model.Specialty;
 import com.revdoc.model.Followers;
+import com.revdoc.model.Specialty;
+
 
 public interface DoctorInfoService {
 	
@@ -27,8 +29,12 @@ public interface DoctorInfoService {
 
 	public List<Conditions> getConditions(long npi);
 
-	public boolean isFollowing(long npi, String revassociate);
+	public Feedback submitFeedback(Feedback feedback);
 
+	public Doctor updateFollowers(long npi);
+	
+	public boolean isFollowing(long npi, String revassociate);
+	
 	public List<Followers> allFollowers();
 	
 	public Followers followDoctor(Followers followers);

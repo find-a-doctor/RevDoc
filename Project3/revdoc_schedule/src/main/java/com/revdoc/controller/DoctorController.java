@@ -31,7 +31,6 @@ public class DoctorController {
 		return service.getDoctorByNpi(npi);
 	}
 	
-	
 	@GetMapping("/doctors")
 	public List<Doctor> getAllDoctors(){
 		return service.getAllDoctors();
@@ -46,12 +45,6 @@ public class DoctorController {
 	public List<Feedback> getAllRatings(@PathVariable long npi){
 		return service.getAllFeedback(npi);
 	}
-	
-//	@GetMapping("/doctor/{npi}/ratings")
-//	public List<Feedback> getAggregateRatings(@PathVariable long npi) {
-//		return service.getFeedback(npi);
-//	}
-	
 
 	@GetMapping("/doctor/{npi}/insurance")
 	public List<Insurance> getInsurance(@PathVariable long npi){
@@ -66,6 +59,16 @@ public class DoctorController {
 	@GetMapping("/doctor/{npi}/conditions")
 	public List<Conditions> getConditions(@PathVariable long npi){
 		return service.getConditions(npi);
+	}
+	
+	@PostMapping("/feedback")
+	public Feedback submitFeedback(@RequestBody Feedback feedback) {
+		return service.submitFeedback(feedback);
+	}
+	
+	@PostMapping("/updateDoctor/{npi}")
+	public Doctor updateDoctor(@PathVariable long npi) {
+		return service.updateFollowers(npi);
 	}
 	
 	@GetMapping("/following/{npi}/{revassociate}")
@@ -87,4 +90,5 @@ public class DoctorController {
 	public void unfollowDoctor(@PathVariable long followerId) {
 		service.unfollowDoctor(followerId);
 	}
+	
 }

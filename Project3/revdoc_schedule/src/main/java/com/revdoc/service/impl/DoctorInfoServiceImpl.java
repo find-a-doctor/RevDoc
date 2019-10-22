@@ -14,13 +14,17 @@ import com.revdoc.dao.SpecialtyDAO;
 import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
+
 import com.revdoc.model.Insurance;
 import com.revdoc.model.Specialty;
 import com.revdoc.model.Followers;
+
 import com.revdoc.service.DoctorInfoService;
 
 @Service
 public class DoctorInfoServiceImpl implements DoctorInfoService {
+
+	
 
 	@Autowired
 	private DoctorDAO dDao;
@@ -40,20 +44,15 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 	@Autowired
 	private ConditionsDAO cDao;
 
-//	@Override
-//	public Doctor getDoctorByNpi(long npi) {
-//		return dDao.findByNpi(npi);
-//	}
+	@Override
+	public Doctor getDoctorByNpi(long npi) {
+		return dDao.findByNpi(npi);
+	}
 
 	@Override
 	public List<Doctor> getAllDoctors() {
 		return dDao.findAll();
 	}
-//
-//	@Override
-//	public List<Feedback> getFeedback(long npi) {
-//		return fbDao.getFeedback(npi);
-//	}
 
 	@Override
 	public List<Feedback> getAllFeedback() {
@@ -61,7 +60,7 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 	}
 	// returns all feedback for all doctors
 
-
+	
 	@Override
 	public List<Feedback> getAllFeedback(long npi) {
 		return fbDao.getAll(npi);
@@ -84,12 +83,20 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 		return cDao.getConditions(npi);
 	}
 
+
 	@Override
-	public Doctor getDoctorByNpi(long npi) {
-		// TODO Auto-generated method stub
-		return null;
+	public Feedback submitFeedback(Feedback feedback) {
+		return fbDao.save(feedback);
 	}
 
+	@Override
+	public Doctor updateFollowers(long npi) {
+		int numberOfFollowers= flDao.countFollowers(npi);
+		Doctor doctor=getDoctorByNpi(npi);
+		doctor.setNumberOfFollowers(numberOfFollowers);
+		return doctor;
+	}
+	
 	@Override
 	public List<Followers> allFollowers() {
 		return flDao.findAll();
@@ -103,6 +110,8 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 
 	@Override
 	public Followers followDoctor(Followers followers) {
+		System.out.println(followers);
+
 		return flDao.save(followers);
 	}
 
@@ -111,10 +120,5 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 		// TODO Auto-generated method stub
 		flDao.deleteById(followerId);
 	}
-
-//	@Override
-//	public List<Feedback> getAllFeedback(long npi) {
-//		return fbDao.getAll(npi);
-//	}
 
 }
