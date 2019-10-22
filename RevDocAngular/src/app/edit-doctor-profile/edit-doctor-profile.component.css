@@ -1,98 +1,185 @@
 body{
-    margin-top:20px;
-    background:#f5f5f5;
+  margin-top:20px;
+  background:#f5f5f5;
 }
 /**
- * Panels
- */
+* Panels
+*/
 /*** General styles ***/
 .panel {
-  box-shadow: none;
+box-shadow: none;
 }
 .panel-heading {
-  background:#F26925!important;
-  border-bottom: 0;
+background:#F26925!important;
+border-bottom: 0;
 }
 .panel-title {
-  font-size: 17px;
-  color: white;
+font-size: 17px;
+color: white;
 }
 .panel-title > small {
-  font-size: .75em;
-  color: #999999;
+font-size: .75em;
+color: #999999;
 }
 .panel-body *:first-child {
-  margin-top: 0;
+margin-top: 0;
 }
 .panel-footer {
-  border-top: 0;
+border-top: 0;
 }
 
 .panel-default > .panel-heading {
-    color: #333333;
-    background-color: transparent;
-    border-color: rgba(0, 0, 0, 0.07);
+  color: #333333;
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.07);
 }
 .form-group.required .control-label:before {
-    content:"*";
-    color:red;
+  content:"*";
+  color:red;
 }
 
 form label {
-    color: #999999;
-    font-weight: 400;
+  color: #999999;
+  font-weight: 400;
 }
 .formHorizontal {
-    justify-content: center;
+  justify-content: center;
 }
 
 .formHorizontal .form-group {
-  text-align: center;
+text-align: center;
 }
 @media (min-width: 768px) {
-  .formHorizontal .control-label {
-    text-align: right;
-    margin-bottom: 0;
-    padding-top: 7px;
-  }
+.formHorizontal .control-label {
+  text-align: right;
+  margin-bottom: 0;
+  padding-top: 7px;
+}
 }
 
 .profile__contact-info-icon {
-    float: left;
-    font-size: 18px;
-    color: #999999;
+  float: left;
+  font-size: 18px;
+  color: #999999;
 }
 .profile__contact-info-body {
-    overflow: hidden;
-    padding-left: 20px;
-    color: #999999;
+  overflow: hidden;
+  padding-left: 20px;
+  color: #999999;
 }
 .profile-avatar {
-  width: 200px;
-  position: relative;
-  margin: 0px auto;
-  margin-top: 196px;
-  border: 4px solid #f3f3f3;
+width: 200px;
+position: relative;
+margin: 0px auto;
+margin-top: 196px;
+border: 4px solid #f3f3f3;
 }
 .btn {
-    margin-top: 7px;
-    margin-right: 175px;
-    vertical-align: bottom;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-family: 'Lato', sans-serif;
-    font-size:12px;
-    font-weight: 900;
-    background-color: #F26925;
-    border: solid;
-    border-width: 5px;
-    border-color: #F26925;
-    border-radius: 50px;
-    color: white;
-    margin-top: 17px;
+  margin-top: 7px;
+  margin-right: 175px;
+  vertical-align: bottom;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size:12px;
+  font-weight: 900;
+  background-color: #F26925;
+  border: solid;
+  border-width: 5px;
+  border-color: #F26925;
+  border-radius: 50px;
+  color: white;
+  margin-top: 17px;
 }
 .btn:hover {
-    background-color: white;
-    color: #F26925;
-    border-width: 4px;
+  background-color: white;
+  color: #F26925;
+  border-width: 4px;
+}
+
+/* NavBar CSS */
+.navbar-custom {
+  background-color: cyan;
+  color: #000;
+}
+
+.navbarWrapper {
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, .5);
+  text-align: -webkit-center;
+}
+
+.revNav {
+  padding-top: 0px;
+  text-align: center!important;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  justify-content: center;
+  height: 12vh;
+}
+
+.nav-link {
+  font-family: 'Lato', sans-serif;
+  font-size:13px;
+  font-weight: bolder;
+  color: rgba(0, 0, 0, .8);
+  padding-bottom: 0;
+}
+
+.navItems{
+  margin-left: 10vh;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.navRow {
+  /* width: 100%; */
+  justify-content: center;
+}
+
+.navItems li {
+  list-style-type: none;
+  margin: 10px;
+}
+
+.navItems a {
+  margin-top: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.navItems a:hover{
+  border-bottom: solid;
+  border-color: #F26925
+}
+
+.navBtn {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.navItems button {
+  margin-top: 7px;
+  margin-right: 10px;
+  vertical-align: bottom;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size:12px;
+  font-weight: 900;
+  background-color: #F26925;
+  border: solid;
+  border-width: 5px;
+  border-color: #F26925;
+  border-radius: 50px;
+  color: white;
+  margin-top: 17px;
+}
+
+.navItems button:hover {
+  background-color: white;
+  color: #F26925;
+  border-width: 4px;
 }
