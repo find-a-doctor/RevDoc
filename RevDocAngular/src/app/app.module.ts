@@ -29,7 +29,14 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
 import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { CommonModule } from '@angular/common';
+<<<<<<< HEAD
 import { LoginPageComponent } from './login-page/login-page.component';
+import { DoctorHomeComponent } from './doctor-home/doctor-home.component';
+=======
+import { DoctorHomeComponent } from './doctor-home/doctor-home.component';
+
+
+>>>>>>> added doctor-home-component
 
 @NgModule({
   declarations: [
@@ -55,7 +62,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
     NavbarComponent,
     JwPaginationComponent,
     DoctorFeedbackComponent,
-    LoginPageComponent
+    NavbarComponent,
+    DoctorHomeComponent
   ],
   imports: [
     BrowserModule,

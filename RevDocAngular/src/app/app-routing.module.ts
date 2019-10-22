@@ -7,6 +7,7 @@ import { AppointmentCalendarComponent } from './appointment-calendar/appointment
 import { AppComponent } from './app.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { ScheduleApptComponent } from './schedule-appt/schedule-appt.component';
+import { DoctorHomeComponent } from './doctor-home/doctor-home.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginPageComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'searchDoctor', pathMatch: 'full' },
   { path: 'searchDoctor', component: SearchDoctorComponent },
   { path: 'calendar', component: AppointmentCalendarComponent },
-  { path: 'viewSchedule', component: SearchDoctorComponent }
+  { path: 'viewSchedule', component: SearchDoctorComponent },
+  { path: 'doctorHome', component: DoctorHomeComponent }
   // { path: ['searchDoctor', id], redirectTo: 'doctor/:id', pathMatch='full' }
 ];
 
