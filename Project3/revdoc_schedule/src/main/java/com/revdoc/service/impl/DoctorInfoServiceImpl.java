@@ -22,7 +22,7 @@ import com.revdoc.service.DoctorInfoService;
 @Service
 public class DoctorInfoServiceImpl implements DoctorInfoService{
 
-	
+
 
 	@Autowired
 	private DoctorDAO dDao;
@@ -32,13 +32,13 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 
 	@Autowired
 	private FollowersDAO flDao;
-	
+
 	@Autowired
 	private InsuranceDAO iDao;
-	
+
 	@Autowired
 	private SpecialtyDAO sDao;
-	
+
 	@Autowired
 	private ConditionsDAO cDao;
 
@@ -63,8 +63,8 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 		return fbDao.getAll(npi);
 	}
 	//returns only feedback for specified doctor
-	
-	
+
+
 	@Override
 	public List<Insurance> getInsurance(long npi){
 		return iDao.getInsurance(npi);
@@ -92,7 +92,7 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 		doctor.setNumberOfFollowers(numberOfFollowers);
 		return doctor;
 	}
-	
+
 	@Override
 	public List<Followers> allFollowers() {
 		return flDao.findAll();

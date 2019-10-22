@@ -55,14 +55,16 @@ export class DoctorInfoService {
     this.getAllFollowersUrl = this.baseUrl + "allFollowers";
     this.rateDoctorUrl = this.baseUrl + "rateDoctor/"
   }
-  
+
+
 
   public searchDoctor(search: string) {
     console.log("Search Doctor: " + this.searchDoctorUrl + search);
     //  return this.http.get<Doctor[]>(this.searchDoctorUrl+search);
     return this.http.get<Object[]>(this.searchDoctorUrl + search);
+
   }
-  
+
 
   // public getAllDoctors() {
   //   return this.http.get<Object[]>(this.getAllDoctorsUrl);
@@ -76,7 +78,7 @@ export class DoctorInfoService {
   public getAllInsurances() {
     return this.http.get<InsuranceType>(this.getAllInsuranceUrl);
   }
- 
+
   public getLocationById(id: number){
     return this.http.get<Location>(this.getLocationByIdUrl+id);
   }
@@ -89,6 +91,13 @@ export class DoctorInfoService {
   public getDoctor(npi: number): Observable<Doctor> {
     return this.http.get<Doctor>(this.doctorUrl + npi);
   }
+   public getDoctorInsurance(npi:number):Observable<Insurance[]>{
+     return this.http.get<Insurance[]>(this.doctorUrl+npi+"/insurance");
+   }
+
+   public getAllRatings(npi:number):Observable<Feedback[]>{
+     return this.http.get<Feedback[]>(this.allRatingsUrl+npi);
+   };
 
   public getDoctorInsurance(npi: number): Observable<Insurance[]> {
     return this.http.get<Insurance[]>(this.doctorUrl + npi + "/insurance");
@@ -100,7 +109,7 @@ export class DoctorInfoService {
    public getDoctorConditions(npi:number):Observable<Conditions[]>{
      return this.http.get<Conditions[]>(this.doctorUrl+npi+"/conditions");
    }
-    
+
    //Feedback has an appointment number in it, so we can get user email and doctor npi from feedback object.
    public rateDoctor( feedback :Feedback){
      return this.http.post(this.baseUrl+this.rateDoctorUrl,feedback);

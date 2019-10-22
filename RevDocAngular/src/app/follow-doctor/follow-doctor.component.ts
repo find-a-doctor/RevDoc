@@ -14,21 +14,19 @@ import { DoctorProfileComponent, SampleData } from '../doctor-profile/doctor-pro
 export class FollowDoctorComponent implements OnInit {
 
   followers: Followers;
+
   npi: number;
-  // revAssociate: RevAssociate;
+  revassociate: string;
   followdate: number;
   followerId: number;
 
   isFollowing: boolean;
-
-  sampleData:SampleData;
 
 
 
   constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.sampleData=new SampleData();
 
     this.followers=new Followers();
     this.followers.doctor=new Doctor();
@@ -39,12 +37,13 @@ export class FollowDoctorComponent implements OnInit {
     this.doctorInfoService.getDoctor(this.followers.doctor.npi).subscribe(data => {
       // console.log("getting...\n" + data);
       this.followers.doctor = data;
-    }, error => console.log("error:\n" + error));
+    });
+    // error => console.log("error:\n" + error));
 
-    this.followers.revAssociate=this.sampleData.revAssociate;
+    this.followers.revAssociate=new RevAssociate();
 
     //check if revassoc is following this doc
-    this.doctorInfoService.isFollowing(this.followers.doctor.npi, this.followers.revAssociate.revAssociateEmail).subscribe(data => {
+    this.doctorInfoService.isFollowing(this.npi, this.revassociate).subscribe(data => {
       this.isFollowing = data;
       console.log("is following data boolean: " + this.isFollowing);
     });
@@ -57,7 +56,7 @@ export class FollowDoctorComponent implements OnInit {
       this.followDoctor();
     }
   }
-  
+
   followDoctor() {
     this.doctorInfoService.followDoctor(this.followers).subscribe(data => {
       this.followers = data;
@@ -71,7 +70,6 @@ export class FollowDoctorComponent implements OnInit {
       console.log("unfollow doctor data: " + this.followers);
     });
   }
-
 
   //Do I need getAllFollowers here too?
 

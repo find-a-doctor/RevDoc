@@ -26,20 +26,20 @@ public class DoctorController {
 
 	@Autowired
 	private DoctorInfoService service;
-	
+
 //	@GetMapping("/doctor/{npi}")
 	@GetMapping("/doctorinfo/{npi}")
 	public Doctor getDoctorByNpi(@PathVariable long npi) {
 		return service.getDoctorByNpi(npi);
 	}
-	
+
 	@GetMapping("/doctors/info")
 	public List<Doctor> getAllDoctors(){
 		return service.getAllDoctors();
 	}
 	//this is redundant, only used for testing, but the function is used in SearchDoctorController
 
-	
+
 	@GetMapping("/allRatings/")
 	public List<Feedback> getAllRatings(){
 		return service.getAllFeedback();
@@ -49,37 +49,37 @@ public class DoctorController {
 		return service.getAllFeedback(npi);
 	}
 
-	
+
 //	@GetMapping("/doctor/{npi}/insurance")
 	@GetMapping("/doctorinfo/{npi}/insurance")
 	public List<Insurance> getInsurance(@PathVariable long npi){
 		return service.getInsurance(npi);
 	}
-	
+
 //	@GetMapping("/doctor/{npi}/specialty")
 	@GetMapping("/doctorinfo/{npi}/specialty")
 	public List<Specialty> getSpecialty(@PathVariable long npi){
 		return service.getSpecialty(npi);
 	}
-	
+
 //	@GetMapping("/doctor/{npi}/conditions")
 	@GetMapping("/doctorinfo/{npi}/conditions")
 	public List<Conditions> getConditions(@PathVariable long npi){
 		return service.getConditions(npi);
 	}
-	
+
 	@PostMapping("/feedback")
 	public Feedback submitFeedback(@RequestBody Feedback feedback) {
 		return service.submitFeedback(feedback);
 	//not yet working?
 	}
 
-	
+
 	@PostMapping("/updateDoctor/{npi}")
 	public Doctor updateDoctor(@PathVariable long npi) {
 		return service.updateFollowers(npi);
 	}
-	
+
 	@GetMapping("/following/{npi}/{revassociate}")
 	public boolean isFollowing(@PathVariable long npi, @PathVariable String revassociate) {
 		return service.isFollowing(npi,revassociate);
@@ -89,12 +89,12 @@ public class DoctorController {
 	public List<Followers> getAllFollowers(){
 		return service.allFollowers();
 	}
-	
+
 	@PostMapping("/follow/")
 	public Followers followDoctor(@RequestBody Followers followers) {
 		return service.followDoctor(followers);
 	}
-	
+
 	@DeleteMapping("/follow/{followerId}")
 	public void unfollowDoctor(@PathVariable long followerId) {
 		service.unfollowDoctor(followerId);
