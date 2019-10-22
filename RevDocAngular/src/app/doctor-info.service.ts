@@ -97,6 +97,15 @@ export class DoctorInfoService {
   public getAllDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(this.getAllUrl);
   }
+   public getDoctorConditions(npi:number):Observable<Conditions[]>{
+     return this.http.get<Conditions[]>(this.doctorUrl+npi+"/conditions");
+   }
+    
+   //Feedback has an appointment number in it, so we can get user email and doctor npi from feedback object.
+   public rateDoctor( feedback :Feedback){
+     return this.http.post(this.baseUrl+this.rateDoctorUrl,feedback);
+   }
+
 
   public isFollowing(npi: number, revassociate: string): Observable<boolean> {
     return this.http.get<boolean>(this.followingUrl + npi + "/" + revassociate);
@@ -120,16 +129,6 @@ export class DoctorInfoService {
 
   public getDoctorSpecialty(npi: number): Observable<Specialty[]> {
     return this.http.get<Specialty[]>(this.doctorUrl + npi + "/specialty");
-  }
-
-  public getDoctorConditions(npi: number): Observable<Conditions[]> {
-    return this.http.get<Conditions[]>(this.doctorUrl + npi + "/conditions");
-  }
-
-
-  //Feedback has an appointment object in it, so we can get user email and doctor npi from feedback object.
-  public rateDoctor(feedback: Feedback) {
-    return this.http.post(this.baseUrl + this.rateDoctorUrl, feedback);
   }
 
 }

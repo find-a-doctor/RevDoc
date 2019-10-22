@@ -2,7 +2,6 @@ package com.revdoc.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -34,7 +33,7 @@ public class Followers implements Serializable{
 	@Id
 	@GeneratedValue(generator = "followers_gen")
 	private long followerId;
-	
+
 	@ManyToOne//(cascade = {CascadeType.ALL})
 	private Doctor doctor;
 	@ManyToOne//(cascade = {CascadeType.ALL})

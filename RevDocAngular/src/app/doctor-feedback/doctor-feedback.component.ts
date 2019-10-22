@@ -15,12 +15,18 @@ import { Doctor } from '../revdoc-classes/doctor';
 export class DoctorFeedbackComponent implements OnInit {
 
   //These will be used to grab objects fom active session
+<<<<<<< HEAD
   // @Input() doctor: Doctor;
   // @Input() user: RevAssociate;
   //not working yet
 
   doctor:Doctor;
   revAssociate:RevAssociate;
+=======
+  //  @Input() doctor:Doctor;
+  //  @Input() user:RevAssociate;
+  //  @Input() appointment:Appointment
+>>>>>>> feat/rate-doctor-visit_enter-rating
   feedback: Feedback;
 
   constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
@@ -45,24 +51,36 @@ export class DoctorFeedbackComponent implements OnInit {
   }
 
   //Collects ratings and comment from user to create a feedback object then sends an alert to user that the feedback has been recieved.
-  rateDoctor(Comment: string) {
+  //Could possibly add a "rate your last appointment w/ this doctor button" that pulls the correct appointment on click using 
+  //npi and employeeEmail and check if there is already a review for that appointment (since there is a one to one relationship
+  //between appointment and feedback). 
+  rateDoctor(comments : string) {
+
     this.feedback.bedsideMannerRating = this.BedsideManners.value;
     this.feedback.waitTimeRating = this.WaitTime.value;
     this.feedback.overallRating = this.Overall.value;
-    this.feedback.comments = Comment;
+    this.feedback.comments= comments;
+    // ONLY appointment ID is needed to relate to table in DB, not the entire appointment object.
     this.feedback.appointment = new Appointment();
-    this.feedback.appointment.doctor = this.doctor;
-    this.route.url.subscribe(data => {
-      this.feedback.appointment.doctor.npi = Number(data[1].path);
-    })
-    // this.feedback.appointment.revAssociate = this.user;
+    this.feedback.appointment.appointmentId=0;
+    
+    // This can be used to build employee and doctor objects from the page uri and session. 
+
+    // this.feedback.appointment.doctor= new Doctor();
+    // this.feedback.appointment.doctor = this.doctor;
+    // this.route.url.subscribe(data => {
+    //   this.feedback.appointment.doctor.npi = Number(data[1].path);
+    // })
+    // this.feedback.appointment.revAssociate = new RevAssociate();
+    // this.feedback.appointment.revAssociate = user;
+
     // this.feedback.appointment.revAssociate.revAssociateEmail = "MrDuckworth@QuackQuack.com";
-    //dummy value, no session stored
+     //dummy value for no session stored
 
     console.log(this.feedback);
-    console.log("This is the doctor: " + this.doctor);
-    // console.log("This is the user: " + this.user);
-
+    // console.log("This is the doctor: "+this.doctor );
+    // console.log("This is the user: "+this.user);
+    
     console.log(this.feedback.comments);
 
     alert("Thank you for your feedback!")
