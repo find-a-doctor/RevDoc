@@ -90,10 +90,6 @@ export class DoctorInfoService {
     return this.http.get<Doctor>(this.doctorUrl + npi);
   }
 
-  public getDoctorInsurance(npi: number): Observable<Insurance[]> {
-    return this.http.get<Insurance[]>(this.doctorUrl + npi + "/insurance");
-  }
-
   public getAllDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(this.getAllUrl);
   }
@@ -113,10 +109,6 @@ export class DoctorInfoService {
   public getAllFollowers(): Observable<Followers[]> {
     return this.http.get<Followers[]>(this.getAllFollowersUrl);
   }
-
-  public getAllRatings(npi: number): Observable<Feedback[]> {
-    return this.http.get<Feedback[]>(this.allRatingsUrl + npi);
-  };
 
   public getDoctorSpecialty(npi: number): Observable<Specialty[]> {
     return this.http.get<Specialty[]>(this.doctorUrl + npi + "/specialty");

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FullCalendarModule } from '@fullcalendar/angular';
- import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditDoctorProfileComponent } from './edit-doctor-profile/edit-doctor-profile.component';
