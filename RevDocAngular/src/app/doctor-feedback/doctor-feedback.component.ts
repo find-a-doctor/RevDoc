@@ -15,18 +15,9 @@ import { Doctor } from '../revdoc-classes/doctor';
 export class DoctorFeedbackComponent implements OnInit {
 
   //These will be used to grab objects fom active session
-<<<<<<< HEAD
-  // @Input() doctor: Doctor;
-  // @Input() user: RevAssociate;
-  //not working yet
-
-  doctor:Doctor;
-  revAssociate:RevAssociate;
-=======
   //  @Input() doctor:Doctor;
   //  @Input() user:RevAssociate;
   //  @Input() appointment:Appointment
->>>>>>> feat/rate-doctor-visit_enter-rating
   feedback: Feedback;
 
   constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
