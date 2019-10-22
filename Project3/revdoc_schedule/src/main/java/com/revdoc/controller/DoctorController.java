@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,11 +31,10 @@ public class DoctorController {
 		return service.getDoctorByNpi(npi);
 	}
 	
-	@GetMapping("/doctors/info")
-	public List<Doctor> getAllDoctors(){
-		return service.getAllDoctors();
-	}
-	//this is redundant, only used for testing, but the function is used in SearchDoctorController
+//	@GetMapping("/doctors")
+//	public List<Doctor> getAllDoctors(){
+//		return service.getAllDoctors();
+//	}
 
 	
 	@GetMapping("/allRatings/")

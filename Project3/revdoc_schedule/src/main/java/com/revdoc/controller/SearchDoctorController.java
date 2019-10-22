@@ -1,13 +1,15 @@
 package com.revdoc.controller;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.revdoc.model.ConditionType;
+import com.revdoc.model.Doctor;
 import com.revdoc.model.InsuranceType;
 import com.revdoc.model.SpecialtyType;
 import com.revdoc.service.SearchDoctorService;
@@ -27,6 +29,7 @@ public class SearchDoctorController {
 	
 	@GetMapping("/doctors")
 	public List<Object[]> getAllDoctors() {
+		System.out.println("in Controller");
 		return doctorSearchService.getAllDoctors();
 	}
 	
