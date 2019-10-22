@@ -34,4 +34,26 @@ button#submit {
 
 #headline {
   color: black;
+  /* font-size: 20pt; */
+}
+
+.form-group h5{
+  font-size: 25pt;
+}
+
+.form-group pre{
+  font-size:20pt;
+  font-family:Lato,sans-serif !important;
+}
+
+.form-group textarea{
+  font-size:20pt;
+}
+
+ngb-rating span{
+ font-size: 6rem;
+}
+
+button{
+  font-size:20pt !important;
 }
