@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,11 +30,23 @@ public class SessionController {
 		System.out.println(request.getSession().getAttribute("DOCTOR_USER"));
 	}
 	
+	@GetMapping("/getDocSession")
+	public Doctor getDocSession(HttpServletRequest request) {
+		Doctor doctor = (Doctor) request.getSession().getAttribute("DOCTOR_USER");
+		return doctor;
+	}
+	
 	@PostMapping("/associateSession")
 	public void createAssociateSession(@RequestBody RevAssociate associate, HttpServletRequest request) {
 		associate = new RevAssociate("revTom@gmail.com", "revTom", "Tom Cat");
 		request.getSession().setAttribute("ASSOCIATE_USER", associate);
 		System.out.println(request.getSession().getAttribute("ASSOCIATE_USER"));
+	}
+	
+	@GetMapping("/getAssociateSession")
+	public RevAssociate getRevSession(HttpServletRequest request) {
+		RevAssociate associate = (RevAssociate) request.getSession().getAttribute("ASSOCIATE_USER");
+		return associate;
 	}
 	
 	@PostMapping("/destroy")
