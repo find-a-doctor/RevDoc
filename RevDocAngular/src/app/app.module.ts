@@ -29,6 +29,7 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
 import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { CommonModule } from '@angular/common';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
