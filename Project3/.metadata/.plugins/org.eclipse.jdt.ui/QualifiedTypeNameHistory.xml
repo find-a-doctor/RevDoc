@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="lombok.ToString"/>
 <fullyQualifiedTypeName name="lombok.EqualsAndHashCode"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
 <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
@@ -19,7 +18,6 @@
 <fullyQualifiedTypeName name="com.revdoc.dao.ConditionsDAO"/>
 <fullyQualifiedTypeName name="com.revdoc.dao.DoctorLicenseDAO"/>
 <fullyQualifiedTypeName name="com.revdoc.dao.DoctorPostDAO"/>
-<fullyQualifiedTypeName name="com.revdoc.dao.FeedbackDAO"/>
 <fullyQualifiedTypeName name="com.revdoc.dao.FollowersDAO"/>
 <fullyQualifiedTypeName name="com.revdoc.dao.InsuranceDAO"/>
 <fullyQualifiedTypeName name="com.revdoc.dao.LicenseDAO"/>
@@ -38,7 +36,6 @@
 <fullyQualifiedTypeName name="com.revdoc.model.DoctorLicense"/>
 <fullyQualifiedTypeName name="com.revdoc.model.Specialty"/>
 <fullyQualifiedTypeName name="com.revdoc.dao.SpecialtyDAO"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="com.revdoc.dao.SpecialtyTypeDAO"/>
 <fullyQualifiedTypeName name="com.revdoc.dao.ConditionTypeDAO"/>
@@ -52,7 +49,6 @@
 <fullyQualifiedTypeName name="com.revdoc.model.Location"/>
 <fullyQualifiedTypeName name="com.revdoc.model.Doctor"/>
 <fullyQualifiedTypeName name="com.revdoc.dao.DoctorDAO"/>
-<fullyQualifiedTypeName name="com.revdoc.dao.AppointmentDAO"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
 <fullyQualifiedTypeName name="com.revdoc.model.Appointment"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="com.revdoc.model.InsuranceType"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.revdoc.dao.AppointmentDAO"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
+<fullyQualifiedTypeName name="com.revdoc.dao.FeedbackDAO"/>
 </qualifiedTypeNameHistroy>
