@@ -32,12 +32,10 @@ public class DoctorController {
 		return service.getDoctorByNpi(npi);
 	}
 	
-	@GetMapping("/doctors/info")
-	public List<Doctor> getAllDoctors(){
-		return service.getAllDoctors();
-	}
-	//this is redundant, only used for testing, but the function is used in SearchDoctorController
-
+//	@GetMapping("/doctors")
+//	public List<Doctor> getAllDoctors(){
+//		return service.getAllDoctors();
+//	}
 	
 	@GetMapping("/allRatings/")
 	public List<Feedback> getAllRatings(){
@@ -85,7 +83,6 @@ public class DoctorController {
 		return service.allFollowers();
 	}
 	
-
 	@PostMapping("/follow/")
 	public Followers followDoctor(@RequestBody Followers followers) {
 		return service.followDoctor(followers);

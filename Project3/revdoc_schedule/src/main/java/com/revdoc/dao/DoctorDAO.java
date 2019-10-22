@@ -11,7 +11,7 @@ import com.revdoc.model.Doctor;
 
 @Repository
 public interface DoctorDAO  extends JpaRepository<Doctor, Long>{
-	
+	 
 	@Query(value="select Doctor.npi, Doctor.doctor_name, Doctor.phone, "
 			+ "Doctor.email, Location.address, Location.city, Doctor.experience, "
 			+ "GROUP_CONCAT (DISTINCT(Specialty_type.specialty_name)  SEPARATOR ' ; '), "
@@ -53,9 +53,7 @@ public interface DoctorDAO  extends JpaRepository<Doctor, Long>{
 			+ "join Condition_type on conditions.condition_type_condition_type_id = Condition_type.condition_type_id "
 			+ "group by Doctor.npi", nativeQuery = true)
 	List<Object[]> findAllDoctors();
-	
 
-//used By DoctorInfoService	
 	@Query("select d from Doctor d where d.npi = :npi")
 	Doctor findByNpi(long npi);
 	

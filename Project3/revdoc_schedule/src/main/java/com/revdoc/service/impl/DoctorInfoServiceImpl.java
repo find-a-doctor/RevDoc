@@ -15,9 +15,10 @@ import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
 
+
+import com.revdoc.model.Followers;
 import com.revdoc.model.Insurance;
 import com.revdoc.model.Specialty;
-import com.revdoc.model.Followers;
 
 import com.revdoc.service.DoctorInfoService;
 
@@ -66,7 +67,6 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 	}
 	//returns only feedback for specified doctor
 	
-	
 	@Override
 	public List<Insurance> getInsurance(long npi){
 		return iDao.getInsurance(npi);
@@ -81,7 +81,6 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 	public List<Conditions> getConditions(long npi) {
 		return cDao.getConditions(npi);
 	}
-
 
 	@Override
 	public Feedback submitFeedback(Feedback feedback) {
@@ -114,8 +113,8 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 
 	@Override
 	public void unfollowDoctor(long followerId) {
-		// TODO Auto-generated method stub	
 		flDao.deleteById(followerId);
 	}
+
 
 }

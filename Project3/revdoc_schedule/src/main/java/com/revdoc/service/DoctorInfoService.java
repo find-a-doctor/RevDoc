@@ -5,10 +5,10 @@ import java.util.List;
 import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
+
 import com.revdoc.model.Insurance;
 import com.revdoc.model.Specialty;
 import com.revdoc.model.Followers;
-import com.revdoc.model.Specialty;
 
 
 public interface DoctorInfoService {

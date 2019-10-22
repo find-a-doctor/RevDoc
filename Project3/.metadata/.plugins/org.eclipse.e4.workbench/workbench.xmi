@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="ASCII"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> test/master
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_qPDSIOqsEems__yLUBc_5w" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_qPDSIeqsEems__yLUBc_5w" bindingContexts="_qPDSKuqsEems__yLUBc_5w">
   <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Appointment.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/Appointment.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/Appointment.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;DataLoader.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/DataLoader.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/DataLoader.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Feedback.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/Feedback.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/Feedback.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;DoctorController.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/controller/DoctorController.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/controller/DoctorController.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;RevAssociate.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/RevAssociate.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/RevAssociate.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Doctor.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/Doctor.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/Doctor.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Location.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/Location.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/Location.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Available.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/Available.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/Available.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;DoctorInfoServiceImpl.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/service/impl/DoctorInfoServiceImpl.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/service/impl/DoctorInfoServiceImpl.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FeedbackDAO.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/dao/FeedbackDAO.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/dao/FeedbackDAO.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;SpringBootPropertyEditor&quot; name=&quot;application.properties&quot; tooltip=&quot;revdoc_schedule/src/main/resources/application.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/resources/application.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;DoctorInfoService.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/service/DoctorInfoService.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/service/DoctorInfoService.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.m2e.editor.MavenPomEditor&quot; name=&quot;pom.xml&quot; tooltip=&quot;revdoc_schedule/pom.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/pom.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;RevdocScheduleApplication.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/RevdocScheduleApplication.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/RevdocScheduleApplication.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FollowersDAO.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/dao/FollowersDAO.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/dao/FollowersDAO.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ConditionType.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/ConditionType.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/ConditionType.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Conditions.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/Conditions.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/Conditions.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;InsuranceDAO.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/dao/InsuranceDAO.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/dao/InsuranceDAO.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;InsuranceTypeDAO.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/dao/InsuranceTypeDAO.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/dao/InsuranceTypeDAO.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ConditionTypeDAO.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/dao/ConditionTypeDAO.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/dao/ConditionTypeDAO.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>ModelMigrationProcessor.001</tags>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_qPDSIeqsEems__yLUBc_5w" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_qoMx8uqsEems__yLUBc_5w" label="%trimmedwindow.label.eclipseSDK" x="143" y="0" width="976" height="1038">
+<<<<<<< HEAD
 =======
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_enYjwPD0EemXL4wBFPabSQ" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_enYjwfD0EemXL4wBFPabSQ" bindingContexts="_enaZ4fD0EemXL4wBFPabSQ">
   <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;AppointmentCalendarController.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/controller/AppointmentCalendarController.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/controller/AppointmentCalendarController.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Doctor.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/Doctor.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/Doctor.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Location.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/Location.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/Location.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;AppointmentCalendarImpl.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/service/impl/AppointmentCalendarImpl.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/service/impl/AppointmentCalendarImpl.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;AppointmentCalendarService.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/service/AppointmentCalendarService.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/service/AppointmentCalendarService.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;SearchDoctorController.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/controller/SearchDoctorController.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/controller/SearchDoctorController.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ConditionType.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/ConditionType.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/ConditionType.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;DoctorDAO.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/dao/DoctorDAO.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/dao/DoctorDAO.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.m2e.editor.MavenPomEditor&quot; name=&quot;pom.xml&quot; tooltip=&quot;revdoc_schedule/pom.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/pom.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;LocationDAO.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/dao/LocationDAO.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/dao/LocationDAO.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;SearchDoctorServiceImpl.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/service/impl/SearchDoctorServiceImpl.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/service/impl/SearchDoctorServiceImpl.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;AppointmentCalendar.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/service/AppointmentCalendar.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/service/AppointmentCalendar.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;SearchDoctorService.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/service/SearchDoctorService.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/service/SearchDoctorService.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;DataLoader.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/DataLoader.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/DataLoader.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;RevdocScheduleApplicationTests.java&quot; tooltip=&quot;revdoc_schedule/src/test/java/com/revdoc/RevdocScheduleApplicationTests.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/test/java/com/revdoc/RevdocScheduleApplicationTests.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;SpecialtyType.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/SpecialtyType.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/SpecialtyType.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;SpecialtyDAO.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/dao/SpecialtyDAO.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/dao/SpecialtyDAO.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;DoctorPost.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/DoctorPost.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/DoctorPost.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Followers.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/Followers.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/Followers.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Available.java&quot; tooltip=&quot;revdoc_schedule/src/main/java/com/revdoc/model/Available.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/revdoc_schedule/src/main/java/com/revdoc/model/Available.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>ModelMigrationProcessor.001</tags>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_enYjwfD0EemXL4wBFPabSQ" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_enYjwvD0EemXL4wBFPabSQ" label="%trimmedwindow.label.eclipseSDK" x="1799" y="90" width="697" height="735">
+>>>>>>> test/master
+=======
 >>>>>>> test/master
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
@@ -84,15 +90,21 @@
           <tags>persp.actionSet:org.eclipse.jdt.junit.JUnitActionSet</tags>
           <tags>persp.viewSC:org.eclipse.ant.ui.views.AntView</tags>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> test/master
           <children xsi:type="basic:PartSashContainer" xmi:id="_q65rgeqsEems__yLUBc_5w" selectedElement="_q65rj-qsEems__yLUBc_5w" horizontal="true">
             <children xsi:type="basic:PartSashContainer" xmi:id="_q65rguqsEems__yLUBc_5w" containerData="2500" selectedElement="_q65rg-qsEems__yLUBc_5w">
               <children xsi:type="basic:PartSashContainer" xmi:id="_q65rg-qsEems__yLUBc_5w" containerData="6000" selectedElement="_q65rhOqsEems__yLUBc_5w">
                 <children xsi:type="basic:PartStack" xmi:id="_q65rhOqsEems__yLUBc_5w" elementId="left" containerData="7368" selectedElement="_q65rheqsEems__yLUBc_5w">
+<<<<<<< HEAD
 =======
           <children xsi:type="basic:PartSashContainer" xmi:id="_enYjxfD0EemXL4wBFPabSQ" selectedElement="_enYj0vD0EemXL4wBFPabSQ" horizontal="true">
             <children xsi:type="basic:PartSashContainer" xmi:id="_enYjxvD0EemXL4wBFPabSQ" containerData="2457" selectedElement="_enYjx_D0EemXL4wBFPabSQ">
               <children xsi:type="basic:PartSashContainer" xmi:id="_enYjx_D0EemXL4wBFPabSQ" containerData="6000" selectedElement="_enYjzvD0EemXL4wBFPabSQ">
                 <children xsi:type="basic:PartStack" xmi:id="_enYjyPD0EemXL4wBFPabSQ" elementId="left" containerData="6858" selectedElement="_enYjyfD0EemXL4wBFPabSQ">
+>>>>>>> test/master
+=======
 >>>>>>> test/master
                   <tags>org.eclipse.e4.primaryNavigationStack</tags>
                   <children xsi:type="advanced:Placeholder" xmi:id="_enYjyfD0EemXL4wBFPabSQ" elementId="org.eclipse.jdt.ui.PackageExplorer" ref="_enZLaPD0EemXL4wBFPabSQ" closeable="true">
@@ -117,11 +129,16 @@
                   </children>
                 </children>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <children xsi:type="basic:PartStack" xmi:id="_q65riuqsEems__yLUBc_5w" elementId="org.springframework.ide.eclipse.boot.dash.views.BootDashViewMStack" containerData="2632" selectedElement="_q65ri-qsEems__yLUBc_5w">
                   <children xsi:type="advanced:Placeholder" xmi:id="_q65ri-qsEems__yLUBc_5w" elementId="org.springframework.ide.eclipse.boot.dash.views.BootDashView" ref="_q64dYOqsEems__yLUBc_5w" closeable="true">
 =======
                 <children xsi:type="basic:PartStack" xmi:id="_enYjzvD0EemXL4wBFPabSQ" elementId="org.springframework.ide.eclipse.boot.dash.views.BootDashViewMStack" containerData="3142" selectedElement="_enYjz_D0EemXL4wBFPabSQ">
                   <children xsi:type="advanced:Placeholder" xmi:id="_enYjz_D0EemXL4wBFPabSQ" elementId="org.springframework.ide.eclipse.boot.dash.views.BootDashView" ref="_enZLr_D0EemXL4wBFPabSQ" closeable="true">
+>>>>>>> test/master
+=======
+                <children xsi:type="basic:PartStack" xmi:id="_q65riuqsEems__yLUBc_5w" elementId="org.springframework.ide.eclipse.boot.dash.views.BootDashViewMStack" containerData="2632" selectedElement="_q65ri-qsEems__yLUBc_5w">
+                  <children xsi:type="advanced:Placeholder" xmi:id="_q65ri-qsEems__yLUBc_5w" elementId="org.springframework.ide.eclipse.boot.dash.views.BootDashView" ref="_q64dYOqsEems__yLUBc_5w" closeable="true">
 >>>>>>> test/master
                     <tags>View</tags>
                     <tags>categoryTag:Other</tags>
@@ -136,6 +153,9 @@
               </children>
             </children>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> test/master
             <children xsi:type="basic:PartSashContainer" xmi:id="_q65rj-qsEems__yLUBc_5w" containerData="7500" selectedElement="_a7ugoPEQEemoQ7KcUT9HaA" horizontal="true">
               <children xsi:type="basic:PartSashContainer" xmi:id="_a7ugoPEQEemoQ7KcUT9HaA" containerData="5000" selectedElement="_q65rkOqsEems__yLUBc_5w" horizontal="true">
                 <children xsi:type="basic:PartStack" xmi:id="_q65rluqsEems__yLUBc_5w" elementId="bottom" containerData="5000" selectedElement="_q65rm-qsEems__yLUBc_5w">
@@ -161,6 +181,7 @@
                     <tags>categoryTag:General</tags>
                   </children>
                   <children xsi:type="advanced:Placeholder" xmi:id="_q65rnOqsEems__yLUBc_5w" elementId="org.eclipse.ui.views.BookmarkView" toBeRendered="false" ref="_q6qa8OqsEems__yLUBc_5w" closeable="true">
+<<<<<<< HEAD
 =======
             <children xsi:type="basic:PartSashContainer" xmi:id="_enYj0vD0EemXL4wBFPabSQ" containerData="7543" selectedElement="_enYj2vD0EemXL4wBFPabSQ">
               <children xsi:type="basic:PartSashContainer" xmi:id="_enYj0_D0EemXL4wBFPabSQ" containerData="7432" selectedElement="_enYj1PD0EemXL4wBFPabSQ" horizontal="true">
@@ -182,6 +203,8 @@
                   </children>
                   <children xsi:type="advanced:Placeholder" xmi:id="_enYj2fD0EemXL4wBFPabSQ" elementId="org.eclipse.ant.ui.views.AntView" toBeRendered="false" ref="_enZLz_D0EemXL4wBFPabSQ" closeable="true">
 >>>>>>> test/master
+=======
+>>>>>>> test/master
                     <tags>View</tags>
                     <tags>categoryTag:General</tags>
                   </children>
@@ -197,6 +220,9 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_q65rkOqsEems__yLUBc_5w" elementId="org.eclipse.ui.editorss" containerData="5000" ref="_q6YuIOqsEems__yLUBc_5w"/>
               </children>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> test/master
               <children xsi:type="basic:PartStack" xmi:id="_q65rkeqsEems__yLUBc_5w" elementId="right" visible="false" containerData="2500" selectedElement="_q65rkuqsEems__yLUBc_5w">
                 <tags>org.eclipse.e4.secondaryNavigationStack</tags>
                 <tags>Minimized</tags>
@@ -215,6 +241,7 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_q65rleqsEems__yLUBc_5w" elementId="org.eclipse.ant.ui.views.AntView" toBeRendered="false" ref="_q65EcOqsEems__yLUBc_5w" closeable="true">
                   <tags>View</tags>
                   <tags>categoryTag:Ant</tags>
+<<<<<<< HEAD
 =======
               <children xsi:type="basic:PartStack" xmi:id="_enYj2vD0EemXL4wBFPabSQ" elementId="bottom" containerData="2568" selectedElement="_enYj3_D0EemXL4wBFPabSQ">
                 <tags>org.eclipse.e4.secondaryDataStack</tags>
@@ -255,6 +282,8 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_enYj4_D0EemXL4wBFPabSQ" elementId="org.eclipse.ui.views.PropertySheet" toBeRendered="false" ref="_enZL0PD0EemXL4wBFPabSQ" closeable="true">
                   <tags>View</tags>
                   <tags>categoryTag:General</tags>
+=======
+>>>>>>> test/master
                 </children>
               </children>
             </children>
@@ -295,6 +324,9 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> test/master
     <sharedElements xsi:type="advanced:Area" xmi:id="_q6YuIOqsEems__yLUBc_5w" elementId="org.eclipse.ui.editorss" selectedElement="_vRXQ8fD4EemoQ7KcUT9HaA">
       <children xsi:type="basic:PartStack" xmi:id="_vRXQ8fD4EemoQ7KcUT9HaA" elementId="PartStack@30a80e64" selectedElement="_Hmc-8PEZEemoQ7KcUT9HaA">
         <tags>active</tags>
@@ -305,6 +337,7 @@
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>active</tags>
           <tags>activeOnClose</tags>
+<<<<<<< HEAD
 =======
     <sharedElements xsi:type="advanced:Area" xmi:id="_enZLNvD0EemXL4wBFPabSQ" elementId="org.eclipse.ui.editorss" selectedElement="_enZLN_D0EemXL4wBFPabSQ">
       <children xsi:type="basic:PartSashContainer" xmi:id="_enZLN_D0EemXL4wBFPabSQ" selectedElement="_enZLTPD0EemXL4wBFPabSQ" horizontal="true">
@@ -449,6 +482,8 @@
             <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           </children>
 >>>>>>> test/master
+=======
+>>>>>>> test/master
         </children>
       </children>
     </sharedElements>
@@ -591,9 +626,13 @@
       <tags>View</tags>
       <tags>categoryTag:Other</tags>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <menus xmi:id="_rUOKcOqsEems__yLUBc_5w" elementId="org.springframework.ide.eclipse.boot.dash.views.BootDashView">
 =======
       <menus xmi:id="_enZLsPD0EemXL4wBFPabSQ" elementId="org.springframework.ide.eclipse.boot.dash.views.BootDashView">
+>>>>>>> test/master
+=======
+      <menus xmi:id="_rUOKcOqsEems__yLUBc_5w" elementId="org.springframework.ide.eclipse.boot.dash.views.BootDashView">
 >>>>>>> test/master
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -626,9 +665,13 @@
       <children xsi:type="menu:ToolBar" xmi:id="_enZL1vD0EemXL4wBFPabSQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_vZXlIPDyEemoQ7KcUT9HaA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_qP8DLeqsEems__yLUBc_5w"/>
 =======
         <children xsi:type="menu:HandledToolItem" xmi:id="_enZx4PD0EemXL4wBFPabSQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_endcgvD0EemXL4wBFPabSQ"/>
+>>>>>>> test/master
+=======
+        <children xsi:type="menu:HandledToolItem" xmi:id="_vZXlIPDyEemoQ7KcUT9HaA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_qP8DLeqsEems__yLUBc_5w"/>
 >>>>>>> test/master
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_enZx5fD0EemXL4wBFPabSQ" elementId="group.edit" toBeRendered="false">
@@ -660,12 +703,15 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_enZyKvD0EemXL4wBFPabSQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_enZyMPD0EemXL4wBFPabSQ" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_enc32_D0EemXL4wBFPabSQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_vZXlLfDyEemoQ7KcUT9HaA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_qP7b9uqsEems__yLUBc_5w"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_enZyNPD0EemXL4wBFPabSQ" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" visible="false">
         <tags>Draggable</tags>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_vZXlLfDyEemoQ7KcUT9HaA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_qP7b9uqsEems__yLUBc_5w"/>
+=======
+>>>>>>> test/master
 =======
 >>>>>>> test/master
       </children>
@@ -817,6 +863,7 @@
       <parameters xmi:id="_enZynPD0EemXL4wBFPabSQ" elementId="org.eclipse.ui.views.showView.viewId" name="org.eclipse.ui.views.showView.viewId" value="org.eclipse.jdt.ui.JavadocView"/>
     </bindings>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <bindings xmi:id="_qQkVE-qsEems__yLUBc_5w" keySequence="CTRL+," command="_qPy5G-qsEems__yLUBc_5w"/>
     <bindings xmi:id="_qQkVGuqsEems__yLUBc_5w" keySequence="ALT+SHIFT+Q L" command="_qP603OqsEems__yLUBc_5w">
       <parameters xmi:id="_qQkVG-qsEems__yLUBc_5w" elementId="org.eclipse.ui.views.showView.viewId" name="org.eclipse.ui.views.showView.viewId" value="org.eclipse.pde.runtime.LogView"/>
@@ -825,6 +872,11 @@
     <bindings xmi:id="_enZynvD0EemXL4wBFPabSQ" keySequence="CTRL+SHIFT+L" command="_enddG_D0EemXL4wBFPabSQ"/>
     <bindings xmi:id="_enZyn_D0EemXL4wBFPabSQ" keySequence="ALT+SHIFT+Q L" command="_enc3lPD0EemXL4wBFPabSQ">
       <parameters xmi:id="_enZyoPD0EemXL4wBFPabSQ" elementId="org.eclipse.ui.views.showView.viewId" name="org.eclipse.ui.views.showView.viewId" value="org.eclipse.pde.runtime.LogView"/>
+>>>>>>> test/master
+=======
+    <bindings xmi:id="_qQkVE-qsEems__yLUBc_5w" keySequence="CTRL+," command="_qPy5G-qsEems__yLUBc_5w"/>
+    <bindings xmi:id="_qQkVGuqsEems__yLUBc_5w" keySequence="ALT+SHIFT+Q L" command="_qP603OqsEems__yLUBc_5w">
+      <parameters xmi:id="_qQkVG-qsEems__yLUBc_5w" elementId="org.eclipse.ui.views.showView.viewId" name="org.eclipse.ui.views.showView.viewId" value="org.eclipse.pde.runtime.LogView"/>
 >>>>>>> test/master
     </bindings>
     <bindings xmi:id="_enZyofD0EemXL4wBFPabSQ" keySequence="CTRL+-" command="_endcwPD0EemXL4wBFPabSQ"/>
@@ -849,6 +901,9 @@
       <parameters xmi:id="_enZysvD0EemXL4wBFPabSQ" elementId="org.eclipse.ui.views.showView.viewId" name="org.eclipse.ui.views.showView.viewId" value="org.eclipse.team.ui.GenericHistoryView"/>
     </bindings>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> test/master
     <bindings xmi:id="_qQn_cOqsEems__yLUBc_5w" keySequence="CTRL+P" command="_qP8DLeqsEems__yLUBc_5w"/>
     <bindings xmi:id="_qQn_ceqsEems__yLUBc_5w" keySequence="CTRL+Q" command="_qP8qBOqsEems__yLUBc_5w"/>
     <bindings xmi:id="_qQn_e-qsEems__yLUBc_5w" keySequence="CTRL+S" command="_qP3KkeqsEems__yLUBc_5w"/>
@@ -864,6 +919,7 @@
     <bindings xmi:id="_qQp0qeqsEems__yLUBc_5w" keySequence="CTRL+B" command="_qPy5HuqsEems__yLUBc_5w"/>
     <bindings xmi:id="_qQp0quqsEems__yLUBc_5w" keySequence="ALT+SHIFT+Q B" command="_qP603OqsEems__yLUBc_5w">
       <parameters xmi:id="_qQp0q-qsEems__yLUBc_5w" elementId="org.eclipse.ui.views.showView.viewId" name="org.eclipse.ui.views.showView.viewId" value="org.eclipse.debug.ui.BreakpointView"/>
+<<<<<<< HEAD
 =======
     <bindings xmi:id="_enZys_D0EemXL4wBFPabSQ" keySequence="CTRL+P" command="_endcgvD0EemXL4wBFPabSQ"/>
     <bindings xmi:id="_enZytPD0EemXL4wBFPabSQ" keySequence="CTRL+Q" command="_endckvD0EemXL4wBFPabSQ"/>
@@ -881,6 +937,8 @@
     <bindings xmi:id="_enZywPD0EemXL4wBFPabSQ" keySequence="CTRL+B" command="_enc1cPD0EemXL4wBFPabSQ"/>
     <bindings xmi:id="_enZywfD0EemXL4wBFPabSQ" keySequence="ALT+SHIFT+Q B" command="_enc3lPD0EemXL4wBFPabSQ">
       <parameters xmi:id="_enZywvD0EemXL4wBFPabSQ" elementId="org.eclipse.ui.views.showView.viewId" name="org.eclipse.ui.views.showView.viewId" value="org.eclipse.debug.ui.BreakpointView"/>
+>>>>>>> test/master
+=======
 >>>>>>> test/master
     </bindings>
     <bindings xmi:id="_enZyw_D0EemXL4wBFPabSQ" keySequence="ALT+SHIFT+S" command="_enc29vD0EemXL4wBFPabSQ"/>
@@ -984,6 +1042,9 @@
     <bindings xmi:id="_enZzH_D0EemXL4wBFPabSQ" keySequence="ALT+SHIFT+ARROW_RIGHT" command="_enc3Y_D0EemXL4wBFPabSQ"/>
   </bindingTables>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> test/master
   <bindingTables xmi:id="_qQhRxeqsEems__yLUBc_5w" elementId="org.eclipse.datatools.sqltools.SQLEditorScope" bindingContext="_qQCJl-qsEems__yLUBc_5w"/>
   <bindingTables xmi:id="_qQhRx-qsEems__yLUBc_5w" elementId="org.eclipse.emf.codegen.ui.jetEditorScope" bindingContext="_qQCJpuqsEems__yLUBc_5w"/>
   <bindingTables xmi:id="_qQhRyeqsEems__yLUBc_5w" elementId="org.eclipse.jdt.ui.javaEditorScope" bindingContext="_qQCJmuqsEems__yLUBc_5w">
@@ -1012,6 +1073,7 @@
     <bindings xmi:id="_qQ0MueqsEems__yLUBc_5w" keySequence="CTRL+2 R" command="_qP8C8OqsEems__yLUBc_5w"/>
     <bindings xmi:id="_qQ0Mu-qsEems__yLUBc_5w" keySequence="CTRL+2 L" command="_qPzgHuqsEems__yLUBc_5w"/>
     <bindings xmi:id="_qQ0MveqsEems__yLUBc_5w" keySequence="CTRL+2 M" command="_qP3KeuqsEems__yLUBc_5w"/>
+<<<<<<< HEAD
 =======
   <bindingTables xmi:id="_enZzIPD0EemXL4wBFPabSQ" elementId="org.eclipse.datatools.sqltools.SQLEditorScope" bindingContext="_enaZ6fD0EemXL4wBFPabSQ">
     <bindings xmi:id="_enZzIfD0EemXL4wBFPabSQ" keySequence="CTRL+SHIFT+P" command="_enc30PD0EemXL4wBFPabSQ"/>
@@ -1061,6 +1123,8 @@
     <bindings xmi:id="_enaZA_D0EemXL4wBFPabSQ" keySequence="CTRL+2 R" command="_endcRfD0EemXL4wBFPabSQ"/>
     <bindings xmi:id="_enaZBPD0EemXL4wBFPabSQ" keySequence="CTRL+2 L" command="_enc1kvD0EemXL4wBFPabSQ"/>
     <bindings xmi:id="_enaZBfD0EemXL4wBFPabSQ" keySequence="CTRL+2 M" command="_enc2cvD0EemXL4wBFPabSQ"/>
+>>>>>>> test/master
+=======
 >>>>>>> test/master
   </bindingTables>
   <bindingTables xmi:id="_enaZBvD0EemXL4wBFPabSQ" elementId="org.eclipse.core.runtime.xml" bindingContext="_enaZ8PD0EemXL4wBFPabSQ">
@@ -1484,6 +1548,7 @@
     <tags>categoryTag:Gradle</tags>
   </descriptors>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <descriptors xmi:id="_qnXrgOqsEems__yLUBc_5w" elementId="org.eclipse.debug.ui.DebugView" label="Debug" iconURI="platform:/plugin/org.eclipse.debug.ui/icons/full/eview16/debug_view.png" tooltip="" category="Debug" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
 =======
   <descriptors xmi:id="_enaaU_D0EemXL4wBFPabSQ" elementId="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" label="Data Source Explorer" iconURI="platform:/plugin/org.eclipse.datatools.connectivity.ui.dse/icons/full/cview16/enterprise_explorer.gif" tooltip="" category="Data Management" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
@@ -1499,6 +1564,9 @@
     <tags>categoryTag:Data Management</tags>
   </descriptors>
   <descriptors xmi:id="_enaaVfD0EemXL4wBFPabSQ" elementId="org.eclipse.debug.ui.DebugView" label="Debug" iconURI="platform:/plugin/org.eclipse.debug.ui/icons/full/eview16/debug_view.png" tooltip="" category="Debug" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+>>>>>>> test/master
+=======
+  <descriptors xmi:id="_qnXrgOqsEems__yLUBc_5w" elementId="org.eclipse.debug.ui.DebugView" label="Debug" iconURI="platform:/plugin/org.eclipse.debug.ui/icons/full/eview16/debug_view.png" tooltip="" category="Debug" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
 >>>>>>> test/master
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.debug.internal.ui.views.launch.LaunchView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.debug.ui"/>
@@ -1873,15 +1941,21 @@
     <tags>categoryTag:Other</tags>
   </descriptors>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> test/master
   <descriptors xmi:id="_5ngtwPDqEemxR5KzpQYivA" elementId="org.eclipse.tips.ide.tipPart" label="Tip of the Day" iconURI="platform:/plugin/org.eclipse.tips.ui/icons/lightbulb.png" tooltip="" category="Help" closeable="true" contributionURI="bundleclass://org.eclipse.tips.ide/org.eclipse.tips.ide.internal.TipPart">
     <tags>View</tags>
     <tags>categoryTag:Help</tags>
   </descriptors>
   <trimContributions xmi:id="_2r10UF9tEeO-yojH_y4TJA" elementId="org.eclipse.ui.ide.application.trimcontribution.QuickAccess" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" toBeRendered="false" parentId="org.eclipse.ui.main.toolbar" positionInParent="last">
     <children xsi:type="menu:ToolControl" xmi:id="_76uUAF9tEeO-yojH_y4TJA" elementId="Spacer Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+<<<<<<< HEAD
 =======
   <trimContributions xmi:id="_encPzPD0EemXL4wBFPabSQ" elementId="org.eclipse.ui.ide.application.trimcontribution.QuickAccess" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" toBeRendered="false" parentId="org.eclipse.ui.main.toolbar" positionInParent="last">
     <children xsi:type="menu:ToolControl" xmi:id="_encPzfD0EemXL4wBFPabSQ" elementId="Spacer Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+>>>>>>> test/master
+=======
 >>>>>>> test/master
       <tags>glue</tags>
       <tags>move_after:PerspectiveSpacer</tags>
@@ -2901,6 +2975,9 @@
     <parameters xmi:id="_enddPfD0EemXL4wBFPabSQ" elementId="projectName" name="projectName" optional="false"/>
   </commands>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> test/master
   <commands xmi:id="_ql2BgOqsEems__yLUBc_5w" elementId="AUTOGEN:::org.eclipse.ant.ui.actionSet.presentation/org.eclipse.ant.ui.toggleAutoReconcile" commandName="Toggle Ant Editor Auto Reconcile" description="Toggle Ant Editor Auto Reconcile" category="_qPv1tuqsEems__yLUBc_5w"/>
   <commands xmi:id="_ql2okOqsEems__yLUBc_5w" elementId="AUTOGEN:::org.eclipse.jst.j2ee.J2eeMainActionSet/org.eclipse.jst.j2ee.internal.actions.NewJavaEEArtifact" commandName="Servlet" description="Create a new Servlet" category="_qPv1tuqsEems__yLUBc_5w"/>
   <commands xmi:id="_ql4dwOqsEems__yLUBc_5w" elementId="AUTOGEN:::org.eclipse.jst.j2ee.J2eeMainActionSet/org.eclipse.jst.j2ee.internal.actions.NewJavaEEProject" commandName="Dynamic Web Project" description="Create a Dynamic Web project" category="_qPv1tuqsEems__yLUBc_5w"/>
@@ -3096,6 +3173,7 @@
   <categories xmi:id="_qPv1tuqsEems__yLUBc_5w" elementId="org.eclipse.core.commands.categories.autogenerated" name="Uncategorized" description="Commands that were either auto-generated or have no category"/>
   <categories xmi:id="_qPv1t-qsEems__yLUBc_5w" elementId="org.eclipse.wst.jsdt.ui.category.refactoring" name="Refactor - JavaScript" description="JavaScript Refactoring Actions"/>
   <categories xmi:id="_qPv1uOqsEems__yLUBc_5w" elementId="org.springsource.ide.eclipse.quicksearch.commands.category" name="Quick Search Category"/>
+<<<<<<< HEAD
 =======
   <commands xmi:id="_enddPvD0EemXL4wBFPabSQ" elementId="AUTOGEN:::org.eclipse.ant.ui.actionSet.presentation/org.eclipse.ant.ui.toggleAutoReconcile" commandName="Toggle Ant Editor Auto Reconcile" description="Toggle Ant Editor Auto Reconcile" category="_endd_PD0EemXL4wBFPabSQ"/>
   <commands xmi:id="_enddP_D0EemXL4wBFPabSQ" elementId="AUTOGEN:::org.eclipse.jst.j2ee.J2eeMainActionSet/org.eclipse.jst.j2ee.internal.actions.NewJavaEEArtifact" commandName="Servlet" description="Create a new Servlet" category="_endd_PD0EemXL4wBFPabSQ"/>
@@ -3290,5 +3368,7 @@
   <categories xmi:id="_endd_PD0EemXL4wBFPabSQ" elementId="org.eclipse.core.commands.categories.autogenerated" name="Uncategorized" description="Commands that were either auto-generated or have no category"/>
   <categories xmi:id="_endd_fD0EemXL4wBFPabSQ" elementId="org.eclipse.wst.jsdt.ui.category.refactoring" name="Refactor - JavaScript" description="JavaScript Refactoring Actions"/>
   <categories xmi:id="_endd_vD0EemXL4wBFPabSQ" elementId="org.springsource.ide.eclipse.quicksearch.commands.category" name="Quick Search Category"/>
+>>>>>>> test/master
+=======
 >>>>>>> test/master
 </application:Application>

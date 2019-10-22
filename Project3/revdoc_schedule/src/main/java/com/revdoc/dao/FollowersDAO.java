@@ -15,9 +15,9 @@ public interface FollowersDAO extends JpaRepository<Followers, Long> {
 	@Query("select count(f) from Followers f where f.doctor.npi =:npi")
 	int countFollowers(long npi);
 
-//	// check if revassociate is following doc
-//	@Query("select f from Followers f where f.doctor.npi = :npi and f.revAssociate.revAssociateEmail = :revassociate")
-//	List<Followers> isFollowing(@Param("npi") long npi, @Param("revassociate") String revassociate);
+	// check if revassociate is following doc
+	@Query("select f from Followers f where f.doctor.npi = :npi and f.revAssociate.revAssociateEmail = :revassociate")
+	List<Followers> isFollowing(@Param("npi") long npi, @Param("revassociate") String revassociate);
 
 //	//check if revassociate is following doc
 //	@Query("select f from Followers f where f.doctor.npi = :npi and f.revAssociate.revAssociateEmail =: revassociate")
