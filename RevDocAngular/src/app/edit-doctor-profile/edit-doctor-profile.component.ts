@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Doctor } from '../revdoc-classes/doctor';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EditDocService } from '../edit-doc.service';
+import { SessionService } from '../session.service';
 import { Location } from '../revdoc-classes/location';
 import { Insurance } from '../revdoc-classes/insurance';
 import { License } from '../revdoc-classes/license';
@@ -22,7 +23,7 @@ export class EditDoctorProfileComponent implements OnInit {
   specialty:Specialty;
   conditionType:ConditionType;
 
-  constructor(private editDocService: EditDocService, private route: ActivatedRoute, private router: Router) {
+  constructor(private sessionService: SessionService, private editDocService: EditDocService, private route: ActivatedRoute, private router: Router) {
     this.doctor=new Doctor();
    }
 
@@ -31,7 +32,9 @@ export class EditDoctorProfileComponent implements OnInit {
   }
 
   getProfileData() {
-    this.doctor = this.editDocService.getDoctorById()
+    this.sessionService.getDoctorSession().subscribe(data => {
+      this.doctor = data;
+    })
   }
 
   sendUpdatedData(formHorizontal:any) {

@@ -25,8 +25,8 @@ export class EditDocService {
   updateInsuranceUrl: string;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.baseUrl = "http://localhost:1000"; 
-    this.doctorUrl = this.baseUrl + "doctor/";
+    this.baseUrl = "http://localhost:9000"; 
+    this.doctorUrl = this.baseUrl + "/doctorSession";
     this.getDoctorByIdUrl = "http://localhost:9000/doctor/";
     this.updateDoctorUrl = "http://localhost:9000/doctor/";
     this.updateLocationUrl = "http://localhost:9000/doctor/";
