@@ -47,6 +47,7 @@ public class DoctorController {
 	public List<Feedback> getAllRatings(@PathVariable long npi){
 		return service.getAllFeedback(npi);
 	}
+
 	
 	@GetMapping("/doctor/{npi}/insurance")
 	public List<Insurance> getInsurance(@PathVariable long npi){

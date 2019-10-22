@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Feedback } from '../revdoc-classes/feedback';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgbRating } from '@ng-bootstrap/ng-bootstrap';
 import { DoctorInfoService } from '../doctor-info.service';
 import { RevAssociate } from '../revdoc-classes/rev-associate';
 import { Appointment } from '../revdoc-classes/appointment';
