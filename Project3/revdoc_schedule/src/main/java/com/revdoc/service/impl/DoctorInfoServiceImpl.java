@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.revdoc.dao.AppointmentDAO;
 import com.revdoc.dao.ConditionsDAO;
 import com.revdoc.dao.DoctorDAO;
 import com.revdoc.dao.FeedbackDAO;
 import com.revdoc.dao.FollowersDAO;
 import com.revdoc.dao.InsuranceDAO;
 import com.revdoc.dao.SpecialtyDAO;
+import com.revdoc.model.Appointment;
 import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
@@ -24,6 +26,9 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 
 	@Autowired
 	private DoctorDAO dDao;
+	
+	@Autowired
+	private AppointmentDAO aDao;
 
 	@Autowired
 	private FeedbackDAO fbDao;
@@ -112,5 +117,12 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 //		// TODO Auto-generated method stub
 //		flDao.deleteById(followerId);
 //	}
-
+	
+	@Override
+	public Appointment getAppointment(String associate, long npi) {
+		List<Appointment> appointmentList = aDao.findAppointmentByRevAssociateRevAssociateEmailAndDoctorNpi(associate, npi);
+		Appointment appointment = appointmentList.get(appointmentList.size()-1);
+		return appointment;
+}
+	
 }

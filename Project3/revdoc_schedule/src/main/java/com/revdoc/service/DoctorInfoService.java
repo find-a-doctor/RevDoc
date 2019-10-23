@@ -3,10 +3,12 @@ package com.revdoc.service;
 
 import java.util.List;
 
+import com.revdoc.model.Appointment;
 import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
 import com.revdoc.model.Insurance;
+import com.revdoc.model.RevAssociate;
 import com.revdoc.model.Specialty;
 
 public interface DoctorInfoService {
@@ -31,6 +33,8 @@ public interface DoctorInfoService {
 	public Doctor updateFollowers(long npi);
 	
 	public boolean isFollowing(long npi, String revassociate);
+
+	Appointment getAppointment(String revAssociateEmail, long npi);
 	
 //	public List<Followers> allFollowers();
 //	

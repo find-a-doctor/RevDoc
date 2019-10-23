@@ -7,6 +7,7 @@ import { DoctorInfoService } from '../doctor-info.service';
 import { RevAssociate } from '../revdoc-classes/rev-associate';
 import { Appointment } from '../revdoc-classes/appointment';
 import { Doctor } from '../revdoc-classes/doctor';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-doctor-feedback',
@@ -16,33 +17,44 @@ import { Doctor } from '../revdoc-classes/doctor';
 export class DoctorFeedbackComponent implements OnInit {
 
   //These will be used to grab objects fom active session
-  //  @Input() doctor:Doctor;
-  //  @Input() user:RevAssociate;
-  //  @Input() appointment:Appointment
+  @Input() npi: number;
+  associate: RevAssociate;
+  appointment: Appointment
   feedback: Feedback;
 
-  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
 
+  constructor(private doctorInfoService: DoctorInfoService,
+    private sessionService: SessionService, private route: ActivatedRoute,
+    private router: Router) { }
 
+    // grabs associate object in session and gets correct appointment
   ngOnInit() {
     console.log(this.route);
     this.feedback = new Feedback();
+    this.sessionService.getAssociateSession().subscribe(data =>{
+      this.associate= data;
+    })
+    console.log("associate in this session: "+this.associate);
+    this.appointment = new Appointment();
+    this.doctorInfoService.getAppointment(this.npi, this.associate.revAssociateEmail).subscribe(data => {
+      this.appointment = data;
+    });
+    console.log(this.appointment);
+
   }
 
   //Collects ratings and comment from user to create a feedback object then sends an alert to user that the feedback has been recieved.
-  //Could possibly add a "rate your last appointment w/ this doctor button" that pulls the correct appointment on click using 
-  //npi and employeeEmail and check if there is already a review for that appointment (since there is a one to one relationship
-  //between appointment and feedback). 
-  rateDoctor(comments : string) {
+  //Could possibly add a "rate your last appointment w/ this doctor button" that pulls the correct appointment on click
+  rateDoctor(comments: string) {
 
     this.feedback.bedsideMannerRating = this.BedsideManners.value;
     this.feedback.waitTimeRating = this.WaitTime.value;
     this.feedback.overallRating = this.Overall.value;
-    this.feedback.comments= comments;
+    this.feedback.comments = comments;
     // ONLY appointment ID is needed to relate to table in DB, not the entire appointment object.
     this.feedback.appointment = new Appointment();
-    this.feedback.appointment.appointmentId=0;
-    
+    this.feedback.appointment.appointmentId = 0;
+
     // This can be used to build employee and doctor objects from the page uri and session. 
 
     // this.feedback.appointment.doctor= new Doctor();
@@ -54,17 +66,17 @@ export class DoctorFeedbackComponent implements OnInit {
     // this.feedback.appointment.revAssociate = user;
 
     // this.feedback.appointment.revAssociate.revAssociateEmail = "MrDuckworth@QuackQuack.com";
-     //dummy value for no session stored
+    //dummy value for no session stored
 
     console.log(this.feedback);
-    // console.log("This is the doctor: "+this.doctor );
-    // console.log("This is the user: "+this.user);
-    
+    console.log("This is the doctor npi: " + this.npi);
+    console.log("This is the associate: " + this.associate);
+
     console.log(this.feedback.comments);
 
     alert("Thank you for your feedback!")
     this.doctorInfoService.rateDoctor(this.feedback);
-    
+
   }
 
   //dynamically changes star color from white to orange.

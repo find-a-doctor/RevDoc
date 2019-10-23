@@ -2,4 +2,5 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="org.hibernate.annotations.CascadeType"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
+<fullyQualifiedTypeName name="org.springframework.test.context.junit4.SpringRunner"/>
 </qualifiedTypeNameHistroy>

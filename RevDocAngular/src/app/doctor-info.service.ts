@@ -9,6 +9,7 @@ import { Specialty } from './revdoc-classes/specialty';
 import { Conditions } from './revdoc-classes/conditions';
 import { RevAssociate } from './revdoc-classes/rev-associate';
 import { Followers } from './revdoc-classes/followers';
+import { Appointment } from './revdoc-classes/appointment';
 
 
 @Injectable({
@@ -25,6 +26,7 @@ export class DoctorInfoService {
   followingUrl: string;
   followUrl: string;
   getAllFollowersUrl: string;
+  getAppointmentUrl: string;
 
   constructor(private http:HttpClient, private router:Router) {
     this.baseUrl="http://localhost:1000/";
@@ -35,7 +37,7 @@ export class DoctorInfoService {
     this.followingUrl = this.baseUrl + "following/";
     this.followUrl = this.baseUrl + "follow/";
     this.getAllFollowersUrl = this.baseUrl + "allFollowers";
-
+    this.getAppointmentUrl= this.baseUrl + "getAppointment/"
 
    }
 
@@ -68,6 +70,10 @@ export class DoctorInfoService {
      return this.http.post(this.baseUrl+this.rateDoctorUrl,feedback);
    }
 
+   //gets correct appointment to be rated.
+   public getAppointment(npi: number, associateEmail: string): Observable<Appointment>{
+    return this.http.get<Appointment>(this.getAppointmentUrl+npi+"/"+associateEmail)
+   }
 
    public isFollowing(npi: number, revassociate: string): Observable<boolean> {
     return this.http.get<boolean>(this.followingUrl+npi+"/"+revassociate);
