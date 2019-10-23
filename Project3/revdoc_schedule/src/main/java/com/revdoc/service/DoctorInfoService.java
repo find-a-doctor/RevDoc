@@ -15,7 +15,7 @@ public interface DoctorInfoService {
 
 	public List<Doctor> getAllDoctors();
 
-//	public List<Feedback> getAllFeedback();
+	public List<Feedback> getAllFeedback();
 //	public List<Feedback> getAllFeedback(long npi);
 
 	public List<Feedback> getAllFeedback(long npi);

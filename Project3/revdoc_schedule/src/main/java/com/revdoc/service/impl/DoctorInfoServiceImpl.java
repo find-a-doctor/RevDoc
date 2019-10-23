@@ -51,10 +51,10 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 		return doctorDao.findAll();
 	}
 
-//	@Override
-//	public List<Feedback> getAllFeedback() {
-//		return feedbackDao.findAll();
-//	}
+	@Override
+	public List<Feedback> getAllFeedback() {
+		return feedbackDao.findAll();
+	}
 	// returns all feedback for all doctors
 	// for testing
 
