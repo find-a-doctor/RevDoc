@@ -36,8 +36,6 @@ build/Release
 node_modules/
 jspm_packages/
 
-.metadata/
-
 # TypeScript v1 declaration files
 typings/
 
@@ -61,3 +59,51 @@ typings/
 
 # next.js build output
 .next
+
+
+# ======Spring gitignore files ============
+
+*#
+*.iml
+*.ipr
+*.iws
+*.jar
+*.sw?
+*~
+.#*
+.*.md.html
+.DS_Store
+.classpath
+.factorypath
+.gradle
+.idea
+.metadata
+.project
+<<<<<<< HEAD
+.settings/
+.metadata/
+=======
+.recommenders
+.settings
+.springBeans
+/build
+/code
+MANIFEST.MF
+_site/
+activemq-data
+bin
+build
+build.log
+dependency-reduced-pom.xml
+dump.rdb
+interpolated*.xml
+lib/
+manifest.yml
+overridedb.*
+target
+transaction-logs
+.flattened-pom.xml
+secrets.yml
+.gradletasknamecache
+.sts4-cache
+>>>>>>> 63027c58d7ebeb6457cd6fbb75d77c7d6b7b54f0

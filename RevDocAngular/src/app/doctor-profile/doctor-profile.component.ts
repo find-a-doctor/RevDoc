@@ -7,6 +7,7 @@ import { Specialty } from '../revdoc-classes/specialty';
 import { Insurance } from '../revdoc-classes/insurance';
 import { Conditions } from '../revdoc-classes/conditions';
 import { Location } from '../revdoc-classes/location';
+import { RevAssociate } from '../revdoc-classes/rev-associate';
 
 
 
@@ -16,7 +17,6 @@ import { Location } from '../revdoc-classes/location';
   styleUrls: ['./doctor-profile.component.css']
 })
 export class DoctorProfileComponent implements OnInit {
-
 
   doctor: Doctor;
   insurance: Insurance[];
@@ -39,17 +39,17 @@ export class DoctorProfileComponent implements OnInit {
 
     this.doctorInfoService.getDoctorInsurance(this.doctor.npi).subscribe(data => {
       this.insurance = data;
-      console.log("insurance loaded");
+      // console.log("insurance loaded");
     }, error => console.log("error:\n" + error));
 
     this.doctorInfoService.getDoctorSpecialty(this.doctor.npi).subscribe(data => {
       this.specialty = data;
-      console.log("specialty loaded");
+      // console.log("specialty loaded");
     }, error => console.log("error:\n" + error));
 
     this.doctorInfoService.getDoctorConditions(this.doctor.npi).subscribe(data => {
       this.conditions = data;
-      console.log("conditions loaded");
+      // console.log("conditions loaded");
     }, error => console.log("error:\n" + error));
 
 

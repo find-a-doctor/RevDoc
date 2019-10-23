@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6 bg-light">
+      <!-- <div class="container" id="userLogin"> -->
+      <form (ngSubmit)="associateLogin()">
+        <h1 style="text-align: center;">Revature Associate<br />Login</h1>
+
+        <div class="form-group">
+          <label for="userEmail">Enter Email</label>
+          <input type="text" class="form-control" name="email" id="email" placeholder="Associate Email*" />
+          <!-- <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Email is required</div> -->
+        </div>
+
+        <div class="form-group">
+          <label for="password">Enter password</label>
+          <input type="text" class="form-control" name="password" id="password" placeholder="Associate Password*" />
+          <!-- <div class="alert alert-danger" *ngIf="password.touched && !password.valid">Password is required</div> -->
+        </div>
+        <!-- <button type="submit" (click)="associateLogin()" class="btn btn-space">Login</button> -->
+        <button type="button" (click)="associateLogin()" class="btn btn-space">Login</button>
+        <!-- fixes error "form submission cancelled because form is not connected" -->
+      </form>
+    </div>
+
+    <div class="col-6" style="background-color: #f26925;">
+      <!-- <div class="container" id="userLogin"> -->
+      <form (ngSubmit)="doctorLogin()">
+        <h1 style="color:antiquewhite; text-align:center;">Doctor Login</h1>
+
+        <div class="form-group">
+          <!-- <label for="userEmail">Enter Email</label> -->
+          <input type="text" class="form-control" name="email" id="email" placeholder="Doctor Email*" />
+          <!-- <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Email is required</div> -->
+        </div>
+
+        <div class="form-group">
+          <!-- <label for="password">Enter password</label> -->
+          <input type="text" class="form-control" name="password" id="password" placeholder="Doctor Password*" />
+          <!-- <div class="alert alert-danger" *ngIf="password.touched && !password.valid">Password is required</div> -->
+        </div>
+        <button (click)="doctorLogin()" class="btn btn-space"
+          style="color:#f26925; background-color: white;border-radius: 50px">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- <div class="form-group">
+      <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Login
+      </button>
+      <a routerLink="/schedule-appt" class="btn btn-link">Schedule Appointments</a>
+    </div>
+   -->
+
+<!-- <router-outlet></router-outlet> -->

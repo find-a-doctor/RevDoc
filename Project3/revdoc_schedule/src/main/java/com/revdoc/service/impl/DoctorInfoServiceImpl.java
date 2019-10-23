@@ -5,14 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revdoc.dao.AppointmentDAO;
 import com.revdoc.dao.ConditionsDAO;
 import com.revdoc.dao.DoctorDAO;
 import com.revdoc.dao.FeedbackDAO;
 import com.revdoc.dao.FollowersDAO;
 import com.revdoc.dao.InsuranceDAO;
 import com.revdoc.dao.SpecialtyDAO;
-import com.revdoc.model.Appointment;
 import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
@@ -24,24 +22,22 @@ import com.revdoc.service.DoctorInfoService;
 @Service
 public class DoctorInfoServiceImpl implements DoctorInfoService{
 
+
 	@Autowired
 	private DoctorDAO dDao;
-	
-	@Autowired
-	private AppointmentDAO aDao;
 
 	@Autowired
 	private FeedbackDAO fbDao;
 
 	@Autowired
 	private FollowersDAO flDao;
-	
+
 	@Autowired
 	private InsuranceDAO iDao;
-	
+
 	@Autowired
 	private SpecialtyDAO sDao;
-	
+
 	@Autowired
 	private ConditionsDAO cDao;
 
@@ -66,8 +62,8 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 		return fbDao.getAll(npi);
 	}
 	//returns only feedback for specified doctor
-	
-	
+
+
 	@Override
 	public List<Insurance> getInsurance(long npi){
 		return iDao.getInsurance(npi);
@@ -95,34 +91,28 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 		doctor.setNumberOfFollowers(numberOfFollowers);
 		return doctor;
 	}
-	
-//	@Override
-//	public List<Followers> allFollowers() {
-//		return flDao.findAll();
-//	}
+
+	@Override
+	public List<Followers> allFollowers() {
+		return flDao.findAll();
+	}
 
 	@Override
 	public boolean isFollowing(long npi, String revassociate) {
 		List<Followers> followingList=flDao.isFollowing(npi, revassociate);
+		System.out.println("in doctor info service impl");
 		return(followingList.size()!=0);
 	}
-//
-//	@Override
-//	public Followers followDoctor(Followers followers) {
-//		return flDao.save(followers);
-//	}
-//
-//	@Override
-//	public void unfollowDoctor(long followerId) {
-//		// TODO Auto-generated method stub
-//		flDao.deleteById(followerId);
-//	}
-	
+
 	@Override
-	public Appointment getAppointment(String associate, long npi) {
-		List<Appointment> appointmentList = aDao.findAppointmentByRevAssociateRevAssociateEmailAndDoctorNpi(associate, npi);
-		Appointment appointment = appointmentList.get(appointmentList.size()-1);
-		return appointment;
-}
-	
+	public Followers followDoctor(Followers followers) {
+		return flDao.save(followers);
+	}
+
+	@Override
+	public void unfollowDoctor(long followerId) {
+		flDao.deleteById(followerId);
+	}
+
+
 }

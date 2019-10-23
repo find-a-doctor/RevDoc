@@ -37,3 +37,13 @@ td,th{
     
     
 }
+
+ngb-rating span{
+    font-size: 6rem;
+   }
+
+
+  table{
+    font-size:16pt;
+    font-family:Lato,sans-serif !important;
+  }
