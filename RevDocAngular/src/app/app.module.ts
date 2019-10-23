@@ -66,7 +66,6 @@ import { LoginPageComponent } from './login-page/login-page.component';
     CommonModule,
     jqxSchedulerModule,
     AppRoutingModule,
-    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     jqxButtonModule,

@@ -51,10 +51,10 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 		return doctorDao.findAll();
 	}
 
-//	@Override
-//	public List<Feedback> getAllFeedback() {
-//		return feedbackDao.findAll();
-//	}
+	@Override
+	public List<Feedback> getAllFeedback() {
+		return feedbackDao.findAll();
+	}
 	// returns all feedback for all doctors
 	// for testing
 
@@ -82,6 +82,8 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 
 	@Override
 	public Feedback submitFeedback(Feedback feedback) {
+		System.out.println("Feeback in Service. Calling Dao.\n"+feedback);
+//		System.out.println(feedbackDao.save(feedback));
 		return feedbackDao.save(feedback);
 	}
 

@@ -53,7 +53,7 @@ export class DoctorInfoService {
     this.followingUrl = this.baseUrl + "following/";
     this.followUrl = this.baseUrl + "follow/";
     this.getAllFollowersUrl = this.baseUrl + "allFollowers";
-    this.rateDoctorUrl = this.baseUrl + "rateDoctor/";
+    this.rateDoctorUrl = "http://localhost:9000/feedback";
     this.getAppointmentUrl= this.baseUrl+"getAppointment/"
   }
 
@@ -109,7 +109,10 @@ export class DoctorInfoService {
 
    //Feedback has an appointment number in it, so we can get user email and doctor npi from feedback object.
    public rateDoctor( feedback :Feedback){
-     return this.http.post(this.baseUrl+this.rateDoctorUrl,feedback);
+     console.log("sending feedback data to Server: ")
+     console.log(feedback)
+     console.log(this.rateDoctorUrl);
+     return this.http.post(this.rateDoctorUrl,feedback);
    }
 
    public getAppointment(npi : number, revassociate:RevAssociate):Observable<Appointment>{

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,10 +38,10 @@ public class DoctorController {
 	//this is redundant, only used for testing, but the function is used in SearchDoctorController
 
 
-//	@GetMapping("/allRatings/")
-//	public List<Feedback> getAllRatings(){
-//		return service.getAllFeedback();
-//	}
+	@GetMapping("/allRatings/")
+	public List<Feedback> getAllRatings(){
+		return service.getAllFeedback();
+	}
 	@GetMapping("/allRatings/{npi}")
 	public List<Feedback> getAllRatings(@PathVariable long npi){
 		return service.getAllFeedback(npi);
@@ -68,6 +67,8 @@ public class DoctorController {
 
 	@PostMapping("/feedback")
 	public Feedback submitFeedback(@RequestBody Feedback feedback) {
+		System.out.println("Feedback: has reached Controller ");
+		System.out.println(feedback);
 		return service.submitFeedback(feedback);
 	//not yet working?
 	}

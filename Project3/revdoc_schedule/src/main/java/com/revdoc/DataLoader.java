@@ -191,12 +191,20 @@ public class DataLoader {
 //		time = new Time(14,30,0);
 		Appointment ap2 = new Appointment(0, d2, u2, date, time, "Insurant Name input form user2", false);
 		ap2=appointmentDao.save(ap2);
+		
+		Appointment ap3=new Appointment(0, d0, u1, date, time, "RevInsure", true);
+		ap3= appointmentDao.save(ap3);
+		
+		Appointment ap4= new Appointment(0, d1, u1, date, time, "You're Insured", true);
+		ap4= appointmentDao.save(ap4);
+		
 		// CREATE FEEDBACK
 		Feedback fb1 = new Feedback(0, 1.5f, 2.5f, 3f, "comments feedback 1 here", ap1);
 		fb1 = feedbackDao.save(fb1);
 		
 		Feedback fb2 = new Feedback(0, 2.5f, 0.5f, 4f, "comments feedback 2 here", ap2);
 		fb2 = feedbackDao.save(fb2);
+		
 		
 		// CREATE CONDITIONTYPE
 		ConditionType ct1 = new ConditionType(0, "condition type 1");
@@ -402,6 +410,7 @@ public class DataLoader {
 		System.out.println("followers 2: "+f2);
 		System.out.println("appointment 1: "+ap1);
 		System.out.println("appointment 2: "+ap2);
+		System.out.println("appointment 3: "+ap3);
 		System.out.println("feedback 1: "+fb1);
 		System.out.println("feedback 2: "+fb2);
 		System.out.println("conditionType 1: "+ct1);

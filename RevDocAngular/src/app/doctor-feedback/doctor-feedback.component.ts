@@ -40,19 +40,56 @@ export class DoctorFeedbackComponent implements OnInit {
       this.associate = data;
       console.log(["associate", this.associate])
       console.log(["1", this.feedback, this.associate]);
-    })
 
-    //get npi
-    this.route.url.subscribe(data => {
-      this.npi = Number(data[1].path);
-      console.log(["2", this.feedback, this.associate, this.npi]);
-    })
+      //get npi
+      this.route.url.subscribe(data => {
+        this.npi = Number(data[1].path);
+        console.log(["2", this.feedback, this.associate, this.npi]);
 
-    //get appointment
-    this.doctorInfoService.getAppointment(this.npi, this.associate).subscribe(data => {
-      console.log(data);
-      console.log(["3", this.feedback, this.associate, this.npi]);
-    })
+        this.feedback = new Feedback();
+
+        this.feedback.appointment = new Appointment();
+        this.feedback.appointment.appointmentId = 10000003;
+        this.feedback.appointment.date=null;
+        this.feedback.appointment.time=null;
+        this.feedback.appointment.insurance="QuackQuack";
+        this.feedback.appointment.confirmed=true;
+        console.log(["3", this.feedback, this.associate, this.npi]);
+
+        
+        
+        this.feedback.appointment.revAssociate = this.associate;
+        console.log(["4", this.feedback, this.associate, this.npi]);
+
+        this.feedback.appointment.doctor=new Doctor();
+        this.feedback.appointment.doctor.npi = this.npi;
+        this.feedback.appointment.doctor.doctorName=null;
+        this.feedback.appointment.doctor.experience=0;
+        // this.feedback.appointment.doctor.email= null;
+        // this.feedback.appointment.doctor.password=null;
+        // this.feedback.appointment.doctor.phone=null;
+        // this.feedback.appointment.doctor.aboutMe=null;
+        this.feedback.appointment.doctor.numberOfFollowers=0;
+        this.feedback.appointment.doctor.location=null;
+        console.log(["5", this.feedback, this.associate, this.npi]);
+
+      })
+
+      //get appointment
+      // this.doctorInfoService.getAppointment(this.npi, this.associate).subscribe(data => {
+      //   console.log(data);
+      //   console.log(["3", this.feedback, this.associate, this.npi]);
+      // })
+
+    });
+
+
+
+
+
+
+
+
   }
 
 
@@ -82,29 +119,32 @@ export class DoctorFeedbackComponent implements OnInit {
 
   // }
 
-  // //Collects ratings and comment from user to create a feedback object then sends an alert to user that the feedback has been recieved.
-  // //Could possibly add a "rate your last appointment w/ this doctor button" that pulls the correct appointment on click
-  // rateDoctor(comments: string) {
+  //Collects ratings and comment from user to create a feedback object then sends an alert to user that the feedback has been recieved.
+  //Could possibly add a "rate your last appointment w/ this doctor button" that pulls the correct appointment on click
+  rateDoctor(comments: string) {
 
-  //   this.feedback.bedsideMannerRating = this.BedsideManners.value;
-  //   this.feedback.waitTimeRating = this.WaitTime.value;
-  //   this.feedback.overallRating = this.Overall.value;
-  //   this.feedback.comments = comments;
-  //   // ONLY appointment ID is needed to relate to table in DB, not the entire appointment object.
-  //   this.feedback.appointment = this.appointment;
+    this.feedback.bedsideMannerRating = Number(this.BedsideManners.value);
+    this.feedback.waitTimeRating = this.WaitTime.value;
+    this.feedback.overallRating = this.Overall.value;
+    console.log(comments);
+    this.feedback.comments = comments;
+    // ONLY appointment ID is needed to relate to table in DB, not the entire appointment object.
+    // this.feedback.appointment = this.appointment;
 
 
 
-  //   console.log(this.feedback);
-  //   console.log("This is the doctor npi: " + this.npi);
-  //   console.log("This is the associate: " + this.associate);
+    console.log(this.feedback);
+    // console.log("This is the doctor npi: " + this.npi);
+    // console.log("This is the associate: " + this.associate);
 
-  //   console.log(this.feedback.comments);
+    console.log("Feedback being sent to angular service: ")
+    console.log(this.feedback);
+    this.doctorInfoService.rateDoctor(this.feedback).subscribe(data=>{});
+    alert("Thank you for your feedback!")
+    window.location.reload();
+    // this.router.navigate(['doctor/' + this.npi]);
 
-  //   alert("Thank you for your feedback!")
-  //   this.doctorInfoService.rateDoctor(this.feedback);
-
-  // }
+  }
 
   //dynamically changes star color from white to orange.
   BedsideManners = new FormControl(null, Validators.required);

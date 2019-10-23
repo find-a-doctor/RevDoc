@@ -40,10 +40,11 @@ export class DoctorRatingsComponent implements OnInit {
       var count: number = 0;
       this.allFeedback = data;
       this.allFeedback.forEach(function (fb: Feedback) {
-        // ov += fb.overallRating;
+        ov += fb.overallRating;
         bm += fb.bedsideMannerRating;
         wt += fb.waitTimeRating;
         count += 1;
+        console.log(fb.comments);
       });
 
       // this.overall = (ov / count);
