@@ -9,6 +9,7 @@ import { Appointment } from '../revdoc-classes/appointment';
 import { Doctor } from '../revdoc-classes/doctor';
 import { SessionService } from '../session.service';
 
+
 @Component({
   selector: 'app-doctor-feedback',
   templateUrl: './doctor-feedback.component.html',
@@ -39,7 +40,7 @@ export class DoctorFeedbackComponent implements OnInit {
     this.doctorInfoService.getAppointment(this.npi, this.associate.revAssociateEmail).subscribe(data => {
       this.appointment = data;
     });
-    console.log(this.appointment);
+    console.log("appointment to be rated: "+this.appointment);
 
   }
 
@@ -52,21 +53,9 @@ export class DoctorFeedbackComponent implements OnInit {
     this.feedback.overallRating = this.Overall.value;
     this.feedback.comments = comments;
     // ONLY appointment ID is needed to relate to table in DB, not the entire appointment object.
-    this.feedback.appointment = new Appointment();
-    this.feedback.appointment.appointmentId = 0;
+    this.feedback.appointment = this.appointment;
 
-    // This can be used to build employee and doctor objects from the page uri and session. 
-
-    // this.feedback.appointment.doctor= new Doctor();
-    // this.feedback.appointment.doctor = this.doctor;
-    // this.route.url.subscribe(data => {
-    //   this.feedback.appointment.doctor.npi = Number(data[1].path);
-    // })
-    // this.feedback.appointment.revAssociate = new RevAssociate();
-    // this.feedback.appointment.revAssociate = user;
-
-    // this.feedback.appointment.revAssociate.revAssociateEmail = "MrDuckworth@QuackQuack.com";
-    //dummy value for no session stored
+    
 
     console.log(this.feedback);
     console.log("This is the doctor npi: " + this.npi);
