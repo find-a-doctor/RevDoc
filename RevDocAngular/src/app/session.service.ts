@@ -39,4 +39,8 @@ export class SessionService {
    public getDoctorSession(){
     return this.http.get<Doctor>(this.getDoctorSessionUrl)
   }
+
+    public destroySession(){
+      return this.http.get(this.destroySessionUrl)
+    }
 }

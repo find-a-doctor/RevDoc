@@ -49,7 +49,7 @@ public class SessionController {
 		return associate;
 	}
 	
-	@PostMapping("/destroy")
+	@GetMapping("/destroy")
 	public void destroySession(HttpServletRequest request) {
 		request.getSession().invalidate();
 		System.out.println("session invalidated");
