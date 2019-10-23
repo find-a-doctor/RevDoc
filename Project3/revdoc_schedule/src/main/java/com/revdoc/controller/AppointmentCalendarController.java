@@ -27,13 +27,13 @@ public class AppointmentCalendarController {
         return location;
     }
     
-//    @GetMapping("/doctor/{id}")
-//    public Doctor getDoctorById(@PathVariable long id) {
-//        System.out.println("Doctor by Id= "+id);
-//        Doctor doctor = appointmentCalendarService.getDoctorById(id);
-//        System.out.println("test: "+doctor);
-//        return doctor;
-//    }
+    @GetMapping("/doctor/{id}")
+    public Doctor getDoctorById(@PathVariable long id) {
+        System.out.println("Doctor by Id= "+id);
+        Doctor doctor = appointmentCalendarService.getDoctorById(id);
+        System.out.println("test: "+doctor);
+        return doctor;
+    }
     
     @PostMapping("/doctorAppointment")
     public Appointment doctorAppointment(@RequestBody Appointment appointment) {

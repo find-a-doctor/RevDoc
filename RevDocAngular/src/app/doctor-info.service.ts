@@ -127,8 +127,9 @@ export class DoctorInfoService {
    }
 
 
-  public isFollowing(npi: number, revassociate: string): Observable<boolean> {
-    return this.http.get<boolean>(this.followingUrl + npi + "/" + revassociate);
+  public isFollowing(npi: number, revassociate: RevAssociate): Observable<boolean> {
+    return this.http.get<boolean>(this.followingUrl + npi + "/" + revassociate.revAssociateEmail);
+
   }
 
   public followDoctor(followers: Followers): Observable<Followers> {

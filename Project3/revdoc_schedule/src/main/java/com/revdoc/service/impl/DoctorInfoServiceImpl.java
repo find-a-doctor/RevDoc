@@ -159,20 +159,20 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 
 	}
 
-//	@Override
-//	public List<Insurance> getInsurance(long npi){
-//		return insuranceDAO.getInsurance(npi);
-//	}
-//
-//	@Override
-//	public List<Specialty> getSpecialty(long npi) {
-//		return specialtyDAO.getSpecialty(npi);
-//	}
-//
-//	@Override
-//	public List<Conditions> getConditions(long npi) {
-//		return conditionsDAO.getConditions(npi);
-//	}
+	@Override
+	public List<Insurance> getInsurance(long npi){
+		return insuranceDAO.getInsurance(npi);
+	}
+
+	@Override
+	public List<Specialty> getSpecialty(long npi) {
+		return specialtyDAO.getSpecialty(npi);
+	}
+
+	@Override
+	public List<Conditions> getConditions(long npi) {
+		return conditionsDAO.getConditions(npi);
+	}
 
 	@Override
 	public Feedback submitFeedback(Feedback feedback) {

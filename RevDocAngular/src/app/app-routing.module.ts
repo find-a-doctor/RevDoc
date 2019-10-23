@@ -12,7 +12,7 @@ import { DoctorViewProfileComponent } from './doctor-view-profile/doctor-view-pr
 const routes: Routes = [
   { path: 'login', component: LoginPageComponent},
   { path: 'doctorHome', component: DoctorProfileComponent},
-  { path: 'ex-dr-page', component: DoctorProfileComponent },
+ // { path: 'ex-dr-page', component: DoctorProfileComponent },
   { path: 'doctor/:npi', component: DoctorProfileComponent },
   { path: '', redirectTo: 'login',  pathMatch: 'full' },
   { path: 'login/associateHome', component: AppComponent},

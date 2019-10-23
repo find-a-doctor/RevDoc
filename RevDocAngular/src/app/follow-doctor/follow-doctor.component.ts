@@ -71,7 +71,7 @@ export class FollowDoctorComponent implements OnInit {
   }
 
   unfollowDoctor() {
-    this.doctorInfoService.unfollowDoctor(this.followers.followerId).subscribe(data => {
+    this.doctorInfoService.unfollowDoctor(this.followers.followersId).subscribe(data => {
       this.followers = data;
 
       console.log("unfollow doctor data: " + this.followers);
