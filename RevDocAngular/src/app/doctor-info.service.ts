@@ -29,6 +29,10 @@ export class DoctorInfoService {
   private getAllInsuranceUrl: string;
   private getLocationByIdUrl: string;
   private getDoctorByIdUrl: string;
+  private getInsuranceTypeByNpiUrl: string;
+  private getAllDoctorAppointmentByIdUrl: string;
+  private deleteDoctorAppointmentUrl: string;
+  private setDoctorAppointmentUrl: string;
   baseUrl: string;
   doctorUrl: string;
   getAllUrl: string;
@@ -38,6 +42,7 @@ export class DoctorInfoService {
   getAllFollowersUrl: string;
   rateDoctorUrl: string;
   getAppointmentUrl: string;
+  
 
   constructor(private http: HttpClient) {
     this.searchDoctorUrl = "http://localhost:9000/searchDoctor/";
@@ -47,6 +52,10 @@ export class DoctorInfoService {
     this.getAllInsuranceUrl = "http://localhost:9000/insuranceTypes";
     this.getLocationByIdUrl = "http://localhost:9000/location/";
     this.getDoctorByIdUrl = "http://localhost:9000/doctor/";
+    this.getInsuranceTypeByNpiUrl = "http://localhost:9000/insuranceTypeByNPI/";
+    this.getAllDoctorAppointmentByIdUrl = "http://localhost:9000/doctorAppointmentByNPI/";
+    this.deleteDoctorAppointmentUrl = "http://localhost:9000/deleteDoctorAppointment/";
+    this.setDoctorAppointmentUrl = "http://localhost:9000/doctorAppointment";
     this.baseUrl = "http://localhost:9000/";
     // this.doctorUrl = this.baseUrl + "doctor/";
     this.doctorUrl = this.baseUrl + "doctorinfo/";
@@ -90,6 +99,9 @@ export class DoctorInfoService {
     return this.http.get<Doctor>(this.getDoctorByIdUrl+id);
   }
 
+  public getAllDoctorAppointmentById(id: number){
+    return this.http.get<Appointment[]>(this.getAllDoctorAppointmentByIdUrl+id);
+  }
 
   public getDoctor(npi: number): Observable<Doctor> {
     return this.http.get<Doctor>(this.doctorUrl + npi);
@@ -140,4 +152,15 @@ export class DoctorInfoService {
    return this.http.get<Appointment>(this.getAppointmentUrl+npi+"/"+associateEmail)
   }
 
+  public getInsuranceTypeByNpi(id: number){
+    return this.http.get<InsuranceType[]>(this.getInsuranceTypeByNpiUrl+id);
+  }
+
+  public setDoctorAppointment(appointment: Appointment){
+    return this.http.post<Appointment>(this.setDoctorAppointmentUrl, appointment);
+  }
+
+  public deleteDoctorAppointment(appointmentId: string){
+    return this.http.delete<Appointment>(this.deleteDoctorAppointmentUrl+ appointmentId);
+  }
 }
