@@ -7,6 +7,7 @@ import { Specialty } from '../revdoc-classes/specialty';
 import { Insurance } from '../revdoc-classes/insurance';
 import { Conditions } from '../revdoc-classes/conditions';
 import { Location } from '../revdoc-classes/location';
+import { RevAssociate } from '../revdoc-classes/rev-associate';
 
 
 
@@ -16,8 +17,6 @@ import { Location } from '../revdoc-classes/location';
   styleUrls: ['./doctor-profile.component.css']
 })
 export class DoctorProfileComponent implements OnInit {
-
-  
 
   doctor: Doctor;
   insurance: Insurance[];

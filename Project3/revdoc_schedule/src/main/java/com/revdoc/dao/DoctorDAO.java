@@ -54,8 +54,9 @@ public interface DoctorDAO  extends JpaRepository<Doctor, Long>{
 			+ "group by Doctor.npi", nativeQuery = true)
 	List<Object[]> findAllDoctors();
 	
+
+//used By DoctorInfoService	
 	@Query("select d from Doctor d where d.npi = :npi")
 	Doctor findByNpi(long npi);
 	
-	//SELECT GROUP_CONCAT(DISTINCT categories ORDER BY categories ASC SEPARATOR ' ')
 }

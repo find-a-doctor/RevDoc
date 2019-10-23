@@ -6,6 +6,7 @@ import { Doctor } from './revdoc-classes/doctor';
 // import { SessionType } from './revdoc-classes/session-type';
 import { Session } from 'inspector';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
