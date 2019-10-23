@@ -2,19 +2,12 @@ package com.revdoc;
 
 import java.security.MessageDigest;
 import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,8 +43,6 @@ import com.revdoc.model.Location;
 import com.revdoc.model.RevAssociate;
 import com.revdoc.model.Specialty;
 import com.revdoc.model.SpecialtyType;
-
-import lombok.RequiredArgsConstructor;
 
 @Component
 @Transactional
@@ -119,6 +110,7 @@ public class DataLoader {
 		d0 = doctorDao.save(d0);
 		
 		Doctor d1 = new Doctor(0, "John Ross", 20, "johnross@gmail.com", encryptPassword("johnross"), "469-288-5555", "about John Ross here", 1, l1);
+
 		d1 = doctorDao.save(d1);
 		
 		Doctor d2 = new Doctor(0, "Kevin Zuul", 15, "kevinzuul@gmail.com", encryptPassword("kevinzuul"), "098-454-3215", "about Kevin Zuul here", 1, l2);
@@ -180,8 +172,8 @@ public class DataLoader {
 		Available a2 = new Available(0, d2, day, start, end, date);
 		a2 = availableDao.save(a2);
 		
-		// CREATE FOLLOWERS
-//		date = new Date();
+//		// CREATE FOLLOWERS
+////		date = new Date();
 //		Followers f1 = new Followers(0, d1, u2, date);
 //		f1 = followersDao.save(f1);
 //		
@@ -191,15 +183,8 @@ public class DataLoader {
 		// CREATE APPOINTMENT
 //		date = new Date();
 //		Time time = new Time(10,30,0);
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
-		
-		
-		Calendar time = Calendar.getInstance();
-//		time.setTime(new Date());
-		
-//		System.out.println(timeFormat.format(time.getTime()));
-		
+		Calendar time = Calendar.getInstance(); 
+		time.setTime(new Date());
 		Appointment ap1 = new Appointment(0, d1, u1, date, time, "Insurant Name input form user1", true);
 		ap1=appointmentDao.save(ap1);
 		
@@ -207,11 +192,11 @@ public class DataLoader {
 		Appointment ap2 = new Appointment(0, d2, u2, date, time, "Insurant Name input form user2", false);
 		ap2=appointmentDao.save(ap2);
 		// CREATE FEEDBACK
-		Feedback fb1 = new Feedback(0, 1.5f, 2.5f, true, "comments feedback 1 here", ap1);
-		fb1 = feedbackDao.save(fb1);
-		
-		Feedback fb2 = new Feedback(0, 2.5f, 0.5f, true, "comments feedback 2 here", ap2);
-		fb2 = feedbackDao.save(fb2);
+//		Feedback fb1 = new Feedback(0, 1.5f, 2.5f, 3f, "comments feedback 1 here", ap1);
+//		fb1 = feedbackDao.save(fb1);
+//		
+//		Feedback fb2 = new Feedback(0, 2.5f, 0.5f, 4f, "comments feedback 2 here", ap2);
+//		fb2 = feedbackDao.save(fb2);
 		
 		// CREATE CONDITIONTYPE
 		ConditionType ct1 = new ConditionType(0, "condition type 1");
@@ -417,8 +402,8 @@ public class DataLoader {
 //		System.out.println("followers 2: "+f2);
 		System.out.println("appointment 1: "+ap1);
 		System.out.println("appointment 2: "+ap2);
-		System.out.println("feedback 1: "+fb1);
-		System.out.println("feedback 2: "+fb2);
+//		System.out.println("feedback 1: "+fb1);
+//		System.out.println("feedback 2: "+fb2);
 		System.out.println("conditionType 1: "+ct1);
 		System.out.println("conditionType 2: "+ct2);
 		System.out.println("condition 1: "+c1);

@@ -12,6 +12,17 @@ import com.revdoc.model.RevAssociate;
 @Repository
 public interface AppointmentDAO extends JpaRepository<Appointment, Long>{
 	
+	/*
+	 * For additional info, see:
+	 * JPA Queries -
+	 * https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
+	 * 
+	 * This repository exposes 2 custom query methods as well as standard query methods enabled by JPA repository.
+	 * 
+	 * 1. findByRevAssociateRevAssociateEmail(String email)
+	 * 2. findByDoctorEmail(String email)
+	 * 
+	 */	
 	List<Appointment> findByRevAssociateRevAssociateEmail(String email);
 	List<Appointment> findByDoctorEmail(String email);
 
