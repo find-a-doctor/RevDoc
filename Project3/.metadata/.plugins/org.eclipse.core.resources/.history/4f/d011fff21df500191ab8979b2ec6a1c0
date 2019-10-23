@@ -202,7 +202,7 @@ public class DataLoader {
 		
 		date1= new Date(119,9,9,1,9);
 		time.setTime(date1);
-		Appointment ap3 = new Appointment(0, d1, u2, time, time, "Ambetter", true);
+		Appointment ap3 = new Appointment(0, d1, u1, time, time, "Ambetter", true);
 		ap3=appointmentDao.save(ap3);
 		
 		date1= new Date(119,9,25,10,30);

@@ -197,12 +197,12 @@ public class DataLoader {
 		
 		Date date1= new Date(119,9,23,10,30);
 		time.setTime(date1);
-		Appointment ap2 = new Appointment(0, d1, u2, date, time, "Blue Cross Blue Shield", true);
+		Appointment ap2 = new Appointment(0, d1, u1, date, time, "Blue Cross Blue Shield", true);
 		ap2=appointmentDao.save(ap2);
 		
 		date1= new Date(119,9,9,1,9);
 		time.setTime(date1);
-		Appointment ap3 = new Appointment(0, d1, u2, time, time, "Ambetter", true);
+		Appointment ap3 = new Appointment(0, d1, u1, time, time, "Ambetter", true);
 		ap3=appointmentDao.save(ap3);
 		
 		date1= new Date(119,9,25,10,30);

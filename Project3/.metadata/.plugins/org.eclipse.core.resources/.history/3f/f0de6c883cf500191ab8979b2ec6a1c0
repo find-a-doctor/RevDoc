@@ -2,8 +2,6 @@ package com.revdoc.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -15,7 +13,6 @@ import com.revdoc.model.Feedback;
 @Repository
 public interface FeedbackDAO  extends JpaRepository<Feedback, Long>{
 	@Modifying
-	@Transactional
 	@Query(value="delete from Feedback where Feedback.appointment_appointment_id =:search", nativeQuery = true)
 	void deleteFeedbackByAppointmentId(@Param("search") String search);
 }

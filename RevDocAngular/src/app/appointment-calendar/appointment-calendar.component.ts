@@ -31,7 +31,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     // Calendar variable
     dataAdapter: any;
     // This is to view appoint
-    appointment: Appointment = new Appointment();
+    // appointment: Appointment = new Appointment();
     userAppointments: Appointment[] = [];
 
     //Set default date of calendar when appointment page load
@@ -65,7 +65,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
             console.log("constructor HERE with insuranceTypeList");
         });
 
-        
+
     }
 
     ngOnInit() {
@@ -75,7 +75,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         // this.revAssociate.revAssociatePassword = 'revTom';
         // this.revAssociate.revAssociateName = 'Tom Cat';
 
-        
+
 
         console.log("ngOnInit HERE");
         //SET RevAssociation HERE
@@ -105,14 +105,19 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
                 this.doctorAppointmentList = data;
             });
 
-            
+
         });
         this.viewApptService.getAppointmentsByRevAssociateEmail(this.revAssociate.revAssociateEmail).subscribe(apptsData => {
+
             apptsData.forEach(appt => {
+                console.log("LLLLLLL" + appt.time);
+                //  appt.time.hours(appt.time.hours +5) ;
                 this.userAppointments.push(appt);
-                //window.location.reload();
-              });
-          });
+            });
+            // this.userAppointments=apptsData;
+            //window.location.reload();
+
+        });
 
 
 
@@ -150,7 +155,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
             });
 
             // User this to add appointment from calendar
-            this.doctorAppointmentList.forEach(d => {
+            this.userAppointments.forEach(d => {
                 //       console.log("DATE: "+d.date+" Time: "+d.time);
                 let year = d.date.toString().substr(0, 4);
                 let month = d.date.toString().substr(5, 2);
@@ -345,7 +350,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     // calendarResource: any =[{calendar: 'room1'},{calendar: 'room2'},{calendar: 'room3'},{calendar: 'room4'},{calendar: 'room5'},{calendar: 'room6'},{calendar: 'room7'},{calendar: 'room8'}];
     appointmentDataFields: any =
         {
-            
+
             from: "start",
             to: "end",
             id: "id",
@@ -388,7 +393,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         fields.statusContainer.remove();
         // hide timeZone option
         fields.timeZoneContainer.remove();
-        
+
         // hide color option
         fields.colorContainer.remove();
         // hide repeat
@@ -471,11 +476,11 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
                 "<td>" + fields.subject.val() + "</td>" +
                 "</tr>" +
                 "<tr>" +
-                "<td class='label'>Date</td>" +
+                "<td class='label'>Appointment Date</td>" +
                 "<td>" + fields.from.val() + "</td>" +
                 "</tr>" +
                 "<tr>" +
-                "<td class='label'>Location Name</td>" +
+                "<td class='label'>Appointment ID</td>" +
                 "<td>" + fields.location.val() + "</td>" +
                 "</tr>" +
                 "<tr>" +
@@ -483,7 +488,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
                 "<td>" + fields.description.val() + "</td>" +
                 "</tr>" +
                 "<tr>" +
-                "<td class='label'>Calendar</td>" +
+                "<td class='label'>Insurance</td>" +
                 "<td>" + fields.resource.val() + "</td>" +
                 "</tr>"
                 + "</table>";
@@ -550,8 +555,8 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         else if (editAppointment && this.printButton) {
             this.printButton.setOptions({ disabled: false });
             //   fields.insuranceL.setOptions({ disabled: true });
-            
-            
+
+
 
             fields.deleteButton.hide();
             fields.saveButton.hide();
@@ -561,7 +566,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
                 //  fields.saveButton.jqxButton({ disabled: false });
 
             }
-            
+
         }
     };
     /**
@@ -573,11 +578,11 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     editDialogClose = (dialog, fields, editAppointment) => {
         console.log("Appointment close here: Date = " + fields.from.val());
         // console.log("Appointment close here: Date = " + fields.insuranceL.val());
-        //   if(editAppointment){
-        //     window.location.reload();
-        //   }
+           if(!editAppointment){
+             window.location.reload();
+           }
         // this.editDialogCreate.
-            // window.location.reload();
+        //        window.location.reload();
         //     fields.subjectLabel.html("Doctor Name");
         //     fields.subject.val("Doctor name here");
         //   //  fields.subject.setOptions({ disabled: false });
@@ -600,13 +605,17 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     ready = (): void => {
         this.scheduler.scrollTop(700);
     }
+
     mySchedulerOnAppointmentDelete(event: any): void {
         let appointment = event.args.appointment;
         console.log("Delete:::: " + appointment.location);
         if (confirm("Are you sure to delete this appointment ID: " + appointment.location)) {
             console.log('appointmentDelete is raised');
             this.appointmentCalendarService.deleteDoctorAppointment(appointment.location).subscribe(data => { });
-        }
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+        }else{ window.location.reload();}
 
         // this.myLog.nativeElement.innerHTML = 'appointmentDelete is raised';
         //   console.log('appointmentDelete is raised' + appointment.insuranceL);
@@ -615,8 +624,8 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
 
     mySchedulerOnAppointmentAdd(event: any): void {
         let appointment = event.args.appointment;
-        console.log("CONTAINE +" + appointment.from.toString() + " -- " + appointment.to);
-        console.log("CONTAINE +" + appointment.resourceId);
+        // console.log("CONTAINE +" + appointment.from.toString() + " -- " + appointment.to);
+        // console.log("CONTAINE +" + appointment.resourceId);
         if ((appointment.to - appointment.from) != 3600000) {
             // console.log("CONTAINE +" + appointment.id);
             let year = appointment.from.toString().substr(0, 4);
@@ -629,22 +638,27 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
 
             let correctTime = true;
             this.doctorAppointmentList.forEach(data => {
-                console.log("sssssss" + appointment.from.toString());
-                console.log("sssssss" + data.date.toString());
+                // console.log("appointment.from.toString()" + appointment.from.toString());
+                // console.log("data.date.toString()" + data.date.toString());
                 let year1 = data.date.toString().substr(0, 4);
                 let month1 = data.date.toString().substr(5, 2);
                 let day1 = data.date.toString().substr(8, 2);
                 let hour1 = data.date.toString().substr(11, 2);
                 let minute1 = data.date.toString().substr(14, 2);
                 let second1 = data.date.toString().substr(17, 2);
-                console.log(year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second);
-                console.log(year1 + "-" + month1 + "-" + day1 + " " + hour1 + ":" + minute1 + ":" + second1);
+                // console.log(year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second);
+                // console.log(year1 + "-" + month1 + "-" + day1 + " " + hour1 + ":" + minute1 + ":" + second1);
                 if (year == year1 && month == month1 && day == day1) {
-                    console.log("PPPPPPPPPPPPPPPPPPP " + hour + "--" + hour1);
+                    // console.log("appointment.from.toString()" + appointment.from.toString());
+                    // console.log("data.date.toString()" + data.date.toString());
+                    //     console.log("PPPPPPPPPPPPPPPPPPP " + hour + "--" + hour1);
                     if (+hour >= +hour1 && +hour <= +hour1 + 1) {
-                        console.log("AAAAAAAAAAAAAAAAA");
+                        //         console.log("AAAAAAAAAAAAAAAAA");
                         correctTime = false;
-                        window.alert("This time have confilic. Please choose another date/time.");
+                        window.alert("Please choose another date/time. Selected time is overlapping.");
+
+                        window.location.reload();
+
                         return;
                     }
                 }
@@ -658,18 +672,21 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
                 doctorAppointment.revAssociate = this.revAssociate;
                 doctorAppointment.insurance = appointment.resourceId;
                 //    doctorAppointment.time =  new Date(+year,+month-1, +day, +hour-10, +minute, +second);
-                console.log("Print doctorAppointment: " + doctorAppointment.time);
+                //   console.log("Print doctorAppointment: " + doctorAppointment.time);
                 this.appointmentCalendarService.setDoctorAppointment(doctorAppointment).subscribe(data => {
-                    if (data != null) {
+                    // if (data != null) {
 
-                        console.log("test after- " + data);
+                    //     console.log("test after- " + data);
 
-                        //    this.router.navigate(['/home']);
-                    } else {
-                        console.log("test after- NULLLLL");
-                    }
+                    //     //    this.router.navigate(['/home']);
+                    // } else {
+                    //     console.log("test after- NULLLLL");
+                    // }
                 });
             }
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
         }
 
         // this.myLog.nativeElement.innerHTML = 'appointmentAdd is raised';
@@ -700,7 +717,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         // this.editDialogCreate.call;
     };
 
-    
+
 
     // setDefaults(fields):void{
     //     console.log('dgfdfgdgf')

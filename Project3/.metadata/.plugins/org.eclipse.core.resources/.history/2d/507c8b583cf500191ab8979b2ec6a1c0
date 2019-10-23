@@ -76,9 +76,8 @@ public class AppointmentCalendarImpl implements AppointmentCalendarService {
 		try {
 		feedbackDao.deleteFeedbackByAppointmentId(appointmentID+"");
 		}catch(Exception e) {
-			System.out.println("EEEEEEEEEEEEEEE: "+e.getMessage());
 		}	
-		appointmentDao.deleteById(appointmentID);
+	//	appointmentDao.deleteById(appointmentID);
 		
 	}
 

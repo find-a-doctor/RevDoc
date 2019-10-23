@@ -72,12 +72,7 @@ public class AppointmentCalendarImpl implements AppointmentCalendarService {
 
 	@Override
 	public void deleteDoctorAppointment(long appointmentID) {
-		System.out.println("AAAAAAAppointmentID: "+ appointmentID);
-		try {
-		feedbackDao.deleteFeedbackByAppointmentId(appointmentID+"");
-		}catch(Exception e) {
-			System.out.println("EEEEEEEEEEEEEEE: "+e.getMessage());
-		}	
+	//	feedbackDao.deleteById(appointmentID);
 		appointmentDao.deleteById(appointmentID);
 		
 	}
