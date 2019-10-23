@@ -32,13 +32,10 @@ public class Location implements Serializable{
 	@Id
 	@GeneratedValue(generator = "location_gen")
 	private long locationId;
-	
 	private String locationName;
 	private String address;
 	private String city;
 	private String state;
 	private String zip;
 	private String locationTypeName;
-	
-	
 }

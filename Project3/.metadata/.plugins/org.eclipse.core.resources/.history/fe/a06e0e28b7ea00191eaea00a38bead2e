@@ -1,0 +1,19 @@
+package com.revdoc.model;
+
+import javax.annotation.Generated;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+import org.springframework.stereotype.Indexed;
+
+@Entity
+@Table
+@Indexed
+public class Appointment {
+
+	@Id
+	@Generated
+	private long appointmentId;
+}

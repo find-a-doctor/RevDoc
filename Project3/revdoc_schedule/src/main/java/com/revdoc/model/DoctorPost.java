@@ -1,7 +1,6 @@
 package com.revdoc.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -40,5 +39,5 @@ public class DoctorPost implements Serializable{
 	@ManyToOne//(cascade = {CascadeType.ALL})
 	private Doctor doctor;
 	private String post;
-	private Calendar postDate;
+	private Date postDate;
 }

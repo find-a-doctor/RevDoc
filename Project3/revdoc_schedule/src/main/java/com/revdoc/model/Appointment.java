@@ -2,7 +2,6 @@ package com.revdoc.model;
 
 import java.io.Serializable;
 import java.sql.Time;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.annotation.Generated;
@@ -44,8 +43,8 @@ public class Appointment implements Serializable{
 	private Doctor doctor;
 	@ManyToOne
 	private RevAssociate revAssociate;
-	private Calendar date;
-	private Calendar time;
+	private Date date;
+	private Time time;
 	private String insurance;
 	private boolean confirmed;
 	

@@ -1,0 +1,18 @@
+package com.revdoc.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.revdoc.dao.InsuranceDAO;
+
+@Service
+public class InsuranceServiceImpl {
+	@Autowired
+	private InsuranceDAO doctorLicenseDAO;
+	
+	public InsuranceServiceImpl() {
+		// EMPTY CONSTRUCTOR BUSINESS STANDARD
+	}
+	
+	
+}
