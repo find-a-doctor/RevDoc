@@ -100,10 +100,10 @@ public class DataLoader {
 //		System.out.println("Example of Time Object: "+time1); // - result is 04:00:00
 		
 		//CREATE REVATURE USER
-		RevAssociate u1 = new RevAssociate("revTom@gmail.com", encryptPassword("revTom"), "Tom Cat");
+		RevAssociate u1 = new RevAssociate("revTom@gmail.com", encryptPassword("revTom"), "Kumar Mistry");
 		u1=revAssociateDao.save(u1);
 		
-		RevAssociate u2 = new RevAssociate("thanhtinphuynh@gmail.com", encryptPassword("revCat"), "Cat Tom");
+		RevAssociate u2 = new RevAssociate("thanhtinphuynh@gmail.com", encryptPassword("revCat"), "Josue Luna");
 		u2=revAssociateDao.save(u2);
 		
 		// LOCATION
