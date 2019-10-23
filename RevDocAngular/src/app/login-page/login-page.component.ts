@@ -24,7 +24,6 @@ export class LoginPageComponent {
       localStorage.setItem("USER_TYPE", "ASSOCIATE")
     })
     this.router.navigate(['schedule-appt']);
-    
   }
 
   doctorLogin(){
@@ -34,6 +33,4 @@ export class LoginPageComponent {
     })
     this.router.navigate(['doctor-profile']);
   }
-
-
 }

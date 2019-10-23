@@ -17,13 +17,13 @@ import { ScheduleApptComponent } from './schedule-appt/schedule-appt.component';
 import { ConfirmApptComponent } from './confirm-appt/confirm-appt.component';
 import { ViewApptComponent } from './view-appt/view-appt.component';
 import { UserApptsComponent } from './user-appts/user-appts.component';
-import { DocorApptsComponent } from './docor-appts/docor-appts.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { FollowDoctorComponent } from './follow-doctor/follow-doctor.component';
 import { DoctorRatingsComponent } from './doctor-ratings/doctor-ratings.component';
 import { DoctorFeedbackComponent } from './doctor-feedback/doctor-feedback.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { DoctorApptsComponent } from './doctor-appts/doctor-appts.component';
 
 @NgModule({
   declarations: [
@@ -41,13 +41,13 @@ import { LoginPageComponent } from './login-page/login-page.component';
     ConfirmApptComponent,
     ViewApptComponent,
     UserApptsComponent,
-    DocorApptsComponent,
     DoctorProfileComponent,
     FollowDoctorComponent,
     DoctorRatingsComponent,
     DoctorFeedbackComponent,
     NavbarComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    DoctorApptsComponent
   ],
   imports: [
     BrowserModule,

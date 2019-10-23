@@ -16,7 +16,7 @@ export class ViewApptComponent implements OnInit {
   constructor(private svc:ViewApptService) { }
 
   ngOnInit() {
-    this.svc.allAppts().subscribe(data=>this.calendarEvents=data);
+    // this.svc.allAppts().subscribe(data=>this.calendarEvents=data);
   }
 }
 
