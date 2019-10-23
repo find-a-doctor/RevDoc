@@ -10,6 +10,9 @@ import { Conditions } from './revdoc-classes/conditions';
 import { RevAssociate } from './revdoc-classes/rev-associate';
 import { Followers } from './revdoc-classes/followers';
 import { Appointment } from './revdoc-classes/appointment';
+import { ConditionType } from './revdoc-classes/condition-type';
+import { SpecialtyType } from './revdoc-classes/specialty-type';
+import { InsuranceType } from './revdoc-classes/insurance-type';
 
 
 @Injectable({
@@ -33,6 +36,7 @@ export class DoctorInfoService {
   followUrl: string;
   getAllFollowersUrl: string;
   getAppointmentUrl: string;
+  rateDoctorUrl: string;
 
   constructor(private http: HttpClient) {
     this.searchDoctorUrl = "http://localhost:9000/searchDoctor/";
@@ -60,9 +64,9 @@ export class DoctorInfoService {
   }
   
 
-   public getDoctor(npi:number):Observable<Doctor>{
-     return this.http.get<Doctor>(this.doctorUrl+npi);
-   }
+  //  public getDoctor(npi:number):Observable<Doctor>{
+  //    return this.http.get<Doctor>(this.doctorUrl+npi);
+  //  }
   // public getAllDoctors() {
   //   return this.http.get<Object[]>(this.getAllDoctorsUrl);
   // }
@@ -96,22 +100,22 @@ export class DoctorInfoService {
      return this.http.get<Doctor[]>(this.getAllUrl);
    }
 
-   public getAllRatings(npi:number):Observable<Feedback[]>{
-     return this.http.get<Feedback[]>(this.allRatingsUrl+npi);
-   };
+  //  public getAllRatings(npi:number):Observable<Feedback[]>{
+  //    return this.http.get<Feedback[]>(this.allRatingsUrl+npi);
+  //  };
 
-   public getDoctorSpecialty(npi:number):Observable<Specialty[]>{
-     return this.http.get<Specialty[]>(this.doctorUrl+npi+"/specialty");
-   }
+  //  public getDoctorSpecialty(npi:number):Observable<Specialty[]>{
+  //    return this.http.get<Specialty[]>(this.doctorUrl+npi+"/specialty");
+  //  }
 
-   public getDoctorConditions(npi:number):Observable<Conditions[]>{
-     return this.http.get<Conditions[]>(this.doctorUrl+npi+"/conditions");
-   }
+  //  public getDoctorConditions(npi:number):Observable<Conditions[]>{
+  //    return this.http.get<Conditions[]>(this.doctorUrl+npi+"/conditions");
+  //  }
     
    //Feedback has an appointment number in it, so we can get user email and doctor npi from feedback object.
-   public rateDoctor( feedback :Feedback){
-     return this.http.post(this.baseUrl+this.rateDoctorUrl,feedback);
-   }
+  //  public rateDoctor( feedback :Feedback){
+  //    return this.http.post(this.baseUrl+this.rateDoctorUrl,feedback);
+  //  }
 
    //gets correct appointment to be rated.
    public getAppointment(npi: number, associateEmail: string): Observable<Appointment>{

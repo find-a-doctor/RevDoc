@@ -13,24 +13,24 @@ import { SessionService } from '../session.service';
 
 
 @Component({
-  selector: 'app-doctor-profile',
-  templateUrl: './doctor-profile.component.html',
-  styleUrls: ['./doctor-profile.component.css']
+  selector: 'app-doctor-view-profile',
+  templateUrl: './doctor-view-profile.component.html',
+  styleUrls: ['./doctor-view-profile.component.css']
 })
-export class DoctorProfileComponent implements OnInit {
+export class DoctorViewProfileComponent implements OnInit {
 
   //fake user
-  doctor:Doctor;
+  doctor: Doctor;
 
   insurance: Insurance[];
   specialty: Specialty[];
   conditions: Conditions[];
 
-  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router, private sessionService:SessionService) { }
+  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router, private sessionService: SessionService) { }
 
   ngOnInit() {
-    
-    this.doctor=this.sessionService.getDoctorSession();
+
+    this.sessionService.getDoctorSession().subscribe(data => { this.doctor = data; });
 
     this.doctorInfoService.getDoctorInsurance(this.doctor.npi).subscribe(data => {
       this.insurance = data;
