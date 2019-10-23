@@ -18,9 +18,6 @@ import { RevAssociate } from '../revdoc-classes/rev-associate';
 })
 export class DoctorProfileComponent implements OnInit {
 
-  public sampleData:SampleData;
-
-
   doctor: Doctor;
   insurance: Insurance[];
   specialty: Specialty[];
@@ -29,8 +26,6 @@ export class DoctorProfileComponent implements OnInit {
   constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.sampleData=new SampleData();
-
 
     this.doctor = new Doctor();
     this.route.url.subscribe(data => {
@@ -60,14 +55,4 @@ export class DoctorProfileComponent implements OnInit {
 
   }
 
-}
-
-export class SampleData {
-  public revAssociate: RevAssociate;
-  constructor(){
-    this.revAssociate=new RevAssociate();
-    this.revAssociate.revAssociateEmail="sample@revature.com";
-    this.revAssociate.revAssociateName="Sample User";
-    this.revAssociate.revAssociatePassword="passywordy";
-  }
 }

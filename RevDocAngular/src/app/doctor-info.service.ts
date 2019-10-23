@@ -13,6 +13,7 @@ import { Conditions } from './revdoc-classes/conditions';
 import { Followers } from './revdoc-classes/followers';
 import { RevAssociate } from './revdoc-classes/rev-associate';
 import { Observable } from 'rxjs';
+import { Appointment } from './revdoc-classes/appointment';
 
 
 @Injectable({
@@ -28,6 +29,10 @@ export class DoctorInfoService {
   private getAllInsuranceUrl: string;
   private getLocationByIdUrl: string;
   private getDoctorByIdUrl: string;
+  private getInsuranceTypeByNpiUrl: string;
+  private getAllDoctorAppointmentByIdUrl: string;
+  private deleteDoctorAppointmentUrl: string;
+  private setDoctorAppointmentUrl: string;
   baseUrl: string;
   doctorUrl: string;
   getAllUrl: string;
@@ -46,6 +51,10 @@ export class DoctorInfoService {
     this.getLocationByIdUrl = "http://localhost:9000/location/";
     this.getDoctorByIdUrl = "http://localhost:9000/doctor/";
     this.baseUrl = "http://localhost:9000/";
+    this.getInsuranceTypeByNpiUrl = "http://localhost:9000/insuranceTypeByNPI/";
+    this.getAllDoctorAppointmentByIdUrl = "http://localhost:9000/doctorAppointmentByNPI/";
+    this.deleteDoctorAppointmentUrl = "http://localhost:9000/deleteDoctorAppointment/";
+    this.setDoctorAppointmentUrl = "http://localhost:9000/doctorAppointment";
     // this.doctorUrl = this.baseUrl + "doctor/";
     this.doctorUrl = this.baseUrl + "doctorinfo/";
     this.getAllUrl = this.baseUrl + "doctors";
@@ -86,6 +95,14 @@ export class DoctorInfoService {
     return this.http.get<Doctor>(this.getDoctorByIdUrl+id);
   }
 
+  public getInsuranceTypeByNpi(id: number){
+    return this.http.get<InsuranceType[]>(this.getInsuranceTypeByNpiUrl+id);
+  }
+
+  public getAllDoctorAppointmentById(id: number){
+    return this.http.get<Appointment[]>(this.getAllDoctorAppointmentByIdUrl+id);
+  }
+
   public getDoctor(npi: number): Observable<Doctor> {
     return this.http.get<Doctor>(this.doctorUrl + npi);
   }
@@ -109,6 +126,13 @@ export class DoctorInfoService {
      return this.http.post(this.baseUrl+this.rateDoctorUrl,feedback);
    }
 
+   public deleteDoctorAppointment(appointmentId: string){
+    return this.http.delete<Appointment>(this.deleteDoctorAppointmentUrl+ appointmentId);
+  }
+
+  public setDoctorAppointment(appointment: Appointment){
+    return this.http.post<Appointment>(this.setDoctorAppointmentUrl, appointment);
+  }
 
   public isFollowing(npi: number, revassociate: string): Observable<boolean> {
     return this.http.get<boolean>(this.followingUrl + npi + "/" + revassociate);

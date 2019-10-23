@@ -43,6 +43,8 @@ import com.revdoc.model.RevAssociate;
 import com.revdoc.model.Specialty;
 import com.revdoc.model.SpecialtyType;
 
+
+
 @Component
 @Transactional
 public class DataLoader {

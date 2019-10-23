@@ -4,7 +4,8 @@ import { Followers } from '../revdoc-classes/followers';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from '../revdoc-classes/doctor';
 import { RevAssociate } from '../revdoc-classes/rev-associate';
-import { DoctorProfileComponent, SampleData } from '../doctor-profile/doctor-profile.component';
+import { SessionService } from '../session.service';
+import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: 'app-follow-doctor',
@@ -16,7 +17,8 @@ export class FollowDoctorComponent implements OnInit {
   followers: Followers;
 
   npi: number;
-  revassociate: string;
+  revAssociate : RevAssociate;
+  revAssociateEmail: string;
   followdate: number;
   followerId: number;
 
@@ -24,12 +26,15 @@ export class FollowDoctorComponent implements OnInit {
 
 
 
-  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private doctorInfoService: DoctorInfoService, private sessionService: SessionService,  private route: ActivatedRoute, private router: Router, private session: SessionService) { }
 
   ngOnInit() {
-
-    this.followers=new Followers();
-    this.followers.doctor=new Doctor();
+    this.sessionService.getAssociateSession().subscribe(data => {
+      this.revAssociate=data;
+    })
+    console.log("Session Associate: "+this.revAssociate);
+    this.followers = new Followers();
+    this.followers.doctor = new Doctor();
     this.route.url.subscribe(data => {
       this.followers.doctor.npi = Number(data[1].path);
     });
@@ -40,19 +45,20 @@ export class FollowDoctorComponent implements OnInit {
     });
     // error => console.log("error:\n" + error));
 
-    this.followers.revAssociate=new RevAssociate();
+    console.log("hello from FollowDoctor component")
+    console.log(this.followers);
 
     //check if revassoc is following this doc
-    this.doctorInfoService.isFollowing(this.npi, this.revassociate).subscribe(data => {
+    this.doctorInfoService.isFollowing(this.npi, this.revAssociate.revAssociateEmail).subscribe(data => {
       this.isFollowing = data;
       console.log("is following data boolean: " + this.isFollowing);
     });
   }
 
-  toggleFollowing(){
-    if(this.isFollowing){
+  toggleFollowing() {
+    if (this.isFollowing) {
       this.unfollowDoctor();
-    }else{
+    } else {
       this.followDoctor();
     }
   }

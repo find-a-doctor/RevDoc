@@ -1,1 +1,4 @@
-<p>view-appt works!</p>
+<div class="container">
+<h5>Viewing upcoming appointments for Dr. {{ appt[0].doctor.doctorName }}</h5>
+<full-calendar [events]="calendarEvents" eventColor=#F26925 eventTextColor=white [plugins]="calendarPlugins"></full-calendar>
+</div>
