@@ -22,7 +22,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
     //   @ViewChild('myLog', {static: false}) myLog: ElementRef;
 
     id: number;
-    //  location: Location;
+     location: Location;    
     revAssociate: RevAssociate;
     doctor: Doctor;
     insuranceTypeList: InsuranceType[];

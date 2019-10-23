@@ -103,7 +103,7 @@ public class DataLoader {
 		RevAssociate u1 = new RevAssociate("revTom@gmail.com", encryptPassword("revTom"), "Tom Cat");
 		u1=revAssociateDao.save(u1);
 		
-		RevAssociate u2 = new RevAssociate("revCat@gmail.com", encryptPassword("revCat"), "Cat Tom");
+		RevAssociate u2 = new RevAssociate("thanhtinphuynh@gmail.com", encryptPassword("revCat"), "Cat Tom");
 		u2=revAssociateDao.save(u2);
 		
 		// LOCATION
@@ -117,12 +117,11 @@ public class DataLoader {
 		Doctor d0 = new Doctor(0, "Rai Huynh", 20, "thanhtinphuynh@gmail.com", encryptPassword("raihuynh"), "469-288-1245", "about Rai Huynh here", 1, l1);
 		d0 = doctorDao.save(d0);
 		
-		Doctor d1 = new Doctor(0, "John Ross", 20, "johnross@gmail.com", encryptPassword("johnross"), "469-288-5555", "about John Ross here", 1, l1);
+		Doctor d1 = new Doctor(0, "John Ross", 20, "kha_kha2579@yahoo.com", encryptPassword("johnross"), "469-288-5555", "about John Ross here", 1, l1);
 		d1 = doctorDao.save(d1);
 		
 		Doctor d2 = new Doctor(0, "Kevin Zuul", 15, "kevinzuul@gmail.com", encryptPassword("kevinzuul"), "098-454-3215", "about Kevin Zuul here", 1, l2);
 		d2 = doctorDao.save(d2);
-		
 
 		Doctor d33 = new Doctor(0, "Dr. Duckworth", 9999, "duckworth@gmail.com", encryptPassword("duckworth"), "000-000-0000", "Had a long night, Mr. Duckworth? Fail.", 1, l1);
         d33 = doctorDao.save(d33);
@@ -156,8 +155,7 @@ public class DataLoader {
 		
 		Doctor d12 = new Doctor(0, "Ke Zuul", 15, "kezuul@gmail.com", encryptPassword("kezuul"), "098-454-3250", "about Ke Zuul here", 1, l2);
 		d12 = doctorDao.save(d12);
-		
-		
+
 		//CREATE AVAILABLE
 		Calendar day = Calendar.getInstance();
 		day.setTime(new Date(120));
@@ -192,12 +190,24 @@ public class DataLoader {
 //		Time time = new Time(10,30,0);
 		Calendar time = Calendar.getInstance(); 
 		time.setTime(new Date());
-		Appointment ap1 = new Appointment(0, d1, u1, date, time, "Insurant Name input form user1", true);
+		Appointment ap1 = new Appointment(0, d0, u1, date, time, "Ambetter", true);
 		ap1=appointmentDao.save(ap1);
 		
-//		time = new Time(14,30,0);
-		Appointment ap2 = new Appointment(0, d2, u2, date, time, "Insurant Name input form user2", false);
+		Date date1= new Date(119,9,23,10,30);
+		time.setTime(date1);
+		Appointment ap2 = new Appointment(0, d1, u2, date, time, "Blue Cross Blue Shield", true);
 		ap2=appointmentDao.save(ap2);
+		
+		date1= new Date(119,9,9,1,9);
+		time.setTime(date1);
+		Appointment ap3 = new Appointment(0, d1, u2, time, time, "Ambetter", true);
+		ap3=appointmentDao.save(ap3);
+		
+		date1= new Date(119,9,25,10,30);
+		time.setTime(date1);
+		Appointment ap4 = new Appointment(0, d1, u2, time, time, "Blue Cross Blue Shield", false);
+		ap4=appointmentDao.save(ap4);
+		
 		// CREATE FEEDBACK
 		Feedback fb1 = new Feedback(0, 1.5f, 2.5f, true, "comments feedback 1 here", ap1);
 		fb1 = feedbackDao.save(fb1);

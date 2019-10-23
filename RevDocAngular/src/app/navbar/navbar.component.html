@@ -33,7 +33,7 @@
             <a class="nav-link" (click)="viewAppts()">VIEW APPOINTMENTS</a>
           </li>
           <button class="btn navBtn" routerLink="searchDoctor" routerLinkActive="active">FIND A DOCTOR</button>
-          <button (click)="logout()" class="btn navBtn">LOGOUT</button>
+          <button *ngIf="isDisplayed" (click)="logout()" id="logout-btn" class="btn navBtn">LOGOUT</button>
         </ul>
       </div>
     </div>
