@@ -2,7 +2,7 @@
   <div class="container">
 
     <!-- BRAND LOGO AREA -->
-    <a class="navbar-brand nav-link" routerLink="../adminHome">
+    <a class="navbar-brand nav-link" routerLink="login">
       <h2 class="nav-item active">
         <img class="logo" src="../../assets/RevLogo.png"></h2>
     </a>
@@ -27,16 +27,13 @@
       <div class="search-container row navItems">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" routerLink="login">LOGIN <span class="sr-only">(current)</span></a>
+            <a class="nav-link" (click)="toAccount()">MY ACCOUNT</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">MY ACCOUNT</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" routerLink="viewSchedule" routerLinkActive="active">VIEW APPOINTMENTS</a>
+            <a class="nav-link" (click)="viewAppts()">VIEW APPOINTMENTS</a>
           </li>
           <button class="btn navBtn" routerLink="searchDoctor" routerLinkActive="active">FIND A DOCTOR</button>
-          <button class="btn navBtn">LOGOUT</button>
+          <button (click)="logout()" class="btn navBtn">LOGOUT</button>
         </ul>
       </div>
     </div>

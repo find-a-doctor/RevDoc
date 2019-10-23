@@ -92,7 +92,9 @@ export class DoctorFeedbackComponent implements OnInit {
     }
   }
 
+
   WaitTime = new FormControl(null, Validators.required);
+
 
   toggleWT() {
     if (this.WaitTime.disabled) {
@@ -101,6 +103,7 @@ export class DoctorFeedbackComponent implements OnInit {
       this.WaitTime.disable();
     }
   }
+
 
   Overall = new FormControl(null, Validators.required);
 
@@ -117,3 +120,4 @@ export class DoctorFeedbackComponent implements OnInit {
 
 
 }
+

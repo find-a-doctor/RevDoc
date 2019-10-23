@@ -17,7 +17,7 @@ import { ScheduleApptComponent } from './schedule-appt/schedule-appt.component';
 import { ConfirmApptComponent } from './confirm-appt/confirm-appt.component';
 import { ViewApptComponent } from './view-appt/view-appt.component';
 import { UserApptsComponent } from './user-appts/user-appts.component';
-import { DocorApptsComponent } from './docor-appts/docor-appts.component';
+// import { DocorApptsComponent } from './docor-appts/docor-appts.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { FollowDoctorComponent } from './follow-doctor/follow-doctor.component';
 import { DoctorRatingsComponent } from './doctor-ratings/doctor-ratings.component';
@@ -48,7 +48,7 @@ import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
     ConfirmApptComponent,
     ViewApptComponent,
     UserApptsComponent,
-    DocorApptsComponent,
+    // DocorApptsComponent,
     DoctorProfileComponent,
     FollowDoctorComponent,
     DoctorRatingsComponent,
@@ -57,6 +57,7 @@ import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
     JwPaginationComponent,
     LoginPageComponent,
     DoctorViewProfileComponent
+
   ],
   imports: [
     BrowserModule,

@@ -59,7 +59,8 @@ public class SessionController {
 		return this.associate;
 	}
 
-	@PostMapping("/destroy")
+	
+	@GetMapping("/destroy")
 	public void destroySession(HttpServletRequest request) {
 		request.getSession().invalidate();
 		this.doctor = null;

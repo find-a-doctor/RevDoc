@@ -9,6 +9,7 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
 import { ScheduleApptComponent } from './schedule-appt/schedule-appt.component';
 import { DoctorViewProfileComponent } from './doctor-view-profile/doctor-view-profile.component';
 
+
 const routes: Routes = [
   { path: 'login', component: LoginPageComponent},
   { path: 'doctorHome', component: DoctorProfileComponent},

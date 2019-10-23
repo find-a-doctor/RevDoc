@@ -183,6 +183,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
 
             this.scheduler.endAppointmentsUpdate();
 
+
         }, 2000);
         // console.log("Testing : "+this.source.localData); //new data from the server
         // this.source.localData = this.generateAppointments();

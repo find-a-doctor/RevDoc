@@ -6,8 +6,6 @@
     color: #F26925;
   }
 
-
-
 div#rating-wrapper {
     background-color: lightgray;
     color: olive;
@@ -57,3 +55,4 @@ ngb-rating span{
 button{
   font-size:20pt !important;
 }
+
