@@ -7,3 +7,10 @@
   padding: 2rem;
   border-radius: .5rem;
 }
+
+#apptBoxTitle {
+  background-color: #F26925;
+  padding: 2rem;
+  margin: -2rem;
+  color: white;
+}
