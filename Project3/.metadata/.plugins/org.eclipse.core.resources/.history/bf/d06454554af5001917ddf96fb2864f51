@@ -39,17 +39,16 @@ public class UpdateAvailabilityServiceImpl implements UpdateAvailabilityService 
 		System.out.println("After Master List Acquired");
 		
 		//correct for timezone discrepancy
-		time.getDay().add(Calendar.HOUR, 5);
 		time.getStart().add(Calendar.HOUR, 5);
 		time.getEnd().add(Calendar.HOUR, 5);
-		time.getDate().add(Calendar.HOUR, 5);
-		
 
 		System.out.println("Start= "+time.getStart().getTime());
 		System.out.println("End= "+time.getEnd().getTime());
 		
 		for(Available block: masterList) {
-
+			System.out.println("Inside Iterator");
+			System.out.println("Block Start= "+block.getStart().getTime());
+			System.out.println("Block End= "+block.getEnd().getTime());
 				if(block.getDoctor().equals(time.getDoctor())&&block.getDate().getTime().equals(time.getDate().getTime())) {
 
 					
@@ -68,10 +67,8 @@ public class UpdateAvailabilityServiceImpl implements UpdateAvailabilityService 
 		}
 		
 		//recorrect for timezone discrepancy
-		time.getDay().add(Calendar.HOUR, -5);
 		time.getStart().add(Calendar.HOUR, -5);
 		time.getEnd().add(Calendar.HOUR, -5);
-		time.getDate().add(Calendar.HOUR, -5);
 		
 		//Save the new hours
 		System.out.println("Saving New Hours");

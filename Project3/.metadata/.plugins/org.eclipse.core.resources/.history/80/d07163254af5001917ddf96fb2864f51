@@ -2,7 +2,6 @@ package com.revdoc.service.impl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,19 +36,14 @@ public class UpdateAvailabilityServiceImpl implements UpdateAvailabilityService 
 		List<Available> masterList= dao.findAll();
 		
 		System.out.println("After Master List Acquired");
-		
-		//correct for timezone discrepancy
-		time.getDay().add(Calendar.HOUR, 5);
-		time.getStart().add(Calendar.HOUR, 5);
-		time.getEnd().add(Calendar.HOUR, 5);
-		time.getDate().add(Calendar.HOUR, 5);
-		
 
 		System.out.println("Start= "+time.getStart().getTime());
 		System.out.println("End= "+time.getEnd().getTime());
 		
 		for(Available block: masterList) {
-
+			System.out.println("Inside Iterator");
+			System.out.println("Block Start= "+block.getStart().getTime());
+			System.out.println("Block End= "+block.getEnd().getTime());
 				if(block.getDoctor().equals(time.getDoctor())&&block.getDate().getTime().equals(time.getDate().getTime())) {
 
 					
@@ -66,12 +60,6 @@ public class UpdateAvailabilityServiceImpl implements UpdateAvailabilityService 
 				}
 
 		}
-		
-		//recorrect for timezone discrepancy
-		time.getDay().add(Calendar.HOUR, -5);
-		time.getStart().add(Calendar.HOUR, -5);
-		time.getEnd().add(Calendar.HOUR, -5);
-		time.getDate().add(Calendar.HOUR, -5);
 		
 		//Save the new hours
 		System.out.println("Saving New Hours");

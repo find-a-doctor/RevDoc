@@ -39,18 +39,27 @@ public class UpdateAvailabilityServiceImpl implements UpdateAvailabilityService 
 		System.out.println("After Master List Acquired");
 		
 		//correct for timezone discrepancy
-		time.getDay().add(Calendar.HOUR, 5);
-		time.getStart().add(Calendar.HOUR, 5);
-		time.getEnd().add(Calendar.HOUR, 5);
-		time.getDate().add(Calendar.HOUR, 5);
+		time.getDay().add(Calendar.HOUR, -5);
+		time.getStart().add(Calendar.HOUR, -5);
+		time.getEnd().add(Calendar.HOUR, -5);
+		time.getDate().add(Calendar.HOUR, -5);
 		
 
 		System.out.println("Start= "+time.getStart().getTime());
 		System.out.println("End= "+time.getEnd().getTime());
 		
 		for(Available block: masterList) {
-
-				if(block.getDoctor().equals(time.getDoctor())&&block.getDate().getTime().equals(time.getDate().getTime())) {
+			block.getDay().add(Calendar.HOUR, 5);
+			block.getStart().add(Calendar.HOUR, 5);
+			block.getEnd().add(Calendar.HOUR, 5);
+			block.getDate().add(Calendar.HOUR, 5);
+			System.out.println("Inside Iterator");
+			System.out.println("Block Start= "+block.getStart().getTime());
+			System.out.println("Block End= "+block.getEnd().getTime());
+			System.out.println("Block: "+block.getDate());
+			System.out.println("Time: "+time.getDate());
+			System.out.println(block.getDate().equals(time.getDate()));
+				if(block.getDoctor().equals(time.getDoctor())&&block.getDate().equals(time.getDate())) {
 
 					
 					//Compare values to determine overlap. To prevent overlap, Start and End must be after end
@@ -68,10 +77,10 @@ public class UpdateAvailabilityServiceImpl implements UpdateAvailabilityService 
 		}
 		
 		//recorrect for timezone discrepancy
-		time.getDay().add(Calendar.HOUR, -5);
-		time.getStart().add(Calendar.HOUR, -5);
-		time.getEnd().add(Calendar.HOUR, -5);
-		time.getDate().add(Calendar.HOUR, -5);
+//		time.getDay().add(Calendar.HOUR, 5);
+//		time.getStart().add(Calendar.HOUR, 5);
+//		time.getEnd().add(Calendar.HOUR, 5);
+//		time.getDate().add(Calendar.HOUR, 5);
 		
 		//Save the new hours
 		System.out.println("Saving New Hours");
