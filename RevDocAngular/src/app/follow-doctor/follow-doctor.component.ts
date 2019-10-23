@@ -40,7 +40,8 @@ export class FollowDoctorComponent implements OnInit {
     this.doctorInfoService.getDoctor(this.followers.doctor.npi).subscribe(data => {
       // console.log("getting...\n" + data);
       this.followers.doctor = data;
-    }, error => console.log("error:\n" + error));
+    });
+    // error => console.log("error:\n" + error));
 
     console.log("hello from FollowDoctor component")
     console.log(this.followers);
@@ -59,7 +60,7 @@ export class FollowDoctorComponent implements OnInit {
       this.followDoctor();
     }
   }
-  
+
   followDoctor() {
     this.doctorInfoService.followDoctor(this.followers).subscribe(data => {
       this.followers = data;
@@ -73,7 +74,6 @@ export class FollowDoctorComponent implements OnInit {
       console.log("unfollow doctor data: " + this.followers);
     });
   }
-
 
   //Do I need getAllFollowers here too?
 

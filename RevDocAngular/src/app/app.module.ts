@@ -32,11 +32,16 @@ import { CommonModule } from '@angular/common';
 <<<<<<< HEAD
 import { LoginPageComponent } from './login-page/login-page.component';
 import { DoctorHomeComponent } from './doctor-home/doctor-home.component';
+<<<<<<< HEAD
 =======
 import { DoctorHomeComponent } from './doctor-home/doctor-home.component';
 
 
 >>>>>>> added doctor-home-component
+=======
+
+
+>>>>>>> d0bbc417e9f8c386d2349c7eb4e964a343d4b9da
 
 @NgModule({
   declarations: [
@@ -63,7 +68,7 @@ import { DoctorHomeComponent } from './doctor-home/doctor-home.component';
     JwPaginationComponent,
     DoctorFeedbackComponent,
     NavbarComponent,
-    DoctorHomeComponent
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
