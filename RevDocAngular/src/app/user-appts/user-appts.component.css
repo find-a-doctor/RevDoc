@@ -1,4 +1,5 @@
 .userApptStyle {
-  width: 15rem;
-  font-size: x-small;
+  width: 22rem;
+  font-size: medium;
+  border-radius: .5rem;
 }

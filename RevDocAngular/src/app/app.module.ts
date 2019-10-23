@@ -26,9 +26,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { JwPaginationComponent } from 'jw-angular-pagination';
-// import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
-// import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
+import { JwPaginationComponent } from 'jw-angular-pagination';
+import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
+import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { CommonModule } from '@angular/common';
 import { LoginPageComponent } from './login-page/login-page.component';
 

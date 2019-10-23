@@ -1,3 +1,9 @@
 .userProfileStyle {
   width: 50%;
 }
+
+.apptBox {
+  border: 1px solid black;
+  padding: 2rem;
+  border-radius: .5rem;
+}

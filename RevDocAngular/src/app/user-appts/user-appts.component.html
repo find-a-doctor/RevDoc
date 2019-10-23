@@ -1,8 +1,8 @@
 <section class="userApptStyle">
   <div class="card" *ngFor="let appointment of userAppointments; let i = index; trackBy: trackByFn">
     <div class="card-body">
-      <h6 class="card-title">When: {{ appointment.date | date:'longDate' }}</h6>
-      <h6 class="card-title">Day: {{ appointment.time | date:'EEE' }} @ {{ appointment.time | date:'shortTime' }} </h6>
+      <p class="card-title">When: {{ appointment.date | date:'longDate' }}</p>
+      <p class="card-title">Day: {{ appointment.time | date:'EEE' }} @ {{ appointment.time | date:'shortTime' }} </p>
       <p class="card-subtitle text-muted">Associate: {{ appointment.revAssociate.revAssociateName }} </p>
       <p class="card-subtitle text-muted">Appt Id: {{ appointment.appointmentId }}</p>
       <hr>
