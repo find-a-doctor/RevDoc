@@ -6,6 +6,7 @@ import { Doctor } from '../revdoc-classes/doctor';
 import { RevAssociate } from '../revdoc-classes/rev-associate';
 import { SessionService } from '../session.service';
 import { isNullOrUndefined } from 'util';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-follow-doctor',
@@ -68,13 +69,17 @@ export class FollowDoctorComponent implements OnInit {
       this.followers = data;
       console.log("follow doctor data: " + this.followers);
     });
+    this.ngOnInit();
   }
 
   unfollowDoctor() {
     this.doctorInfoService.unfollowDoctor(this.followerId).subscribe(data => {
       this.followers = data;
+      
       console.log("unfollow doctor data: " + this.followers);
     });
+    this.ngOnInit();
   }
 
+  
 }

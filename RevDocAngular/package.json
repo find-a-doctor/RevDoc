@@ -26,6 +26,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
     "bootstrap": "^4.3.1",
     "bootstrap-toggle": "^2.2.2",
+    "fullcalendar": "^3.10.1",
     "jqwidgets-framework": "^8.3.2",
     "jqwidgets-ng": "^8.3.2",
     "jw-angular-pagination": "^1.1.0",
