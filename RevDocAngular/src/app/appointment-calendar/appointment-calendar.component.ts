@@ -110,7 +110,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         this.viewApptService.getAppointmentsByRevAssociateEmail(this.revAssociate.revAssociateEmail).subscribe(apptsData => {
 
             apptsData.forEach(appt => {
-                console.log("LLLLLLL" + appt.time);
+                //console.log("LLLLLLL" + appt.time);
                 //  appt.time.hours(appt.time.hours +5) ;
                 this.userAppointments.push(appt);
             });
@@ -166,7 +166,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
                 //         console.log("DATE: "+year+"-"+month+"-"+day+" Time: "+hour+":"+minute+":"+second);
                 let doctorAppointment = {
                     id: d.appointmentId + "",
-                    description: d.doctor.location.locationName + ", " + d.doctor.location.address,
+                    description: d.doctor.location.locationName + ", " + d.doctor.location.address+" "+d.doctor.location.city+", "+d.doctor.location.state+" "+d.doctor.location.zip,
                     location: d.appointmentId + "",
                     subject: d.doctor.doctorName,
                     calendar: d.insurance,
@@ -183,7 +183,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
 
             this.scheduler.endAppointmentsUpdate();
 
-        }, 1000);
+        }, 2000);
         // console.log("Testing : "+this.source.localData); //new data from the server
         // this.source.localData = this.generateAppointments();
         // this.dataAdapter.source = this.source;
@@ -422,7 +422,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
         fields.location.prop("readonly", true);
         fields.fromLabel.html("Date");
         fields.descriptionLabel.html("Location");
-        fields.description.val(this.doctor.location.address);
+        fields.description.val(this.doctor.location.locationName+ ", " + this.doctor.location.address+" "+this.doctor.location.city+", "+this.doctor.location.state+" "+this.doctor.location.zip);
         fields.description.prop("readonly", true);
 
 
