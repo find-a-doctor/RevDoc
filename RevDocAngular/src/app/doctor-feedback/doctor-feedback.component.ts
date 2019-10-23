@@ -47,7 +47,7 @@ export class DoctorFeedbackComponent implements OnInit {
         console.log(["2", this.feedback, this.associate, this.npi]);
 
         this.feedback = new Feedback();
-
+        // building appointement object
         this.feedback.appointment = new Appointment();
         this.feedback.appointment.appointmentId = 10000003;
         this.feedback.appointment.date=null;
@@ -57,29 +57,30 @@ export class DoctorFeedbackComponent implements OnInit {
         console.log(["3", this.feedback, this.associate, this.npi]);
 
         
-        
+        //adds associate in session to appointment
         this.feedback.appointment.revAssociate = this.associate;
         console.log(["4", this.feedback, this.associate, this.npi]);
+        //builds doctor object that is nested in appointment object.
+        //In the future, you will need to make a call the the database
+        // to get a list of appointments between this doctor and the associate
+        //and iterate through the list to find the most recent appointment then 
+        // see if the appointment has a corresponding feedback yet. If the appointment
+        // already has a feedback, then this component should not appear.
 
+        //Alternatively, you could get the list of appointments and display
+        // all of the appointments that do not have a feedback yet in a dropdown
+        // menu in HTML. Have the associate choose an appointment to rate and give feedback.
         this.feedback.appointment.doctor=new Doctor();
         this.feedback.appointment.doctor.npi = this.npi;
         this.feedback.appointment.doctor.doctorName=null;
         this.feedback.appointment.doctor.experience=0;
-        // this.feedback.appointment.doctor.email= null;
-        // this.feedback.appointment.doctor.password=null;
-        // this.feedback.appointment.doctor.phone=null;
-        // this.feedback.appointment.doctor.aboutMe=null;
         this.feedback.appointment.doctor.numberOfFollowers=0;
         this.feedback.appointment.doctor.location=null;
         console.log(["5", this.feedback, this.associate, this.npi]);
 
       })
 
-      //get appointment
-      // this.doctorInfoService.getAppointment(this.npi, this.associate).subscribe(data => {
-      //   console.log(data);
-      //   console.log(["3", this.feedback, this.associate, this.npi]);
-      // })
+      
 
     });
 
@@ -93,32 +94,6 @@ export class DoctorFeedbackComponent implements OnInit {
   }
 
 
-
-
-
-
-
-  //   this.feedback = new Feedback();
-  //   this.feedback.appointment = new Appointment();
-
-
-
-  //   this.feedback.appointment.revAssociate = new RevAssociate();
-
-  //   this.sessionService.getAssociateSession().subscribe(data => {
-  //     // this.feedback.appointment.revAssociate = data;
-  //     this.associate=data;
-  //   })
-  //   console.log(["1", this.feedback, this.associate]);
-  //   console.log("associate in this session: " + this.feedback.appointment.revAssociate);
-  //   this.appointment = new Appointment();
-  //   this.doctorInfoService.getAppointment(this.npi, this.associate).subscribe(data => {
-  //     this.appointment = data;
-  //   });
-  //   console.log("appointment to be rated: " + this.appointment);
-
-  // }
-
   //Collects ratings and comment from user to create a feedback object then sends an alert to user that the feedback has been recieved.
   //Could possibly add a "rate your last appointment w/ this doctor button" that pulls the correct appointment on click
   rateDoctor(comments: string) {
@@ -129,20 +104,15 @@ export class DoctorFeedbackComponent implements OnInit {
     console.log(comments);
     this.feedback.comments = comments;
     // ONLY appointment ID is needed to relate to table in DB, not the entire appointment object.
-    // this.feedback.appointment = this.appointment;
-
-
 
     console.log(this.feedback);
-    // console.log("This is the doctor npi: " + this.npi);
-    // console.log("This is the associate: " + this.associate);
 
     console.log("Feedback being sent to angular service: ")
     console.log(this.feedback);
     this.doctorInfoService.rateDoctor(this.feedback).subscribe(data=>{});
     alert("Thank you for your feedback!")
     window.location.reload();
-    // this.router.navigate(['doctor/' + this.npi]);
+
 
   }
 
