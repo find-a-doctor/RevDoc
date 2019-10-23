@@ -25,7 +25,7 @@ public class SessionController {
 	@PostMapping("/doctorSession")
 	public void createDocSession(@RequestBody Doctor doctor, HttpServletRequest request) {
 		Location l1 = new Location(0, "Texas Health Care", "123 Harward", "Irving", "Texas", "75060", "Private Practice");
-		doctor = new Doctor(0, "John Ross", 20, "johnross@gmail.com","johnross", "469-288-5555", "about John Ross here", 1, l1);
+		doctor = new Doctor(1000000002, "John Ross", 20, "johnross@gmail.com","johnross", "469-288-5555", "about John Ross here", 1, l1);
 		request.getSession().setAttribute("DOCTOR_USER", doctor);
 		System.out.println(request.getSession().getAttribute("DOCTOR_USER"));
 	}
