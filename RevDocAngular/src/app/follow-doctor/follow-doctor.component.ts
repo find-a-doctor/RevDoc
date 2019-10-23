@@ -4,6 +4,7 @@ import { Followers } from '../revdoc-classes/followers';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from '../revdoc-classes/doctor';
 import { RevAssociate } from '../revdoc-classes/rev-associate';
+import { DoctorProfileComponent, SampleData } from '../doctor-profile/doctor-profile.component';
 
 @Component({
   selector: 'app-follow-doctor',
@@ -15,7 +16,7 @@ export class FollowDoctorComponent implements OnInit {
   followers: Followers;
 
   npi: number;
-  // revAssociate: RevAssociate;
+  revassociate: string;
   followdate: number;
   followerId: number;
 
@@ -23,7 +24,7 @@ export class FollowDoctorComponent implements OnInit {
 
 
 
-  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router, private revAssociate:RevAssociate) { }
+  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
 
@@ -36,13 +37,13 @@ export class FollowDoctorComponent implements OnInit {
     this.doctorInfoService.getDoctor(this.followers.doctor.npi).subscribe(data => {
       // console.log("getting...\n" + data);
       this.followers.doctor = data;
-    }, error => console.log("error:\n" + error));
+    });
+    // error => console.log("error:\n" + error));
 
-    // this.followers.revAssociate=new RevAssociate();
-    this.followers.revAssociate=this.revAssociate;
+    this.followers.revAssociate=new RevAssociate();
 
     //check if revassoc is following this doc
-    this.doctorInfoService.isFollowing(this.npi, this.revAssociate.revAssociateEmail).subscribe(data => {
+    this.doctorInfoService.isFollowing(this.npi, this.revassociate).subscribe(data => {
       this.isFollowing = data;
       console.log("is following data boolean: " + this.isFollowing);
     });
@@ -55,7 +56,7 @@ export class FollowDoctorComponent implements OnInit {
       this.followDoctor();
     }
   }
-  
+
   followDoctor() {
     this.doctorInfoService.followDoctor(this.followers).subscribe(data => {
       this.followers = data;

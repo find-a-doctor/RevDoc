@@ -1,12 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-// //added for doctor-profile component
-// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
- import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-// import { HttpClientModule } from '@angular/common/http';
-// import { RouterModule } from '@angular/router';
-// //added for doctor-profile component
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +29,7 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
 import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { CommonModule } from '@angular/common';
+import { DoctorHomeComponent } from './doctor-home/doctor-home.component';
 
 
 
@@ -62,7 +57,8 @@ import { CommonModule } from '@angular/common';
     NavbarComponent,
     JwPaginationComponent,
     DoctorFeedbackComponent,
-    NavbarComponent
+    NavbarComponent,
+    DoctorHomeComponent
   ],
   imports: [
     BrowserModule,

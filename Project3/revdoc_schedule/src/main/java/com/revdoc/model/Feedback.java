@@ -33,7 +33,7 @@ public class Feedback implements Serializable{
 	@Id
 	@GeneratedValue(generator = "feedback_gen")
 	private long feedbackId;
-	private float bedsideMannerRating; // ex: 1.5 is 1 hour 30 minutes
+	private float bedsideMannerRating;
 	private float waitTimeRating;
 	//This is for dislike/like
 	private float overallRating;

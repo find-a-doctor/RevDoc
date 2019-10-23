@@ -10,7 +10,6 @@ import com.revdoc.model.Insurance;
 import com.revdoc.model.Specialty;
 import com.revdoc.model.Followers;
 
-
 public interface DoctorInfoService {
 
 	public Doctor getDoctorByNpi(long npi);

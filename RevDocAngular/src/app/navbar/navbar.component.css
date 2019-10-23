@@ -81,6 +81,11 @@
 
 .navItems button:hover {
     background-color: white;
-    color: #F26925;
+    color: rgb(242, 105, 37);
     border-width: 4px;
+}
+
+/* doctor landing page */
+.btn2{
+    border-color: black !important;
 }
