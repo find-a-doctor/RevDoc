@@ -1,0 +1,15 @@
+package com.revdoc.service;
+
+import java.util.List;
+
+import com.revdoc.model.Conditions;
+
+
+public interface ConditionsService {
+	// Edit Doctor Profile
+	public Conditions createConditions(Conditions conditions);
+	public void deleteConditions(long conditionId);
+	public Conditions updateConditions (Conditions conditions);
+	public List<Conditions> getAllConditions();
+	public Conditions  getConditionByConditionId(long conditionId);
+}

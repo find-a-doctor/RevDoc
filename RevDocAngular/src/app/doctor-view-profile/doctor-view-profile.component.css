@@ -1,0 +1,23 @@
+#docprofile{
+    position: static;
+    font-size: 15pt;
+}
+
+.ex{
+    background-color: lightcoral;
+}
+
+#doctorInfo td{
+    border: 2pt solid black;
+}
+
+table{
+    width: 100%;
+}
+
+#TODO{
+    border: 3pt solid red;
+    background-color: rgba(255, 0, 0, 0.5);
+    text-align: center;
+    text-transform: uppercase;
+}

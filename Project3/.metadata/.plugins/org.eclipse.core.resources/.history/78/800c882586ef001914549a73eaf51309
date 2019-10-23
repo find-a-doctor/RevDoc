@@ -1,0 +1,5 @@
+package com.revdoc.service;
+
+public class InsuranceService {
+
+}

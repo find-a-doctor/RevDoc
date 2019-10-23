@@ -2,9 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-8">
-                <h2>Doctor info</h2>
                 <div class="box">
-                    doctor info box
                     <table id="doctorInfo" style="border:solid black">
                         <tr style="border-bottom:1pt solid black">
                             <td>npi</td>
@@ -76,31 +74,24 @@
                 <div class="box">
                     <app-follow-doctor></app-follow-doctor>
                 </div>
+                <br/>
+                <button class="btn btn-sm action-btn" routerLink="whereAreWeGoing" >Book an appointment with this doctor</button>
             </div>
         </div>
 
         <hr />
 
         <div class="row">
-            <div class="col-sm">view aggregate reviews
+            <div class="col-sm">
                 <app-doctor-ratings></app-doctor-ratings>
             </div>
         </div>
 
-        <h2>Calendar</h2>
-
-
-        <div class="row" id="TODO">
-            <div class="col-lg-8 ex">Calendar component here</div>
-        </div>
-
         <hr />
 
         <div class="row">
-            <div class="col-lg-8">
-                feedback component here
+            <div class="col-sm">
                 <app-doctor-feedback></app-doctor-feedback>
-                <!-- <app-doctor-feedback [doctor]="doctor" [revAssociate]="revAssociate"></app-doctor-feedback> -->
             </div>
         </div>
 

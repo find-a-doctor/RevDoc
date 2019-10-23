@@ -1,0 +1,17 @@
+package com.revdoc.service;
+
+import java.util.List;
+
+import com.google.common.base.Optional;
+import com.revdoc.model.Doctor;
+
+public interface DoctorInfoService {
+
+	// Edit Doctor Profile
+	public Doctor createDoctor(Doctor doctor);
+	public void deleteDoctor(long npi, Doctor doctor);
+	public Doctor updateDoctor(long npi, Doctor doctor);
+	public List<Doctor> getAllDoctors();
+	public Doctor getDoctorByNpi(long npi);
+	public List<Object[]> getDoctorProfileByNpi(long npi);
+}

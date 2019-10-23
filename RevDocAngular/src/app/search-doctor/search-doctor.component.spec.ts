@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchDoctorComponent } from './search-doctor.component';
+import { FormsModule } from '@angular/forms';
+
 
 describe('SearchDoctorComponent', () => {
   let component: SearchDoctorComponent;
@@ -8,7 +10,10 @@ describe('SearchDoctorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchDoctorComponent ]
+      declarations: [ SearchDoctorComponent ],
+      imports: [
+        FormsModule
+      ]
     })
     .compileComponents();
   }));
@@ -22,4 +27,5 @@ describe('SearchDoctorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  // it('should have add function')
 });
