@@ -1,41 +1,54 @@
+<div class="card" style="width: 100rem; margin: 0 auto; margin-bottom: 10px;">
+  <div class="card-body">
+    <!-- <div style="text-align: center;"> -->
+    <jqxScheduler #schedulerReference [date]="date" [width]="getWidth()" [height]="768" [source]="dataAdapter"
+      [showLegend]="true" [editDialogCreate]="editDialogCreate" [editDialogOpen]="editDialogOpen"
+      [editDialogClose]="editDialogClose" [editDialogKeyDown]="editDialogKeyDown" [resources]="resources"
+      [view]="'monthView'" [views]="views" [appointmentDataFields]="appointmentDataFields"
+      (onAppointmentDelete)="mySchedulerOnAppointmentDelete($event)"
+      (onAppointmentAdd)="mySchedulerOnAppointmentAdd($event)"
+      (onAppointmentChange)="mySchedulerOnAppointmentChange($event)" (onCellClick)="mySchedulerOnCellClick($event)">
 
-<div style="text-align: center;">
-  <jqxScheduler 
-    [theme]="'material'" 
-    #schedulerReference 
-    [date]="date" 
-    [width]="getWidth()" 
-    [height]="768"
-    [source]="dataAdapter" 
-    [showLegend]="true" 
-    
-    [editDialogCreate]="editDialogCreate"
-    [editDialogOpen]="editDialogOpen"
-    [editDialogClose]="editDialogClose"
-    [editDialogKeyDown]="editDialogKeyDown"
-    [resources]="resources" 
-    [view]="'monthView'" 
-    [views]="views"
-    [appointmentDataFields]="appointmentDataFields"
-    (onAppointmentDelete)="mySchedulerOnAppointmentDelete($event)"  
-    (onAppointmentAdd)="mySchedulerOnAppointmentAdd($event)"
-   
-    (onAppointmentChange)="mySchedulerOnAppointmentChange($event)"
-    (onCellClick)="mySchedulerOnCellClick($event)"
-  >
-  </jqxScheduler>
-</div>
+    </jqxScheduler>
 
-   <div style='text-align: center;'>
-    <br>
-    <jqxButton #pdfExport
-               (onClick)="pdfExportClick()">
-      Export Calendar to PDF
-    </jqxButton>
-    <hr>
+    <section class="userApptStyle">
+
+      <div class="card" *ngFor="let appointment of userAppointments; let i = index; trackBy: trackByFn">
+        <hr>
+        <h2 style="text-align: center;">My appointments</h2>
+        <hr>
+        <div class="card-body">
+          <h6 class="card-title">When: {{ appointment.date | date:'longDate' }}</h6>
+          <h6 class="card-title">Day: {{ appointment.time | date:'EEE' }} @
+            {{ appointment.time | date:'shortTime':'UTC' }} </h6>
+          <p class="card-subtitle text-muted">Associate: {{ appointment.revAssociate.revAssociateName }} </p>
+          <p class="card-subtitle text-muted">Appt Id: {{ appointment.appointmentId }}</p>
+          <hr>
+          <p routerLink='doctorProfile' class="card-text">Doctor: {{ appointment.doctor.doctorName }}</p>
+          <p class="card-text">Where: {{ appointment.doctor.location.locationName }}</p>
+          <p class="card-text">Address: {{ appointment.doctor.location.address }},
+            {{ appointment.doctor.location.city }}, {{ appointment.doctor.location.state }}
+            {{ appointment.doctor.location.zip }}</p>
+          <!-- <p class="card-text">Insurance: {{ appointment.insurance }}</p> -->
+          <p class="card-text">Confirmed: {{ appointment.confirmed }}</p>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
 </div>
-<hr><hr>
+<div style='text-align: center;'>
+  <br>
+  <jqxButton #pdfExport (onClick)="pdfExportClick()">
+    Export Calendar to PDF
+  </jqxButton>
+  <hr>
+</div>
+<hr>
+<hr>
 <div style="position: unset; bottom: 5px; right: 5px; text-align: right;">
-  <a href="https://www.jqwidgets.com/" alt="https://www.jqwidgets.com/"><img  alt="https://www.jqwidgets.com/" title="https://www.jqwidgets.com/" src="https://www.jqwidgets.com/wp-content/design/i/logo-jqwidgets.png"/></a>
+  <a href="https://www.jqwidgets.com/" alt="https://www.jqwidgets.com/"><img alt="https://www.jqwidgets.com/"
+      title="https://www.jqwidgets.com/" src="https://www.jqwidgets.com/wp-content/design/i/logo-jqwidgets.png" /></a>
 </div>
 <br><br>
