@@ -36,6 +36,6 @@ export class UserApptsComponent implements OnInit {
         this.userAppointments.push(appt);
       });
     });
-  };
+  }
 
 }
