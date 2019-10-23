@@ -34,6 +34,7 @@ public class SearchDoctorServiceImpl implements SearchDoctorService{
 	
 	@Override
 	public List<Object[]> getAllDoctors() {
+		System.out.println("in Service layer");
 		// TODO Auto-generated method stub
 	//	return filterSearchDoctor(doctorDao.findAllDoctors());
 		return doctorDao.findAllDoctors();

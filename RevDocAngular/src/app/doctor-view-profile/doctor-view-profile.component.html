@@ -1,0 +1,77 @@
+<div id="docprofile">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h2>Doctor info</h2>
+                <div class="box">
+                    doctor info box
+                    <table id="doctorInfo" style="border:solid black">
+                        <tr style="border-bottom:1pt solid black">
+                            <td>npi</td>
+                            <td>{{doctor.npi}}</td>
+                        </tr>
+                        <tr>
+                            <td>name</td>
+                            <td>{{doctor.doctorName}}</td>
+                        </tr>
+                        <tr>
+                            <td>experience</td>
+                            <td>{{doctor.experience}}</td>
+                        </tr>
+                        <tr>
+                            <td>email</td>
+                            <td>{{doctor.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>phone</td>
+                            <td>{{doctor.phone}}</td>
+                        </tr>
+                        <tr>
+                            <td>aboutMe</td>
+                            <td>{{doctor.aboutMe}}</td>
+                        </tr>
+                        <tr>
+                            <td>numberOfFollowers</td>
+                            <td>{{doctor.numberOfFollowers}}</td>
+                        </tr>
+                        <tr>
+                            <td>Location</td>
+                            <td>
+                                {{doctor.location.locationName}}<br />
+                                {{doctor.location.address}}<br />
+                                {{doctor.location.city}},
+                                {{doctor.location.state}},
+                                {{doctor.location.zip}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>insurance</td>
+                            <td>
+                                <ul *ngFor="let i of insurance">
+                                    <li>{{i.insuranceType.insuranceName}}</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>specialty</td>
+                            <td>
+                                <ul *ngFor="let s of specialty">
+                                    <li>{{s.specialtyType.specialtyName}}</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>condition(s)</td>
+                            <td>
+                                <ul *ngFor="let c of conditions">
+                                    <li>{{c.conditionType.conditionName}}</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-edit-doctor-profile></app-edit-doctor-profile>

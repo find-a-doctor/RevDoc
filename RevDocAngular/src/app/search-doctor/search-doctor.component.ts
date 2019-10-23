@@ -285,7 +285,7 @@ export class SearchDoctorComponent implements OnInit {
   }
   /////////////////////////// GO TO DOCTOR DETAILS
   public goDoctorDetails(doc: Object) {
-    this.router.navigate(['searchDoctor/', { id: doc[0] }]);
+    this.router.navigate(['doctor/'+doc[0]]);
   }
   ////////////////////////////////// SORTING
   npiSort() {

@@ -19,10 +19,6 @@ public class AppointmentServiceImpl implements AppointmentService {
 	
 	@Autowired
 	private AppointmentDAO appointmentDao;
-	
-	public AppointmentServiceImpl() {
-		// EMPTY CONSTRUCTOR BUSINESS STANDARD
-	}
 
 	@Override
 	public List<Appointment> getAllAppointments() {

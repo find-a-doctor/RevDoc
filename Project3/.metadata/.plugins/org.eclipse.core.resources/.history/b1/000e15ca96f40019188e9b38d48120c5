@@ -1,0 +1,111 @@
+package com.revdoc.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.revdoc.dao.DoctorDAO;
+import com.revdoc.dao.DoctorLicenseDAO;
+import com.revdoc.dao.LicenseDAO;
+import com.revdoc.dao.LocationDAO;
+import com.revdoc.model.ConditionType;
+import com.revdoc.model.Conditions;
+import com.revdoc.model.Doctor;
+import com.revdoc.model.DoctorLicense;
+import com.revdoc.model.Insurance;
+import com.revdoc.model.InsuranceType;
+import com.revdoc.model.License;
+import com.revdoc.model.Location;
+import com.revdoc.model.Specialty;
+import com.revdoc.model.SpecialtyType;
+import com.revdoc.service.DoctorInfoService;
+
+@Service
+public class DoctorInfoServiceImpl implements DoctorInfoService {
+	@Autowired
+	private DoctorDAO doctorDAO;
+	
+	@Autowired
+	private LocationDAO locationDAO;
+
+	@Autowired
+	private LicenseDAO licenseDAO;
+	
+	@Autowired
+	private DoctorLicenseDAO doctorLicenseDAO;
+	
+	public DoctorInfoServiceImpl() {
+		// EMPTY CONSTRUCTOR BUSINESS STANDARD
+	}
+
+	@Override
+	public Doctor createDoctor(Doctor doctor) {
+		return doctorDAO.save(doctor);
+	}
+
+	@Override
+	public void deleteDoctor(long npi, Doctor doctor) {
+		doctorDAO.deleteByNpi(npi);
+		
+	}
+
+	@Override
+	public void updateDoctor(Doctor doctor, long npi) {
+		doctorDAO.save(doctor);
+	}
+
+	@Override
+	public List<Doctor> getAllDoctors() {
+		return doctorDAO.findAll();
+	}
+
+	@Override
+	public Doctor getDoctorByNpi(long npi) {
+		return doctorDAO.findByNpi(npi);
+	}
+
+	@Override
+	public List<Object[]> getDoctorProfileByNpi(long npi) {
+		return doctorDAO.findDoctorProfileByNpi(npi);
+	}
+
+	@Override
+	public void updateDoctorProfile(Object[] profile) {
+		Location location = new Location((long)profile[8], (String)profile[9], (String)profile[10], (String)profile[11], 
+				(String)profile[12], (String)profile[13], (String)profile[14]);
+		location = locationDAO.save(location);
+
+		Doctor doctor = new Doctor((long)profile[0], (String)profile[1], (int)profile[2], (String)profile[3], 
+				(String)profile[4], (String)profile[5], (String)profile[6], (int)profile[7], location);
+		doctor = doctorDAO.save(doctor);
+		
+		License license = new License(0, "License name 1");
+		license = licenseDAO.save(license);
+		
+		DoctorLicense doctorLicense = new DoctorLicense(0, d1, license, licenseDate);
+		doctorLicense = doctorLicenseDAO.save(doctorLicense);
+
+		SpecialtyType st2 = new SpecialtyType(0, "Specialty Type 2");
+		st2 = specialtyTypeDao.save(st2);
+		
+		Specialty s1 = new Specialty(0, d1, st1);
+		s1 = specialtyDao.save(s1);
+		
+		ConditionType ct2 = new ConditionType(0, "condition type 2");
+		ct2 = conditionTypeDao.save(ct2);
+
+
+		Conditions c2 = new Conditions(0, ct2, d2);
+		c2 = conditionsDao.save(c2);
+		
+		InsuranceType it1 = new InsuranceType(0, "Blue Cross Blue Shield");
+		it1 = insuranceTypeDao.save(it1);
+
+
+		Insurance i1 = new Insurance(0, d1, it1);
+		i1=insuranceDao.save(i1);
+
+	}
+
+}

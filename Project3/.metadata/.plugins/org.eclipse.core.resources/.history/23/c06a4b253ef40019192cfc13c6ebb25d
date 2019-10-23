@@ -1,0 +1,59 @@
+package com.revdoc.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.revdoc.dao.DoctorDAO;
+import com.revdoc.model.Doctor;
+import com.revdoc.service.DoctorInfoService;
+
+@Service
+public class DoctorInfoServiceImpl implements DoctorInfoService {
+	
+	@Autowired
+	private DoctorDAO doctorDAO;
+	
+	public DoctorInfoServiceImpl() {
+		// EMPTY CONSTRUCTOR BUSINESS STANDARD
+	}
+	
+	// Edit Doctor Profile
+	@Override
+	public Doctor createDoctor(Doctor doctor) {
+		return doctorDAO.save(doctor);
+	}
+
+//	@Override
+//	public void deleteDoctor(long npi, Doctor doctor) {
+//		//doctorDAO.delete(doctor);		
+//		doctorDAO.deleteByNpi(npi);
+//	}
+
+	@Override
+	public void updateDoctor (Doctor doctor, long npi) {
+		doctorDAO.save(doctor);
+	}
+
+	@Override
+	public List<Doctor> getAllDoctors() {
+		return doctorDAO.findAll();
+	}
+
+	@Override
+	public Doctor getDoctorByNpi(long npi) {
+		return doctorDAO.findByNpi(npi);
+	}
+	
+	@Override
+	public List<Object[]> getDoctorProfileByNpi(long npi) {
+		return doctorDAO.findDoctorProfileByNpi(npi);
+	}
+	
+	@Override
+	public void updateDoctorProfile(List<Object[]> profile, long npi) {
+		doctorDAO.updateDoctorProfile(List<Object[]> profile);
+	}
+	
+}

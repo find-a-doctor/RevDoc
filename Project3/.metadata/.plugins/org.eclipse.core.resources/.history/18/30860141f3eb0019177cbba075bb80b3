@@ -1,0 +1,36 @@
+package com.revdoc.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.revdoc.dao.DoctorDAO;
+import com.revdoc.model.Doctor;
+import com.revdoc.service.SearchDoctorService;
+
+@Service
+public class SearchDoctorServiceImpl implements SearchDoctorService{
+
+	@Autowired
+	private DoctorDAO doctorDao;
+	@Override
+	public List<Object[]> doctorSearch(String search) {
+		// TODO Auto-generated method stub
+		return doctorDao.generalSearchDoctor("%"+search.toLowerCase()+"%");
+	}
+	
+	@Override
+	public List<Object[]> getAllDoctors() {
+		// TODO Auto-generated method stub
+		return doctorDao.findAllDoctors();
+	}
+	
+	public List<Object[]> filterSearchDoctor(List<Object[]> searchDoctor){
+		List<Object[]> filter = new ArrayList<>();
+		
+		return filter;
+	}
+
+}
