@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FullCalendarModule } from '@fullcalendar/angular';
-import { HttpClientModule } from '@angular/common/http';
+//  import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditDoctorProfileComponent } from './edit-doctor-profile/edit-doctor-profile.component';
@@ -17,13 +17,19 @@ import { ScheduleApptComponent } from './schedule-appt/schedule-appt.component';
 import { ConfirmApptComponent } from './confirm-appt/confirm-appt.component';
 import { ViewApptComponent } from './view-appt/view-appt.component';
 import { UserApptsComponent } from './user-appts/user-appts.component';
+// import { DocorApptsComponent } from './docor-appts/docor-appts.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { FollowDoctorComponent } from './follow-doctor/follow-doctor.component';
 import { DoctorRatingsComponent } from './doctor-ratings/doctor-ratings.component';
 import { DoctorFeedbackComponent } from './doctor-feedback/doctor-feedback.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { JwPaginationComponent } from 'jw-angular-pagination';
+import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
+import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
+import { CommonModule } from '@angular/common';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { DoctorApptsComponent } from './doctor-appts/doctor-appts.component';
 
 @NgModule({
   declarations: [
@@ -41,19 +47,28 @@ import { DoctorApptsComponent } from './doctor-appts/doctor-appts.component';
     ConfirmApptComponent,
     ViewApptComponent,
     UserApptsComponent,
+    // DocorApptsComponent,
     DoctorProfileComponent,
     FollowDoctorComponent,
     DoctorRatingsComponent,
     DoctorFeedbackComponent,
     NavbarComponent,
-    LoginPageComponent,
-    DoctorApptsComponent
+    JwPaginationComponent,
+    DoctorFeedbackComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
     FullCalendarModule,
     HttpClientModule,
-    AppRoutingModule
+    CommonModule,
+    jqxSchedulerModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    jqxButtonModule,
+    // NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

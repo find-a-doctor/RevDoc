@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router, private service: SessionService) { }
 
   ngOnInit() {
+    console.log(localStorage.getItem("USER_TYPE"))
   }
 
   logout(){
