@@ -111,8 +111,9 @@ export class DoctorInfoService {
      return this.http.post(this.baseUrl+this.rateDoctorUrl,feedback);
    }
 
-  public isFollowing(npi: number, revassociate: string): Observable<boolean> {
-    return this.http.get<boolean>(this.followingUrl + npi + "/" + revassociate);
+  public isFollowing(npi: number, revassociate: RevAssociate): Observable<boolean> {
+    console.log("checking if "+revassociate.revAssociateEmail+" follows "+npi)
+    return this.http.get<boolean>(this.followingUrl + npi + "/" + revassociate.revAssociateEmail);
   }
 
   public followDoctor(followers: Followers): Observable<Followers> {

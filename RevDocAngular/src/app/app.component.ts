@@ -1,12 +1,11 @@
-// import { Component, OnInit } from '@angular/core';
-// import { ViewApptService } from './view-appt.service';
-// import { Router } from '@angular/router';
-// import { RevAssociate } from './revdoc-classes/rev-associate';
-// import { Doctor } from './revdoc-classes/doctor';
-// import { SessionType } from './revdoc-classes/session-type';
-// import { Session } from 'inspector';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ViewApptService } from './view-appt.service';
+import { Router } from '@angular/router';
 import { RevAssociate } from './revdoc-classes/rev-associate';
+import { Doctor } from './revdoc-classes/doctor';
+// import { SessionType } from './revdoc-classes/session-type';
+import { Session } from 'inspector';
+
 
 @Component({
   selector: 'app-root',

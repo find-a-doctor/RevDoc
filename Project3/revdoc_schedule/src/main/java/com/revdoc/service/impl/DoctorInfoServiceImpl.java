@@ -100,6 +100,7 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 	@Override
 	public boolean isFollowing(long npi, String revassociate) {
 		List<Followers> followingList=flDao.isFollowing(npi, revassociate);
+		System.out.println("in doctor info service impl");
 		return(followingList.size()!=0);
 	}
 

@@ -7,7 +7,6 @@ import { AppointmentCalendarComponent } from './appointment-calendar/appointment
 import { AppComponent } from './app.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { ScheduleApptComponent } from './schedule-appt/schedule-appt.component';
-import { DoctorHomeComponent } from './doctor-home/doctor-home.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginPageComponent},
@@ -19,8 +18,8 @@ const routes: Routes = [
   { path: 'calendar', component: AppointmentCalendarComponent},
   { path: 'viewSchedule', component: AppointmentCalendarComponent},
   { path: 'schedule-appt', component: ScheduleApptComponent},
-  { path: 'doctorHome', component: DoctorHomeComponent }
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
