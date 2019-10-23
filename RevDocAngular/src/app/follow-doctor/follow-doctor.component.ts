@@ -37,40 +37,40 @@ export class FollowDoctorComponent implements OnInit {
     // this.followers.revAssociate=new RevAssociate;
     this.followers.doctor = new Doctor;
 
-    console.log(["1:", this.followers]);
+    //console.log(["1:", this.followers]);
 
 
     this.sessionService.getAssociateSession().subscribe(data => {
       this.revAssociate = data;
-      // console.log("hello from follow!");
+      // //console.log("hello from follow!");
       this.followers.revAssociate = data;
-      // console.log(this.revAssociate);
+      // //console.log(this.revAssociate);
     })
     this.followers.revAssociate = this.revAssociate;
-    console.log(["2", this.followers]);
+    //console.log(["2", this.followers]);
 
     this.followers.doctor = new Doctor();
     this.route.url.subscribe(data => {
       this.followers.doctor.npi = Number(data[1].path);
     });
-    console.log(["3", this.followers]);
+    //console.log(["3", this.followers]);
 
 
     this.doctorInfoService.getDoctor(this.followers.doctor.npi).subscribe(data => {
-      // console.log("getting...\n" + data);
+      // //console.log("getting...\n" + data);
       this.followers.doctor = data;
-    },error => console.log("error:\n" + error));
+    }),//,error => //console.log("error:\n" + error));
 
-    console.log(["4", this.followers]);
+    //console.log(["4", this.followers]);
 
     //check if revassoc is following this doc
     this.doctorInfoService.isFollowing(this.followers.doctor.npi, this.followers.revAssociate).subscribe(data => {
-      console.log(["data", data]);
+      //console.log(["data", data]);
       // this.isFollowing = data;
-      console.log("is following data boolean: " + this.isFollowing);
-    },error => console.log("error:\n" + error));
+      //console.log("is following data boolean: " + this.isFollowing);
+    })//,error => //console.log("error:\n" + error));
 
-    console.log(["5", this.followers]);
+    //console.log(["5", this.followers]);
 
   }
 
@@ -86,7 +86,7 @@ export class FollowDoctorComponent implements OnInit {
   followDoctor() {
     this.doctorInfoService.followDoctor(this.followers).subscribe(data => {
       this.followers = data;
-      console.log("follow doctor data: " + this.followers);
+      //console.log("follow doctor data: " + this.followers);
       this.isFollowing=true;
     });
     this.ngOnInit();
@@ -96,7 +96,7 @@ export class FollowDoctorComponent implements OnInit {
     this.doctorInfoService.unfollowDoctor(this.followerId).subscribe(data => {
       this.followers = data;
 
-      console.log("unfollow doctor data: " + this.followers);
+      //console.log("unfollow doctor data: " + this.followers);
     });
     this.ngOnInit();
   }

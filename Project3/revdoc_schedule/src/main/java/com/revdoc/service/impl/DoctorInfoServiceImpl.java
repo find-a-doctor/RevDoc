@@ -24,69 +24,70 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 
 
 	@Autowired
-	private DoctorDAO dDao;
+	private DoctorDAO doctorDao;
 
 	@Autowired
-	private FeedbackDAO fbDao;
+	private FeedbackDAO feedbackDao;
 
 	@Autowired
-	private FollowersDAO flDao;
+	private FollowersDAO followersDao;
 
 	@Autowired
-	private InsuranceDAO iDao;
+	private InsuranceDAO insuranceDao;
 
 	@Autowired
-	private SpecialtyDAO sDao;
+	private SpecialtyDAO specialtyDao;
 
 	@Autowired
-	private ConditionsDAO cDao;
+	private ConditionsDAO conditionsDao;
 
 	@Override
 	public Doctor getDoctorByNpi(long npi) {
-		return dDao.findByNpi(npi);
+		return doctorDao.findByNpi(npi);
 	}
 
 	@Override
 	public List<Doctor> getAllDoctors() {
-		return dDao.findAll();
+		return doctorDao.findAll();
 	}
 
-	@Override
-	public List<Feedback> getAllFeedback() {
-		return fbDao.findAll();
-	}
+//	@Override
+//	public List<Feedback> getAllFeedback() {
+//		return feedbackDao.findAll();
+//	}
 	// returns all feedback for all doctors
+	// for testing
 
 	@Override
 	public List<Feedback> getAllFeedback(long npi) {
-		return fbDao.getAll(npi);
+		return feedbackDao.getAll(npi);
 	}
 	//returns only feedback for specified doctor
 
 
 	@Override
 	public List<Insurance> getInsurance(long npi){
-		return iDao.getInsurance(npi);
+		return insuranceDao.getInsurance(npi);
 	}
 
 	@Override
 	public List<Specialty> getSpecialty(long npi) {
-		return sDao.getSpecialty(npi);
+		return specialtyDao.getSpecialty(npi);
 	}
 
 	@Override
 	public List<Conditions> getConditions(long npi) {
-		return cDao.getConditions(npi);
+		return conditionsDao.getConditions(npi);
 	}
 
 	@Override
 	public Feedback submitFeedback(Feedback feedback) {
-		return fbDao.save(feedback);
+		return feedbackDao.save(feedback);
 	}
 
 	@Override
 	public Doctor updateFollowers(long npi) {
-		int numberOfFollowers= flDao.countFollowers(npi);
+		int numberOfFollowers= followersDao.countFollowers(npi);
 		Doctor doctor=getDoctorByNpi(npi);
 		doctor.setNumberOfFollowers(numberOfFollowers);
 		return doctor;
@@ -94,24 +95,24 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 
 	@Override
 	public List<Followers> allFollowers() {
-		return flDao.findAll();
+		return followersDao.findAll();
 	}
 
 	@Override
 	public boolean isFollowing(long npi, String revassociate) {
-		List<Followers> followingList=flDao.isFollowing(npi, revassociate);
+		List<Followers> followingList=followersDao.isFollowing(npi, revassociate);
 		System.out.println("in doctor info service impl");
 		return(followingList.size()!=0);
 	}
 
 	@Override
 	public Followers followDoctor(Followers followers) {
-		return flDao.save(followers);
+		return followersDao.save(followers);
 	}
 
 	@Override
 	public void unfollowDoctor(long followerId) {
-		flDao.deleteById(followerId);
+		followersDao.deleteById(followerId);
 	}
 
 

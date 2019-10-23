@@ -35,22 +35,23 @@ export class DoctorProfileComponent implements OnInit {
 
     this.doctorInfoService.getDoctor(this.doctor.npi).subscribe(data => {
       this.doctor = data;
-    }, error => console.log("error:\n" + error));
+    })//, error => //console.log("error:\n" + error));
 
     this.doctorInfoService.getDoctorInsurance(this.doctor.npi).subscribe(data => {
       this.insurance = data;
-      // console.log("insurance loaded");
-    }, error => console.log("error:\n" + error));
+      // //console.log("insurance loaded");
+    })//, error => //console.log("error:\n" + error));
 
     this.doctorInfoService.getDoctorSpecialty(this.doctor.npi).subscribe(data => {
       this.specialty = data;
-      // console.log("specialty loaded");
-    }, error => console.log("error:\n" + error));
+      // //console.log("specialty loaded");
+    })//, error => //console.log("error:\n" + error));
 
     this.doctorInfoService.getDoctorConditions(this.doctor.npi).subscribe(data => {
       this.conditions = data;
-      // console.log("conditions loaded");
-    }, error => console.log("error:\n" + error));
+      // //console.log("conditions loaded");
+    })
+    //, error => //console.log("error:\n" + error));
 
 
   }

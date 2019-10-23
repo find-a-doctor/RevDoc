@@ -6,6 +6,7 @@ export class Feedback {
   bedsideMannerRating: number;
   waitTimeRating: number;
   overallRating: number;
+  //OverallRating is a number, not a boolean
   comments: string;
   appointment: Appointment;
 
