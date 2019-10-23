@@ -1,0 +1,50 @@
+package com.revdoc.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.revdoc.dao.DoctorDAO;
+import com.revdoc.model.Doctor;
+import com.revdoc.service.DoctorInfoService;
+
+public class DoctorInfoServiceImpl implements DoctorInfoService {
+	
+	@Autowired
+	private DoctorDAO doctorDAO;
+	//private List<Doctor> doctorList;
+	
+
+	public DoctorInfoServiceImpl() {
+		// EMPTY CONSTRUCTOR BUSINESS STANDARD
+	}
+	
+	// Edit Doctor Profile
+		
+	@Override
+	public Doctor createDoctor(Doctor doctor) {
+		return doctorDAO.save(doctor);
+	}
+
+	@Override
+	public void deleteDoctor(long npi) {
+		doctorDAO.deleteById(npi);		
+	}
+
+	@Override
+	public Doctor updateDoctor(Doctor doctor) {
+		return doctorDAO.save(doctor);
+	}
+
+	@Override
+	public List<Doctor> getAllDoctors() {
+		return doctorDAO.findAll();
+	}
+
+//	@Override
+//	@Query
+//	public Doctor getDoctorByNpi(long npi) {
+//		return doctorDAO.findByNpi(npi).get();
+//	}
+
+}

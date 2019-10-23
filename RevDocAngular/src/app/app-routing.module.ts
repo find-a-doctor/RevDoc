@@ -14,10 +14,12 @@ const routes: Routes = [
   { path: 'ex-dr-page', component: DoctorProfileComponent },
   { path: 'doctor/:npi', component: DoctorProfileComponent },
   { path: '', redirectTo: 'login',  pathMatch: 'full' },
+  { path: 'login/associateHome', component: AppComponent},
   { path: 'searchDoctor', component: SearchDoctorComponent},
   { path: 'calendar', component: AppointmentCalendarComponent},
   { path: 'viewSchedule', component: AppointmentCalendarComponent},
   { path: 'schedule-appt', component: ScheduleApptComponent},
+  { path: 'doctor-profile', component: DoctorProfileComponent}
 ];
 
 @NgModule({

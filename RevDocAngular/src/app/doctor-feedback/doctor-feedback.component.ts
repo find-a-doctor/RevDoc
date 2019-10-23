@@ -27,21 +27,6 @@ export class DoctorFeedbackComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log(this.route);
-    this.feedback = new Feedback();
-    this.feedback.appointment=new Appointment();
-    this.feedback.appointment.doctor=new Doctor();
-
-    //session not yet workiing
-    this.route.url.subscribe(data => {
-      this.feedback.appointment.doctor.npi = Number(data[1].path);
-    });
-    this.doctorInfoService.getDoctor(this.feedback.appointment.doctor.npi).subscribe(data => {
-      // console.log("getting...\n" + data);
-      this.feedback.appointment.doctor = data;
-    }, error => console.log("error:\n" + error));
-
-    
   }
 
   //Collects ratings and comment from user to create a feedback object then sends an alert to user that the feedback has been recieved.

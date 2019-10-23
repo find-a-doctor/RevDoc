@@ -1,0 +1,60 @@
+package com.revdoc.service.impl;
+
+import java.util.List;
+
+import com.revdoc.model.Doctor;
+import com.revdoc.model.DoctorLicense;
+import com.revdoc.service.DoctorLicenseService;
+
+public class DoctorLicenseServiceImpl implements DoctorLicenseService {
+	
+	@Override
+	public Doctor createDoctor(Doctor doctor) {
+		return doctorDAO.save(doctor);
+	}
+
+	@Override
+	public void deleteDoctor(long npi) {
+		doctorDAO.deleteById(npi);		
+	}
+
+	@Override
+	public Doctor updateDoctor(Doctor doctor) {
+		return doctorDAO.save(doctor);
+	}
+
+	@Override
+	public List<Doctor> getAllDoctors() {
+		return doctorDAO.findAll();
+	}
+
+	@Override
+	public Doctor getDoctorByNpi(long npi) {
+		return doctorDAO.findByNpi(npi);
+	}
+
+	@Override
+	public DoctorLicense createDoctorLicense(DoctorLicense doctorLicense) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteDoctorLicense(long doctorLicenseId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public DoctorLicense updateDoctorLicense(DoctorLicense đoctorLicense) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DoctorLicense getDoctorByNpi(long doctorLicenseId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
