@@ -1,1 +1,77 @@
-<p>doctor-feedback works!</p>
+<div>
+    <div class="form-group" id="rating-wrapper">
+        
+            <!--this headline can change to show time and place of appointment when a session is available to grab 
+            employee, apointment, and doctor info. -->
+            <h5 id="headline">How would you rate your most recent appointment with this
+                doctor?</h5><br />
+     <br />
+        
+        <!-- form for rating bedside manners, wait time, overall, and comments -->
+        <form (ngSubmit)="rateDoctor(comment)">
+            <table id="ratings_table">
+                <tr>
+                    <td>
+                    </td>
+                <tr>
+                    <td>
+                        <pre>Bedside Manners Rating: <b>{{ BedsideManners.value }}</b></pre>
+                        <div class="form-group">
+                              <!-- ngb-rating is an easy to use bootstrap tag that is used to create form values for each rating. -->
+                            <ngb-rating [formControl]="BedsideManners" max=5>
+                                <!-- ngb-rating should only have one ng-tmeplate in it, so do not remove this tag.-->
+                                <ng-template let-fill="fill" let-index="index">
+                                    <span class="stars" [class.filled]="fill === 100">&#9733;</span>
+                                </ng-template>
+                            </ngb-rating>
+                            <div class="form-text small">
+                            </div>
+                        </div>
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <pre>Wait Time Rating: <b>{{WaitTime.value}}</b></pre>
+                        <div class="form-group">
+                            <ngb-rating [formControl]="WaitTime" max=5>
+                                <ng-template let-fill="fill" let-index="index">
+                                    <span class="stars" [class.filled]="fill === 100">&#9733;</span>
+                                </ng-template>
+                            </ngb-rating>
+                            <div class="form-text small">
+                            </div>
+                        </div>
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <pre>Overall Rating: <b>{{Overall.value}}</b></pre>
+                        <div class="form-group">
+                          
+                            <ngb-rating [formControl]="Overall" max=5>
+                                <ng-template let-fill="fill" let-index="index">
+                                    <span class="stars" [class.filled]="fill === 100">&#9733;</span>
+                                </ng-template>
+                            </ngb-rating>
+                            <div class="form-text small">
+                            </div>
+                        </div>
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div> 
+                            <!-- ngModel is used to create the object that we are passing in rateDoctor(string)-->
+                            <textarea class="form-control" rows="5"  [(ngModel)]="comment"
+                                placeholder="comment" name="comment"></textarea>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <button id="submit" type="submit" value="submit">Submit</button>
+        </form>
+    </div>
+</div>
