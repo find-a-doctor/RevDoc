@@ -53,10 +53,9 @@ export class NavbarComponent implements OnInit {
       this.onChange()
       this.router.navigate(['doctor-profile'])
     } else if(localStorage.getItem("USER_TYPE") == "ASSOCIATE") {
-      this.router.navigate(['searchDoctor'])
+      this.router.navigate(['user-profile'])
     } else if(localStorage.getItem("USER_TYPE") == null){
       this.router.navigate(['login'])
     }
   }
-
 }

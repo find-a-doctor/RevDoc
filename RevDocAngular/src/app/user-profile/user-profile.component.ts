@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RevAssociate } from '../revdoc-classes/rev-associate';
 import { ViewApptService } from '../view-appt.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AssociateService } from '../associate-service';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -14,7 +14,7 @@ export class UserProfileComponent implements OnInit {
   revAssociate: RevAssociate;
   loggedIn: boolean;
 
-  constructor(private associateService: AssociateService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private associateService: SessionService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.revAssociate = new RevAssociate();

@@ -30,6 +30,7 @@ import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { CommonModule } from '@angular/common';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { UserProfileComponent } from './user-profile/user-profile.component'
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     JwPaginationComponent,
     DoctorFeedbackComponent,
     LoginPageComponent,
+    UserProfileComponent
     
   ],
   imports: [
