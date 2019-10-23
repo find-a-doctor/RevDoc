@@ -24,6 +24,7 @@ import { DoctorRatingsComponent } from './doctor-ratings/doctor-ratings.componen
 import { DoctorFeedbackComponent } from './doctor-feedback/doctor-feedback.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { DoctorViewProfileComponent } from './doctor-view-profile/doctor-view-profile.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
     DoctorRatingsComponent,
     DoctorFeedbackComponent,
     NavbarComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    DoctorViewProfileComponent
   ],
   imports: [
     BrowserModule,
