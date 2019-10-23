@@ -1,0 +1,71 @@
+package com.revdoc.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.revdoc.dao.DoctorDAO;
+import com.revdoc.model.Conditions;
+import com.revdoc.model.Doctor;
+import com.revdoc.service.DoctorInfoService;
+
+@Service
+public class DoctorInfoServiceImpl implements DoctorInfoService {
+	
+	@Autowired
+	private DoctorDAO doctorDAO;
+	
+	public DoctorInfoServiceImpl() {
+		// EMPTY CONSTRUCTOR BUSINESS STANDARD
+	}
+	
+	// Edit Doctor Profile
+	@Override
+	public Doctor createDoctor(Doctor doctor) {
+		return doctorDAO.save(doctor);
+	}
+
+//	@Override
+//	public void deleteDoctor(long npi, Doctor doctor) {
+//		//doctorDAO.delete(doctor);		
+//		doctorDAO.deleteByNpi(npi);
+//	}
+
+	@Override
+	public void updateDoctor (Doctor doctor, long npi) {
+		doctorDAO.save(doctor);
+	}
+
+	@Override
+	public List<Doctor> getAllDoctors() {
+		return doctorDAO.findAll();
+	} 
+
+	@Override
+	public Doctor getDoctorByNpi(long npi) {
+		return doctorDAO.findByNpi(npi);
+	}
+	
+	@Override
+	public List<Object[]> getDoctorProfileByNpi(long npi) {
+		return doctorDAO.findDoctorProfileByNpi(npi);
+	}
+
+	@Override
+	public void updateDoctorProfile(Object[] profile) {
+		//Doctor doctor = new Doctor(, profile[1], , profile[3], profile[4], profile[5], profile[6], profile[7], profile[8]);
+		Doctor doctor = new Doctor(profile[0], profile[1], profile[2], profile[3], profile[4], profile[5], "about John Ross here", 1, l1);
+		doctorDAO.save(doctor);
+		
+	}
+	
+//	@Override
+//	public void updateDoctorProfile(Object[] profile) {
+//		
+//		
+//		Conditions condition = new Conditions(conditionId, conditionType, doctor);
+//		conditionsDAO.save(condition);
+//	}
+	
+}

@@ -1,0 +1,5 @@
+package com.revdoc.dao;
+
+public interface DoctorDAO {
+
+}
