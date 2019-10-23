@@ -1,16 +1,19 @@
 package com.revdoc.service.impl;
 
-import java.util.List;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revdoc.dao.ConditionsDAO;
 import com.revdoc.dao.ConditionTypeDAO;
+import com.revdoc.dao.ConditionsDAO;
+import com.revdoc.dao.DoctorDAO;
 import com.revdoc.dao.DoctorLicenseDAO;
+import com.revdoc.dao.FeedbackDAO;
+import com.revdoc.dao.FollowersDAO;
 import com.revdoc.dao.InsuranceDAO;
 import com.revdoc.dao.InsuranceTypeDAO;
 import com.revdoc.dao.LicenseDAO;
@@ -21,6 +24,8 @@ import com.revdoc.model.ConditionType;
 import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.DoctorLicense;
+import com.revdoc.model.Feedback;
+import com.revdoc.model.Followers;
 import com.revdoc.model.Insurance;
 import com.revdoc.model.InsuranceType;
 import com.revdoc.model.License;
@@ -28,11 +33,6 @@ import com.revdoc.model.Location;
 import com.revdoc.model.Specialty;
 import com.revdoc.model.SpecialtyType;
 import com.revdoc.service.DoctorInfoService;
-import com.revdoc.model.Followers;
-import com.revdoc.model.Feedback;
-import com.revdoc.dao.FollowersDAO;
-import com.revdoc.dao.DoctorDAO;
-import com.revdoc.dao.FeedbackDAO;
 
 @Service
 public class DoctorInfoServiceImpl implements DoctorInfoService {
@@ -68,10 +68,10 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 	private InsuranceDAO insuranceDAO;
 
 	@Autowired
-	private FeedbackDAO fbDao;
+	private FeedbackDAO feedbackDAO;
 
 	@Autowired
-	private FollowersDAO flDao;
+	private FollowersDAO followersDAO;
 	@Override
 	public Doctor createDoctor(Doctor doctor) {
 		return doctorDAO.save(doctor);
@@ -79,18 +79,18 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 
 	@Override
 	public void deleteDoctor(long npi, Doctor doctor) {
-		doctorDAO.deleteByNpi(npi);
+//		doctorDAO.deleteByNpi(npi);
 		
 	}
 
 	@Override
 	public Doctor getDoctorByNpi(long npi) {
-		return dDao.findByNpi(npi);
+		return doctorDAO.findByNpi(npi);
 	}
 
 	@Override
 	public List<Doctor> getAllDoctors() {
-		return dDao.findAll();
+		return doctorDAO.findAll();
 	}
 
 	@Override
@@ -100,13 +100,13 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 
 	@Override
 	public List<Feedback> getAllFeedback() {
-		return fbDao.findAll();
+		return feedbackDAO.findAll();
 	}
 	// returns all feedback for all doctors
 
 	@Override
 	public List<Feedback> getAllFeedback(long npi) {
-		return fbDao.getAll(npi);
+		return feedbackDAO.getAll(npi);
 	}
 	//returns only feedback for specified doctor
 	
@@ -159,29 +159,29 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 
 	}
 
-	@Override
-	public List<Insurance> getInsurance(long npi){
-		return iDao.getInsurance(npi);
-	}
-
-	@Override
-	public List<Specialty> getSpecialty(long npi) {
-		return sDao.getSpecialty(npi);
-	}
-
-	@Override
-	public List<Conditions> getConditions(long npi) {
-		return cDao.getConditions(npi);
-	}
+//	@Override
+//	public List<Insurance> getInsurance(long npi){
+//		return insuranceDAO.getInsurance(npi);
+//	}
+//
+//	@Override
+//	public List<Specialty> getSpecialty(long npi) {
+//		return specialtyDAO.getSpecialty(npi);
+//	}
+//
+//	@Override
+//	public List<Conditions> getConditions(long npi) {
+//		return conditionsDAO.getConditions(npi);
+//	}
 
 	@Override
 	public Feedback submitFeedback(Feedback feedback) {
-		return fbDao.save(feedback);
+		return feedbackDAO.save(feedback);
 	}
 
 	@Override
 	public Doctor updateFollowers(long npi) {
-		int numberOfFollowers= flDao.countFollowers(npi);
+		int numberOfFollowers= followersDAO.countFollowers(npi);
 		Doctor doctor=getDoctorByNpi(npi);
 		doctor.setNumberOfFollowers(numberOfFollowers);
 		return doctor;
@@ -189,23 +189,23 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 	
 	@Override
 	public List<Followers> allFollowers() {
-		return flDao.findAll();
+		return followersDAO.findAll();
 	}
 
 	@Override
 	public boolean isFollowing(long npi, String revassociate) {
-		List<Followers> followingList=flDao.isFollowing(npi, revassociate);
+		List<Followers> followingList=followersDAO.isFollowing(npi, revassociate);
 		return(followingList.size()!=0);
 	}
 
 	@Override
 	public Followers followDoctor(Followers followers) {
-		return flDao.save(followers);
+		return followersDAO.save(followers);
 	}
 
 	@Override
 	public void unfollowDoctor(long followerId) {
-		flDao.deleteById(followerId);
+		followersDAO.deleteById(followerId);
 	}
 
 }

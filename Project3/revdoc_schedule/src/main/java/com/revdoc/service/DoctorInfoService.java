@@ -19,11 +19,11 @@ public interface DoctorInfoService {
 
 	public List<Feedback> getAllFeedback(long npi);
 
-	public List<Insurance> getInsurance(long npi);
-
-	public List<Specialty> getSpecialty(long npi);
-
-	public List<Conditions> getConditions(long npi);
+//	public List<Insurance> getInsurance(long npi);
+//
+//	public List<Specialty> getSpecialty(long npi);
+//
+//	public List<Conditions> getConditions(long npi);
 	public Feedback submitFeedback(Feedback feedback);
 	public Doctor updateFollowers(long npi);
 	public boolean isFollowing(long npi, String revassociate);

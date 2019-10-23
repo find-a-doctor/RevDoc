@@ -10,6 +10,8 @@ import com.revdoc.model.Appointment;
 @Repository
 public interface AppointmentDAO extends JpaRepository<Appointment, Long>{
 
+	List<Appointment> findAppointmentByRevAssociateRevAssociateEmailAndDoctorNpi(String email, long npi);
+
 	List<Appointment> findByRevAssociateRevAssociateEmail(String email);
 	List<Appointment> findByDoctorEmailContaining(String email);
 }
