@@ -48,7 +48,7 @@ export class DoctorFeedbackComponent implements OnInit {
         this.feedback = new Feedback();
         // building appointement object
         this.feedback.appointment = new Appointment();
-        this.feedback.appointment.appointmentId = 10000003;
+        this.feedback.appointment.appointmentId = 10000001;
         this.feedback.appointment.date=null;
         this.feedback.appointment.time=null;
         this.feedback.appointment.insurance="QuackQuack";

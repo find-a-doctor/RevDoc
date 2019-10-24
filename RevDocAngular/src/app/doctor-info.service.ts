@@ -119,7 +119,7 @@ export class DoctorInfoService {
 
    //Feedback has an appointment number in it, so we can get user email and doctor npi from feedback object.
    public rateDoctor( feedback :Feedback){
-     return this.http.post(this.baseUrl+this.rateDoctorUrl,feedback);
+     return this.http.post(this.rateDoctorUrl,feedback);
    }
 
   public isFollowing(npi: number, revassociate: RevAssociate): Observable<boolean> {

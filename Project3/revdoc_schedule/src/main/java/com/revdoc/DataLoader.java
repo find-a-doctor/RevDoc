@@ -210,10 +210,10 @@ public class DataLoader {
 		ap4=appointmentDao.save(ap4);
 		
 		// CREATE FEEDBACK
-		Feedback fb1 = new Feedback(0, 1.5f, 2.5f, true, "comments feedback 1 here", ap1);
+		Feedback fb1 = new Feedback(0, 1.5f, 2.5f, 0.5f, "comments feedback 1 here", ap1);
 		fb1 = feedbackDao.save(fb1);
 		
-		Feedback fb2 = new Feedback(0, 2.5f, 0.5f, true, "comments feedback 2 here", ap2);
+		Feedback fb2 = new Feedback(0, 2.5f, 0.5f, 0.2f, "comments feedback 2 here", ap2);
 		fb2 = feedbackDao.save(fb2);
 		
 		
