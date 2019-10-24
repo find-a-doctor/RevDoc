@@ -21,12 +21,15 @@ export class LoginPageComponent {
   associateLogin(){
     console.log("function has been reached")
     this.session.initAssociateSession(this.associate).subscribe(data => {
+      this.associate=data;
+      
     })
     
     this.session.getAssociateSession().subscribe(data=>{
     
     });
     this.router.navigate(['schedule-appt']);
+    console.log("Session Created: "+this.associate)
   }
 
   doctorLogin(){

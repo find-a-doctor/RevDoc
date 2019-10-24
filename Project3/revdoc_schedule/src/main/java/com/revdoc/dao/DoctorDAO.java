@@ -53,9 +53,10 @@ public interface DoctorDAO  extends JpaRepository<Doctor, Long>{
 			+ "join Condition_type on conditions.condition_type_condition_type_id = Condition_type.condition_type_id "
 			+ "group by Doctor.npi", nativeQuery = true)
 	List<Object[]> findAllDoctors();
-	
+
 
 //used By DoctorInfoService	
+
 	@Query("select d from Doctor d where d.npi = :npi")
 	Doctor findByNpi(long npi);
 	

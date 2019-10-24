@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Appointment } from './revdoc-classes/appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +9,17 @@ import { HttpClient } from '@angular/common/http';
 
 export class ViewApptService {
 
-  public allApptsUrl: string;
+  private getApptsUrl: string;
+  private getApptsByAssociateUrl: string;
+  private getApptsByDoctorUrl: string;
   public userApptsUrl: string;
   public doctorApptsUrl: string;
   public loginUrl: string;
 
   constructor(private http: HttpClient) {
-    this.allApptsUrl = "http://localhost:9000/appointments";
+    this.getApptsUrl = 'http://localhost:9000/appointments';
+    this.getApptsByAssociateUrl = 'http://localhost:9000/userAppointments/';
+    this.getApptsByDoctorUrl = 'http://localhost:9000/doctorAppointments/';
     this.userApptsUrl = "http://localhost:9000/appointments/";
     this.doctorApptsUrl = "http://localhost:9000/doctorAppointments/";
     this.loginUrl = "http://localhost:9000/login/";
@@ -25,9 +30,16 @@ export class ViewApptService {
      return this.http.get<Object>(this.loginUrl + email);
    }
 
-   public allAppts() {
-    console.log("Grabbing all Appts: " + this.allApptsUrl);
-    return this.http.get<Object[]>(this.allApptsUrl);
+   public getAllAppointments(): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(this.getApptsUrl);
+  }
+
+  public getAppointmentsByRevAssociateEmail(email: string): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(this.getApptsByAssociateUrl + email);
+  }
+
+  public getAppointmentsByDoctorEmail(email: string): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(this.getApptsByDoctorUrl + email);
   }
 
   public userAppts(email: string) {
@@ -39,4 +51,5 @@ export class ViewApptService {
     console.log("Grabbing all Appts: " + this.doctorApptsUrl + email);
     return this.http.get<Object[]>(this.doctorApptsUrl + email);
   }
+
 }

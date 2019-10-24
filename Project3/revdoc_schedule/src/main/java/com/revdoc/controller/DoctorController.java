@@ -38,12 +38,12 @@ public class DoctorController {
 	//this is redundant, only used for testing, but the function is used in SearchDoctorController
 
 
-
 	@GetMapping("/allRatings/")
 	public List<Feedback> getAllRatings(){
 		return service.getAllFeedback();
 	}
 
+	
 	@GetMapping("/allRatings/{npi}")
 	public List<Feedback> getAllRatings(@PathVariable long npi){
 		return service.getAllFeedback(npi);
@@ -72,7 +72,6 @@ public class DoctorController {
 		return service.submitFeedback(feedback);
 	}
 
-
 	@PostMapping("/updateDoctor/{npi}")
 	public Doctor updateDoctor(@PathVariable long npi) {
 		return service.updateFollowers(npi);
@@ -99,3 +98,6 @@ public class DoctorController {
 	}
 
 }
+
+
+

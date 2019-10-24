@@ -29,6 +29,10 @@ export class DoctorInfoService {
   private getAllInsuranceUrl: string;
   private getLocationByIdUrl: string;
   private getDoctorByIdUrl: string;
+  private getInsuranceTypeByNpiUrl: string;
+  private getAllDoctorAppointmentByIdUrl: string;
+  private deleteDoctorAppointmentUrl: string;
+  private setDoctorAppointmentUrl: string;
   baseUrl: string;
   doctorUrl: string;
   allRatingsUrl: string;
@@ -54,6 +58,10 @@ export class DoctorInfoService {
     this.getAllFollowersUrl = "http://localhost:9000/allFollowers";
     this.rateDoctorUrl = "http://localhost:9000/feedback";
     this.getAppointmentUrl= "http://localhost:9000/getAppointment/"
+    this.getInsuranceTypeByNpiUrl = "http://localhost:9000/insuranceTypeByNPI/";
+    this.getAllDoctorAppointmentByIdUrl = "http://localhost:9000/doctorAppointmentByNPI/";
+    this.deleteDoctorAppointmentUrl = "http://localhost:9000/deleteDoctorAppointment/";
+    this.setDoctorAppointmentUrl = "http://localhost:9000/doctorAppointment";
   }
 
 
@@ -87,6 +95,13 @@ export class DoctorInfoService {
     return this.http.get<Doctor>(this.getDoctorByIdUrl+id);
   }
 
+  public getInsuranceTypeByNpi(id: number){
+    return this.http.get<InsuranceType[]>(this.getInsuranceTypeByNpiUrl+id);
+  }
+
+  public getAllDoctorAppointmentById(id: number){
+    return this.http.get<Appointment[]>(this.getAllDoctorAppointmentByIdUrl+id);
+  }
 
   public getDoctor(npi: number): Observable<Doctor> {
     return this.http.get<Doctor>(this.doctorUrl + npi);
@@ -116,6 +131,13 @@ export class DoctorInfoService {
     console.log("NPI: "+npi+" email: "+String(revassociate.revAssociateEmail));
     return this.http.get<Appointment>(this.getAppointmentUrl+npi+"/"+revassociate.revAssociateEmail);
    }
+   public deleteDoctorAppointment(appointmentId: string){
+    return this.http.delete<Appointment>(this.deleteDoctorAppointmentUrl+ appointmentId);
+  }
+
+  public setDoctorAppointment(appointment: Appointment){
+    return this.http.post<Appointment>(this.setDoctorAppointmentUrl, appointment);
+  }
 
   public isFollowing(npi: number, revassociate: RevAssociate): Observable<boolean> {
     console.log("checking if "+revassociate.revAssociateEmail+" follows "+npi)

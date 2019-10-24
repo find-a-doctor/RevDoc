@@ -14,9 +14,11 @@ import com.revdoc.dao.SpecialtyDAO;
 import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.Feedback;
+
 import com.revdoc.model.Followers;
 import com.revdoc.model.Insurance;
 import com.revdoc.model.Specialty;
+
 import com.revdoc.service.DoctorInfoService;
 
 @Service
@@ -63,7 +65,6 @@ public class DoctorInfoServiceImpl implements DoctorInfoService{
 		return feedbackDao.getAll(npi);
 	}
 	//returns only feedback for specified doctor
-
 
 	@Override
 	public List<Insurance> getInsurance(long npi){
