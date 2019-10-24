@@ -11,6 +11,7 @@ import { DoctorViewProfileComponent } from './doctor-view-profile/doctor-view-pr
 import { UserProfileComponent } from './user-profile/user-profile.component'
 
 
+
 const routes: Routes = [
   { path: 'login', component: LoginPageComponent},
   { path: 'doctorHome', component: DoctorProfileComponent},
