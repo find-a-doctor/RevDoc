@@ -23,13 +23,13 @@ const routes: Routes = [
   { path: 'calendar', component: AppointmentCalendarComponent},
   { path: 'viewSchedule', component: AppointmentCalendarComponent},
   { path: 'schedule-appt', component: ScheduleApptComponent},
-  { path: 'doctor-profile', component: DoctorProfileComponent},
   { path: 'user-profile', component: UserProfileComponent},
   { path: 'doctor-view', component: DoctorViewProfileComponent}
+  { path: 'doctor-profile', component: DoctorProfileComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation:'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

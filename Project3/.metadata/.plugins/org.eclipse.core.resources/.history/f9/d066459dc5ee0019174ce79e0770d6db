@@ -1,5 +1,0 @@
-package com.revdoc.service;
-
-public interface DoctorInfoService {
-
-}

@@ -79,6 +79,8 @@ typings/
 .idea
 .metadata
 .project
+.settings/
+.metadata/
 .recommenders
 .settings
 .springBeans
@@ -102,7 +104,4 @@ transaction-logs
 secrets.yml
 .gradletasknamecache
 .sts4-cache
-
 RevDocAngular/package-lock.json
-
-RevDocAngular/package.json

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DoctorInfoService } from '../doctor-info.service';
 //import { timingSafeEqual } from 'crypto';
 import { SpecialtyType } from '../revdoc-classes/specialty-type';
@@ -52,6 +52,7 @@ export class SearchDoctorComponent implements OnInit {
   }
 
   ngOnInit() {
+
     // an example array of 10 items to be paged
     // this.items = Array(10).fill(0).map((x, i) => ({ id: (i + 1), name: `Item ${i + 1}` }));
     this.searchDoctorService.getAllSpecialtys().subscribe(data => { this.specialtyList = data; });
@@ -169,7 +170,7 @@ export class SearchDoctorComponent implements OnInit {
         }
       });
     }
-    
+
     // ... do other stuff here ...
   }
   //////////////////////////////////// Search Doctor

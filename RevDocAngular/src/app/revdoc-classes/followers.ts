@@ -4,7 +4,7 @@ import { RevAssociate } from './rev-associate';
 
 export class Followers {
 
-  followersId: number;
+  followerId: number;
   doctor: Doctor;
   revAssociate: RevAssociate;
   followDate: Date;

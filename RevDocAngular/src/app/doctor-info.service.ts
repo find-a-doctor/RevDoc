@@ -35,14 +35,12 @@ export class DoctorInfoService {
   private setDoctorAppointmentUrl: string;
   baseUrl: string;
   doctorUrl: string;
-  getAllUrl: string;
   allRatingsUrl: string;
   followingUrl: string;
   followUrl: string;
   getAllFollowersUrl: string;
   rateDoctorUrl: string;
   getAppointmentUrl: string;
-  
 
   constructor(private http: HttpClient) {
     this.searchDoctorUrl = "http://localhost:9000/searchDoctor/";
@@ -57,7 +55,6 @@ export class DoctorInfoService {
     this.deleteDoctorAppointmentUrl = "http://localhost:9000/deleteDoctorAppointment/";
     this.setDoctorAppointmentUrl = "http://localhost:9000/doctorAppointment";
     this.baseUrl = "http://localhost:9000/";
-    // this.doctorUrl = this.baseUrl + "doctor/";
     this.doctorUrl = this.baseUrl + "doctorinfo/";
     this.getAllUrl = this.baseUrl + "doctors";
     this.allRatingsUrl = this.baseUrl + "allRatings/";
@@ -66,6 +63,7 @@ export class DoctorInfoService {
     this.getAllFollowersUrl = this.baseUrl + "allFollowers";
     this.rateDoctorUrl = this.baseUrl + "rateDoctor/"
     this.getAppointmentUrl= this.baseUrl + "getAppointment/"
+    this.rateDoctorUrl = "http://localhost:9000/feedback";
   }
 
 
@@ -75,12 +73,9 @@ export class DoctorInfoService {
     //  return this.http.get<Doctor[]>(this.searchDoctorUrl+search);
     return this.http.get<Object[]>(this.searchDoctorUrl + search);
 
+  public getAllDoctors() {
+    return this.http.get<Object[]>(this.getAllDoctorsUrl);
   }
-
-
-  // public getAllDoctors() {
-  //   return this.http.get<Object[]>(this.getAllDoctorsUrl);
-  // }
   public getAllConditions() {
     return this.http.get<ConditionType>(this.getAllConditionsUrl);
   }
@@ -103,6 +98,10 @@ export class DoctorInfoService {
     return this.http.get<Appointment[]>(this.getAllDoctorAppointmentByIdUrl+id);
   }
 
+  public getAllDoctorAppointmentById(id: number){
+    return this.http.get<Appointment[]>(this.getAllDoctorAppointmentByIdUrl+id);
+  }
+
   public getDoctor(npi: number): Observable<Doctor> {
     return this.http.get<Doctor>(this.doctorUrl + npi);
   }
@@ -114,8 +113,8 @@ export class DoctorInfoService {
      return this.http.get<Feedback[]>(this.allRatingsUrl+npi);
    };
 
-  public getAllDoctors(): Observable<Doctor[]> {
-    return this.http.get<Doctor[]>(this.getAllUrl);
+  public setDoctorAppointment(appointment: Appointment){
+    return this.http.post<Appointment>(this.setDoctorAppointmentUrl, appointment);
   }
    public getDoctorConditions(npi:number):Observable<Conditions[]>{
      return this.http.get<Conditions[]>(this.doctorUrl+npi+"/conditions");

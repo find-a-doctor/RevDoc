@@ -1,7 +1,6 @@
 package com.revdoc;
 
 import java.security.MessageDigest;
-import java.sql.Time;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -217,6 +216,7 @@ public class DataLoader {
 		Feedback fb2 = new Feedback(0, 2.5f, 0.5f, true, "comments feedback 2 here", ap2);
 		fb2 = feedbackDao.save(fb2);
 		
+		
 		// CREATE CONDITIONTYPE
 		ConditionType ct1 = new ConditionType(0, "condition type 1");
 		ct1 = conditionTypeDao.save(ct1);
@@ -421,6 +421,7 @@ public class DataLoader {
 		System.out.println("followers 2: "+f2);
 		System.out.println("appointment 1: "+ap1);
 		System.out.println("appointment 2: "+ap2);
+		System.out.println("appointment 3: "+ap3);
 		System.out.println("feedback 1: "+fb1);
 		System.out.println("feedback 2: "+fb2);
 		System.out.println("conditionType 1: "+ct1);

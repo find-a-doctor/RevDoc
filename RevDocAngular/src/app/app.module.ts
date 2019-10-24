@@ -33,6 +33,7 @@ import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
 import { UserProfileComponent } from './user-profile/user-profile.component'
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,6 @@ import { UserProfileComponent } from './user-profile/user-profile.component'
     LoginPageComponent,
     UserProfileComponent,
     DoctorViewProfileComponent
-
   ],
   imports: [
     BrowserModule,

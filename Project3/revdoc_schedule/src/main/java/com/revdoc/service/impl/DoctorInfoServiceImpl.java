@@ -25,6 +25,7 @@ import com.revdoc.model.Conditions;
 import com.revdoc.model.Doctor;
 import com.revdoc.model.DoctorLicense;
 import com.revdoc.model.Feedback;
+
 import com.revdoc.model.Followers;
 import com.revdoc.model.Insurance;
 import com.revdoc.model.InsuranceType;
@@ -103,6 +104,7 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 		return feedbackDAO.findAll();
 	}
 	// returns all feedback for all doctors
+	// for testing
 
 	@Override
 	public List<Feedback> getAllFeedback(long npi) {
@@ -186,7 +188,7 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 		doctor.setNumberOfFollowers(numberOfFollowers);
 		return doctor;
 	}
-	
+
 	@Override
 	public List<Followers> allFollowers() {
 		return followersDAO.findAll();
