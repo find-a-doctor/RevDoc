@@ -55,4 +55,8 @@ export class DoctorProfileComponent implements OnInit {
 
   }
 
+  bookAppointment(){
+    this.router.navigate(['viewSchedule',{id:this.doctor.npi}]);
+  }
+
 }
