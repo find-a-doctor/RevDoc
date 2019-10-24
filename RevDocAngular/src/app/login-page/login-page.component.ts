@@ -33,6 +33,6 @@ export class LoginPageComponent {
       localStorage.setItem("USER_TYPE", "DOCTOR")
     })
     
-    this.router.navigate(['doctor-profile']);
+    this.router.navigate(['doctor-view']);
   }
 }

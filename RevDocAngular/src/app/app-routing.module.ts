@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'viewSchedule', component: AppointmentCalendarComponent},
   { path: 'schedule-appt', component: ScheduleApptComponent},
   { path: 'doctor-profile', component: DoctorProfileComponent},
-  { path: 'user-profile', component: UserProfileComponent}
+  { path: 'user-profile', component: UserProfileComponent},
+  { path: 'doctor-view', component: DoctorViewProfileComponent}
 ];
 
 @NgModule({

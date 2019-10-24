@@ -10,7 +10,7 @@ import { ViewApptService } from '../view-appt.service';
   styleUrls: ['./user-appts.component.css']
 })
 export class UserApptsComponent implements OnInit {
-  user: RevAssociate;
+
   revAssociate: RevAssociate;
   appointment: Appointment = new Appointment();
   userAppointments: Appointment[] = [];
@@ -20,12 +20,6 @@ export class UserApptsComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.viewApptService.getAllAppointments().subscribe(apptsData => {
-    //   apptsData.forEach(appt => {
-    //     this.userAppointments.push(appt);
-    //   });
-    // });
-
     this.revAssociate = new RevAssociate();
     this.revAssociate.revAssociateEmail = 'revTom@gmail.com';
     this.revAssociate.revAssociatePassword = 'revTom';
@@ -37,6 +31,4 @@ export class UserApptsComponent implements OnInit {
       });
     });
   }
-
 }
-

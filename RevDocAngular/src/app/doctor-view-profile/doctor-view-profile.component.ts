@@ -9,6 +9,7 @@ import { Conditions } from '../revdoc-classes/conditions';
 import { Location } from '../revdoc-classes/location';
 import { RevAssociate } from '../revdoc-classes/rev-associate';
 import { SessionService } from '../session.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 
 
@@ -26,10 +27,10 @@ export class DoctorViewProfileComponent implements OnInit {
   specialty: Specialty[];
   conditions: Conditions[];
 
-  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router, private sessionService: SessionService) { }
+  constructor(private nav: NavbarComponent, private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router, private sessionService: SessionService) { }
 
   ngOnInit() {
-
+    this.sessionService.toggleLogout()
     this.sessionService.getDoctorSession().subscribe(data => { this.doctor = data; });
 
     this.doctorInfoService.getDoctorInsurance(this.doctor.npi).subscribe(data => {
@@ -47,7 +48,7 @@ export class DoctorViewProfileComponent implements OnInit {
       // console.log("conditions loaded");
     }, error => console.log("error:\n" + error));
 
-
+    this.nav.onChange()
   }
 
 }

@@ -13,22 +13,25 @@ export class NavbarComponent implements OnInit {
   isDisplayed: boolean;
    
   constructor(private router: Router, private service: SessionService) {
-    this.isDisplayed = true
+    this.isDisplayed;
    }
 
   ngOnInit() {
-    console.log(localStorage.getItem("USER_TYPE"))
-    if(localStorage.getItem("USER_TYPE") == null) {
-      this.isDisplayed = false;
-    }
+    this.service.toggleLogout().subscribe(data => {
+      this.isDisplayed = data;
+      console.log(this.isDisplayed)
+    })
   }
 
   onChange(){
+    console.log("On change called")
     if(localStorage.getItem("USER_TYPE") == null) {
       this.isDisplayed = false
     } else{
       this.isDisplayed = true
     }
+    console.log(localStorage.getItem("USER_TYPE"))
+    console.log(this.isDisplayed)
   }
 
   logout(){

@@ -3,6 +3,7 @@ import { RevAssociate } from '../revdoc-classes/rev-associate';
 import { ViewApptService } from '../view-appt.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SessionService } from '../session.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -14,7 +15,7 @@ export class UserProfileComponent implements OnInit {
   revAssociate: RevAssociate;
   loggedIn: boolean;
 
-  constructor(private associateService: SessionService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private associateService: SessionService, private router: Router, private route: ActivatedRoute, private nav: NavbarComponent) { }
 
   ngOnInit() {
     this.revAssociate = new RevAssociate();
@@ -30,5 +31,6 @@ export class UserProfileComponent implements OnInit {
     } else if (localStorage.getItem('USER_TYPE') == 'DOCTOR') {
       this.loggedIn = false;
     }
+    this.nav.onChange()
   }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RevAssociate } from './revdoc-classes/rev-associate';
 import { Doctor } from './revdoc-classes/doctor';
+import { Observable, of as observableOf } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class SessionService {
   public destroySessionUrl: string
   public associate: RevAssociate;
   public doctor: Doctor;
+  public isVisable: boolean;
 
   constructor(private http: HttpClient) {
     this.associateSessionUrl = "http://localhost:9000/associateSession";
@@ -23,6 +25,17 @@ export class SessionService {
     this.getDoctorSessionUrl = "http://localhost:9000/getDocSession"
     this.destroySessionUrl = "http://localhost:9000/destroy"
    }
+
+   public toggleLogout(): Observable<boolean>{
+      if(localStorage.getItem("USER_TYPE") == null){
+        return observableOf(false)
+      }
+      else{
+        return observableOf(true)
+      }
+   }
+
+   
 
    public initAssociateSession(associate: RevAssociate){
      return this.http.post<RevAssociate>(this.associateSessionUrl, associate)
