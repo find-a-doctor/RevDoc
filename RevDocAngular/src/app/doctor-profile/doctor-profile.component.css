@@ -1,0 +1,43 @@
+#docprofile{
+    position: static;
+    font-size: 15pt;
+}
+
+.ex{
+    background-color: lightcoral;
+}
+
+#doctorInfo td{
+    border: 2pt solid black;
+}
+
+table{
+    width: 100%;
+}
+
+#TODO{
+    border: 3pt solid red;
+    background-color: rgba(255, 0, 0, 0.5);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+button{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Lato', sans-serif;
+    font-size:12px;
+    font-weight: 900;
+    background-color: #F26925;
+    border: solid;
+    border-width: 5px;
+    border-color: #F26925;
+    border-radius: 50px;
+    color: white;
+  }
+  
+  Button:hover {
+  background-color: white;
+  color: #F26925;
+  border-width: 4px;
+  }
