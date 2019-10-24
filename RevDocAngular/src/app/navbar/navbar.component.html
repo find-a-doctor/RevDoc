@@ -6,6 +6,7 @@
       <h2 class="nav-item active">
         <img class="logo" src="../../assets/RevLogo.png"></h2>
     </a>
+    
     <!-- LOGIN Icon -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +34,7 @@
             <a class="nav-link" (click)="viewAppts()">VIEW APPOINTMENTS</a>
           </li>
           <button class="btn navBtn" routerLink="searchDoctor" routerLinkActive="active">FIND A DOCTOR</button>
-          <button (click)="logout()" class="btn navBtn">LOGOUT</button>
+          <button *ngIf="isDisplayed" (click)="logout()" id="logout-btn" class="btn navBtn">LOGOUT</button>
         </ul>
       </div>
     </div>

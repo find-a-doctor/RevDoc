@@ -5,6 +5,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import { ViewApptService } from '../view-appt.service';
 import { Doctor } from '../revdoc-classes/doctor';
 import { Appointment } from '../revdoc-classes/appointment'
+import { SessionService } from '../session.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: './app-view-appt',
@@ -17,7 +19,7 @@ export class ViewApptComponent implements OnInit {
   testAppt: string
   calendarEvents:any[]=[];
   calendarPlugins=[dayGridPlugin];
-  constructor(private viewApptService:ViewApptService) { 
+  constructor(private viewApptService:ViewApptService, private sessionService:SessionService) { 
     this.doctor = new Doctor
     this.appt = new Appointment 
   }

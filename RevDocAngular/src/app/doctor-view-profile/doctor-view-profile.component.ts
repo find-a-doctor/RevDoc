@@ -9,6 +9,7 @@ import { Conditions } from '../revdoc-classes/conditions';
 import { Location } from '../revdoc-classes/location';
 import { RevAssociate } from '../revdoc-classes/rev-associate';
 import { SessionService } from '../session.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 
 

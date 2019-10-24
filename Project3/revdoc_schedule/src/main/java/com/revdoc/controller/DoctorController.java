@@ -71,6 +71,8 @@ public class DoctorController {
 	public List<Feedback> getAllRatings(){
 		return service.getAllFeedback();
 	}
+
+	
 	@GetMapping("/allRatings/{npi}")
 	public List<Feedback> getAllRatings(@PathVariable long npi){
 		return service.getAllFeedback(npi);
@@ -94,15 +96,13 @@ public class DoctorController {
 	@PostMapping("/feedback")
 	public Feedback submitFeedback(@RequestBody Feedback feedback) {
 		return service.submitFeedback(feedback);
-	//not yet working?
 	}
 
-	
 	@PostMapping("/updateDoctor/{npi}")
 	public Doctor updateDoctor(@PathVariable long npi) {
 		return service.updateFollowers(npi);
 	}
-	
+
 	@GetMapping("/following/{npi}/{revassociate}")
 	public boolean isFollowing(@PathVariable long npi, @PathVariable String revassociate) {
 		return service.isFollowing(npi,revassociate);
@@ -112,12 +112,12 @@ public class DoctorController {
 	public List<Followers> getAllFollowers(){
 		return service.allFollowers();
 	}
-	
+
 	@PostMapping("/follow/")
 	public Followers followDoctor(@RequestBody Followers followers) {
 		return service.followDoctor(followers);
 	}
-	
+
 	@DeleteMapping("/follow/{followerId}")
 	public void unfollowDoctor(@PathVariable long followerId) {
 		service.unfollowDoctor(followerId);
@@ -142,3 +142,6 @@ public class DoctorController {
 	}
 
 }
+
+
+

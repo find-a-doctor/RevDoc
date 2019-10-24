@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RevAssociate } from '../revdoc-classes/rev-associate';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Appointment } from '../revdoc-classes/appointment';
 import { ViewApptService } from '../view-appt.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-appts',
@@ -9,18 +10,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-appts.component.css']
 })
 export class UserApptsComponent implements OnInit {
-  user: RevAssociate;
 
-  constructor(private viewApptService: ViewApptService, private router: Router) {
-    this.user = new RevAssociate
-   }
+  revAssociate: RevAssociate;
+  appointment: Appointment = new Appointment();
+  userAppointments: Appointment[] = [];
 
-   
+  constructor(private viewApptService: ViewApptService, private router: Router, private route: ActivatedRoute) {
+
+  }
+
   ngOnInit() {
-    console.log(this.user);
-    this.user.revAssociateEmail = 'revTom@gmail.com'
-    this.viewApptService.getAppointmentsByRevAssociateEmail(this.user.revAssociateEmail).subscribe(data => {
-      this.user.revAssociateName = data.toString();
-    })
+    this.revAssociate = new RevAssociate();
+    this.revAssociate.revAssociateEmail = 'revTom@gmail.com';
+    this.revAssociate.revAssociatePassword = 'revTom';
+    this.revAssociate.revAssociateName =  'Tom Cat';
+
+    this.viewApptService.getAppointmentsByRevAssociateEmail(this.revAssociate.revAssociateEmail).subscribe(apptsData => {
+      apptsData.forEach(appt => {
+        this.userAppointments.push(appt);
+      });
+    });
   }
 }

@@ -9,6 +9,8 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
 import { ScheduleApptComponent } from './schedule-appt/schedule-appt.component';
 import { DoctorViewProfileComponent } from './doctor-view-profile/doctor-view-profile.component';
 import { EditDoctorProfileComponent } from './edit-doctor-profile/edit-doctor-profile.component';
+import { UserProfileComponent } from './user-profile/user-profile.component'
+
 
 
 const routes: Routes = [
@@ -23,12 +25,13 @@ const routes: Routes = [
   { path: 'viewSchedule', component: AppointmentCalendarComponent},
   { path: 'schedule-appt', component: ScheduleApptComponent},
   { path: 'doctor-profile', component: DoctorViewProfileComponent},
-  { path: 'edit-doctor-profile', component: EditDoctorProfileComponent}
-  //{ path: 'user-profile', component: UserProfileComponent }
+  { path: 'edit-doctor-profile', component: EditDoctorProfileComponent},
+  { path: 'user-profile', component: UserProfileComponent},
+  { path: 'doctor-view', component: DoctorViewProfileComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation:'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

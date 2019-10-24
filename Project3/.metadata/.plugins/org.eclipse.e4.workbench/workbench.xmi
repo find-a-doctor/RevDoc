@@ -117,6 +117,7 @@
                   </children>
                 </children>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <children xsi:type="basic:PartStack" xmi:id="_q65riuqsEems__yLUBc_5w" elementId="org.springframework.ide.eclipse.boot.dash.views.BootDashViewMStack" containerData="2632" selectedElement="_q65ri-qsEems__yLUBc_5w">
                   <children xsi:type="advanced:Placeholder" xmi:id="_q65ri-qsEems__yLUBc_5w" elementId="org.springframework.ide.eclipse.boot.dash.views.BootDashView" ref="_q64dYOqsEems__yLUBc_5w" closeable="true">
 =======
@@ -547,6 +548,7 @@
       <tags>View</tags>
       <tags>categoryTag:Other</tags>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <menus xmi:id="_rUOKcOqsEems__yLUBc_5w" elementId="org.springframework.ide.eclipse.boot.dash.views.BootDashView">
 =======
       <menus xmi:id="_8275KvTYEems05bqJ3ojGQ" elementId="org.springframework.ide.eclipse.boot.dash.views.BootDashView">
@@ -569,6 +571,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_8275TfTYEems05bqJ3ojGQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_vZXlIPDyEemoQ7KcUT9HaA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_qP8DLeqsEems__yLUBc_5w"/>
 =======
@@ -903,6 +906,7 @@
       <children xsi:type="menu:ToolBar" xmi:id="_82754fTYEems05bqJ3ojGQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_vZXlLfDyEemoQ7KcUT9HaA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_qP7b9uqsEems__yLUBc_5w"/>
 =======
         <children xsi:type="menu:DirectToolItem" xmi:id="_82754vTYEems05bqJ3ojGQ" elementId="history.group">
@@ -1093,6 +1097,7 @@
     <bindings xmi:id="_828faPTYEems05bqJ3ojGQ" keySequence="ALT+SHIFT+Q J" command="_82-7e_TYEems05bqJ3ojGQ">
       <parameters xmi:id="_828fafTYEems05bqJ3ojGQ" elementId="org.eclipse.ui.views.showView.viewId" name="org.eclipse.ui.views.showView.viewId" value="org.eclipse.jdt.ui.JavadocView"/>
     </bindings>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <bindings xmi:id="_qQkVE-qsEems__yLUBc_5w" keySequence="CTRL+," command="_qPy5G-qsEems__yLUBc_5w"/>
     <bindings xmi:id="_qQkVGuqsEems__yLUBc_5w" keySequence="ALT+SHIFT+Q L" command="_qP603OqsEems__yLUBc_5w">
@@ -1772,6 +1777,7 @@
     <tags>View</tags>
     <tags>categoryTag:Gradle</tags>
   </descriptors>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <descriptors xmi:id="_qnXrgOqsEems__yLUBc_5w" elementId="org.eclipse.debug.ui.DebugView" label="Debug" iconURI="platform:/plugin/org.eclipse.debug.ui/icons/full/eview16/debug_view.png" tooltip="" category="Debug" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
 =======

@@ -11,7 +11,16 @@ export class ViewApptService {
   private getApptsByAssociateUrl: string;
   private getApptsByDoctorUrl: string;
 
+  public userApptsUrl: string;
+  public doctorApptsUrl: string;
+  public loginUrl: string;
   constructor(private http: HttpClient) {
+    this.getApptsUrl = 'http://localhost:9000/appointments';
+    this.getApptsByAssociateUrl = 'http://localhost:9000/userAppointments/';
+    this.getApptsByDoctorUrl = 'http://localhost:9000/doctorAppointments/';
+    this.userApptsUrl = "http://localhost:9000/appointments/";
+    this.doctorApptsUrl = "http://localhost:9000/doctorAppointments/";
+    this.loginUrl = "http://localhost:9000/login/";
     this.getApptsUrl = 'http://localhost:9000/appointments';
     this.getApptsByAssociateUrl = 'http://localhost:9000/userAppointments/';
     this.getApptsByDoctorUrl = 'http://localhost:9000/doctorAppointments/';

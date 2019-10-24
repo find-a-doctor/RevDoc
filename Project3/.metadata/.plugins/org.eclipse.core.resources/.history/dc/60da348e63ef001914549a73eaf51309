@@ -1,6 +1,0 @@
-package com.revdoc.controller;
-
-@Controller
-public class LicenseController {
-
-}

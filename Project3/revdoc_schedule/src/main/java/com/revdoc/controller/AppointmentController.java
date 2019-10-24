@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revdoc.model.Appointment;
-import com.revdoc.model.Doctor;
-import com.revdoc.model.RevAssociate;
 import com.revdoc.service.AppointmentService;
 
 @CrossOrigin
@@ -32,7 +30,6 @@ public class AppointmentController {
 	
 	@GetMapping("/doctorAppointments/{email}")
 	public List<Appointment> getAppointmentByDoctor(@PathVariable String email) {
-		System.out.println(appointmentService.getAppointmentByDoctor(email));
 		return appointmentService.getAppointmentByDoctor(email);
 	}
 	

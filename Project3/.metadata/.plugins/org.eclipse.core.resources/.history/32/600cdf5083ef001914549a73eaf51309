@@ -1,9 +1,0 @@
-package com.revdoc.controller;
-
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RestController;
-
-public class InsuranceController {
-	@CrossOrigin
-	@RestController
-}

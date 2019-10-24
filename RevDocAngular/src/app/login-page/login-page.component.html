@@ -7,28 +7,18 @@
 
         <div class="form-group">
           <label for="userEmail">Enter Email</label>
-          <input
-            type="text"
-            class="form-control"
-            name="email"
-            id="email"
-            placeholder="Associate Email*"
-          />
+          <input type="text" class="form-control" name="email" id="email" placeholder="Associate Email*" />
           <!-- <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Email is required</div> -->
         </div>
 
         <div class="form-group">
           <label for="password">Enter password</label>
-          <input
-            type="text"
-            class="form-control"
-            name="password"
-            id="password"
-            placeholder="Associate Password*"
-          />
+          <input type="text" class="form-control" name="password" id="password" placeholder="Associate Password*" />
           <!-- <div class="alert alert-danger" *ngIf="password.touched && !password.valid">Password is required</div> -->
         </div>
-        <button type="submit" (click)="associateLogin()" class="btn btn-space">Login</button>
+        <!-- <button type="submit" (click)="associateLogin()" class="btn btn-space">Login</button> -->
+        <button type="button" (click)="associateLogin()" class="btn btn-space">Login</button>
+        <!-- fixes error "form submission cancelled because form is not connected" -->
       </form>
     </div>
 
@@ -60,11 +50,8 @@
           />
           <!-- <div class="alert alert-danger" *ngIf="password.touched && !password.valid">Password is required</div> -->
         </div>
-        <button
-          (click)="doctorLogin()"
-          class="btn btn-space"
-          style="color:#f26925; background-color: white;border-radius: 50px"
-        >
+        <button (click)="doctorLogin()" class="btn btn-space"
+          style="color:#f26925; background-color: white;border-radius: 50px">
           Login
         </button>
       </form>

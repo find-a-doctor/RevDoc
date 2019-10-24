@@ -15,17 +15,18 @@
             <td>
                 <ngb-rating [(rate)]="this.bedsideManner" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
                 <pre>Rate: <b>{{this.bedsideManner}}</b></pre>
+
             </td>
         </tr>
         <tr>
-            <td>waittime</td>
+            <td>Wait Time</td>
             <td>
-                <ngb-rating [(rate)]="this.waitTime" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
+                <ngb-rating [(rate)]="this.waitTime" [starTemplate]="t" [readonly]="true" max="5" ></ngb-rating>
                 <pre>Rate: <b>{{this.waitTime}}</b></pre>
             </td>
         </tr>
         <tr>
-            <td>overrall</td>
+            <td>Overrall</td>
             <td>
                 <ngb-rating [(rate)]="this.overall" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
                 <pre>Rate: <b>{{this.overall}}</b></pre>
