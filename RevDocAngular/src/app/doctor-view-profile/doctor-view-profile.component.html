@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-8">
-                <h2>Doctor info</h2>
+                <h2>Doctor Information</h2>
                 <div class="box">
-                    doctor info box
+                    <br />
                     <table id="doctorInfo" style="border:solid black">
                         <tr style="border-bottom:1pt solid black">
                             <td>npi</td>
@@ -69,9 +69,11 @@
                             </td>
                         </tr>
                     </table>
+                    <button class="btn" (click)="loadEditor()">Click to Edit</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<app-edit-doctor-profile></app-edit-doctor-profile>
+<!-- <app-edit-doctor-profile></app-edit-doctor-profile> -->
+<router-outlet></router-outlet>

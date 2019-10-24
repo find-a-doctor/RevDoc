@@ -2,6 +2,9 @@ package com.revdoc.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,6 +27,7 @@ import com.revdoc.service.DoctorInfoService;
 @RestController
 public class DoctorController {
 
+	private HttpSession session;
 	@Autowired
 	private DoctorInfoService service;
 	
@@ -36,7 +40,18 @@ public class DoctorController {
 	public void updateDoctor(@RequestBody Doctor doctor, @PathVariable long npi) {
 		service.updateDoctor(doctor, npi);
 	}
-	
+	@PutMapping("/updateDoctor")
+	public Doctor updateDoctor(@RequestBody Doctor doctor,HttpServletRequest request) {
+		
+		doctor= service.updateDoctor(doctor);
+		//System.out.println("update session"+request.getSession(false));
+		session=new SessionController().getSession();
+		System.out.println("session id in updateDoctor "+session.getId());
+		session.setAttribute("DOCTOR_USER", doctor);
+		System.out.println("after update "+doctor);
+		System.out.println("session update "+session.getAttribute("DOCTOR_USER"));
+		return doctor;
+	}
 //	@GetMapping("/doctors")
 //	public List<Doctor> getAllDoctors() {
 //		return service.getAllDoctors();

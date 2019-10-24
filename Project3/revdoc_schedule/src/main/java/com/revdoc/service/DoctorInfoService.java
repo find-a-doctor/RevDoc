@@ -35,4 +35,6 @@ public interface DoctorInfoService {
 	public void updateDoctor(Doctor doctor, long npi);
 	public List<Object[]> getDoctorProfileByNpi(long npi);
 	public void updateDoctorProfile(Object[] profile);
+
+	public Doctor updateDoctor(Doctor doctor);
 }

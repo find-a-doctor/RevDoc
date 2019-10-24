@@ -26,28 +26,36 @@ export class DoctorViewProfileComponent implements OnInit {
   specialty: Specialty[];
   conditions: Conditions[];
 
-  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router, private sessionService: SessionService) { }
+  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router, private sessionService: SessionService) {
+    this.doctor= new Doctor();
+   }
 
   ngOnInit() {
 
-    this.sessionService.getDoctorSession().subscribe(data => { this.doctor = data; });
-
-    this.doctorInfoService.getDoctorInsurance(this.doctor.npi).subscribe(data => {
-      this.insurance = data;
-      // console.log("insurance loaded");
-    }, error => console.log("error:\n" + error));
-
-    this.doctorInfoService.getDoctorSpecialty(this.doctor.npi).subscribe(data => {
-      this.specialty = data;
-      // console.log("specialty loaded");
-    }, error => console.log("error:\n" + error));
-
-    this.doctorInfoService.getDoctorConditions(this.doctor.npi).subscribe(data => {
-      this.conditions = data;
-      // console.log("conditions loaded");
-    }, error => console.log("error:\n" + error));
-
+    this.sessionService.getDoctorSession().subscribe(data => { this.doctor = data; 
+      this.doctorInfoService.getDoctorInsurance(this.doctor.npi).subscribe(data => {
+        this.insurance = data;
+        // console.log("insurance loaded");
+      }, error => console.log("error:\n" + error));
+  
+      this.doctorInfoService.getDoctorSpecialty(this.doctor.npi).subscribe(data => {
+        this.specialty = data;
+        // console.log("specialty loaded");
+      }, error => console.log("error:\n" + error));
+  
+      this.doctorInfoService.getDoctorConditions(this.doctor.npi).subscribe(data => {
+        this.conditions = data;
+        // console.log("conditions loaded");
+      }, error => console.log("error:\n" + error));
+  });
+    //console.log(this.doctor);
 
   }
+
+
+  loadEditor(){
+      this.router.navigate(['edit-doctor-profile']);
+  }
+
 
 }

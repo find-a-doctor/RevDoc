@@ -208,4 +208,10 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 		followersDAO.deleteById(followerId);
 	}
 
+	@Override
+	public Doctor updateDoctor(Doctor doctor) {
+		return doctorDAO.save(doctor);
+		
+	}
+
 }
