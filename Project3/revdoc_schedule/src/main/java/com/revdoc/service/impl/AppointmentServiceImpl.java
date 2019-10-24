@@ -1,8 +1,5 @@
 package com.revdoc.service.impl;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +29,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 	@Override
 	public List<Appointment> getAppointmentByDoctor(String email) {
-		return appointmentDao.findByDoctorEmail(email);
+		return appointmentDao.findByDoctorEmailContaining(email);
 	}
 
 }

@@ -30,7 +30,6 @@ export class DoctorViewProfileComponent implements OnInit {
   constructor(private nav: NavbarComponent, private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router, private sessionService: SessionService) { }
 
   ngOnInit() {
-    this.sessionService.toggleLogout()
     this.sessionService.getDoctorSession().subscribe(data => { this.doctor = data; });
 
     this.doctorInfoService.getDoctorInsurance(this.doctor.npi).subscribe(data => {
