@@ -1,0 +1,16 @@
+<section class="userApptStyle">
+  <div class="card" *ngFor="let appointment of userAppointments; let i = index; trackBy: trackByFn">
+    <div class="card-body">
+      <p class="card-title">Day: {{ appointment.date | date:'longDate' }}</p>
+      <p class="card-title">Time: {{ appointment.time | date:'EEE' }} @ {{ appointment.time | date:'shortTime' }} </p>
+      <hr>
+      <p routerLink='doctorProfile' class="card-text">Doctor: {{ appointment.doctor.doctorName }}</p>
+      <p class="card-text">Where: {{ appointment.doctor.location.locationName }}</p>
+      <p class="card-text">Address: {{ appointment.doctor.location.address }}, {{ appointment.doctor.location.city }}, {{ appointment.doctor.location.state }} {{ appointment.doctor.location.zip }}</p>
+      <!-- <p class="card-text">Insurance: {{ appointment.insurance }}</p> -->
+      <p class="card-text">Confirmed: {{ appointment.confirmed }}</p>
+      <h6 class="card-text text-muted">Associate: {{ appointment.revAssociate.revAssociateName }} </h6>
+      <h6 class="card-text text-muted">Appt Id: {{ appointment.appointmentId }}</h6>
+    </div>
+  </div>
+</section>

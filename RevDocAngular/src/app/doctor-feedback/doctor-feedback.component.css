@@ -1,0 +1,57 @@
+.stars {
+    font-size: 3rem;
+    color: white;
+  }
+  .filled {
+    color: #F26925;
+  }
+
+div#rating-wrapper {
+    background-color: lightgray;
+    color: olive;
+    border:  10px;
+
+}
+
+
+
+button#submit {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Lato', sans-serif;
+    font-size:12px;
+    font-weight: 900;
+    background-color: #F26925;
+    border: solid;
+    border-width: 5px;
+    border-color: #F26925;
+    border-radius: 50px;
+    color: white;
+    
+}
+
+#headline {
+  color: black;
+  /* font-size: 20pt; */
+}
+
+.form-group h5{
+  font-size: 25pt;
+}
+
+.form-group pre{
+  font-size:20pt;
+  font-family:Lato,sans-serif !important;
+}
+
+.form-group textarea{
+  font-size:20pt;
+}
+
+ngb-rating span{
+ font-size: 6rem;
+}
+
+button{
+  font-size:20pt !important;
+}
