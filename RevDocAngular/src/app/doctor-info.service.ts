@@ -13,10 +13,7 @@ import { Conditions } from './revdoc-classes/conditions';
 import { Followers } from './revdoc-classes/followers';
 import { RevAssociate } from './revdoc-classes/rev-associate';
 import { Observable } from 'rxjs';
-<<<<<<< HEAD
-=======
 import { Appointment } from './revdoc-classes/appointment';
->>>>>>> feat/rate-doctor-visit_enter-rating
 
 
 @Injectable({

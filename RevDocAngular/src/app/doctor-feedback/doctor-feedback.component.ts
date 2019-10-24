@@ -110,12 +110,8 @@ export class DoctorFeedbackComponent implements OnInit {
     console.log(this.feedback);
     this.doctorInfoService.rateDoctor(this.feedback).subscribe(data=>{});
     alert("Thank you for your feedback!")
-<<<<<<< HEAD
-    this.doctorInfoService.rateDoctor(this.feedback);
-=======
     window.location.reload();
 
->>>>>>> feat/rate-doctor-visit_enter-rating
 
   }
 

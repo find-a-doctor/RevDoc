@@ -1,7 +1,6 @@
 package com.revdoc;
 
 import java.security.MessageDigest;
-import java.sql.Time;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -191,16 +190,14 @@ public class DataLoader {
 //		time = new Time(14,30,0);
 		Appointment ap2 = new Appointment(0, d2, u2, date, time, "Insurant Name input form user2", false);
 		ap2=appointmentDao.save(ap2);
-<<<<<<< HEAD
-=======
+
 		
 		Appointment ap3=new Appointment(0, d0, u1, date, time, "RevInsure", true);
 		ap3= appointmentDao.save(ap3);
 		
 		Appointment ap4= new Appointment(0, d1, u1, date, time, "You're Insured", true);
 		ap4= appointmentDao.save(ap4);
-		
->>>>>>> feat/rate-doctor-visit_enter-rating
+
 		// CREATE FEEDBACK
 		Feedback fb1 = new Feedback(0, 1.5f, 2.5f, 3f, "comments feedback 1 here", ap1);
 		fb1 = feedbackDao.save(fb1);
