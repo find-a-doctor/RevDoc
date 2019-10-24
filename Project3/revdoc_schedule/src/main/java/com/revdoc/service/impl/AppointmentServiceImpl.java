@@ -29,7 +29,6 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 	@Override
 	public List<Appointment> getAppointmentByDoctor(String email) {
-		System.out.println(appointmentDao.findByDoctorEmailContaining(email));
 		return appointmentDao.findByDoctorEmailContaining(email);
 	}
 

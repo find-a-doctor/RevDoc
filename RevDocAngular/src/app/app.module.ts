@@ -31,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwPaginationComponent } from 'jw-angular-pagination';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
+import { UserProfileComponent } from './user-profile/user-profile.component'
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
     NavbarComponent,
     JwPaginationComponent,
     LoginPageComponent,
+    UserProfileComponent,
     DoctorViewProfileComponent
 
   ],
