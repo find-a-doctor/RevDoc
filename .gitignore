@@ -79,13 +79,8 @@ typings/
 .idea
 .metadata
 .project
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 .settings/
 .metadata/
-=======
->>>>>>> feat/rate-doctor-visit_enter-rating
 .recommenders
 .settings
 .springBeans
@@ -109,7 +104,3 @@ transaction-logs
 secrets.yml
 .gradletasknamecache
 .sts4-cache
-<<<<<<< HEAD
-=======
->>>>>>> 63027c58d7ebeb6457cd6fbb75d77c7d6b7b54f0
->>>>>>> feat/rate-doctor-visit_enter-rating
