@@ -4,12 +4,14 @@ import { SessionService } from '../session.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { $ } from 'protractor';
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
   isDisplayed: boolean;
    
   constructor(private router: Router, private service: SessionService) {
