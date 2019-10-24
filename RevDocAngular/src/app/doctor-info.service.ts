@@ -41,6 +41,7 @@ export class DoctorInfoService {
   getAllFollowersUrl: string;
   rateDoctorUrl: string;
   getAppointmentUrl: string;
+  getAllUrl: string;
 
   constructor(private http: HttpClient) {
     this.searchDoctorUrl = "http://localhost:9000/searchDoctor/";
@@ -72,7 +73,7 @@ export class DoctorInfoService {
     console.log("Search Doctor: " + this.searchDoctorUrl + search);
     //  return this.http.get<Doctor[]>(this.searchDoctorUrl+search);
     return this.http.get<Object[]>(this.searchDoctorUrl + search);
-
+  }
   public getAllDoctors() {
     return this.http.get<Object[]>(this.getAllDoctorsUrl);
   }
@@ -92,10 +93,6 @@ export class DoctorInfoService {
 
   public getDoctorById(id: number){
     return this.http.get<Doctor>(this.getDoctorByIdUrl+id);
-  }
-
-  public getAllDoctorAppointmentById(id: number){
-    return this.http.get<Appointment[]>(this.getAllDoctorAppointmentByIdUrl+id);
   }
 
   public getAllDoctorAppointmentById(id: number){
@@ -152,10 +149,6 @@ export class DoctorInfoService {
 
   public getInsuranceTypeByNpi(id: number){
     return this.http.get<InsuranceType[]>(this.getInsuranceTypeByNpiUrl+id);
-  }
-
-  public setDoctorAppointment(appointment: Appointment){
-    return this.http.post<Appointment>(this.setDoctorAppointmentUrl, appointment);
   }
 
   public deleteDoctorAppointment(appointmentId: string){

@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'viewSchedule', component: AppointmentCalendarComponent},
   { path: 'schedule-appt', component: ScheduleApptComponent},
   { path: 'user-profile', component: UserProfileComponent},
-  { path: 'doctor-view', component: DoctorViewProfileComponent}
+  { path: 'doctor-view', component: DoctorViewProfileComponent},
   { path: 'doctor-profile', component: DoctorProfileComponent},
 ];
 

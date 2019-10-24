@@ -64,7 +64,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "port": 9000,
+            "port": 4200,
             "browserTarget": "RevDocAngular:build"
           },
           "configurations": {
