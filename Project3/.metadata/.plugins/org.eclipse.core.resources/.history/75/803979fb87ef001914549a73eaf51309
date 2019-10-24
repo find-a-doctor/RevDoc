@@ -1,0 +1,68 @@
+package com.revdoc.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.revdoc.dao.ConditionsDAO;
+import com.revdoc.model.Conditions;
+import com.revdoc.service.ConditionsService;
+
+@Service
+public class ConditionsServiceImpl implements ConditionsService {
+	@Autowired
+	private ConditionsDAO conditionsDAO;
+
+	public ConditionsServiceImpl() {
+		// EMPTY CONSTRUCTOR BUSINESS STANDARD
+	}
+	
+	@Override
+	public Conditions createConditions(Conditions conditions) {
+		return conditionsDAO.save(conditions);
+	}
+
+	@Override
+	public void deleteConditions(long conditionId) {
+		conditionsDAO.deleteById(conditionId);	
+		
+	}
+
+	@Override
+	public Conditions updateConditions(Conditions conditions) {
+		return conditionsDAO.save(conditions);
+	}
+
+	@Override
+	public List<Conditions> getAllConditions() {
+		return conditionsDAO.findAll();
+	}
+
+	@Override
+	public Conditions getConditionByConditionId(long conditionId) {
+		return conditionsDAO.findByconditionId(conditionId);
+	}
+
+	@Override
+	public Conditions createCondition(Conditions condition) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteCondition(long conditionId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Conditions updateCondition(Conditions condition) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+	
+
+}

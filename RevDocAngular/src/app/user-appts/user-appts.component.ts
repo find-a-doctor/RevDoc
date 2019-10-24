@@ -18,8 +18,8 @@ export class UserApptsComponent implements OnInit {
    
   ngOnInit() {
     console.log(this.user);
-    this.user.revAssociateEmail = localStorage.getItem('user')
-    this.viewApptService.userAppts(this.user.revAssociateEmail).subscribe(data => {
+    this.user.revAssociateEmail = 'revTom@gmail.com'
+    this.viewApptService.getAppointmentsByRevAssociateEmail(this.user.revAssociateEmail).subscribe(data => {
       this.user.revAssociateName = data.toString();
     })
   }

@@ -102,3 +102,7 @@ transaction-logs
 secrets.yml
 .gradletasknamecache
 .sts4-cache
+
+RevDocAngular/package-lock.json
+
+RevDocAngular/package.json

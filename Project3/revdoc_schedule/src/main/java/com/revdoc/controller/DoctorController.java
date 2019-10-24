@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,16 +27,30 @@ public class DoctorController {
 	@Autowired
 	private DoctorInfoService service;
 	
-	@GetMapping("/doctor/{npi}")
+	@GetMapping("/doctorinfo/{npi}")
 	public Doctor getDoctorByNpi(@PathVariable long npi) {
 		return service.getDoctorByNpi(npi);
 	}
 	
+	@PutMapping("/doctor/{npi}")
+	public void updateDoctor(@RequestBody Doctor doctor, @PathVariable long npi) {
+		service.updateDoctor(doctor, npi);
+	}
+	
 //	@GetMapping("/doctors")
-//	public List<Doctor> getAllDoctors(){
+//	public List<Doctor> getAllDoctors() {
 //		return service.getAllDoctors();
 //	}
-
+	
+	@GetMapping("/doctorProfile/{npi}")
+	public List<Object[]> getDoctorProfileByNpi(@PathVariable long npi) {
+		return service.getDoctorProfileByNpi(npi);
+	}
+	
+	@PutMapping("/doctorProfile")
+	public void updateDoctorProfile(@RequestBody Object[] profile) {
+		service.updateDoctorProfile(profile);
+	}
 	
 	@GetMapping("/allRatings/")
 	public List<Feedback> getAllRatings(){
@@ -46,20 +61,20 @@ public class DoctorController {
 		return service.getAllFeedback(npi);
 	}
 	
-	@GetMapping("/doctor/{npi}/insurance")
-	public List<Insurance> getInsurance(@PathVariable long npi){
-		return service.getInsurance(npi);
-	}
-	
-	@GetMapping("/doctor/{npi}/specialty")
-	public List<Specialty> getSpecialty(@PathVariable long npi){
-		return service.getSpecialty(npi);
-	}
-	
-	@GetMapping("/doctor/{npi}/conditions")
-	public List<Conditions> getConditions(@PathVariable long npi){
-		return service.getConditions(npi);
-	}
+//	@GetMapping("/doctor/{npi}/insurance")
+//	public List<Insurance> getInsurance(@PathVariable long npi){
+//		return service.getInsurance(npi);
+//	}
+//	
+//	@GetMapping("/doctor/{npi}/specialty")
+//	public List<Specialty> getSpecialty(@PathVariable long npi){
+//		return service.getSpecialty(npi);
+//	}
+//	
+//	@GetMapping("/doctor/{npi}/conditions")
+//	public List<Conditions> getConditions(@PathVariable long npi){
+//		return service.getConditions(npi);
+//	}
 	
 	@PostMapping("/feedback")
 	public Feedback submitFeedback(@RequestBody Feedback feedback) {
@@ -91,6 +106,24 @@ public class DoctorController {
 	@DeleteMapping("/follow/{followerId}")
 	public void unfollowDoctor(@PathVariable long followerId) {
 		service.unfollowDoctor(followerId);
+	}
+	
+//	@GetMapping("/doctor/{npi}/insurance")
+	@GetMapping("/doctorinfo/{npi}/insurance")
+	public List<Insurance> getInsurance(@PathVariable long npi){
+		return service.getInsurance(npi);
+	}
+
+//	@GetMapping("/doctor/{npi}/specialty")
+	@GetMapping("/doctorinfo/{npi}/specialty")
+	public List<Specialty> getSpecialty(@PathVariable long npi){
+		return service.getSpecialty(npi);
+	}
+
+//	@GetMapping("/doctor/{npi}/conditions")
+	@GetMapping("/doctorinfo/{npi}/conditions")
+	public List<Conditions> getConditions(@PathVariable long npi){
+		return service.getConditions(npi);
 	}
 
 }
