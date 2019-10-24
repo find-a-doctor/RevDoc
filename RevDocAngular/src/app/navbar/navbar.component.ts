@@ -32,8 +32,8 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(){
-    this.service.destroySession().subscribe()
     localStorage.clear()
+    this.service.destroySession().subscribe()
     this.onChange()
     this.router.navigate(['login'])
   }
