@@ -13,6 +13,10 @@ import { Conditions } from './revdoc-classes/conditions';
 import { Followers } from './revdoc-classes/followers';
 import { RevAssociate } from './revdoc-classes/rev-associate';
 import { Observable } from 'rxjs';
+<<<<<<< HEAD
+=======
+import { Appointment } from './revdoc-classes/appointment';
+>>>>>>> feat/rate-doctor-visit_enter-rating
 
 
 @Injectable({
@@ -30,12 +34,12 @@ export class DoctorInfoService {
   private getDoctorByIdUrl: string;
   baseUrl: string;
   doctorUrl: string;
-  getAllUrl: string;
   allRatingsUrl: string;
   followingUrl: string;
   followUrl: string;
   getAllFollowersUrl: string;
   rateDoctorUrl: string;
+  getAppointmentUrl: string;
 
   constructor(private http: HttpClient) {
     this.searchDoctorUrl = "http://localhost:9000/searchDoctor/";
@@ -46,14 +50,13 @@ export class DoctorInfoService {
     this.getLocationByIdUrl = "http://localhost:9000/location/";
     this.getDoctorByIdUrl = "http://localhost:9000/doctor/";
     this.baseUrl = "http://localhost:9000/";
-    // this.doctorUrl = this.baseUrl + "doctor/";
-    this.doctorUrl = this.baseUrl + "doctorinfo/";
-    this.getAllUrl = this.baseUrl + "doctors";
-    this.allRatingsUrl = this.baseUrl + "allRatings/";
-    this.followingUrl = this.baseUrl + "following/";
-    this.followUrl = this.baseUrl + "follow/";
-    this.getAllFollowersUrl = this.baseUrl + "allFollowers";
-    this.rateDoctorUrl = this.baseUrl + "rateDoctor/"
+    this.doctorUrl = "http://localhost:9000/doctorinfo/";
+    this.allRatingsUrl = "http://localhost:9000/allRatings/";
+    this.followingUrl = "http://localhost:9000/following/";
+    this.followUrl = "http://localhost:9000/follow/";
+    this.getAllFollowersUrl = "http://localhost:9000/allFollowers";
+    this.rateDoctorUrl = "http://localhost:9000/feedback";
+    this.getAppointmentUrl= "http://localhost:9000/getAppointment/"
   }
 
 
@@ -66,9 +69,9 @@ export class DoctorInfoService {
   }
 
 
-  // public getAllDoctors() {
-  //   return this.http.get<Object[]>(this.getAllDoctorsUrl);
-  // }
+  public getAllDoctors() {
+    return this.http.get<Object[]>(this.getAllDoctorsUrl);
+  }
   public getAllConditions() {
     return this.http.get<ConditionType>(this.getAllConditionsUrl);
   }
@@ -99,16 +102,22 @@ export class DoctorInfoService {
      return this.http.get<Feedback[]>(this.allRatingsUrl+npi);
    };
 
-  public getAllDoctors(): Observable<Doctor[]> {
-    return this.http.get<Doctor[]>(this.getAllUrl);
-  }
+
    public getDoctorConditions(npi:number):Observable<Conditions[]>{
      return this.http.get<Conditions[]>(this.doctorUrl+npi+"/conditions");
    }
 
    //Feedback has an appointment number in it, so we can get user email and doctor npi from feedback object.
    public rateDoctor( feedback :Feedback){
-     return this.http.post(this.baseUrl+this.rateDoctorUrl,feedback);
+     console.log("sending feedback data to Server: ")
+     console.log(feedback)
+     console.log(this.rateDoctorUrl);
+     return this.http.post(this.rateDoctorUrl,feedback);
+   }
+
+   public getAppointment(npi : number, revassociate:RevAssociate):Observable<Appointment>{
+    console.log("NPI: "+npi+" email: "+String(revassociate.revAssociateEmail));
+    return this.http.get<Appointment>(this.getAppointmentUrl+npi+"/"+revassociate.revAssociateEmail);
    }
 
   public isFollowing(npi: number, revassociate: RevAssociate): Observable<boolean> {

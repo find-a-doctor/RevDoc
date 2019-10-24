@@ -35,7 +35,7 @@ export class DoctorProfileComponent implements OnInit {
 
     this.doctorInfoService.getDoctor(this.doctor.npi).subscribe(data => {
       this.doctor = data;
-    }, error => console.log("error:\n" + error));
+    })//, error => //console.log("error:\n" + error));
 
     this.doctorInfoService.getDoctorInsurance(this.doctor.npi).subscribe(data => {
       this.insurance = data;

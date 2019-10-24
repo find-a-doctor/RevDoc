@@ -6,6 +6,8 @@ import { DoctorInfoService } from '../doctor-info.service';
 import { RevAssociate } from '../revdoc-classes/rev-associate';
 import { Appointment } from '../revdoc-classes/appointment';
 import { Doctor } from '../revdoc-classes/doctor';
+import { SessionService } from '../session.service';
+
 
 @Component({
   selector: 'app-doctor-feedback',
@@ -15,67 +17,105 @@ import { Doctor } from '../revdoc-classes/doctor';
 export class DoctorFeedbackComponent implements OnInit {
 
   //These will be used to grab objects fom active session
-  //  @Input() doctor:Doctor;
-  //  @Input() user:RevAssociate;
-  //  @Input() appointment:Appointment
+  // @Input() npi: number;
+  npi: number;
+  associate: RevAssociate;
+  appointment: Appointment
   feedback: Feedback;
 
-  constructor(private doctorInfoService: DoctorInfoService, private route: ActivatedRoute, private router: Router) { }
 
+  constructor(private doctorInfoService: DoctorInfoService,
+    private sessionService: SessionService, private route: ActivatedRoute,
+    private router: Router) { }
 
+  // grabs associate object in session and gets correct appointment
   ngOnInit() {
     console.log(this.route);
-    this.feedback = new Feedback();
-    this.feedback.appointment=new Appointment();
-    this.feedback.appointment.doctor=new Doctor();
 
-    //session not yet workiing
-    this.route.url.subscribe(data => {
-      this.feedback.appointment.doctor.npi = Number(data[1].path);
+    //get associate
+    this.associate = new RevAssociate();
+    this.sessionService.getAssociateSession().subscribe(data => {
+      console.log(["data", data])
+      this.associate = data;
+      console.log(["associate", this.associate])
+      console.log(["1", this.feedback, this.associate]);
+
+      //get npi
+      this.route.url.subscribe(data => {
+        this.npi = Number(data[1].path);
+        console.log(["2", this.feedback, this.associate, this.npi]);
+
+        this.feedback = new Feedback();
+        // building appointement object
+        this.feedback.appointment = new Appointment();
+        this.feedback.appointment.appointmentId = 10000003;
+        this.feedback.appointment.date=null;
+        this.feedback.appointment.time=null;
+        this.feedback.appointment.insurance="QuackQuack";
+        this.feedback.appointment.confirmed=true;
+        console.log(["3", this.feedback, this.associate, this.npi]);
+
+        
+        //adds associate in session to appointment
+        this.feedback.appointment.revAssociate = this.associate;
+        console.log(["4", this.feedback, this.associate, this.npi]);
+        //builds doctor object that is nested in appointment object.
+        //In the future, you will need to make a call the the database
+        // to get a list of appointments between this doctor and the associate
+        //and iterate through the list to find the most recent appointment then 
+        // see if the appointment has a corresponding feedback yet. If the appointment
+        // already has a feedback, then this component should not appear.
+
+        //Alternatively, you could get the list of appointments and display
+        // all of the appointments that do not have a feedback yet in a dropdown
+        // menu in HTML. Have the associate choose an appointment to rate and give feedback.
+        this.feedback.appointment.doctor=new Doctor();
+        this.feedback.appointment.doctor.npi = this.npi;
+        this.feedback.appointment.doctor.doctorName=null;
+        this.feedback.appointment.doctor.experience=0;
+        this.feedback.appointment.doctor.numberOfFollowers=0;
+        this.feedback.appointment.doctor.location=null;
+        console.log(["5", this.feedback, this.associate, this.npi]);
+
+      })
+
+      
+
     });
-    this.doctorInfoService.getDoctor(this.feedback.appointment.doctor.npi).subscribe(data => {
-      // console.log("getting...\n" + data);
-      this.feedback.appointment.doctor = data;
-    }, error => console.log("error:\n" + error));
 
-    
+
+
+
+
+
+
+
   }
 
-  //Collects ratings and comment from user to create a feedback object then sends an alert to user that the feedback has been recieved.
-  //Could possibly add a "rate your last appointment w/ this doctor button" that pulls the correct appointment on click using 
-  //npi and employeeEmail and check if there is already a review for that appointment (since there is a one to one relationship
-  //between appointment and feedback). 
-  rateDoctor(comments : string) {
 
-    this.feedback.bedsideMannerRating = this.BedsideManners.value;
+  //Collects ratings and comment from user to create a feedback object then sends an alert to user that the feedback has been recieved.
+  //Could possibly add a "rate your last appointment w/ this doctor button" that pulls the correct appointment on click
+  rateDoctor(comments: string) {
+
+    this.feedback.bedsideMannerRating = Number(this.BedsideManners.value);
     this.feedback.waitTimeRating = this.WaitTime.value;
     this.feedback.overallRating = this.Overall.value;
-    this.feedback.comments= comments;
+    console.log(comments);
+    this.feedback.comments = comments;
     // ONLY appointment ID is needed to relate to table in DB, not the entire appointment object.
-    this.feedback.appointment = new Appointment();
-    this.feedback.appointment.appointmentId=0;
-    
-    // This can be used to build employee and doctor objects from the page uri and session. 
-
-    // this.feedback.appointment.doctor= new Doctor();
-    // this.feedback.appointment.doctor = this.doctor;
-    // this.route.url.subscribe(data => {
-    //   this.feedback.appointment.doctor.npi = Number(data[1].path);
-    // })
-    // this.feedback.appointment.revAssociate = new RevAssociate();
-    // this.feedback.appointment.revAssociate = user;
-
-    // this.feedback.appointment.revAssociate.revAssociateEmail = "MrDuckworth@QuackQuack.com";
-     //dummy value for no session stored
 
     console.log(this.feedback);
-    // console.log("This is the doctor: "+this.doctor );
-    // console.log("This is the user: "+this.user);
-    
-    console.log(this.feedback.comments);
 
+    console.log("Feedback being sent to angular service: ")
+    console.log(this.feedback);
+    this.doctorInfoService.rateDoctor(this.feedback).subscribe(data=>{});
     alert("Thank you for your feedback!")
+<<<<<<< HEAD
     this.doctorInfoService.rateDoctor(this.feedback);
+=======
+    window.location.reload();
+
+>>>>>>> feat/rate-doctor-visit_enter-rating
 
   }
 

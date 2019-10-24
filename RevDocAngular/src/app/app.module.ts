@@ -62,11 +62,10 @@ import { LoginPageComponent } from './login-page/login-page.component';
   imports: [
     BrowserModule,
     FullCalendarModule,
+    AppRoutingModule,
     HttpClientModule,
     CommonModule,
     jqxSchedulerModule,
-    AppRoutingModule,
-    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     jqxButtonModule,
