@@ -102,7 +102,7 @@ public class DataLoader {
 		RevAssociate u1 = new RevAssociate("revTom@gmail.com", encryptPassword("revTom"), "Kumar Mistry");
 		u1=revAssociateDao.save(u1);
 		
-		RevAssociate u2 = new RevAssociate("thanhtinphuynh@gmail.com", encryptPassword("revCat"), "Josue Luna");
+		RevAssociate u2 = new RevAssociate("jluna@gmail.com", encryptPassword("revCat"), "Josue Luna");
 		u2=revAssociateDao.save(u2);
 		
 		// LOCATION
@@ -113,10 +113,10 @@ public class DataLoader {
 		l2 = locationDao.save(l2);
 		
 		//CREATE DOCTOR
-		Doctor d0 = new Doctor(0, "Fox McCloud", 20, "starfox64@gmail.com", encryptPassword("raihuynh"), "469-288-1245", "about Star Fox here", 1, l1);
+		Doctor d0 = new Doctor(0, "John Ross", 20, "jross@gmail.com", encryptPassword("raihuynh"), "469-288-1245", "about John Ross here", 1, l1);
 		d0 = doctorDao.save(d0);
 		
-		Doctor d1 = new Doctor(0, "John Ross", 20, "kha_kha2579@yahoo.com", encryptPassword("johnross"), "469-288-5555", "about John Ross here", 1, l1);
+		Doctor d1 = new Doctor(0, "Vinay Ingahlahalli", 10, "vingahlahalli@yahoo.com", encryptPassword("johnross"), "469-288-5555", "about Vinay Ingalahalli here", 1, l1);
 		d1 = doctorDao.save(d1);
 		
 		Doctor d2 = new Doctor(0, "Kevin Zuul", 15, "kevinzuul@gmail.com", encryptPassword("kevinzuul"), "098-454-3215", "about Kevin Zuul here", 1, l2);
@@ -210,10 +210,10 @@ public class DataLoader {
 		ap4=appointmentDao.save(ap4);
 		
 		// CREATE FEEDBACK
-		Feedback fb1 = new Feedback(0, 1.5f, 2.5f, true, "comments feedback 1 here", ap1);
+		Feedback fb1 = new Feedback(0, 1.5f, 2.5f, 0.5f, "comments feedback 1 here", ap1);
 		fb1 = feedbackDao.save(fb1);
 		
-		Feedback fb2 = new Feedback(0, 2.5f, 0.5f, true, "comments feedback 2 here", ap2);
+		Feedback fb2 = new Feedback(0, 2.5f, 0.5f, 0.2f, "comments feedback 2 here", ap2);
 		fb2 = feedbackDao.save(fb2);
 		
 		

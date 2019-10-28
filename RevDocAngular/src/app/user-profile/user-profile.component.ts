@@ -19,9 +19,9 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
     this.revAssociate = new RevAssociate();
-    this.revAssociate.revAssociateEmail = 'revTom@gmail.com';
-    this.revAssociate.revAssociatePassword = 'revTom';
-    this.revAssociate.revAssociateName =  'Tom Cat';
+    this.revAssociate.revAssociateEmail = 'jluna@gmail.com';
+    this.revAssociate.revAssociatePassword = 'revCat';
+    this.revAssociate.revAssociateName =  'Josue Luna';
     localStorage.setItem('USER_TYPE', 'ASSOCIATE');
     if (localStorage.getItem('USER_TYPE') == null) {
       this.loggedIn =  false;

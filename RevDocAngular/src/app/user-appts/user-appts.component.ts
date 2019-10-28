@@ -3,6 +3,7 @@ import { RevAssociate } from '../revdoc-classes/rev-associate';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Appointment } from '../revdoc-classes/appointment';
 import { ViewApptService } from '../view-appt.service';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-user-appts',
@@ -15,15 +16,17 @@ export class UserApptsComponent implements OnInit {
   appointment: Appointment = new Appointment();
   userAppointments: Appointment[] = [];
 
-  constructor(private viewApptService: ViewApptService, private router: Router, private route: ActivatedRoute) {
+  constructor(private session: SessionService, private viewApptService: ViewApptService, private router: Router, private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
     this.revAssociate = new RevAssociate();
-    this.revAssociate.revAssociateEmail = 'revTom@gmail.com';
-    this.revAssociate.revAssociatePassword = 'revTom';
-    this.revAssociate.revAssociateName =  'Tom Cat';
+    this.revAssociate.revAssociateEmail = 'jluna@gmail.com';
+    this.revAssociate.revAssociatePassword = 'revCat';
+    this.revAssociate.revAssociateName =  'Josue Luna';
+
+    //this.session.getAssociateSession().subscribe(data => { this.revAssociate = data });
 
     this.viewApptService.getAppointmentsByRevAssociateEmail(this.revAssociate.revAssociateEmail).subscribe(apptsData => {
       apptsData.forEach(appt => {

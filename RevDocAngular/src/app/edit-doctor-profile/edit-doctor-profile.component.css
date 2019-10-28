@@ -111,4 +111,5 @@ body{
 		}
 		td{
 		padding:5px;
-		}
+    }
+    div.inline { float:left; }

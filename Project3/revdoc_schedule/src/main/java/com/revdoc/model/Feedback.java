@@ -38,7 +38,7 @@ public class Feedback implements Serializable{
 	private float bedsideMannerRating; // ex: 1.5 is 1 hour 30 minutes
 	private float waitTimeRating;
 	//This is for dislike/like
-	private boolean overallRating;
+	private float overallRating;
 	private String comments;
 	@OneToOne//(cascade = {CascadeType.ALL})
 	private Appointment appointment;

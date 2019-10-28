@@ -79,7 +79,7 @@ export class AppointmentCalendarComponent implements OnInit, AfterViewInit {
 
         console.log("ngOnInit HERE");
         //SET RevAssociation HERE
-        this.revAssociate.revAssociateEmail = "thanhtinphuynh@gmail.com";
+        this.revAssociate.revAssociateEmail = "jluna@gmail.com";
         //SET Doctor Here by use URI
         this.sub = this.route.params.subscribe(params => {
             this.id = +params['id']; // +params['id'];  (+) converts string 'id' to a number

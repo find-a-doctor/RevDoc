@@ -75,10 +75,10 @@ public class SessionController {
 
 	@GetMapping("/getAssociateSession")
 	public RevAssociate getRevSession(HttpServletRequest request) {
-//		RevAssociate associate = (RevAssociate) request.getSession().getAttribute("ASSOCIATE_USER");
+		RevAssociate associate = (RevAssociate) request.getSession().getAttribute("ASSOCIATE_USER");
 		System.out.println("associate:" + this.associate);
-//		return associate;
-		return this.associate;
+		return associate;
+		//return this.associate;
 	}
 
 	
